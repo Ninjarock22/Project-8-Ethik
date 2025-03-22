@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .signup-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .signup-container h2 {
+            margin-bottom: 20px;
+        }
+        .signup-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .signup-container button {
+            background-color: #5c67f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+        }
+        .signup-container button:hover {
+            background-color: #4a54d1;
+        }
+        .signup-container .message {
+            margin-top: 20px;
+            font-size: 14px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h2>Sign Up</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+        <button onclick="signup()">Sign Up</button>
+        <div id="message" class="message"></div>
+    </div>
+    <script>
+        async function signup() {
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+            if (!username || !email || !password || !confirmPassword) {
+                document.getElementById('message').textContent = 'All fields are required.';
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById('message').textContent = 'Passwords do not match.';
+                return;
+            }
+
+            try {
+                const response = await fetch('/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, email, password })
+                });
+
+                if (response.ok) {
+                    document.getElementById('message').textContent = 'Sign up successful!';
+                    document.getElementById('message').style.color = 'green';
+                } else {
+                    const { message } = await response.json();
+                    document.getElementById('message').textContent = message || 'Sign up failed.';
+                }
+            } catch (error) {
+                document.getElementById('message').textContent = 'An error occurred. Please try again.';
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- test -->
