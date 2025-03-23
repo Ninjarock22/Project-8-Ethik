@@ -70,7 +70,13 @@
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
         </div>
-        <button class="custom-button" onclick="window.location.href='login.html';">Login</button>
+        <input type="submit" class="custom-button" name="submit" value="Login" id="btn-login" >
+        <!--<button class="custom-button" onclick="window.location.href='../authsystem/login.php';">Login</button>-->
+        <script>
+            document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
+                window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
+            });
+        </script>
     </header>
     <!-- Popup Menu -->
     <div id="popup-menu" class="popup-menu">

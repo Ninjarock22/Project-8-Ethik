@@ -1,0 +1,310 @@
+body {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+header {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    background-color: #333;
+    color: white;
+    top: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 8vh;
+    position: sticky;
+    #welcometext{
+        top: 1.25vh;
+        position: fixed;
+    }
+    #logout {
+        text-align: center;
+        padding: 0px;
+        top: 2vh;
+        right: 100px;
+        position: fixed;
+        width: 30px;
+        height: auto;
+        .btn-teriträr{
+            background-color: #333;
+            color: white;
+            padding: 12px 28px;
+        }
+        .btn-teriträr:hover{
+            background-color: #4b4b4b;
+            color: white;
+        }
+    }
+}
+
+main{
+    top: 10%;
+    min-height: 100%;
+    position: relative;
+    text-align: center;
+}
+
+footer {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: visible;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    z-index: 1000;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4vh;
+    position: fixed;
+    a{
+        color: white;
+    }
+    a:visited{
+        color: white;
+    }
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    background-image: url("../images/background/panoischgl.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%, auto;
+    .form-container{
+        display: none;
+    }
+    #functions{
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: calc(100vh - 14.5vh);
+        padding: 1.5vh;
+        background-color: #8b8b8b;
+        .btn-quarter{
+            margin-top: 2vh;
+            padding: 20px 40px;
+            background-color: #4b4b4b;
+            color: white;
+            width: 350px;
+        }
+        .btn-quarter:hover{
+            border: 3px solid black;
+        }
+    }
+    #show-task{ 
+        button[type="submit"]:hover{
+            background-color: #4b4b4b;
+            color: white;
+        }
+    }
+    #reg-nutzer, #del-nutzer, #add-task, #show-task{
+        direction: ltr;
+        display: flex;
+        flex-direction: column;
+        background-color: #8b8b8b;
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: calc(100vh - 14.5vh);
+        justify-items: center;
+        padding: 1.5vh;
+        font-size: clamp(17px, 0.7vw, 26px);
+        .bahn-form, .reg-form{
+            justify-items: center;
+            input, button{
+                border: 3px solid #333;
+                margin: 0.25vh;
+                text-align: center;
+                width: 30vh;
+                padding: 1vh 2vh;
+            }
+            select{
+                border: 3px solid #333;
+                margin: 0.3vh;
+                text-align: center;
+                width: 35vh;
+                padding: 1vh 2vh;
+            }
+            .btn-reg-submit{
+                margin-top: 1vh;
+                input, button{
+                    text-align: center;
+                    width: 15vh;
+                    padding: 1vh 2vh;
+                }
+            }
+            p {
+                font-size: clamp(20px, 0.7vw, 30px);
+                font-weight: bold;
+            }
+            /*.check-bahn{
+                width: 35vh;
+                text-align: center;
+                padding: 3vh;
+                input[type="checkbox"]{
+                    justify-content: center;
+                    text-align: center;
+                    max-width: 4vh;
+                    height: 4vh;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    background-image: url("../images/icons/cross.png");
+                    background-repeat: no-repeat;
+                    background-size: 100%, auto;
+                    background-position: center;
+                    border: hidden;
+                }
+                input[type="checkbox"]:checked{
+                    background-image: url("../images/icons/check.png");
+                }
+            }*/
+        }
+        .error{
+            text-align: center;
+            color: rgb(255, 46, 46);
+            background-color: #333;
+            border: 3px solid gray;
+            max-width: 35vh;
+            position: sticky;
+        }
+        .success {
+            text-align: center;
+            color: green;
+            font-size: clamp(17px, 0.7vw, 26px);
+            text-size-adjust: 10px;
+            position: sticky;
+        }
+    }
+}
+
+.swal2-btn-standard{
+    background-color: green;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+.swal2-btn-standard:hover {
+    background-color: green; 
+    transform: scale(1.05);
+}
+
+.container{
+    background-image: url("../images/background/skiweltbahn.JPG");
+    background-repeat: no-repeat;
+    background-size: 100%, auto;
+    #loginbody{
+        display: flex;
+        min-height: 100vh;
+        margin: 0;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-around;
+        position: sticky;
+        .form-group{
+            h1{
+                text-align: left;
+                margin-left: 38%;
+                color: rgb(0, 0, 0);
+                font-size: 75px;
+            }
+            input[name="email"]{
+                padding: 12px calc(125vh - 50%);
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: 2px solid black;
+                background-image: url('../images/icons/email.png');
+                background-position: 5px, 5px;
+                background-size: 25px, auto;
+                background-repeat: no-repeat;
+                padding-left: 40px
+            }
+            input[name="password"]{
+                padding: 12px calc(125vh - 50%);
+                margin: 8px 0;
+                box-sizing: border-box;
+                border: 2px solid black;
+                background-image: url('../images/icons/lock.png');
+                background-position: 5px, 5px;
+                background-size: 25px, auto;
+                background-repeat: no-repeat;
+                padding-left: 40px
+            }
+            input[name="email"]:focus{
+                border: 5px solid rgb(178, 201, 212);
+            }
+            input[name="password"]:focus{
+                border: 5px solid rgb(178, 201, 212);
+            }
+            .form-group-button{
+                display: flex;
+                justify-content: space-around;
+                text-align: center;
+                margin-left: 30%;
+                margin-right: 30%;  
+                .btn-primary{
+                    background-color: white;
+                    color: #333;
+                    padding: 12px 28px;
+                }
+                .btn-primary:hover, .btn-primary:focus{
+                    background-color: #333;
+                    color: white;
+                }
+            }
+            .error{
+                text-align: center;
+                color: red;
+                font-size: 1.2em;
+                text-size-adjust: 10px;
+                font-weight: 300;
+                position: sticky;
+            }
+        }
+    }
+}
+
+#welcome {
+    overflow: hidden;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 200%;
+    font-size: clamp(25px, 1vw, 45px);
+    background-image: url("../images/background/skiweltbahn.JPG");
+    background-repeat: no-repeat;
+    background-size: 100%, auto;
+}
