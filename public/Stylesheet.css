@@ -373,6 +373,12 @@ section p {
     cursor: pointer;
 }
 
+.popup-menu .list .element .alighnment {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .popup-menu .list .element svg {
     width: 19px;
     height: 19px;
