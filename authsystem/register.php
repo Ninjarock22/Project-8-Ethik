@@ -62,11 +62,60 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <link rel="icon" type="image/jpg" href="../images/icon.jpg">
         <!-- <link rel="stylesheet" type="text/css" href="../css/style.css" /> -->
     </head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .signup-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+
+            h2{
+                margin-bottom: 20px;
+            }
+            input{
+                width: 90%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+            button{
+                background-color: #5c67f2;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                padding: 10px;
+                width: 100%;
+            }
+            button:hover{
+                background-color: #4a54d1;
+            }
+            .message{
+                margin-top: 20px;
+                font-size: 14px;
+                color: red;
+            }
+        }
+    </style>
     <body>
         <!--header>
             <h1>Registrieren</h1>
         </header>-->
-        <div class="container">
+        <div class="signup-container">
             <div class="row">
                 <div class="col-md-12">
                     <div id="regbody">
@@ -96,13 +145,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                             </div>
                             <br>
                             <div class="form-group">
-                                <input type="submit" name="submit" class="btn-primary" value="Registrieren">
-                            </div>
-                            <div id="changelog">
-                            <p>Bereits ein Konto? <br><a href="login.php">Hier anmelden</a></p>
+                                <div class="form-group-button">
+                                    <input type="submit" name="submit" class="btn-primary" value="Sign up">
+                                    <input type="button" name="submit" class="btn-primary" value="Zurück" id="back">
+                                </div>
                             </div>
                             <br>
-                            <div>
+                            <div class="form-group">
+                                <div class="form-group-button">
+                                    <input type="button" name="submit" class="btn-primary" value="Zum Login" id="tologin">
+                                </div>
+                            </div>
+                            <br>
                             <?php echo isset($success) ? $success : ''; 
                                 echo $error; 
                                 if($result = $success){   
@@ -116,4 +170,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
             </div>
         </div>
     </body>
+    <script>
+        document.getElementById('back').addEventListener('click', function() {
+            window.location.href = 'http://localhost/Project-8-Ethik/public/index.html';
+        });
+        document.getElementById('tologin').addEventListener('click', function(){
+            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
+        });
+    </script>
 </html>
