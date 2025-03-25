@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_SESSION["userid"]) && $_SESSION["userid"] == true){
-    header("location: Mainsite.php");
+    header("location: ../public/index.html");
     exit;
 }
 ?>
