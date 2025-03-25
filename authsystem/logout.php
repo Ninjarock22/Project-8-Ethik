@@ -8,11 +8,27 @@
     <link rel="icon" type="image/jpg"
 		  href="../images/icons/icon.jpg">
 </head>
-
+<style>
+    #logout {
+        overflow: hidden;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        color: black;
+        text-align: center;
+        font-size: 200%;
+        font-size: clamp(25px, 1vw, 45px);
+        background-image: url("../images/background/skiweltbahn.JPG");
+        background-repeat: no-repeat;
+        background-size: 100%, auto;
+    }
+</style>
 <body>
-    <!--<div id="logout">
+    <div id="logout">
         <h1>Sie wurden erforlgreich abgemeldet</h1> 
-    </div>-->
+    </div>
     <script>
         sessionStorage.clear();
     </script>
@@ -22,7 +38,7 @@
 <?php
 session_start();
 if(session_destroy()){
-    header("url=../public/index.html");//Refresh:2;
+    header("Refresh:1;url=../public/index.html");//Refresh:2;
     exit;
 }
 ?>

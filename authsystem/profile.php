@@ -6,6 +6,7 @@ if (!isset($_SESSION["userid"]) || $_SESSION["userid"] === false) {
     exit;
 }
 require_once "config.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,28 +66,43 @@ require_once "config.php";
 <body>
     <div class="container">
         <div class="profile-container">
+            <?php
+                $userid = $_SESSION["userid"];
+                $query = "SELECT * FROM users WHERE id = ?";
+                $stmt = $db->prepare($query);
+                $stmt->bind_param("i", $userid);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $user = $result->fetch_assoc();
+            ?>
             <h2>User Profile</h2>
-            <p><strong>Email:</strong> <span id="displayEmail"></span></p>
-            <p><strong>Full Name:</strong> <span id="displayFullName"></span></p>
-            <p><strong>Age:</strong> <span id="displayAge"></span></p>
-            <p><strong>Status:</strong> <span id="displayStatus"></span></p>
+            <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email'])?></p>
+            <p><strong>Full Name:</strong> <?= htmlspecialchars($user['name'])?></span></p>
+            <p><strong>Age:</strong> <?= htmlspecialchars($user['age'])?></p>
+            <p><strong>Status:</strong> <?= htmlspecialchars($user['status']
+            ? 'Administrator'
+            : 'Benutzer')?></p>
             <button class="logout-btn" onclick="logoutUser()">Logout</button>
         </div>
         <div class="messaging-container">
             <h3>Send a Message</h3>
-            <textarea id="messageContent" placeholder="Your message..."></textarea>
-            <input type="text" id="messageTo" placeholder="Recipient Username">
-            <button class="message-btn" onclick="sendMessage()">Send Message</button>
+            <textarea id="messageContent" placeholder="NOT Available" disabled></textarea><!-- Your message... -->
+            <input type="text" id="messageTo" placeholder="" disabled> <!-- Recipient Username -->
+            <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
         </div>
-        <div class="admin-container" id="adminPanel">
-            <h3>Admin Panel: View and Edit CSV</h3>
-            <textarea id="csvData"></textarea>
-            <button class="update-btn" onclick="updateCSV()">Update CSV</button>
-        </div>
+        <?php
+            if ($user['status'] == 1) {	
+                ?>
+                <div class="admin-container" id="adminPanel">
+                    <h3>Admin Panel: View and Edit</h3>
+                    <textarea disabled>NOT Available</textarea>
+                </div>
+                <?php
+            }
+        ?>
     </div>
     <script>
         function logoutUser() {
-            //localStorage.removeItem('token');
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/logout.php';
         }
     </script>

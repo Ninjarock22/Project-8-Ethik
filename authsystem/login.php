@@ -26,7 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     $_SESSION["userid"] = $row['id'];
                     $_SESSION["user"] = $row['name'];
                     $_SESSION["email"] = $row['email'];
-                    header("Location: ../public/profile.html");
+                    header("Location: ../authsystem/profile.php");
                     exit;
                 }else{
                     $error .= '<p class="error"> E-Mail oder Kennwort falsch.</p>'; #Falsches Passwort
