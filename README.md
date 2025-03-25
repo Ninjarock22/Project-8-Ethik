@@ -47,4 +47,4 @@
        ✅*Keine Hinweise zur Verlinkung*
 <br>
 <br>
-   ©2024-2025 Philipp Uhlendorf
+   ©2025 Philipp Uhlendorf, Johann Behling
