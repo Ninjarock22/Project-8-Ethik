@@ -19,8 +19,10 @@ $count = $row[0];
     <style> 
     </style>
     <body>
-    <?php
-        echo "Mitglieder aktuell: " . htmlspecialchars($count);
-    ?>
+        <h1>
+            <?php
+                echo "Mitglieder aktuell: " . htmlspecialchars($count);
+            ?>
+        </h1>
     </body>
 </html>
