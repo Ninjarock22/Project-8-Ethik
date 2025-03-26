@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Style ist so deutlich übersichtlicher-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
+    <style> 
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f9;
@@ -21,35 +22,39 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
             text-align: center;
-        }
-        .login-container h2 {
-            margin-bottom: 20px;
-        }
-        .login-container input {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .login-container button {
-            background-color: #5c67f2;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            padding: 10px;
-            width: 100%;
-        }
-        .login-container button:hover {
-            background-color: #4a54d1;
-        }
-        .login-container .message {
-            margin-top: 20px;
-            font-size: 14px;
-            color: red;
+
+            h2{
+                margin-bottom: 20px;
+            }
+            input{
+                width: 90%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+            button{
+                background-color: #5c67f2;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                padding: 10px;
+                width: 100%;
+            }
+            button:hover{
+                background-color: #4a54d1;
+            }
+            .error{
+                text-align: center;
+                color: red;
+                font-size: 1.2em;
+                text-size-adjust: 10px;
+                font-weight: 300;
+                position: sticky;
+            }
         }
     </style>
 </head>

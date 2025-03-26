@@ -17,7 +17,7 @@
             <p>By using this site, you agree to our terms and conditions. Please read them carefully before proceeding.</p>
             <h3>1. Introduction</h3>
             <p>Welcome to Johann Behling! By accessing or using our website, you agree to be bound by these terms and conditions. If you do not agree with any part of these terms, please do not use our website.</p>
-    
+            <!-- Welcome to Johann Behling? Why? What does it mean?-->
             <h3>2. Use of the Website</h3>
             <ul>
                 <li>You agree to use the website only for lawful purposes.</li>
@@ -43,7 +43,8 @@
     <script>
         function acceptTerms() {
             document.getElementById('termsOverlay').style.display = 'none';
-            document.cookie = "acceptedTerms=true; path=/; max-age=" + (60 * 60 * 24 * 365); // 1 year expiry
+            document.cookie = "acceptedTerms=true; path=/; max-age=" + (60 * 60 * 24 * 365); // 1 year expiry   
+            //Pop-up will show always after Reload Page or closing Browser (Line 304 following have the rest of this code)
         }
     
         window.onload = function() {
@@ -69,7 +70,12 @@
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
         </div>
-        <button class="custom-button" onclick="window.location.href='login.html';">Login</button>
+        <button class="custom-button" id="btn-login">Login</button>
+        <script>
+            document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
+                window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
+            });
+        </script>
     </header>
     <!-- Popup Menu -->
     <div id="popup-menu" class="popup-menu">
@@ -264,7 +270,7 @@
         </section>
         <section id="become-member">
             <h1> Sign up here</h1>
-            <button class="custom-button2" alt="BECOME A MEMBER" onclick="window.location.href='signup.html';"></button>
+            <button class="custom-button2" alt="BECOME A MEMBER" id="btn-signup"></button>
                 <i style="display: none;">B</i>
                 <i style="display: none;">E</i>
                 <i style="display: none;">C</i>
@@ -281,6 +287,11 @@
                 <i style="display: none;">E</i>
                 <i style="display: none;">R</i>
             </button>
+            <script>
+                document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
+                    window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
+                });
+            </script>
         </section>
     </main>
     <footer>

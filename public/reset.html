@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button, input[type="button"] {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover, input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        .notice {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Password reset</h2>
+        <p class="notice">This Function is disabled at this time.</p>
+        <form action="/reset-password" method="POST">
+            <input type="email" name="email" placeholder="E-Mail-Adresse" required disabled>
+            <button type="submit" disabled>Passwort zurücksetzen</button>
+            <input type="button" name="submit" class="btn-primary" value="Zurück" id="back">
+        </form>
+    </div>
+</body>
+<script>
+    document.getElementById('back').addEventListener('click', function() {
+        window.location.href = 'http://localhost/Project-8-Ethik/public/index.html';
+    });
+</script>
+</html>
