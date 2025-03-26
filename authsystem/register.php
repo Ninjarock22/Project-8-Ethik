@@ -129,19 +129,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                             </div>
                             <div class="form-group">
                                 <!--<label>Vor- und Zuname</label>-->
-                                <input type="text" name="name" class="form-control" placeholder="Vor- und Nachname" required>
+                                <input type="text" name="name" class="form-control" placeholder="Vor- und Nachname"  oninvalid="this.setCustomValidity('Bitte einen gültige Namen eingeben')" oninput="setCustomValidity('')"required>
                             </div>
                             <div class="form-group">
                                 <!--<label>E-Mail Adresse</label>-->
-                                <input type="email" name="email" class="form-control" placeholder="E-Mail" />
+                                <input type="email" name="email" class="form-control" placeholder="E-Mail" oninvalid="this.setCustomValidity('Bitte eine gültige E-Mail eingeben')" oninput="setCustomValidity('')">
                             </div>
                             <div class="form-group">
                                 <!--<label>Passwort</label>-->
-                                <input type="password" name="password" class="form-control" placeholder="Passwort">
+                                <input type="password" name="password" class="form-control" placeholder="Passwort" oninvalid="this.setCustomValidity('Bitte ein Passwort eingeben')" oninput="setCustomValidity('')">
                             </div>
                             <div class="form-group">
                                 <!--<label>Passwort wiederholen</label>-->
-                                <input type="password" name="confirm_password" class="form-control" placeholder="Passwort wiederholen">
+                                <input type="password" name="confirm_password" class="form-control" placeholder="Passwort wiederholen" oninvalid="this.setCustomValidity('Bitte das Passwort erneut eingeben')" oninput="setCustomValidity('')">
                             </div>
                             <br>
                             <div class="form-group">
