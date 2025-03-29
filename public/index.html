@@ -278,8 +278,14 @@
             </div>                      
         </section>
         <section id="become-member">
+            <h1>Join our community</h1>
+            <p>Join our community and be part of something special. Sign up now to access exclusive content and connect with like-minded individuals.</p>
+            <p>We are currently <span id="member-count">0</span> members strong and growing every day!</p>
             <div>
-                <h1>hier kommt der Membercounter hin!</h1>
+                <div id="counter-display" class="clock" style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <!-- Digits will be generated dynamically -->
+                  </div>
+                  <button onclick="incrementCounter()" style="padding: 10px 20px; font-size: 1rem; font-weight: bold; color: #fff; background-color: #0A1F44; border: none; border-radius: 5px; cursor: pointer;">Add Member</button>
             </div>
             <h1> Sign up here</h1>
 
@@ -290,6 +296,66 @@
                     window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
                 });
             </script>
+             <script>
+                let count = 0;
+                const counterDisplay = document.getElementById("counter-display");
+            
+                function initializeCounter(digits) {
+                  counterDisplay.innerHTML = "";
+                  for (let i = 0; i < digits; i++) {
+                    const digitDiv = document.createElement("div");
+                    digitDiv.className = "digit";
+                    digitDiv.id = `digit-${i}`;
+                    digitDiv.style = `
+                      position: relative; 
+                      width: ${60 / digits}vw; 
+                      height: 20vh; 
+                      background: #000; 
+                      border-radius: 5px; 
+                      overflow: hidden; 
+                      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+                      display: flex; 
+                      justify-content: center; 
+                      align-items: center; 
+                      font-size: 10vh; 
+                      font-weight: bold; 
+                      color: #800020;
+                    `;
+                    digitDiv.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">0</span>`;
+                    counterDisplay.appendChild(digitDiv);
+                  }
+                }
+            
+                function incrementCounter() {
+                  count++;
+                  const countStr = count.toString().padStart(7, "0"); // Ensure 7 digits
+            
+                  if (countStr.length > counterDisplay.children.length) {
+                    initializeCounter(countStr.length);
+                  }
+            
+                  for (let i = 0; i < countStr.length; i++) {
+                    updateDigit(`digit-${i}`, countStr[i]);
+                  }
+                }
+            
+                function updateDigit(id, newValue) {
+                  const digitElement = document.getElementById(id);
+                  const currentValue = digitElement.querySelector("span").textContent;
+            
+                  if (currentValue !== newValue) {
+                    digitElement.classList.add("flip");
+            
+                    setTimeout(() => {
+                      digitElement.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">${newValue}</span>`;
+                      digitElement.classList.remove("flip");
+                    }, 500);
+                  }
+                }
+            
+                // Initialize with 7 digits
+                initializeCounter(7);
+              </script>
         </section>
     </main>
     <footer>
