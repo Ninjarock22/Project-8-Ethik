@@ -60,122 +60,159 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Register</title>
         <link rel="icon" type="image/jpg" href="../images/icon.jpg">
-        <!-- <link rel="stylesheet" type="text/css" href="../css/style.css" /> -->
+        <!-- <link rel="stylesheet" type="text/css" href="../public/Stylesheet.css" /> -->
+        <link rel="stylesheet" type="text/css" href="../public/extrastylesheet.css" />
     </head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .signup-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-
-            h2{
-                margin-bottom: 20px;
-            }
-            input{
-                width: 90%;
-                padding: 10px;
-                margin: 10px 0;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                font-size: 16px;
-            }
-            button{
-                background-color: #5c67f2;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 16px;
-                padding: 10px;
-                width: 100%;
-            }
-            button:hover{
-                background-color: #4a54d1;
-            }
-            .message{
-                margin-top: 20px;
-                font-size: 14px;
-                color: red;
-            }
-        }
-    </style>
     <body>
-        <!--header>
-            <h1>Registrieren</h1>
-        </header>-->
-        <div class="signup-container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="regbody">
-                        <!--<div id="form-group">
-                        <h2>Registrieren</h2>
-                        <p>Bitte geben Sie ihre Daten zum Erstellen eines Kontos an</p>
-                        </div>-->
-                        <form action="" method="post">
-                            <div class="form-group">
-                                <h1>Registrieren</h1>
-                            </div>
-                            <div class="form-group">
-                                <!--<label>Vor- und Zuname</label>-->
-                                <input type="text" name="name" class="form-control" placeholder="Vor- und Nachname"  oninvalid="this.setCustomValidity('Bitte einen gültige Namen eingeben')" oninput="setCustomValidity('')"required>
-                            </div>
-                            <div class="form-group">
-                                <!--<label>E-Mail Adresse</label>-->
-                                <input type="email" name="email" class="form-control" placeholder="E-Mail" oninvalid="this.setCustomValidity('Bitte eine gültige E-Mail eingeben')" oninput="setCustomValidity('')">
-                            </div>
-                            <div class="form-group">
-                                <!--<label>Passwort</label>-->
-                                <input type="password" name="password" class="form-control" placeholder="Passwort" oninvalid="this.setCustomValidity('Bitte ein Passwort eingeben')" oninput="setCustomValidity('')">
-                            </div>
-                            <div class="form-group">
-                                <!--<label>Passwort wiederholen</label>-->
-                                <input type="password" name="confirm_password" class="form-control" placeholder="Passwort wiederholen" oninvalid="this.setCustomValidity('Bitte das Passwort erneut eingeben')" oninput="setCustomValidity('')">
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <div class="form-group-button">
-                                    <input type="submit" name="submit" class="btn-primary" value="Sign up">
-                                    <input type="button" name="submit" class="btn-primary" value="Zurück" id="back">
+        <header>
+            <!-- Popup Menu Icon -->
+            <div class="popup-icon" onclick="togglePopupMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+            <button class="login-button" onclick="window.location.href='login.html';">Login</button>
+        </header>
+        <div id="popup-menu" class="popup-menu">
+            <div class="card3">
+                <ul class="list">
+                    <li class="element">
+                        <a class="alighnment" href="index.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#7e8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home">
+                                <path d="M3 9.5L12 3l9 6.5"></path>
+                                <path d="M9 22V12h6v10"></path>
+                                <path d="M3 22h18"></path>
+                            </svg>
+                            <p class="label">Home</p>
+                        </a>
+                    </li>
+                    <li class="element">
+                        <a class="alighnment" href="../authsystem/register.php">
+                            <svg class="lucide lucide-user-round-plus" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 21a8 8 0 0 1 13.292-6"></path>
+                                <circle r="5" cy="8" cx="10"></circle>
+                                <path d="M19 16v6"></path>
+                                <path d="M22 19h-6"></path>
+                            </svg>
+                            <p class="label">Become Member</p>
+                        </a>
+                    </li>
+                    <li class="element">
+                        <a class="alighnment" href="services.html">
+                            <svg class="lucide lucide-settings" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                                <circle r="3" cy="12" cx="12"></circle>
+                            </svg>
+                            <p class="label">Services</p>
+                        </a>
+                    </li>
+                </ul>
+                <div class="separator"></div>
+                <ul class="list">
+                    <li class="element delete">
+                        <a class="alighnment" href="about.html">
+                            <svg class="lucide lucide-help-circle" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 1 1 5.91 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                            <p class="label">About</p>
+                        </a>
+                    </li>
+                </ul>
+                <div class="separator"></div>
+                <ul class="list">
+                    <li class="element">
+                        <a class="alighnment" href="team_access.html">
+                            <svg class="lucide lucide-users-round" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 21a8 8 0 0 0-16 0"></path>
+                                <circle r="5" cy="8" cx="10"></circle>
+                                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path>
+                            </svg>
+                            <p class="label">Team Access</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <main>
+            <div class="signup-container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="regbody">
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <h1>Registrieren</h1>
                                 </div>
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <div class="form-group-button">
-                                    <input type="button" name="submit" class="btn-primary" value="Zum Login" id="tologin">
+                                <div class="form-group">
+                                    <!--<label>Vor- und Zuname</label>-->
+                                    <input type="text" name="name" class="form-control" placeholder="Vor- und Nachname"  oninvalid="this.setCustomValidity('Bitte einen gültige Namen eingeben')" oninput="setCustomValidity('')"required>
                                 </div>
-                            </div>
-                            <br>
-                            <?php echo isset($success) ? $success : ''; 
-                                echo $error; 
-                                if($result = $success){   
-                                header("Refresh:1; url= ../authsystem/login.php");
-                                }
-                                ?>
-                            </div>
-                        </form>
+                                <div class="form-group">
+                                    <!--<label>E-Mail Adresse</label>-->
+                                    <input type="email" name="email" class="form-control" placeholder="E-Mail" oninvalid="this.setCustomValidity('Bitte eine gültige E-Mail eingeben')" oninput="setCustomValidity('')">
+                                </div>
+                                <div class="form-group">
+                                    <!--<label>Passwort</label>-->
+                                    <input type="password" name="password" class="form-control" placeholder="Passwort" oninvalid="this.setCustomValidity('Bitte ein Passwort eingeben')" oninput="setCustomValidity('')">
+                                </div>
+                                <div class="form-group">
+                                    <!--<label>Passwort wiederholen</label>-->
+                                    <input type="password" name="confirm_password" class="form-control" placeholder="Passwort wiederholen" oninvalid="this.setCustomValidity('Bitte das Passwort erneut eingeben')" oninput="setCustomValidity('')">
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <div class="form-group-button">
+                                        <input type="submit" name="submit" class="btn-primary" value="Sign up">
+                                        <input type="button" name="submit" class="btn-primary" value="Zurück" id="back">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <div class="form-group-button">
+                                        <input type="button" name="submit" class="btn-primary" value="Zum Login" id="tologin">
+                                    </div>
+                                </div>
+                                <br>
+                                <?php echo isset($success) ? $success : ''; 
+                                    echo $error; 
+                                    if($result = $success){   
+                                    header("Refresh:1; url= ../authsystem/login.php");
+                                    }
+                                    ?>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
+        <footer>
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>Feel free to reach out for more information.</p>
+                <a href="mailto:info@project2.com">info@johannbehling.com</a>
+            </section>
+            <p>&copy; 2025 Religion name All rights reserved.</p>
+            <ul>
+                <li><a href="Impressum.html">Impressum</a></li>
+                <li><a href="Privacy Policy.html">Privacy Policy</a></li>
+                <li><a href="Terms and Conditions.html">Terms of Service</a></li>
+            </ul>
+        </footer>
     </body>
     <script>
         document.getElementById('back').addEventListener('click', function() {
-            window.location.href = 'http://localhost/Project-8-Ethik/public/index.html';
+            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/index.php';
         });
         document.getElementById('tologin').addEventListener('click', function(){
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
         });
+        function togglePopupMenu() {
+            var popupMenu = document.getElementById("popup-menu");
+            popupMenu.classList.toggle("show");
+        }
     </script>
 </html>

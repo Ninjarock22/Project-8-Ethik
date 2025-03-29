@@ -104,7 +104,7 @@ $count = $row[0];
                     </a>
                 </li>
                 <li class="element">
-                    <a class="alighnment" href="signup.html">
+                    <a class="alighnment" id="btn-signup">
                         <svg class="lucide lucide-user-round-plus" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2 21a8 8 0 0 1 13.292-6"></path>
                             <circle r="5" cy="8" cx="10"></circle>
@@ -277,7 +277,7 @@ $count = $row[0];
                     <div class="carousel-item">
                         <h2>Sign up Now.</h2>
                         <p>Sign up and join this awsome religion of the future.</p>
-                        <button onclick="window.location.href='signup.html';">Start</button>
+                        <button id="btn-signup">Start</button>
                     </div>
                     <div class="carousel-item">
                         <h2>New Feature</h2>
@@ -293,15 +293,10 @@ $count = $row[0];
             <div>
                 <h1> <?php echo "Mitglieder aktuell: " . htmlspecialchars($count); ?> </h1>
             </div>
-            <h1> Sign up here</h1>
-
-            <button class="custom-button" id="btn-signup" Become a Member</button>
-
-            <script>
-                document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
-                    window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
-                });
-            </script>
+        </section>
+        <section id="to-top">
+            <button class="to-top-button" onclick="scrollToPosition()">Back to Top</button>
+            <!-- Dient als Test für die Funktionalität für zum Beispiel später zum service aus dem dropdown menü zu wechseln(runterscrollen zu der Position) -->
         </section>
     </main>
     <footer>
@@ -324,6 +319,15 @@ $count = $row[0];
         function togglePopupMenu() {
             var popupMenu = document.getElementById("popup-menu");
             popupMenu.classList.toggle("show");
+        }
+
+        document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
+            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
+        });
+        function scrollToPosition() {
+            let element = document.getElementById("btn-login");
+            let offsetTop = element.offsetTop;
+            window.scrollTo({ top: offsetTop, behavior: "smooth" });
         }
     </script>
 </body>
