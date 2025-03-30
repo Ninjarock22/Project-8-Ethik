@@ -11,8 +11,7 @@
 
 /* Body Styling */
 body {
-    font-family: "Italiana", sans-serif;
-    font-style: normal;
+    font-family: Arial, sans-serif; /* Replace with your desired font */
     color: #FFFFFF; /* White */
     background-color: #000000; /* Black */
     line-height: 1.8;
