@@ -197,9 +197,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
             </section>
             <p>&copy; 2025 Religion name All rights reserved.</p>
             <ul>
-                <li><a href="Impressum.html">Impressum</a></li>
-                <li><a href="Privacy Policy.html">Privacy Policy</a></li>
-                <li><a href="Terms and Conditions.html">Terms of Service</a></li>
+                <li><a href="../public/Impressum.html">Impressum</a></li>
+                <li><a href="../public/Privacy Policy.html">Privacy Policy</a></li>
+                <li><a href="../public/Terms and Conditions.html">Terms of Service</a></li>
             </ul>
         </footer>
     </body>
