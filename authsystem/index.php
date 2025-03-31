@@ -255,17 +255,17 @@ $count = $row[0];
                     <div class="carousel-item active">
                         <h2>Profile</h2>
                         <p>Essential: write what your futur self should be</p>
-                        <button onclick="window.location.href='profile.html';">Learn more</button>
+                        <button onclick="window.location.href='profile.php';">Learn more</button>
                     </div>
                     <div class="carousel-item">
                         <h2>Others profiles</h2>
                         <p>See what others are working on/ there futur selves are.</p>
-                        <button onclick="window.location.href='profile.html';">Learn more</button>
+                        <button onclick="window.location.href='profile.php';">Learn more</button>
                     </div>
                     <div class="carousel-item">
                         <h2>Ask AI</h2>
                         <p>Need Help? Your personal Companion is always there to help yo in any situation.</p>
-                        <button onclick="window.location.href='profile.html';">Learn more</button>
+                        <button onclick="window.location.href='profile.php';">Learn more</button>
                     </div>
                     <div class="carousel-item">
                         <h2>Sign up Now.</h2>
@@ -372,9 +372,9 @@ $count = $row[0];
             <li><a href="../public/Terms and Conditions.html">Terms of Service</a></li>
         </ul>
     </footer>
-    <script src="js/carousel.js"></script>
-    <script src="js/Smooth-scrolling-behavior.js"></script>
-    <script src="js/Buttonlink.js"></script>
+    <script src="../public/js/carousel.js"></script>
+    <script src="../public/js/Smooth-scrolling-behavior.js"></script>
+    <script src="../public/js/Buttonlink.js"></script>
     <script>
         document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
