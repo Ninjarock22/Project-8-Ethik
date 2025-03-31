@@ -81,11 +81,6 @@ $count = $row[0];
             </svg>
         </div>
         <button class="custom-button" id="btn-login">Login</button>
-        <script>
-            document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
-                window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
-            });
-        </script>
     </header>
     <!-- Popup Menu -->
     <div id="popup-menu" class="popup-menu">
@@ -304,66 +299,66 @@ $count = $row[0];
              Dient als Test für die Funktionalität für zum Beispiel später zum service aus dem dropdown menü zu wechseln(runterscrollen zu der Position) 
         </section>-->
     </main>
-    <script>
-                let count = 0;
-                const counterDisplay = document.getElementById("counter-display");
-            
-                function initializeCounter(digits) {
-                  counterDisplay.innerHTML = "";
-                  for (let i = 0; i < digits; i++) {
-                    const digitDiv = document.createElement("div");
-                    digitDiv.className = "digit";
-                    digitDiv.id = `digit-${i}`;
-                    digitDiv.style = `
-                      position: relative; 
-                      width: ${60 / digits}vw; 
-                      height: 20vh; 
-                      background: #000; 
-                      border-radius: 5px; 
-                      overflow: hidden; 
-                      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
-                      display: flex; 
-                      justify-content: center; 
-                      align-items: center; 
-                      font-size: 10vh; 
-                      font-weight: bold; 
-                      color: #800020;
-                    `;
-                    digitDiv.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">0</span>`;
-                    counterDisplay.appendChild(digitDiv);
-                  }
+        <script>
+            let count = 0;
+            const counterDisplay = document.getElementById("counter-display");
+        
+            function initializeCounter(digits) {
+                counterDisplay.innerHTML = "";
+                for (let i = 0; i < digits; i++) {
+                const digitDiv = document.createElement("div");
+                digitDiv.className = "digit";
+                digitDiv.id = `digit-${i}`;
+                digitDiv.style = `
+                    position: relative; 
+                    width: ${60 / digits}vw; 
+                    height: 20vh; 
+                    background: #000; 
+                    border-radius: 5px; 
+                    overflow: hidden; 
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+                    display: flex; 
+                    justify-content: center; 
+                    align-items: center; 
+                    font-size: 10vh; 
+                    font-weight: bold; 
+                    color: #800020;
+                `;
+                digitDiv.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">0</span>`;
+                counterDisplay.appendChild(digitDiv);
                 }
-            
-                function incrementCounter() {
-                  count++;
-                  const countStr = count.toString().padStart(7, "0"); // Ensure 7 digits
-            
-                  if (countStr.length > counterDisplay.children.length) {
-                    initializeCounter(countStr.length);
-                  }
-            
-                  for (let i = 0; i < countStr.length; i++) {
-                    updateDigit(`digit-${i}`, countStr[i]);
-                  }
+            }
+        
+            function incrementCounter() {
+                count++;
+                const countStr = count.toString().padStart(7, "0"); // Ensure 7 digits
+        
+                if (countStr.length > counterDisplay.children.length) {
+                initializeCounter(countStr.length);
                 }
-            
-                function updateDigit(id, newValue) {
-                  const digitElement = document.getElementById(id);
-                  const currentValue = digitElement.querySelector("span").textContent;
-            
-                  if (currentValue !== newValue) {
-                    digitElement.classList.add("flip");
-            
-                    setTimeout(() => {
-                      digitElement.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">${newValue}</span>`;
-                      digitElement.classList.remove("flip");
-                    }, 500);
-                  }
+        
+                for (let i = 0; i < countStr.length; i++) {
+                updateDigit(`digit-${i}`, countStr[i]);
                 }
-            
-                // Initialize with 7 digits
-                initializeCounter(7);
-              </script>
+            }
+        
+            function updateDigit(id, newValue) {
+                const digitElement = document.getElementById(id);
+                const currentValue = digitElement.querySelector("span").textContent;
+        
+                if (currentValue !== newValue) {
+                digitElement.classList.add("flip");
+        
+                setTimeout(() => {
+                    digitElement.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">${newValue}</span>`;
+                    digitElement.classList.remove("flip");
+                }, 500);
+                }
+            }
+        
+            // Initialize with 7 digits
+            initializeCounter(7);
+        </script>
     <footer>
         <section id="contact">
             <h2>Contact Us</h2>
@@ -381,6 +376,10 @@ $count = $row[0];
     <script src="js/Smooth-scrolling-behavior.js"></script>
     <script src="js/Buttonlink.js"></script>
     <script>
+        document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
+            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
+        });
+
         function togglePopupMenu() {
             var popupMenu = document.getElementById("popup-menu");
             popupMenu.classList.toggle("show");
@@ -389,6 +388,7 @@ $count = $row[0];
         document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
         });
+
         function scrollToPosition() {
             let element = document.getElementById("btn-login");
             let offsetTop = element.offsetTop;
