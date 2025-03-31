@@ -16,8 +16,6 @@ $count = $row[0];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Religion Name</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../public/Stylesheet.css">
 </head>
@@ -94,7 +92,7 @@ $count = $row[0];
         <div class="card3">
             <ul class="list">
                 <li class="element">
-                    <a class="alighnment" href="index.html">
+                    <a class="alighnment" href="../public/index.html">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#7e8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home">
                             <path d="M3 9.5L12 3l9 6.5"></path>
                             <path d="M9 22V12h6v10"></path>
@@ -115,7 +113,7 @@ $count = $row[0];
                     </a>
                 </li>
                 <li class="element">
-                    <a class="alighnment" href="services.html">
+                    <a class="alighnment" href="#services">
                         <svg class="lucide lucide-settings" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
                             <circle r="3" cy="12" cx="12"></circle>
@@ -127,7 +125,7 @@ $count = $row[0];
             <div class="separator"></div>
             <ul class="list">
                 <li class="element delete">
-                    <a class="alighnment" href="about.html">
+                    <a class="alighnment" href="../public/about.html">
                         <svg class="lucide lucide-help-circle" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="12" cy="12" r="10"></circle>
                             <path d="M9.09 9a3 3 0 1 1 5.91 1c0 2-3 3-3 3"></path>
@@ -140,7 +138,7 @@ $count = $row[0];
             <div class="separator"></div>
             <ul class="list">
                 <li class="element">
-                    <a class="alighnment" href="team_access.html">
+                    <a class="alighnment" href="../public/team_access.html">
                         <svg class="lucide lucide-users-round" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M18 21a8 8 0 0 0-16 0"></path>
                             <circle r="5" cy="8" cx="10"></circle>
@@ -290,15 +288,82 @@ $count = $row[0];
             </div>                      
         </section>
         <section id="become-member">
+            <h1>Join our community</h1>
+            <p>Join our community and be part of something special. Sign up now to access exclusive content and connect with like-minded individuals.</p>
+            <p>We are currently <span id="member-count">0</span> members strong and growing every day!</p>
             <div>
-                <h1> <?php echo "Mitglieder aktuell: " . htmlspecialchars($count); ?> </h1>
+                <div id="counter-display" class="clock" style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <!-- Digits will be generated dynamically -->
+                  </div>
             </div>
-        </section>
-        <section id="to-top">
+            <h1> Sign up here</h1>
+
+            <button class="custom-button" id="btn-signup">Become a Member</button>
+        <!--<section id="to-top">
             <button class="to-top-button" onclick="scrollToPosition()">Back to Top</button>
-            <!-- Dient als Test für die Funktionalität für zum Beispiel später zum service aus dem dropdown menü zu wechseln(runterscrollen zu der Position) -->
-        </section>
+             Dient als Test für die Funktionalität für zum Beispiel später zum service aus dem dropdown menü zu wechseln(runterscrollen zu der Position) 
+        </section>-->
     </main>
+    <script>
+                let count = 0;
+                const counterDisplay = document.getElementById("counter-display");
+            
+                function initializeCounter(digits) {
+                  counterDisplay.innerHTML = "";
+                  for (let i = 0; i < digits; i++) {
+                    const digitDiv = document.createElement("div");
+                    digitDiv.className = "digit";
+                    digitDiv.id = `digit-${i}`;
+                    digitDiv.style = `
+                      position: relative; 
+                      width: ${60 / digits}vw; 
+                      height: 20vh; 
+                      background: #000; 
+                      border-radius: 5px; 
+                      overflow: hidden; 
+                      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+                      display: flex; 
+                      justify-content: center; 
+                      align-items: center; 
+                      font-size: 10vh; 
+                      font-weight: bold; 
+                      color: #800020;
+                    `;
+                    digitDiv.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">0</span>`;
+                    counterDisplay.appendChild(digitDiv);
+                  }
+                }
+            
+                function incrementCounter() {
+                  count++;
+                  const countStr = count.toString().padStart(7, "0"); // Ensure 7 digits
+            
+                  if (countStr.length > counterDisplay.children.length) {
+                    initializeCounter(countStr.length);
+                  }
+            
+                  for (let i = 0; i < countStr.length; i++) {
+                    updateDigit(`digit-${i}`, countStr[i]);
+                  }
+                }
+            
+                function updateDigit(id, newValue) {
+                  const digitElement = document.getElementById(id);
+                  const currentValue = digitElement.querySelector("span").textContent;
+            
+                  if (currentValue !== newValue) {
+                    digitElement.classList.add("flip");
+            
+                    setTimeout(() => {
+                      digitElement.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">${newValue}</span>`;
+                      digitElement.classList.remove("flip");
+                    }, 500);
+                  }
+                }
+            
+                // Initialize with 7 digits
+                initializeCounter(7);
+              </script>
     <footer>
         <section id="contact">
             <h2>Contact Us</h2>
@@ -307,9 +372,9 @@ $count = $row[0];
         </section>
         <p>&copy; 2025 Religion name All rights reserved.</p>
         <ul>
-            <li><a href="Impressum.html">Impressum</a></li>
-            <li><a href="Privacy Policy.html">Privacy Policy</a></li>
-            <li><a href="Terms and Conditions.html">Terms of Service</a></li>
+            <li><a href="../public/Impressum.html">Impressum</a></li>
+            <li><a href="../public/Privacy Policy.html">Privacy Policy</a></li>
+            <li><a href="../public/Terms and Conditions.html">Terms of Service</a></li>
         </ul>
     </footer>
     <script src="js/carousel.js"></script>

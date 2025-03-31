@@ -27,6 +27,68 @@ require_once "config.php";
             </svg>
         </div>
     </header>
+    <div id="popup-menu" class="popup-menu">
+            <div class="card3">
+                <ul class="list">
+                    <li class="element">
+                        <a class="alighnment" href="index.php">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#7e8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home">
+                                <path d="M3 9.5L12 3l9 6.5"></path>
+                                <path d="M9 22V12h6v10"></path>
+                                <path d="M3 22h18"></path>
+                            </svg>
+                            <p class="label">Home</p>
+                        </a>
+                    </li>
+                    <li class="element">
+                        <a class="alighnment" href="register.php">
+                            <svg class="lucide lucide-user-round-plus" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 21a8 8 0 0 1 13.292-6"></path>
+                                <circle r="5" cy="8" cx="10"></circle>
+                                <path d="M19 16v6"></path>
+                                <path d="M22 19h-6"></path>
+                            </svg>
+                            <p class="label">Become Member</p>
+                        </a>
+                    </li>
+                    <li class="element">
+                        <a class="alighnment" href="index.php #services">
+                            <svg class="lucide lucide-settings" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                                <circle r="3" cy="12" cx="12"></circle>
+                            </svg>
+                            <p class="label">Services</p>
+                        </a>
+                    </li>
+                </ul>
+                <div class="separator"></div>
+                <ul class="list">
+                    <li class="element delete">
+                        <a class="alighnment" href="../public/about.html">
+                            <svg class="lucide lucide-help-circle" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 1 1 5.91 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                            <p class="label">About</p>
+                        </a>
+                    </li>
+                </ul>
+                <div class="separator"></div>
+                <ul class="list">
+                    <li class="element">
+                        <a class="alighnment" href="../public/team_access.html">
+                            <svg class="lucide lucide-users-round" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18 21a8 8 0 0 0-16 0"></path>
+                                <circle r="5" cy="8" cx="10"></circle>
+                                <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path>
+                            </svg>
+                            <p class="label">Team Access</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     <main>
         <div class="container">
             <div class="profile-container">
