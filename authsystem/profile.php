@@ -15,7 +15,7 @@ require_once "config.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" href="../public/extrastylesheet.css">
+    <link rel="stylesheet" href="/Project-8-Ethik/public/profilestylesheet.css">
 </head>
 <body>
     <header>
@@ -25,7 +25,50 @@ require_once "config.php";
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
-        </div>
+        </div> 
+<div class="radio-input">
+    <label class="label">
+        <div class="back-side"></div>
+        <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('profilePanel')" />
+        <span class="text">Profile</span>
+        <span class="bottom-line"></span>
+    </label>
+
+    <label class="label">
+        <div class="back-side"></div>
+        <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('messagingPanel')" />
+        <span class="text">Forum</span>
+        <span class="bottom-line"></span>
+    </label>
+
+    <label class="label">
+        <div class="back-side"></div>
+        <input type="radio" id="value-3" name="value-radio" value="value-3" onclick="switchPanel('aiGuidancePanel')" />
+        <span class="text">AI Guidance</span>
+        <span class="bottom-line"></span>
+    </label>
+
+    <label class="label">
+        <div class="back-side"></div>
+        <input type="radio" id="value-4" name="value-radio" value="value-4" onclick="switchPanel('adminPanel')" />
+        <span class="text">Admin</span>
+        <span class="bottom-line"></span>
+    </label>
+</div>
+</div>
+
+        <script>
+            function switchPanel(panelId) {
+            const panels = document.querySelectorAll('.container > div');
+            panels.forEach(panel => {
+                if (panel.id === panelId) {
+                panel.style.display = 'block';
+                } else {
+                panel.style.display = 'none';
+                }
+            });
+            }
+        </script>
     </header>
     <div id="popup-menu" class="popup-menu">
             <div class="card3">
@@ -90,8 +133,8 @@ require_once "config.php";
             </div>
         </div>
     <main>
-        <div class="container">
-            <div class="profile-container">
+        <div class="container" style="width: 90vh;">
+            <div class="profile-container" id="profilePanel"> 
                 <?php
                     $userid = $_SESSION["userid"];
                     $query = "SELECT * FROM users WHERE id = ?";
@@ -110,12 +153,29 @@ require_once "config.php";
                 : 'Benutzer')?></p>
                 <button class="logout-btn" onclick="logoutUser()">Logout</button>
             </div>
-            <div class="messaging-container">
+            <div class="messaging-container" id="messagingPanel">
                 <h3>Send a Message</h3>
                 <textarea id="messageContent" placeholder="NOT Available" disabled></textarea><!-- Your message... -->
                 <input type="text" id="messageTo" placeholder="" disabled> <!-- Recipient Username -->
                 <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
             </div>
+            
+            <div id="aiGuidancePanel" class="ai-guidance-container" style="max-height: 85vh;">
+                <h3>AI Guidance</h3>
+                <div id="chat-container">
+                    <script>
+                        fetch("chat.html")
+                            .then(response => response.text())
+                            .then(data => {
+                                document.getElementById("chat-container").innerHTML = data;
+                            })
+                            .catch(error => console.error('Error loading chat.html:', error));
+                    </script>
+                </div>
+            </div>
+
+
+
             <?php
                 if ($user['status'] == 1) {	
                     ?>
