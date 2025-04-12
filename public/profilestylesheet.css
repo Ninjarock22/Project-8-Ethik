@@ -289,6 +289,15 @@ footer p {
     margin-bottom: 5vh;
     max-width: 90vh
 }
+
+.container > div {
+    display: none; /* Hide all panels by default */
+}
+
+#profilePanel {
+    display: block; /* Show only the profile panel by default */
+}
+
 h1 {
     font-size: 2rem;
     margin-bottom: 10px;
@@ -349,13 +358,14 @@ a:hover {
 .radio-input {
     display: flex;
     align-items: center;
-    gap: 6px;
-    background-color: black;
-    padding: 4px;
+    gap: 10px;
+    background-color: #0A1F44; /* Navy to match the website theme */
+    padding: 10px;
     border-radius: 8px;
     overflow: hidden;
-    height: 60px; /* Reduced height */
-    width: 300px; /* Increased horizontal length */
+    height: 50px; /* Adjusted height */
+    width: 300px; /* Adjusted width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for consistency */
 }
 
 .radio-input input {
@@ -364,8 +374,8 @@ a:hover {
 
 .radio-input .label {
     width: 60px; /* Adjusted width */
-    height: 50px; /* Adjusted height */
-    background-color: #2a2a2a;
+    height: 40px; /* Adjusted height */
+    background-color: #6D6D6D; /* Grey to match input fields */
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -373,7 +383,7 @@ a:hover {
     justify-content: center;
     padding: 6px 4px; /* Adjusted padding */
     border-top: 1px solid #383838;
-    transition: all 0.1s linear;
+    transition: all 0.3s ease-in-out;
     position: relative;
     z-index: 2;
 }
@@ -382,7 +392,7 @@ a:hover {
     position: absolute;
     top: -8px; /* Adjusted position */
     left: 0px;
-    background-color: #2a2a2a;
+    background-color: #6D6D6D; /* Grey */
     border-radius: 4px 4px 2px 2px;
     width: 100%;
     height: 12px; /* Adjusted height */
@@ -392,39 +402,38 @@ a:hover {
     transform: perspective(300px) rotateX(50deg);
     z-index: 1;
     opacity: 0;
-    transition: all 0.1s linear;
+    transition: all 0.3s ease-in-out;
 }
 
 .label .text {
-    color: black;
-    font-size: 12px; /* Reduced font size */
-    line-height: 10px; /* Adjusted line height */
+    color: #FFFFFF; /* White for better contrast */
+    font-size: 14px; /* Adjusted font size */
+    line-height: 12px; /* Adjusted line height */
     padding: 0px;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
-    transition: all 0.1s linear;
-    text-shadow: -1px -1px 1px rgb(224, 224, 224, 0.1);
+    transition: all 0.3s ease-in-out;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .label input[type="radio"]:checked + .text {
-    color: #258ac3;
+    color: #800020; /* Burgundy to match hover effects */
     text-shadow:
-        0px 0px 8px rgb(37, 138, 195),
-        1px 1px 2px rgb(0, 0, 0, 1);
+        0px 0px 8px rgba(128, 0, 32, 0.8),
+        1px 1px 2px rgba(0, 0, 0, 1);
 }
 
 .label .bottom-line {
     width: 100%;
     height: 3px; /* Adjusted height */
     border-radius: 999px;
-    background-color: #2a2a2a;
-    box-shadow: 0 0 3px 0px rgb(19, 19, 19);
+    background-color: #6D6D6D; /* Grey */
+    box-shadow: 0 0 3px 0px rgba(19, 19, 19, 0.5);
     border-top: 1px solid #383838;
-    transition: all 0.1s linear;
+    transition: all 0.3s ease-in-out;
 }
 
 .label:has(input[type="radio"]:checked) .bottom-line {
-    background-color: #1a1a1a;
-    border-top: 1px solid #258ac340;
+    background-color: #800020; /* Burgundy */
+    border-top: 1px solid rgba(128, 0, 32, 0.25);
 }
-  

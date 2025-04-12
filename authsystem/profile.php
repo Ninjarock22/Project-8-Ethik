@@ -44,7 +44,7 @@ require_once "config.php";
     <label class="label">
         <div class="back-side"></div>
         <input type="radio" id="value-3" name="value-radio" value="value-3" onclick="switchPanel('aiGuidancePanel')" />
-        <span class="text">AI Guidance</span>
+        <span class="text">Ask AI</span>
         <span class="bottom-line"></span>
     </label>
 
@@ -59,14 +59,14 @@ require_once "config.php";
 
         <script>
             function switchPanel(panelId) {
-            const panels = document.querySelectorAll('.container > div');
-            panels.forEach(panel => {
-                if (panel.id === panelId) {
-                panel.style.display = 'block';
-                } else {
-                panel.style.display = 'none';
-                }
-            });
+                const panels = document.querySelectorAll('.container > div');
+                panels.forEach(panel => {
+                    if (panel.id === panelId) {
+                        panel.style.display = 'block'; // Show the selected panel
+                    } else {
+                        panel.style.display = 'none'; // Hide all other panels
+                    }
+                });
             }
         </script>
     </header>
@@ -134,7 +134,13 @@ require_once "config.php";
         </div>
     <main>
         <div class="container" style="width: 90vh;">
-            <div class="profile-container" id="profilePanel"> 
+        <section>h1>Welcome to Your Profile</h1>
+            <p>Here you can manage your profile and settings.</p>
+        </section>
+        <section>
+            <h2>Profile Information</h2>
+            <p>View and edit your profile information.</p>    
+        <div class="profile-container" id="profilePanel"> 
                 <?php
                     $userid = $_SESSION["userid"];
                     $query = "SELECT * FROM users WHERE id = ?";
@@ -153,13 +159,18 @@ require_once "config.php";
                 : 'Benutzer')?></p>
                 <button class="logout-btn" onclick="logoutUser()">Logout</button>
             </div>
+        </section>
+        <section>
+            <h2>Forum</h2>
+            <p>Engage in discussions and share your thoughts.</p>
             <div class="messaging-container" id="messagingPanel">
                 <h3>Send a Message</h3>
                 <textarea id="messageContent" placeholder="NOT Available" disabled></textarea><!-- Your message... -->
                 <input type="text" id="messageTo" placeholder="" disabled> <!-- Recipient Username -->
                 <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
             </div>
-            
+        </section>
+        <section>    
             <div id="aiGuidancePanel" class="ai-guidance-container" style="max-height: 85vh;">
                 <h3>AI Guidance</h3>
                 <div id="chat-container">
@@ -173,7 +184,7 @@ require_once "config.php";
                     </script>
                 </div>
             </div>
-
+        </section>
 
 
             <?php
