@@ -133,7 +133,6 @@ require_once "config.php";
             </div>
         </div>
     <main>
-        <div class="container" style="width: 90vh;">
         <section>h1>Welcome to Your Profile</h1>
             <p>Here you can manage your profile and settings.</p>
         </section>
@@ -197,7 +196,6 @@ require_once "config.php";
                     <?php
                 }
             ?>
-        </div>
     </main>
     <footer>
         <section id="contact">
