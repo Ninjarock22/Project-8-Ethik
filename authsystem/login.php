@@ -156,7 +156,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                         </div>
                     </div>
                     <br>
-                    <div id="message">
+                    <div class="messages">
                         <?php echo $error; ?>   
                     </div>
                 </form>
