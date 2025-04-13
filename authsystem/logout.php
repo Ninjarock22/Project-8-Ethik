@@ -38,7 +38,7 @@
 <?php
 session_start();
 if(session_destroy()){
-    header("Refresh:1;url=../public/index.html");//Refresh:2;
+    header("Refresh:1;url=../authsystem/index.php");//Refresh:2;
     exit;
 }
 ?>

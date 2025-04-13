@@ -1,6 +1,7 @@
 # Project-8-Ethik
 
-*Project description*
+## Project Description
+You can find the full project description [here](https://github.com/Ninjarock22/Project-8-Ethik/blob/main/Project%20Description).
 
 ## Projektstatus:
 **🛠️In der Entwicklung🛠️**
@@ -32,7 +33,7 @@
     - Erstellen sie nun mit "Neu" eine neue Datenbank mit dem Namen: `ethik-project` mit `utf8_unicode_ci`
     - Wählen Sie nun am linken Rand die erstellte Datenbank aus und wählen Sie oben den Reiter *Importieren*
     - Importieren Sie die Datei: `users.sql.gz` und bestätigen das ganze mit *ok*
-    - ⚠️ Es kann zu **einer** Fehlermeldung kommen. Nähere Informationen finden Sie: [hier](https://github.com/Ninjarock22/Project-8-Ethik/issues/14)
+    - ⚠️ Es sollte nun zu **keiner** Fehlermeldung kommen. Sollte dennoch eine Fehlermeldung auftreten, melden Sie dies bitte [hier](https://github.com/Ninjarock22/Project-8-Ethik/issues)
     - Rufen Sie dann im Browser: `../public/index.html` auf
 
 4. ### Anschließend sollte die Webseite angezeigt werden und durch die Nutzung des Login/Sign-up Systems möglich sein

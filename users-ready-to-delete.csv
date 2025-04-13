@@ -1,0 +1,5 @@
+username,password,email,fullName,age,status,ip
+Johann,admin123,johann.behling@outlook.com,Johann Behling,17,Admin,::1
+hallo,hallo123,hallo@gmail.com,,,user,
+FriedRice,Jojo'sWebsiteIsWeird123,friederike.behling@outlook.com,,,user,::1
+Paperlapips,Passwort,pap@bumblebee.de,,,user,::1

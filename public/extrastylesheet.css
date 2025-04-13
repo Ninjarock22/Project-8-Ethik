@@ -382,7 +382,7 @@ textarea {
     margin-bottom: 20px;
     margin-top: 5vh;
 }
-.profile-container .edit-btn, .profile-container .logout-btn, .messaging-container .message-btn, .admin-container .update-btn {
+.profile-container .edit-btn, .profile-container .logout-btn, .messaging-container .message-btn, .admin-container .update-btn .to-top-button{
     background-color: #5c67f2;
     color: white;
     border: none;
@@ -390,5 +390,9 @@ textarea {
     cursor: pointer;
     font-size: 16px;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 10px;   
+}
+
+.to-top{
+    align-items: left;
 }
