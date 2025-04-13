@@ -26,28 +26,28 @@ require_once "config.php";
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
         </div> 
-<div class="radio-input">
-    <label class="label">
-        <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('profilePanel')" />
-        <span class="text">Profile</span>
-    </label>
 
-    <label class="label">
-        <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('messagingPanel')" />
-        <span class="text">Forum</span>
-    </label>
+        <div class="radio-input">
+            <label class="label">
+                <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('profilePanel')" />
+                <span class="text">Profile</span>
+            </label>
 
-    <label class="label">
-        <input type="radio" id="value-3" name="value-radio" value="value-3" onclick="switchPanel('aiGuidancePanel')" />
-        <span class="text">Ask AI</span>
-    </label>
+            <label class="label">
+                <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('messagingPanel')" />
+                <span class="text">Forum</span>
+            </label>
 
-    <label class="label">
-        <input type="radio" id="value-4" name="value-radio" value="value-4" onclick="switchPanel('adminPanel')" />
-        <span class="text">Admin</span>
-    </label>
-</div>
-</div>
+            <label class="label">
+                <input type="radio" id="value-3" name="value-radio" value="value-3" onclick="switchPanel('aiGuidancePanel')" />
+                <span class="text">Ask AI</span>
+            </label>
+
+            <label class="label">
+                <input type="radio" id="value-4" name="value-radio" value="value-4" onclick="switchPanel('adminPanel')" />
+                <span class="text">Admin</span>
+            </label>
+        </div>
 
         <script>
             function switchPanel(panelId) {
@@ -65,6 +65,7 @@ require_once "config.php";
             }
         </script>
     </header>
+    
     <div id="popup-menu" class="popup-menu">
             <div class="card3">
                 <ul class="list">
@@ -127,76 +128,79 @@ require_once "config.php";
                 </ul>
             </div>
         </div>
-    <main class="main-container">
-    <section>
-        <h2>Profile Information</h2>
-        <div class="profile-container" id="profilePanel">
-            <?php
-                $userid = $_SESSION["userid"];
-                $query = "SELECT * FROM users WHERE id = ?";
-                $stmt = $db->prepare($query);
-                $stmt->bind_param("i", $userid);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $user = $result->fetch_assoc();
-            ?>
-            <h2>User Profile</h2>
-            <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email'])?></p>
-            <p><strong>Full Name:</strong> <?= htmlspecialchars($user['name'])?></span></p>
-            <p><strong>Age:</strong> <?= htmlspecialchars($user['age'])?></p>
-            <p><strong>Status:</strong> <?= htmlspecialchars($user['status']
-            ? 'Administrator'
-            : 'Benutzer')?></p>
-            <button class="logout-btn" onclick="logoutUser()">Logout</button>
-        </div>
-    </section>
-    <section>
-        <h2>Forum</h2>
-        <div class="messaging-container" id="messagingPanel">
-            <h3>Send a Message</h3>
-            <textarea id="messageContent" placeholder="NOT Available" disabled></textarea><!-- Your message... -->
-            <input type="text" id="messageTo" placeholder="" disabled> <!-- Recipient Username -->
-            <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
-        </div>
-    </section>
-    <section>
-        <h2>AI Guidance</h2>
-        <div class="ai-guidance-container" id="aiGuidancePanel">
-            <div id="chat-container">
-                <script>
-                    fetch("chat.html")
-                        .then(response => response.text())
-                        .then(data => {
-                            const container = document.getElementById("chat-container");
-                            container.innerHTML = data;
+    </div>
 
-                            // Find and execute any <script> tags in the fetched content
-                            const scripts = container.querySelectorAll("script");
-                            scripts.forEach(script => {
-                                const newScript = document.createElement("script");
-                                newScript.textContent = script.textContent;
-                                document.body.appendChild(newScript);
-                            });
-                        })
-                        .catch(error => console.error('Error loading chat.html:', error));
-                </script>
+    <main class="main-container">
+        <section>
+            <h2>Profile Information</h2>
+            <div class="profile-container" id="profilePanel">
+                <?php
+                    $userid = $_SESSION["userid"];
+                    $query = "SELECT * FROM users WHERE id = ?";
+                    $stmt = $db->prepare($query);
+                    $stmt->bind_param("i", $userid);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $user = $result->fetch_assoc();
+                ?>
+                <h2>User Profile</h2>
+                <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email'])?></p>
+                <p><strong>Full Name:</strong> <?= htmlspecialchars($user['name'])?></span></p>
+                <p><strong>Age:</strong> <?= htmlspecialchars($user['age'])?></p>
+                <p><strong>Status:</strong> <?= htmlspecialchars($user['status']
+                ? 'Administrator'
+                : 'Benutzer')?></p>
+                <button class="logout-btn" onclick="logoutUser()">Logout</button>
             </div>
-        </div>
-    </section>
-    <section>
-        <h2>Admin Panel</h2>
-        <div class="admin-container" id="adminPanel">
-            <?php
-                if ($user['status'] == 1) {	
-                    ?>
-                    <h3>Admin Panel: View and Edit</h3>
-                    <textarea disabled>NOT Available</textarea>
-                    <?php
-                }
-            ?>
-        </div>
-    </section>
-</main>
+        </section>
+        <section>
+            <h2>Forum</h2>
+            <div class="messaging-container" id="messagingPanel">
+                <h3>Send a Message</h3>
+                <textarea id="messageContent" placeholder="NOT Available" disabled></textarea><!-- Your message... -->
+                <input type="text" id="messageTo" placeholder="" disabled> <!-- Recipient Username -->
+                <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
+            </div>
+        </section>
+        <section>
+            <h2>AI Guidance</h2>
+            <div class="ai-guidance-container" id="aiGuidancePanel">
+                <div id="chat-container">
+                    <script>
+                        fetch("chat.html")
+                            .then(response => response.text())
+                            .then(data => {
+                                const container = document.getElementById("chat-container");
+                                container.innerHTML = data;
+
+                                // Find and execute any <script> tags in the fetched content
+                                const scripts = container.querySelectorAll("script");
+                                scripts.forEach(script => {
+                                    const newScript = document.createElement("script");
+                                    newScript.textContent = script.textContent;
+                                    document.body.appendChild(newScript);
+                                });
+                            })
+                            .catch(error => console.error('Error loading chat.html:', error));
+                    </script>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Admin Panel</h2>
+            <div class="admin-container" id="adminPanel">
+                <?php
+                    if ($user['status'] == 1) {	
+                        ?>
+                        <h3>Admin Panel: View and Edit</h3>
+                        <textarea disabled>NOT Available</textarea>
+                        <?php
+                    }
+                ?>
+            </div>
+        </section>
+    </main>
+
     <footer>
         <section id="contact">
             <h2>Contact Us</h2>
@@ -210,6 +214,7 @@ require_once "config.php";
             <li><a href="../public/Terms and Conditions.html">Terms of Service</a></li>
         </ul>
     </footer>
+
     <script>
         function logoutUser() {
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/logout.php';
@@ -220,5 +225,6 @@ require_once "config.php";
             popupMenu.classList.toggle("show");
         }
     </script>
+    
 </body>
 </html>
