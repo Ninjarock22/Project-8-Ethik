@@ -28,43 +28,38 @@ require_once "config.php";
         </div> 
 <div class="radio-input">
     <label class="label">
-        <div class="back-side"></div>
         <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('profilePanel')" />
         <span class="text">Profile</span>
-        <span class="bottom-line"></span>
     </label>
 
     <label class="label">
-        <div class="back-side"></div>
         <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('messagingPanel')" />
         <span class="text">Forum</span>
-        <span class="bottom-line"></span>
     </label>
 
     <label class="label">
-        <div class="back-side"></div>
         <input type="radio" id="value-3" name="value-radio" value="value-3" onclick="switchPanel('aiGuidancePanel')" />
         <span class="text">Ask AI</span>
-        <span class="bottom-line"></span>
     </label>
 
     <label class="label">
-        <div class="back-side"></div>
         <input type="radio" id="value-4" name="value-radio" value="value-4" onclick="switchPanel('adminPanel')" />
         <span class="text">Admin</span>
-        <span class="bottom-line"></span>
     </label>
 </div>
 </div>
 
         <script>
             function switchPanel(panelId) {
-                const panels = document.querySelectorAll('.container > div');
-                panels.forEach(panel => {
-                    if (panel.id === panelId) {
-                        panel.style.display = 'block'; // Show the selected panel
+                // Get all sections
+                const sections = document.querySelectorAll('.main-container > section');
+                
+                // Loop through sections and toggle visibility
+                sections.forEach(section => {
+                    if (section.querySelector(`#${panelId}`)) {
+                        section.style.display = 'flex'; // Show the selected section
                     } else {
-                        panel.style.display = 'none'; // Hide all other panels
+                        section.style.display = 'none'; // Hide all other sections
                     }
                 });
             }
@@ -132,71 +127,76 @@ require_once "config.php";
                 </ul>
             </div>
         </div>
-    <main>
-        <section>h1>Welcome to Your Profile</h1>
-            <p>Here you can manage your profile and settings.</p>
-        </section>
-        <section>
-            <h2>Profile Information</h2>
-            <p>View and edit your profile information.</p>    
-        <div class="profile-container" id="profilePanel"> 
-                <?php
-                    $userid = $_SESSION["userid"];
-                    $query = "SELECT * FROM users WHERE id = ?";
-                    $stmt = $db->prepare($query);
-                    $stmt->bind_param("i", $userid);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    $user = $result->fetch_assoc();
-                ?>
-                <h2>User Profile</h2>
-                <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email'])?></p>
-                <p><strong>Full Name:</strong> <?= htmlspecialchars($user['name'])?></span></p>
-                <p><strong>Age:</strong> <?= htmlspecialchars($user['age'])?></p>
-                <p><strong>Status:</strong> <?= htmlspecialchars($user['status']
-                ? 'Administrator'
-                : 'Benutzer')?></p>
-                <button class="logout-btn" onclick="logoutUser()">Logout</button>
-            </div>
-        </section>
-        <section>
-            <h2>Forum</h2>
-            <p>Engage in discussions and share your thoughts.</p>
-            <div class="messaging-container" id="messagingPanel">
-                <h3>Send a Message</h3>
-                <textarea id="messageContent" placeholder="NOT Available" disabled></textarea><!-- Your message... -->
-                <input type="text" id="messageTo" placeholder="" disabled> <!-- Recipient Username -->
-                <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
-            </div>
-        </section>
-        <section>    
-            <div id="aiGuidancePanel" class="ai-guidance-container" style="max-height: 85vh;">
-                <h3>AI Guidance</h3>
-                <div id="chat-container">
-                    <script>
-                        fetch("chat.html")
-                            .then(response => response.text())
-                            .then(data => {
-                                document.getElementById("chat-container").innerHTML = data;
-                            })
-                            .catch(error => console.error('Error loading chat.html:', error));
-                    </script>
-                </div>
-            </div>
-        </section>
+    <main class="main-container">
+    <section>
+        <h2>Profile Information</h2>
+        <div class="profile-container" id="profilePanel">
+            <?php
+                $userid = $_SESSION["userid"];
+                $query = "SELECT * FROM users WHERE id = ?";
+                $stmt = $db->prepare($query);
+                $stmt->bind_param("i", $userid);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $user = $result->fetch_assoc();
+            ?>
+            <h2>User Profile</h2>
+            <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email'])?></p>
+            <p><strong>Full Name:</strong> <?= htmlspecialchars($user['name'])?></span></p>
+            <p><strong>Age:</strong> <?= htmlspecialchars($user['age'])?></p>
+            <p><strong>Status:</strong> <?= htmlspecialchars($user['status']
+            ? 'Administrator'
+            : 'Benutzer')?></p>
+            <button class="logout-btn" onclick="logoutUser()">Logout</button>
+        </div>
+    </section>
+    <section>
+        <h2>Forum</h2>
+        <div class="messaging-container" id="messagingPanel">
+            <h3>Send a Message</h3>
+            <textarea id="messageContent" placeholder="NOT Available" disabled></textarea><!-- Your message... -->
+            <input type="text" id="messageTo" placeholder="" disabled> <!-- Recipient Username -->
+            <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
+        </div>
+    </section>
+    <section>
+        <h2>AI Guidance</h2>
+        <div class="ai-guidance-container" id="aiGuidancePanel">
+            <div id="chat-container">
+                <script>
+                    fetch("chat.html")
+                        .then(response => response.text())
+                        .then(data => {
+                            const container = document.getElementById("chat-container");
+                            container.innerHTML = data;
 
-
+                            // Find and execute any <script> tags in the fetched content
+                            const scripts = container.querySelectorAll("script");
+                            scripts.forEach(script => {
+                                const newScript = document.createElement("script");
+                                newScript.textContent = script.textContent;
+                                document.body.appendChild(newScript);
+                            });
+                        })
+                        .catch(error => console.error('Error loading chat.html:', error));
+                </script>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Admin Panel</h2>
+        <div class="admin-container" id="adminPanel">
             <?php
                 if ($user['status'] == 1) {	
                     ?>
-                    <div class="admin-container" id="adminPanel" style="display: block;">
-                        <h3>Admin Panel: View and Edit</h3>
-                        <textarea disabled>NOT Available</textarea>
-                    </div>
+                    <h3>Admin Panel: View and Edit</h3>
+                    <textarea disabled>NOT Available</textarea>
                     <?php
                 }
             ?>
-    </main>
+        </div>
+    </section>
+</main>
     <footer>
         <section id="contact">
             <h2>Contact Us</h2>
@@ -210,9 +210,6 @@ require_once "config.php";
             <li><a href="../public/Terms and Conditions.html">Terms of Service</a></li>
         </ul>
     </footer>
-    <script src="js/carousel.js"></script>
-    <script src="js/Smooth-scrolling-behavior.js"></script>
-    <script src="js/Buttonlink.js"></script>
     <script>
         function logoutUser() {
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/logout.php';

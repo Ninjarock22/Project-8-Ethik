@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #19191a;
+    background-color: #e3e3e7;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -299,7 +299,7 @@ footer p {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 4rem;
     margin-bottom: 10px;
 }
 p {
@@ -323,10 +323,34 @@ a:hover {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 70%;
+    height: auto;
 }
+
+.messaging-container {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%;
+}
+
+#chat-container {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Ensure it takes the full height of its parent */
+    width: 100%; /* Ensure it takes the full width of its parent */
+    text-align: center; /* Center text inside the container */
+}
+
+.ai-guidance-container{
+    width: 80%;
+    height: auto;
+    align-items: center;
+}
+
 .admin-container {
-    display: none;
     width: 100%;
     margin-top: 5vh;
     margin-bottom: 5vh;
@@ -359,13 +383,13 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #0A1F44; /* Navy to match the website theme */
     padding: 10px;
     border-radius: 8px;
     overflow: hidden;
-    height: 50px; /* Adjusted height */
-    width: 300px; /* Adjusted width */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for consistency */
+    height: auto; /* Adjusted height */
+    width: auto; /* Adjusted width */
+    box-shadow: none; /* Removed shadow */
+    background: none; /* Removed background */
 }
 
 .radio-input input {
@@ -373,36 +397,19 @@ a:hover {
 }
 
 .radio-input .label {
-    width: 60px; /* Adjusted width */
-    height: 40px; /* Adjusted height */
-    background-color: #6D6D6D; /* Grey to match input fields */
-    border-radius: 4px;
+    width: auto; /* Adjusted width */
+    height: auto; /* Adjusted height */
+    border-radius: 0; /* Removed border radius */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 6px 4px; /* Adjusted padding */
-    border-top: 1px solid #383838;
-    transition: all 0.3s ease-in-out;
+    padding: 0; /* Removed padding */
+    transition: none; /* Removed transition */
     position: relative;
     z-index: 2;
-}
-
-.label .back-side {
-    position: absolute;
-    top: -8px; /* Adjusted position */
-    left: 0px;
-    background-color: #6D6D6D; /* Grey */
-    border-radius: 4px 4px 2px 2px;
-    width: 100%;
-    height: 12px; /* Adjusted height */
-    box-shadow:
-        inset 0 5px 3px 1px rgba(0, 0, 0, 0.5),
-        inset 0px -5px 2px 0px rgba(56, 163, 224, 0.1);
-    transform: perspective(300px) rotateX(50deg);
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
+    background: none; /* Removed background */
+    padding-left: 10px;
 }
 
 .label .text {
@@ -417,23 +424,46 @@ a:hover {
 }
 
 .label input[type="radio"]:checked + .text {
-    color: #800020; /* Burgundy to match hover effects */
+    color: #3889e6; /* Burgundy to match hover effects */
     text-shadow:
         0px 0px 8px rgba(128, 0, 32, 0.8),
         1px 1px 2px rgba(0, 0, 0, 1);
 }
 
-.label .bottom-line {
-    width: 100%;
-    height: 3px; /* Adjusted height */
-    border-radius: 999px;
-    background-color: #6D6D6D; /* Grey */
-    box-shadow: 0 0 3px 0px rgba(19, 19, 19, 0.5);
-    border-top: 1px solid #383838;
-    transition: all 0.3s ease-in-out;
+.label:has(input[type="radio"]:checked) .bottom-line {
+    background-color: transparent; /* Transparent background */
+    border-top: none; /* Removed border */
 }
 
-.label:has(input[type="radio"]:checked) .bottom-line {
-    background-color: #800020; /* Burgundy */
-    border-top: 1px solid rgba(128, 0, 32, 0.25);
+.main-container {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Center text inside sections */
+}
+
+section {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    height: 100%; /* Full height for each section */
+    width: 100%; /* Full width for each section */
+    margin: 2%; /* Add some spacing around sections */
+}
+
+section h2{
+    font-size: 2.5rem
+}
+
+.main-container > section {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    height: 100vh; /* Full viewport height */
+    width: 100%; /* Full width */
+    margin: 0; /* Remove extra spacing */
 }

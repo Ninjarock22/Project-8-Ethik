@@ -1,5 +1,13 @@
 /* Global Styles */
-
+body {
+    color: #cbd5e0; /* Tailwind text-gray-300 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
 /* Outer Container */
 .chat-wrapper {
