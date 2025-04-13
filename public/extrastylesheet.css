@@ -36,83 +36,87 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Aligns links to the left and search bar to the right */
+}
 
-    nav ul {
-        display: flex;
-        justify-content: flex-start;
-        list-style: none;
+header nav ul {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+}
 
-        li {
-            margin: 0 2vh; /* Changed from 20px to vh */
+header nav ul li {
+    margin: 0 2vh; /* Changed from 20px to vh */
+}
 
-            a {
-                color: #FFFFFF; /* White */
-                text-decoration: none;
-                font-weight: 700;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-                transition: color 0.4s ease-in-out;
+header nav ul li a {
+    color: #FFFFFF; /* White */
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.4s ease-in-out;
+}
 
-                :hover {
-                    color: #800020; /* Burgundy */
-                }
-            }
-        }
-    }
-    .search-bar {
-        display: flex;
-        align-items: center;
-        margin-left: auto; /* Pushes search bar to the far right */
+header nav ul li a:hover {
+    color: #800020; /* Burgundy */
+}
 
-        input {
-            padding: 0.8vh 1.5vh; /* Changed from 8px 15px to vh */
-            border: 0.1vh solid #6D6D6D; /* Changed from 1px to vh */
-            border-radius: 2.5vh; /* Changed from 25px to vh */
-            outline: none;
-            font-size: 1.4vh; /* Changed from 14px to vh */
-            background-color: #6D6D6D; /* Grey */
-            color: #FFFFFF; /* White */
-            transition: box-shadow 0.3s ease-in-out;
-            width: 20vh; /* Changed from 200px to vh */
+header .search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Pushes search bar to the far right */
+}
 
-            :focus {
-                box-shadow: 0 0 8px #800020; /* Burgundy */
-            }
-        }
-        input::placeholder {
-            color: #E0C4A8; /* Beige */
-        }
-        button {
-            margin-left: 1vh; /* Changed from 10px to vh */
-            padding: 0.8vh 2vh; /* Changed from 8px 20px to vh */
-            border: none;
-            border-radius: 2.5vh; /* Changed from 25px to vh */
-            background-color: #800020; /* Burgundy */
-            color: #FFFFFF; /* White */
-            font-size: 1.4vh; /* Changed from 14px to vh */
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+header .search-bar input {
+    padding: 0.8vh 1.5vh; /* Changed from 8px 15px to vh */
+    border: 0.1vh solid #6D6D6D; /* Changed from 1px to vh */
+    border-radius: 2.5vh; /* Changed from 25px to vh */
+    outline: none;
+    font-size: 1.4vh; /* Changed from 14px to vh */
+    background-color: #6D6D6D; /* Grey */
+    color: #FFFFFF; /* White */
+    transition: box-shadow 0.3s ease-in-out;
+    width: 20vh; /* Changed from 200px to vh */
+}
 
-            :hover {
-                background-color: #800020; /* Burgundy */
-            }
-        }
-    }
-    .login-button {
-        background-color: #800020; /* Burgundy */
-        color: #FFFFFF; /* White */
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+header .search-bar input::placeholder {
+    color: #E0C4A8; /* Beige */
+}
 
-        :hover {
-            background-color: #a71d2a; /* Darker Burgundy */
-        }
-    }
+header .search-bar input:focus {
+    box-shadow: 0 0 8px #800020; /* Burgundy */
+}
+
+header .search-bar button {
+    margin-left: 1vh; /* Changed from 10px to vh */
+    padding: 0.8vh 2vh; /* Changed from 8px 20px to vh */
+    border: none;
+    border-radius: 2.5vh; /* Changed from 25px to vh */
+    background-color: #800020; /* Burgundy */
+    color: #FFFFFF; /* White */
+    font-size: 1.4vh; /* Changed from 14px to vh */
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header .search-bar button:hover {
+    background-color: #800020; /* Burgundy */
+}
+
+header .login-button {
+    background-color: #800020; /* Burgundy */
+    color: #FFFFFF; /* White */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header .login-button:hover {
+    background-color: #a71d2a; /* Darker Burgundy */
 }
 
 /* Footer Styling */
@@ -122,37 +126,39 @@ footer {
     padding: 20px 0;
     text-align: center;
     width: 100%;
+}
 
-    ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        margin-top: 15px;
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
 
-        li {
-            margin: 0 15px;
+footer ul li {
+    margin: 0 15px;
+}
 
-            a {
-                color: #FFFFFF; /* White */
-                text-decoration: none;
-                font-weight: 700;
-                padding: 10px 20px;
-                border-radius: 5px;
-                background-color: #0A1F44; /* Navy */
-                transition: background-color 0.3s ease;
+footer ul li a {
+    color: #FFFFFF; /* White */
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #0A1F44; /* Navy */
+    transition: background-color 0.3s ease;
+}
 
-                :hover {
-                    background-color: #062a6b; /* Darker Navy */
-                }
-            }
-        }
-    }
-    .contact {
-        margin-bottom: 10vh;
-    }
-    p {
-        margin-top: 5vh; /* Adds space above the <p> element */
-    }
+footer ul li a:hover {
+    background-color: #062a6b; /* Darker Navy */
+}
+
+footer .contact {
+    margin-bottom: 10vh;
+}
+
+footer p {
+    margin-top: 5vh; /* Adds space above the <p> element */
 }
 
   /* Popup Menu Styling */
@@ -167,86 +173,101 @@ footer {
     padding: 15px 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     z-index: 1000; /* Ensure it appears above other elements */
+}
 
-    .show {
-        display: block; /* Show the popup menu when toggled */
-    }
-    .card3 {
-        width: 200px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .separator {
-        border-top: 1.5px solid #42434a;
-    }
-    .list {
-        list-style-type: none;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: 0px 10px;
+.popup-menu.show {
+    display: block; /* Show the popup menu when toggled */
+}
 
-        .element {
-            display: flex;
-            align-items: center;
-            color: #7e8590;
-            gap: 8px; /* Adjust spacing between the icon and text */
-            transition: all 0.3s ease-out;
-            padding: 4px 7px;
-            border-radius: 6px;
-            cursor: pointer;
+.popup-menu .card3 {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
-            .alighnment {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                background-color: transparent; /* Makes the background transparent */
-            }
-            .label {
-                font-size: 14px; /* Adjust font size to match the icons */
-                color: #7e8590;
-                margin: 0;
-                font-weight: 500; /* Optional: Adjust font weight for better balance */
-            }
-            svg {
-                width: 20px; /* Ensure icons are consistent in size */
-                height: 20px;
-                transition: all 0.3s ease-out;
-            }
-            :hover {
-                background-color: #5353ff;
-                color: #ffffff;
-                transform: translate(1px, -1px);
+.popup-menu .separator {
+    border-top: 1.5px solid #42434a;
+}
 
-                .label {
-                    color: #ffffff; /* Ensure text color changes on hover */
-                }
-                svg {
-                    stroke: #ffffff; /* Ensure icon color changes on hover */
-                }
-            }
-            :active {
-                transform: scale(0.99);
-            }
-        }
-        .delete:hover {
-            background-color: #8e2a2a;
-        }
-        :not(:last-child) .element:hover svg {
-            stroke: #ffffff;
-        }
-        :last-child svg {
-            stroke: #bd89ff;
-        }
-        :last-child .element {
-            color: #bd89ff;
-        }
-        :last-child .element:hover {
-            background-color: rgba(56, 45, 71, 0.836);
-        }
-    }
-  }
+.popup-menu .list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0px 10px;
+}
+
+.popup-menu .list .element {
+    display: flex;
+    align-items: center;
+    color: #7e8590;
+    gap: 8px; /* Adjust spacing between the icon and text */
+    transition: all 0.3s ease-out;
+    padding: 4px 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.popup-menu .list .element .alighnment {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent; /* Makes the background transparent */
+}
+
+.popup-menu .list .element .label {
+    font-size: 14px; /* Adjust font size to match the icons */
+    color: #7e8590;
+    margin: 0;
+    font-weight: 500; /* Optional: Adjust font weight for better balance */
+}
+
+.popup-menu .list .element svg {
+    width: 20px; /* Ensure icons are consistent in size */
+    height: 20px;
+    transition: all 0.3s ease-out;
+}
+
+.popup-menu .list .element:hover {
+    background-color: #5353ff;
+    color: #ffffff;
+    transform: translate(1px, -1px);
+}
+
+.popup-menu .list .element:hover .label {
+    color: #ffffff; /* Ensure text color changes on hover */
+}
+
+.popup-menu .list .element:hover svg {
+    stroke: #ffffff; /* Ensure icon color changes on hover */
+}
+
+.popup-menu .list .delete:hover {
+    background-color: #8e2a2a;
+}
+
+.popup-menu .list .element:active {
+    transform: scale(0.99);
+}
+
+.popup-menu .list:not(:last-child) .element:hover svg {
+    stroke: #ffffff;
+}
+
+.popup-menu .list:last-child svg {
+    stroke: #bd89ff;
+}
+
+.popup-menu .list:last-child .element {
+    color: #bd89ff;
+}
+
+.popup-menu .list:last-child .element:hover {
+    background-color: rgba(56, 45, 71, 0.836);
+}
+
+
 
 .signup-container {
     background-color: #fff;
@@ -257,37 +278,35 @@ footer {
     text-align: center;
     margin-top: 5vh;
     margin-bottom: 5vh;
-
-    h2 {
-        margin-bottom: 20px;
-    }
-    input {
-        width: 90%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-    }
-    button {
-        background-color: #5c67f2;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        padding: 10px;
-        width: 100%;
-
-        :hover {
-            background-color: #4a54d1;
-        }
-    }
-    .message {
-        margin-top: 20px;
-        font-size: 14px;
-        color: red;
-    }
+}
+.signup-container h2 {
+    margin-bottom: 20px;
+}
+.signup-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.signup-container button {
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+.signup-container button:hover {
+    background-color: #4a54d1;
+}
+.signup-container .message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: red;
 }
 .container {
     text-align: center;
@@ -314,10 +333,9 @@ a {
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 1rem;
-
-    :hover {
-        background-color: #4a54d1;
-    }
+}
+a:hover {
+    background-color: #4a54d1;
 }
 .login-container {
     background-color: #fff;
@@ -328,39 +346,36 @@ a {
     text-align: center;
     margin-top: 5vh;
     margin-bottom: 5vh;
-
-    h2 {
-        margin-bottom: 20px;
-    }
-    input {
-        width: 90%;
-        padding: 10px;
-        margin: 10px 0;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        font-size: 16px;
-    }
-    button {
-        background-color: #5c67f2;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        padding: 10px;
-        width: 100%;
-
-        :hover {
-            background-color: #4a54d1;
-        }
-    }
-    .message {
-        margin-top: 20px;
-        font-size: 14px;
-        color: red;
-    }
 }
-
+.login-container h2 {
+    margin-bottom: 20px;
+}
+.login-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.login-container button {
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+.login-container button:hover {
+    background-color: #4a54d1;
+}
+.login-container .message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: red;
+}
 .profile-container, .messaging-container, .admin-container {
     background-color: #fff;
     padding: 20px;
@@ -373,10 +388,10 @@ a {
     width: 100%;
     margin-top: 5vh;
     margin-bottom: 5vh;
-
-textarea {
-        width: 100%;
 }
+.admin-container textarea {
+    width: 100%;
+    height: 200px;
 }
 .profile-container h2, .messaging-container h3, .admin-container h3 {
     margin-bottom: 20px;
