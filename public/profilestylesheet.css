@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -11,15 +10,15 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures the body takes up the full height */
+    min-height: 100vh;
 }
 
 html {
-    height: 100%; /* Ensures the html element takes up the full height */
+    height: 100%;
 }
 
 main {
-    flex: 1; /* Allows the main content to expand and fill available space */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,14 +27,14 @@ main {
 header {
     position: sticky;
     top: 0;
-    background-color: #0A1F44; /* Navy */
-    color: #FFFFFF; /* White */
-    padding: 1.5vh 2vh; /* Changed from 15px 20px to vh */
-    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3); /* Changed from px to vh */
+    background-color: #0A1F44;
+    color: #FFFFFF;
+    padding: 1.5vh 2vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
     z-index: 10;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Aligns links to the left and search bar to the right */
+    justify-content: space-between;
 }
 
 header nav ul {
@@ -45,11 +44,11 @@ header nav ul {
 }
 
 header nav ul li {
-    margin: 0 2vh; /* Changed from 20px to vh */
+    margin: 0 2vh;
 }
 
 header nav ul li a {
-    color: #FFFFFF; /* White */
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: 700;
     letter-spacing: 1px;
@@ -58,55 +57,55 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: #800020; /* Burgundy */
+    color: #800020;
 }
 
 header .search-bar {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Pushes search bar to the far right */
+    margin-left: auto;
 }
 
 header .search-bar input {
-    padding: 0.8vh 1.5vh; /* Changed from 8px 15px to vh */
-    border: 0.1vh solid #6D6D6D; /* Changed from 1px to vh */
-    border-radius: 2.5vh; /* Changed from 25px to vh */
+    padding: 0.8vh 1.5vh;
+    border: 0.1vh solid #6D6D6D;
+    border-radius: 2.5vh;
     outline: none;
-    font-size: 1.4vh; /* Changed from 14px to vh */
-    background-color: #6D6D6D; /* Grey */
-    color: #FFFFFF; /* White */
+    font-size: 1.4vh;
+    background-color: #6D6D6D;
+    color: #FFFFFF;
     transition: box-shadow 0.3s ease-in-out;
-    width: 20vh; /* Changed from 200px to vh */
+    width: 20vh;
 }
 
 header .search-bar input::placeholder {
-    color: #E0C4A8; /* Beige */
+    color: #E0C4A8;
 }
 
 header .search-bar input:focus {
-    box-shadow: 0 0 8px #800020; /* Burgundy */
+    box-shadow: 0 0 8px #800020;
 }
 
 header .search-bar button {
-    margin-left: 1vh; /* Changed from 10px to vh */
-    padding: 0.8vh 2vh; /* Changed from 8px 20px to vh */
+    margin-left: 1vh;
+    padding: 0.8vh 2vh;
     border: none;
-    border-radius: 2.5vh; /* Changed from 25px to vh */
-    background-color: #800020; /* Burgundy */
-    color: #FFFFFF; /* White */
-    font-size: 1.4vh; /* Changed from 14px to vh */
+    border-radius: 2.5vh;
+    background-color: #800020;
+    color: #FFFFFF;
+    font-size: 1.4vh;
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 header .search-bar button:hover {
-    background-color: #800020; /* Burgundy */
+    background-color: #800020;
 }
 
 header .login-button {
-    background-color: #800020; /* Burgundy */
-    color: #FFFFFF; /* White */
+    background-color: #800020;
+    color: #FFFFFF;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -116,13 +115,12 @@ header .login-button {
 }
 
 header .login-button:hover {
-    background-color: #a71d2a; /* Darker Burgundy */
+    background-color: #a71d2a;
 }
 
-/* Footer Styling */
 footer {
     background-color: #0A1F44;
-    color: #FFFFFF; /* White */
+    color: #FFFFFF;
     padding: 20px 0;
     text-align: center;
     width: 100%;
@@ -140,17 +138,17 @@ footer ul li {
 }
 
 footer ul li a {
-    color: #FFFFFF; /* White */
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: 700;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #0A1F44; /* Navy */
+    background-color: #0A1F44;
     transition: background-color 0.3s ease;
 }
 
 footer ul li a:hover {
-    background-color: #062a6b; /* Darker Navy */
+    background-color: #062a6b;
 }
 
 footer .contact {
@@ -158,25 +156,24 @@ footer .contact {
 }
 
 footer p {
-    margin-top: 5vh; /* Adds space above the <p> element */
+    margin-top: 5vh;
 }
 
-  /* Popup Menu Styling */
-  .popup-menu {
-    display: none; /* Initially hidden */
-    position: fixed; /* Change from sticky to fixed */
-    top: 60px; /* Adjust based on your header height */
-    left: 20px; /* Adjust based on your desired position */
+.popup-menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 20px;
     background-color: rgba(36, 40, 50, 1);
     background-image: linear-gradient(139deg, rgba(36, 40, 50, 1) 0%, rgba(36, 40, 50, 1) 0%, rgba(37, 28, 40, 1) 100%);
     border-radius: 10px;
     padding: 15px 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    z-index: 1000; /* Ensure it appears above other elements */
+    z-index: 1000;
 }
 
 .popup-menu.show {
-    display: block; /* Show the popup menu when toggled */
+    display: block;
 }
 
 .popup-menu .card3 {
@@ -202,7 +199,7 @@ footer p {
     display: flex;
     align-items: center;
     color: #7e8590;
-    gap: 8px; /* Adjust spacing between the icon and text */
+    gap: 8px;
     transition: all 0.3s ease-out;
     padding: 4px 7px;
     border-radius: 6px;
@@ -213,18 +210,18 @@ footer p {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: transparent; /* Makes the background transparent */
+    background-color: transparent;
 }
 
 .popup-menu .list .element .label {
-    font-size: 14px; /* Adjust font size to match the icons */
+    font-size: 14px;
     color: #7e8590;
     margin: 0;
-    font-weight: 500; /* Optional: Adjust font weight for better balance */
+    font-weight: 500;
 }
 
 .popup-menu .list .element svg {
-    width: 20px; /* Ensure icons are consistent in size */
+    width: 20px;
     height: 20px;
     transition: all 0.3s ease-out;
 }
@@ -236,11 +233,11 @@ footer p {
 }
 
 .popup-menu .list .element:hover .label {
-    color: #ffffff; /* Ensure text color changes on hover */
+    color: #ffffff;
 }
 
 .popup-menu .list .element:hover svg {
-    stroke: #ffffff; /* Ensure icon color changes on hover */
+    stroke: #ffffff;
 }
 
 .popup-menu .list .delete:hover {
@@ -275,7 +272,7 @@ footer p {
     cursor: pointer;
     font-size: 16px;
     padding: 10px;
-    margin-top: 10px;   
+    margin-top: 10px;
 }
 
 .container {
@@ -291,11 +288,11 @@ footer p {
 }
 
 .container > div {
-    display: none; /* Hide all panels by default */
+    display: none;
 }
 
 #profilePanel {
-    display: block; /* Show only the profile panel by default */
+    display: block;
 }
 
 h1 {
@@ -328,20 +325,20 @@ a:hover {
 }
 
 .messaging-container {
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
 #chat-container {
-    display: flex; /* Enable flexbox */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100%; /* Ensure it takes the full height of its parent */
-    width: 100%; /* Ensure it takes the full width of its parent */
-    text-align: center; /* Center text inside the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
 }
 
 .ai-guidance-container{
@@ -371,14 +368,13 @@ a:hover {
     cursor: pointer;
     font-size: 16px;
     padding: 10px;
-    margin-top: 10px;   
+    margin-top: 10px;
 }
 
 .to-top{
     align-items: left;
 }
 
-/* From Uiverse.io by m1her */ 
 .radio-input {
     display: flex;
     align-items: center;
@@ -386,10 +382,10 @@ a:hover {
     padding: 10px;
     border-radius: 8px;
     overflow: hidden;
-    height: auto; /* Adjusted height */
-    width: auto; /* Adjusted width */
-    box-shadow: none; /* Removed shadow */
-    background: none; /* Removed background */
+    height: auto;
+    width: auto;
+    box-shadow: none;
+    background: none;
 }
 
 .radio-input input {
@@ -397,25 +393,25 @@ a:hover {
 }
 
 .radio-input .label {
-    width: auto; /* Adjusted width */
-    height: auto; /* Adjusted height */
-    border-radius: 0; /* Removed border radius */
+    width: auto;
+    height: auto;
+    border-radius: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0; /* Removed padding */
-    transition: none; /* Removed transition */
+    padding: 0;
+    transition: none;
     position: relative;
     z-index: 2;
-    background: none; /* Removed background */
+    background: none;
     padding-left: 10px;
 }
 
 .label .text {
-    color: #FFFFFF; /* White for better contrast */
-    font-size: 14px; /* Adjusted font size */
-    line-height: 12px; /* Adjusted line height */
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 12px;
     padding: 0px;
     font-weight: 700;
     text-transform: uppercase;
@@ -424,34 +420,34 @@ a:hover {
 }
 
 .label input[type="radio"]:checked + .text {
-    color: #3889e6; /* Burgundy to match hover effects */
+    color: #3889e6;
     text-shadow:
         0px 0px 8px rgba(128, 0, 32, 0.8),
         1px 1px 2px rgba(0, 0, 0, 1);
 }
 
 .label:has(input[type="radio"]:checked) .bottom-line {
-    background-color: transparent; /* Transparent background */
-    border-top: none; /* Removed border */
+    background-color: transparent;
+    border-top: none;
 }
 
 .main-container {
     display: flex;
-    flex-direction: column; /* Stack sections vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    height: 100vh; /* Full viewport height */
-    text-align: center; /* Center text inside sections */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
 }
 
 section {
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-    height: 100%; /* Full height for each section */
-    width: 100%; /* Full width for each section */
-    margin: 2%; /* Add some spacing around sections */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 2%;
 }
 
 section h2{
@@ -459,11 +455,11 @@ section h2{
 }
 
 .main-container > section {
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-    height: 100vh; /* Full viewport height */
-    width: 100%; /* Full width */
-    margin: 0; /* Remove extra spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
 }
