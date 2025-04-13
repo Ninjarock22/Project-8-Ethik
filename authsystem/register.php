@@ -45,7 +45,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         }
         $_SESSION['success'] = $success;
         $_SESSION['error'] = $error;
-        header("Location: ../authsystem/login.php");
         $query->close();
     }
     if (isset($insertQuery)) {
@@ -176,13 +175,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                     </div>
                                 </div>
                                 <br>
-                                <?php echo isset($success) ? $success : ''; 
-                                    echo $error; 
-                                    if($result = $success){   
-                                    header("Refresh:1; url= ../authsystem/login.php");
-                                    }
-                                    ?>
+                                <div class="message">
+                                    <div id="message" style="color: green;">
+                                        <?php if (!empty($success)) echo $success; ?>
+                                    </div>
+                                    <div id="message">
+                                        <?php if (!empty($error)) echo $error; ?>
+                                    </div>
                                 </div>
+                                <?php
+                                if (!empty($success)) {
+                                    echo '<script>
+                                        setTimeout(function() {
+                                            window.location.href = "../authsystem/login.php";
+                                        }, 2000);
+                                    </script>';
+                                }
+                                ?>
                             </form>
                         </div>
                     </div>
