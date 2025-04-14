@@ -270,7 +270,7 @@ $count = $row[0];
                     <div class="carousel-item">
                         <h2>Sign up Now.</h2>
                         <p>Sign up and join this awsome religion of the future.</p>
-                        <button id="btn-signup">Start</button>
+                        <button onclick="window.location.href='register.php'" >Start</button>
                     </div>
                     <div class="carousel-item">
                         <h2>New Feature</h2>
