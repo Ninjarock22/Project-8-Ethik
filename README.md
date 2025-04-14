@@ -1,6 +1,7 @@
 # Project-8-Ethik
 
-*Project description*
+## Project Description
+Die vollständige Projektbeschreibung finden sie [hier](https://github.com/Ninjarock22/Project-8-Ethik/blob/main/Project%20Description).
 
 ## Projektstatus:
 **🛠️In der Entwicklung🛠️**
@@ -44,8 +45,6 @@
         (Löschen nur via Datenbank möglich in diesem Programm)
         <br>
         <br>
-    - Verlinkungen:<br>
-       ✅*Keine Hinweise zur Verlinkung*
 <br>
 <br>
    ©2025 Philipp Uhlendorf, Johann Behling
