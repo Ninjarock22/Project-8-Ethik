@@ -45,8 +45,6 @@ Die vollständige Projektbeschreibung finden sie [hier](https://github.com/Ninja
         (Löschen nur via Datenbank möglich in diesem Programm)
         <br>
         <br>
-    - Verlinkungen:<br>
-       ✅*Keine Hinweise zur Verlinkung*
 <br>
 <br>
    ©2025 Philipp Uhlendorf, Johann Behling
