@@ -1,7 +1,14 @@
+/* Merged Stylesheet */
+
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body, main, section {
+    height: 100%;
 }
 
 body {
@@ -13,17 +20,7 @@ body {
     min-height: 100vh;
 }
 
-html {
-    height: 100%;
-}
-
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* Header Styles */
 header {
     position: sticky;
     top: 0;
@@ -118,6 +115,7 @@ header .login-button:hover {
     background-color: #a71d2a;
 }
 
+/* Footer Styles */
 footer {
     background-color: #0A1F44;
     color: #FFFFFF;
@@ -159,13 +157,14 @@ footer p {
     margin-top: 5vh;
 }
 
+/* Popup Menu Styles */
 .popup-menu {
     display: none;
     position: fixed;
     top: 60px;
     left: 20px;
     background-color: rgba(36, 40, 50, 1);
-    background-image: linear-gradient(139deg, rgba(36, 40, 50, 1) 0%, rgba(36, 40, 50, 1) 0%, rgba(37, 28, 40, 1) 100%);
+    background-image: linear-gradient(139deg, rgba(36, 40, 50, 1) 0%, rgba(37, 28, 40, 1) 100%);
     border-radius: 10px;
     padding: 15px 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -181,10 +180,6 @@ footer p {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.popup-menu .separator {
-    border-top: 1.5px solid #42434a;
 }
 
 .popup-menu .list {
@@ -206,26 +201,6 @@ footer p {
     cursor: pointer;
 }
 
-.popup-menu .list .element .alighnment {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: transparent;
-}
-
-.popup-menu .list .element .label {
-    font-size: 14px;
-    color: #7e8590;
-    margin: 0;
-    font-weight: 500;
-}
-
-.popup-menu .list .element svg {
-    width: 20px;
-    height: 20px;
-    transition: all 0.3s ease-out;
-}
-
 .popup-menu .list .element:hover {
     background-color: #5353ff;
     color: #ffffff;
@@ -240,127 +215,131 @@ footer p {
     stroke: #ffffff;
 }
 
-.popup-menu .list .delete:hover {
-    background-color: #8e2a2a;
-}
-
-.popup-menu .list .element:active {
-    transform: scale(0.99);
-}
-
-.popup-menu .list:not(:last-child) .element:hover svg {
-    stroke: #ffffff;
-}
-
-.popup-menu .list:last-child svg {
-    stroke: #bd89ff;
-}
-
-.popup-menu .list:last-child .element {
-    color: #bd89ff;
-}
-
-.popup-menu .list:last-child .element:hover {
-    background-color: rgba(56, 45, 71, 0.836);
-}
-
-.toggle-button {
-    background-color: #5c67f2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 10px;
-    margin-top: 10px;
-}
-
-.container {
-    text-align: center;
-    padding: 20px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    max-width: 90vh
-}
-
-.container > div {
-    display: none;
-}
-
-#profilePanel {
-    display: block;
-}
-
-h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
-}
-p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-a {
-    text-decoration: none;
-    color: #ffffff;
-    background-color: #5c67f2;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-a:hover {
-    background-color: #4a54d1;
-}
-
-.profile-container, .messaging-container, .admin-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 70%;
-    height: auto;
-}
-
-.messaging-container {
+/* Main Container and Section Styles */
+.main-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-}
-
-#chat-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+    height: 100%; /* Changed from 100vh to 100% */
     text-align: center;
 }
 
-.ai-guidance-container{
-    width: 80%;
-    height: auto;
+section {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 2%;
+    /* Removed justify-self */
 }
 
-.admin-container {
-    width: 100%;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+section h2 {
+    font-size: 2.5rem;
 }
+
+.panel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+/* Signup, Login, Profile, Messaging, and Admin Containers */
+.signup-container,
+.login-container,
+.profile-container,
+.messaging-container,
+.admin-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: auto;
+    max-width:80%;
+    margin: 10vh auto; /* Centered horizontally and added vertical margin */
+    text-align: center;
+}
+
+.signup-container h2,
+.login-container h2,
+.profile-container h2,
+.messaging-container h2,
+.admin-container h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.signup-container h3,
+.login-container h3,
+.profile-container h3,
+.messaging-container h3,
+.admin-container h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.signup-container input,
+.login-container input,
+.profile-container input,
+.messaging-container input,
+.admin-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.signup-container button,
+.login-container button,
+.profile-container button,
+.messaging-container button,
+.admin-container button {
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+
+.signup-container button:hover,
+.login-container button:hover,
+.profile-container button:hover,
+.messaging-container button:hover,
+.admin-container button:hover {
+    background-color: #4a54d1;
+}
+
+.signup-container .message,
+.login-container .message,
+.profile-container .message,
+.messaging-container .message,
+.admin-container .message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: red;
+}
+
 .admin-container textarea {
     width: 100%;
     height: 200px;
 }
-.profile-container h2, .messaging-container h3, .admin-container h3 {
-    margin-bottom: 20px;
-    margin-top: 5vh;
-}
-.profile-container .edit-btn, .profile-container .logout-btn, .messaging-container .message-btn, .admin-container .update-btn .to-top-button{
+
+.profile-container .edit-btn,
+.profile-container .logout-btn,
+.messaging-container .message-btn,
+.admin-container .update-btn,
+.to-top-button {
     background-color: #5c67f2;
     color: white;
     border: none;
@@ -371,7 +350,7 @@ a:hover {
     margin-top: 10px;
 }
 
-.to-top{
+.to-top {
     align-items: left;
 }
 
@@ -382,10 +361,10 @@ a:hover {
     padding: 10px;
     border-radius: 8px;
     overflow: hidden;
-    height: auto;
-    width: auto;
-    box-shadow: none;
-    background: none;
+    height: auto; /* Adjusted height */
+    width: auto; /* Adjusted width */
+    box-shadow: none; /* Removed shadow */
+    background: none; /* Removed background */
 }
 
 .radio-input input {
@@ -393,25 +372,25 @@ a:hover {
 }
 
 .radio-input .label {
-    width: auto;
-    height: auto;
-    border-radius: 0;
+    width: auto; /* Adjusted width */
+    height: auto; /* Adjusted height */
+    border-radius: 0; /* Removed border radius */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0;
-    transition: none;
+    padding: 0; /* Removed padding */
+    transition: none; /* Removed transition */
     position: relative;
     z-index: 2;
-    background: none;
+    background: none; /* Removed background */
     padding-left: 10px;
 }
 
 .label .text {
-    color: #FFFFFF;
-    font-size: 14px;
-    line-height: 12px;
+    color: #FFFFFF; /* White for better contrast */
+    font-size: 14px; /* Adjusted font size */
+    line-height: 12px; /* Adjusted line height */
     padding: 0px;
     font-weight: 700;
     text-transform: uppercase;
@@ -420,46 +399,13 @@ a:hover {
 }
 
 .label input[type="radio"]:checked + .text {
-    color: #3889e6;
+    color: #3889e6; /* Burgundy to match hover effects */
     text-shadow:
         0px 0px 8px rgba(128, 0, 32, 0.8),
         1px 1px 2px rgba(0, 0, 0, 1);
 }
 
 .label:has(input[type="radio"]:checked) .bottom-line {
-    background-color: transparent;
-    border-top: none;
-}
-
-.main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-}
-
-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    margin: 2%;
-}
-
-section h2{
-    font-size: 2.5rem
-}
-
-.main-container > section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    margin: 0;
+    background-color: transparent; /* Transparent background */
+    border-top: none; /* Removed border */
 }
