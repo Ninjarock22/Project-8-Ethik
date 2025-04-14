@@ -202,7 +202,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
             <section id="contact">
                 <h2>Contact Us</h2>
                 <p>Feel free to reach out for more information.</p>
-                <a href="mailto:info@project2.com">info@johannbehling.com</a>
+                <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
             </section>
             <p>&copy; 2025 Religion name All rights reserved.</p>
             <ul>

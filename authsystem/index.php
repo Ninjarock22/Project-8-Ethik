@@ -87,7 +87,7 @@ $count = $row[0];
         <div class="card3">
             <ul class="list">
                 <li class="element">
-                    <a class="alighnment" href="../public/index.html">
+                    <a class="alighnment" href="../authsystem/index.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#7e8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home">
                             <path d="M3 9.5L12 3l9 6.5"></path>
                             <path d="M9 22V12h6v10"></path>
@@ -108,7 +108,7 @@ $count = $row[0];
                     </a>
                 </li>
                 <li class="element">
-                    <a class="alighnment" href="#services">
+                    <a class="alighnment" href="../authsystem/index.php #services">
                         <svg class="lucide lucide-settings" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
                             <circle r="3" cy="12" cx="12"></circle>
@@ -275,7 +275,7 @@ $count = $row[0];
                     <div class="carousel-item">
                         <h2>New Feature</h2>
                         <p>This Feature is coming soon. Paciance is key! This is a one and a half man developer Website!</p>
-                        <button onclick="window.location.href='../htmlService5/public/typeRacer.html';">Start</button>
+                        <button onclick="window.location.href='profile.php';">Start</button>
                     </div>
                 </div>
                 <button class="carousel-control prev">❮</button>
@@ -291,12 +291,13 @@ $count = $row[0];
                     <!-- Digits will be generated dynamically -->
                   </div>
             </div>
-            <h1> Sign up here</h1>
+           <!-- <h1> Sign up here</h1>
 
             <button class="custom-button" id="btn-signup">Become a Member</button>
-        <!--<section id="to-top">
-            <button class="to-top-button" onclick="scrollToPosition()">Back to Top</button>
-             Dient als Test für die Funktionalität für zum Beispiel später zum service aus dem dropdown menü zu wechseln(runterscrollen zu der Position) 
+            <section id="to-top">
+                <button class="to-top-button" onclick="scrollToPosition()">Back to Top</button>
+                Dient als Test für die Funktionalität für zum Beispiel später zum service aus dem dropdown menü zu wechseln(runterscrollen zu der Position) 
+            </section>
         </section>-->
     </main>
         <script>
@@ -363,7 +364,7 @@ $count = $row[0];
         <section id="contact">
             <h2>Contact Us</h2>
             <p>Feel free to reach out for more information.</p>
-            <a href="mailto:info@project2.com">info@johannbehling.com</a>
+            <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
         </section>
         <p>&copy; 2025 Religion name All rights reserved.</p>
         <ul>
