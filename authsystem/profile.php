@@ -16,6 +16,8 @@ require_once "config.php";
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>User Profile</title>
         <link rel="stylesheet" href="/Project-8-Ethik/public/profilestylesheet.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <header>
@@ -26,29 +28,28 @@ require_once "config.php";
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </div> 
-    <div class="radio-input">
-        <label class="label">
-            <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('profilePanel')" />
-            <span class="text">Profile</span>
-        </label>
+            <div class="radio-input">
+                <label class="label">
+                    <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('profilePanel')" />
+                    <span class="text">Profile</span>
+                </label>
 
-        <label class="label">
-            <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('messagingPanel')" />
-            <span class="text">Forum</span>
-        </label>
+                <label class="label">
+                    <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('messagingPanel')" />
+                    <span class="text">Forum</span>
+                </label>
 
-        <label class="label">
-            <input type="radio" id="value-3" name="value-radio" value="value-3" onclick="switchPanel('aiGuidancePanel')" />
-            <span class="text">Ask AI</span>
-        </label>
+                <label class="label">
+                    <input type="radio" id="value-3" name="value-radio" value="value-3" onclick="switchPanel('aiGuidancePanel')" />
+                    <span class="text">Ask AI</span>
+                </label>
 
-        <label class="label">
-            <input type="radio" id="value-4" name="value-radio" value="value-4" onclick="switchPanel('adminPanel')" />
-            <span class="text">Admin</span>
-        </label>
-    </div>
-    </div>
-        
+                <label class="label">
+                    <input type="radio" id="value-4" name="value-radio" value="value-4" onclick="switchPanel('adminPanel')" />
+                    <span class="text">Admin</span>
+                </label>
+            </div>
+        </div>
         </header>
         <div id="popup-menu" class="popup-menu">
                 <div class="card3">
@@ -204,8 +205,20 @@ require_once "config.php";
             }
 
             function togglePopupMenu() {
-                var popupMenu = document.getElementById("popup-menu");
-                popupMenu.classList.toggle("show");
+                //var popupMenu = document.getElementById("popup-menu");
+                //popupMenu.classList.toggle("show");
+                Swal.fire({
+                    title: 'Info',
+                    text: 'Das Menü ist aktuell deaktiviert.',
+                    icon: 'warning',
+                    background: '#333',
+                    color: 'white',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true
+                });
             }
 
             function switchPanel(panelId) {
