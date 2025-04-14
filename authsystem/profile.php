@@ -189,13 +189,14 @@ require_once "config.php";
                 <h2>Contact Us</h2>
                 <p>Feel free to reach out for more information.</p>
                 <a href="mailto:info@project2.com">info@johannbehling.com</a>
-            </section>
+            
             <p>&copy; 2025 Religion name All rights reserved.</p>
             <ul>
                 <li><a href="../public/Impressum.html">Impressum</a></li>
                 <li><a href="../public/Privacy Policy.html">Privacy Policy</a></li>
                 <li><a href="../public/Terms and Conditions.html">Terms of Service</a></li>
             </ul>
+        </section>
         </footer>
         <script>
             function logoutUser() {
