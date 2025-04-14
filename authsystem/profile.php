@@ -6,28 +6,47 @@ if (!isset($_SESSION["userid"]) || $_SESSION["userid"] === false) {
     exit;
 }
 require_once "config.php";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Style in Stylesheet eintragen Überprüfen ob angemelden ansotzten redirect-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-    <link rel="stylesheet" href="../public/extrastylesheet.css">
-</head>
-<body>
-    <header>
-        <div class="popup-icon" onclick="togglePopupMenu()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
-                <line x1="3" y1="12" x2="21" y2="12"></line>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-        </div>
-    </header>
-    <div id="popup-menu" class="popup-menu">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Profile</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="../public/profilestylesheet.css">
+
+    </head>
+    <body>
+        <header>
+            <div class="popup-icon" onclick="togglePopupMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div> 
+            <div class="radio-input">
+                <label class="label">
+                    <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('profilePanel')" />
+                    <span class="text">Profile</span>
+                </label>
+                <label class="label">
+                    <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('messagingPanel')" />
+                    <span class="text">Forum</span>
+                </label>
+                <label class="label">
+                    <input type="radio" id="value-3" name="value-radio" value="value-3" onclick="switchPanel('aiGuidancePanel')" />
+                    <span class="text">Ask AI</span>
+                </label>
+                <label class="label">
+                    <input type="radio" id="value-4" name="value-radio" value="value-4" onclick="switchPanel('adminPanel')" />
+                    <span class="text">Admin</span>
+                </label>
+            </div>
+        </header>
+        <div id="popup-menu" class="popup-menu">
             <div class="card3">
                 <ul class="list">
                     <li class="element">
@@ -89,70 +108,119 @@ require_once "config.php";
                 </ul>
             </div>
         </div>
-    <main>
-        <div class="container">
-            <div class="profile-container">
-                <?php
-                    $userid = $_SESSION["userid"];
-                    $query = "SELECT * FROM users WHERE id = ?";
-                    $stmt = $db->prepare($query);
-                    $stmt->bind_param("i", $userid);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    $user = $result->fetch_assoc();
-                ?>
-                <h2>User Profile</h2>
-                <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email'])?></p>
-                <p><strong>Full Name:</strong> <?= htmlspecialchars($user['name'])?></span></p>
-                <p><strong>Age:</strong> <?= htmlspecialchars($user['age'])?></p>
-                <p><strong>Status:</strong> <?= htmlspecialchars($user['status']
-                ? 'Administrator'
-                : 'Benutzer')?></p>
-                <button class="logout-btn" onclick="logoutUser()">Logout</button>
-            </div>
-            <div class="messaging-container">
-                <h3>Send a Message</h3>
-                <textarea id="messageContent" placeholder="NOT Available" disabled></textarea><!-- Your message... -->
-                <input type="text" id="messageTo" placeholder="" disabled> <!-- Recipient Username -->
-                <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
-            </div>
-            <?php
-                if ($user['status'] == 1) {	
-                    ?>
-                    <div class="admin-container" id="adminPanel" style="display: block;">
-                        <h3>Admin Panel: View and Edit</h3>
-                        <textarea disabled>NOT Available</textarea>
+        <main class="main-container">
+            <section>
+                <div class="panel-container" id="profilePanel">
+                    <h2>Profile Information</h2>
+                    <div class="profile-container">
+                        <?php
+                        $userid = $_SESSION["userid"];
+                        $query = "SELECT * FROM users WHERE id = ?";
+                        $stmt = $db->prepare($query);
+                        if (!$stmt) {
+                            die("Database error: " . $db->error);
+                        }
+                        $stmt->bind_param("i", $userid);
+                        if (!$stmt->execute()) {
+                            die("Query execution failed: " . $stmt->error);
+                        }
+                        $result = $stmt->get_result();
+                        $user = $result->fetch_assoc();
+                        if (!$user) {
+                            die("User not found.");
+                        }
+                        ?>
+                        <h2>User Profile</h2>
+                        <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
+                        <p><strong>Full Name:</strong> <?= htmlspecialchars($user['name']) ?></p>
+                        <p><strong>Age:</strong> <?= htmlspecialchars($user['age']) ?></p>
+                        <p><strong>Status:</strong> <?= htmlspecialchars($user['status'] ? 'Administrator' : 'Benutzer') ?></p>
+                        <button class="logout-btn" onclick="logoutUser()">Logout</button>
                     </div>
-                    <?php
-                }
-            ?>
-        </div>
-    </main>
-    <footer>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Feel free to reach out for more information.</p>
-            <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
-        </section>
-        <p>&copy; 2025 Religion name All rights reserved.</p>
-        <ul>
-            <li><a href="../public/Impressum.html">Impressum</a></li>
-            <li><a href="../public/Privacy Policy.html">Privacy Policy</a></li>
-            <li><a href="../public/Terms and Conditions.html">Terms of Service</a></li>
-        </ul>
-    </footer>
-    <script src="js/carousel.js"></script>
-    <script src="js/Smooth-scrolling-behavior.js"></script>
-    <script src="js/Buttonlink.js"></script>
-    <script>
-        function logoutUser() {
-            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/logout.php';
-        }
+                </div>
+                <div class="panel-container" id="messagingPanel">
+                    <h2>Forum</h2>
+                    <div class="messaging-container">
+                        <h3>Send a Message</h3>
+                        <textarea id="messageContent" placeholder="NOT Available" disabled></textarea>
+                        <input type="text" id="messageTo" placeholder="" disabled>
+                        <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
+                    </div>
+                </div>
+                <div class="panel-container" id="aiGuidancePanel">
+                    <h2>AI Guidance</h2>
+                    <div class="ai-guidance-container">
+                        <div id="chat-container">
+                            <?php include "../public/chat.html"; ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-container" id="adminPanel">
+                    <h2>Admin Panel</h2>
+                    <div class="admin-container">
+                        <?php if ($user['status'] == 1): ?>
+                            <h3>Admin Panel: View and Edit</h3>
+                            <textarea disabled>NOT Available</textarea>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>Feel free to reach out for more information.</p>
+                <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
+                <p>&copy; 2025 Religion name All rights reserved.</p>
+                <ul>
+                    <li><a href="../public/Impressum.html">Impressum</a></li>
+                    <li><a href="../public/Privacy Policy.html">Privacy Policy</a></li>
+                    <li><a href="../public/Terms and Conditions.html">Terms of Service</a></li>
+                </ul>
+            </section>
+        </footer>
+        <script>
+            function logoutUser() {
+                window.location.href = '/Project-8-Ethik/authsystem/logout.php';
+            }
 
-        function togglePopupMenu() {
-            var popupMenu = document.getElementById("popup-menu");
-            popupMenu.classList.toggle("show");
-        }
-    </script>
-</body>
+            function togglePopupMenu() {
+                //var popupMenu = document.getElementById("popup-menu");
+                //popupMenu.classList.toggle("show");
+                Swal.fire({
+                    title: 'Info',
+                    text: 'Das Menü ist aktuell deaktiviert.',
+                    icon: 'warning',
+                    background: '#333',
+                    color: 'white',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true
+                });
+            }
+
+            function switchPanel(panelId) {
+                const panel = document.querySelectorAll('.panel-container');
+                panel.forEach(panel => panel.style.display = 'none');
+                const targetPanel = document.getElementById(panelId);
+                if (targetPanel) {
+                    targetPanel.style.display = 'block';
+                    sessionStorage.setItem('panelId', panelId);
+                } else {
+                    console.error(`Panel with ID "${panelId}" not found.`);
+                }
+            }
+
+            window.addEventListener('load', function () {
+                const panelId = sessionStorage.getItem('panelId');
+                if (panelId) {
+                    switchPanel(panelId);
+                } else {
+                    switchPanel('profilePanel');
+                }
+            });
+        </script>
+    </body>
 </html>

@@ -1,0 +1,411 @@
+/* Merged Stylesheet */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, main, section {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e3e3e7;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #0A1F44;
+    color: #FFFFFF;
+    padding: 1.5vh 2vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 2vh;
+}
+
+header nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.4s ease-in-out;
+}
+
+header nav ul li a:hover {
+    color: #800020;
+}
+
+header .search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+header .search-bar input {
+    padding: 0.8vh 1.5vh;
+    border: 0.1vh solid #6D6D6D;
+    border-radius: 2.5vh;
+    outline: none;
+    font-size: 1.4vh;
+    background-color: #6D6D6D;
+    color: #FFFFFF;
+    transition: box-shadow 0.3s ease-in-out;
+    width: 20vh;
+}
+
+header .search-bar input::placeholder {
+    color: #E0C4A8;
+}
+
+header .search-bar input:focus {
+    box-shadow: 0 0 8px #800020;
+}
+
+header .search-bar button {
+    margin-left: 1vh;
+    padding: 0.8vh 2vh;
+    border: none;
+    border-radius: 2.5vh;
+    background-color: #800020;
+    color: #FFFFFF;
+    font-size: 1.4vh;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header .search-bar button:hover {
+    background-color: #800020;
+}
+
+header .login-button {
+    background-color: #800020;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+header .login-button:hover {
+    background-color: #a71d2a;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #0A1F44;
+    color: #FFFFFF;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+footer ul li {
+    margin: 0 15px;
+}
+
+footer ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #0A1F44;
+    transition: background-color 0.3s ease;
+}
+
+footer ul li a:hover {
+    background-color: #062a6b;
+}
+
+footer .contact {
+    margin-bottom: 10vh;
+}
+
+footer p {
+    margin-top: 5vh;
+}
+
+/* Popup Menu Styles */
+.popup-menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    background-color: rgba(36, 40, 50, 1);
+    background-image: linear-gradient(139deg, rgba(36, 40, 50, 1) 0%, rgba(37, 28, 40, 1) 100%);
+    border-radius: 10px;
+    padding: 15px 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.popup-menu.show {
+    display: block;
+}
+
+.popup-menu .card3 {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.popup-menu .list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0px 10px;
+}
+
+.popup-menu .list .element {
+    display: flex;
+    align-items: center;
+    color: #7e8590;
+    gap: 8px;
+    transition: all 0.3s ease-out;
+    padding: 4px 7px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.popup-menu .list .element:hover {
+    background-color: #5353ff;
+    color: #ffffff;
+    transform: translate(1px, -1px);
+}
+
+.popup-menu .list .element:hover .label {
+    color: #ffffff;
+}
+
+.popup-menu .list .element:hover svg {
+    stroke: #ffffff;
+}
+
+/* Main Container and Section Styles */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Changed from 100vh to 100% */
+    text-align: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 2%;
+    /* Removed justify-self */
+}
+
+section h2 {
+    font-size: 2.5rem;
+}
+
+.panel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+/* Signup, Login, Profile, Messaging, and Admin Containers */
+.signup-container,
+.login-container,
+.profile-container,
+.messaging-container,
+.admin-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: auto;
+    max-width:80%;
+    margin: 10vh auto; /* Centered horizontally and added vertical margin */
+    text-align: center;
+}
+
+.signup-container h2,
+.login-container h2,
+.profile-container h2,
+.messaging-container h2,
+.admin-container h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.signup-container h3,
+.login-container h3,
+.profile-container h3,
+.messaging-container h3,
+.admin-container h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.signup-container input,
+.login-container input,
+.profile-container input,
+.messaging-container input,
+.admin-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.signup-container button,
+.login-container button,
+.profile-container button,
+.messaging-container button,
+.admin-container button {
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+}
+
+.signup-container button:hover,
+.login-container button:hover,
+.profile-container button:hover,
+.messaging-container button:hover,
+.admin-container button:hover {
+    background-color: #4a54d1;
+}
+
+.signup-container .message,
+.login-container .message,
+.profile-container .message,
+.messaging-container .message,
+.admin-container .message {
+    margin-top: 20px;
+    font-size: 14px;
+    color: red;
+}
+
+.admin-container textarea {
+    width: 100%;
+    height: 200px;
+}
+
+.profile-container .edit-btn,
+.profile-container .logout-btn,
+.messaging-container .message-btn,
+.admin-container .update-btn,
+.to-top-button {
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.to-top {
+    align-items: left;
+}
+
+.radio-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    height: auto; /* Adjusted height */
+    width: auto; /* Adjusted width */
+    box-shadow: none; /* Removed shadow */
+    background: none; /* Removed background */
+}
+
+.radio-input input {
+    display: none;
+}
+
+.radio-input .label {
+    width: auto; /* Adjusted width */
+    height: auto; /* Adjusted height */
+    border-radius: 0; /* Removed border radius */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Removed padding */
+    transition: none; /* Removed transition */
+    position: relative;
+    z-index: 2;
+    background: none; /* Removed background */
+    padding-left: 10px;
+}
+
+.label .text {
+    color: #FFFFFF; /* White for better contrast */
+    font-size: 14px; /* Adjusted font size */
+    line-height: 12px; /* Adjusted line height */
+    padding: 0px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.label input[type="radio"]:checked + .text {
+    color: #3889e6; /* Burgundy to match hover effects */
+    text-shadow:
+        0px 0px 8px rgba(128, 0, 32, 0.8),
+        1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+.label:has(input[type="radio"]:checked) .bottom-line {
+    background-color: transparent; /* Transparent background */
+    border-top: none; /* Removed border */
+}
