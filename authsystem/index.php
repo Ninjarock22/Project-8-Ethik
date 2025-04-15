@@ -17,6 +17,8 @@ $count = $row[0];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Religion Name</title>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../public/Stylesheet.css">
 </head>
 <body>
@@ -251,7 +253,7 @@ $count = $row[0];
         <section id="become-member">
             <h1>Join our community</h1>
             <p>Join our community and be part of something special. Sign up now to access exclusive content and connect with like-minded individuals.</p>
-            <p>We are currently <span id="member-count">0</span> members strong and growing every day!</p>
+            <p>We are currently <span id="member-count"><?php echo ($count) ?></span> members strong and growing every day!</p>
             <div>
                 <div id="counter-display" class="clock" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 20px; background-color: #ffffff21; border: solid 5px #ffffff; border-radius: 10px">
                     <!-- Digits will be generated dynamically -->
@@ -375,6 +377,18 @@ $count = $row[0];
         });
 
         function togglePopupMenu() {
+            Swal.fire({
+                title: 'Information',
+                text: 'Das Menü ist aktuell deaktiviert.',
+                icon: 'warning',
+                background: '#333',
+                color: 'white',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true
+            });
             var popupMenu = document.getElementById("popup-menu");
             popupMenu.classList.toggle("show");
         }
