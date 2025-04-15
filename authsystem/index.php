@@ -80,7 +80,7 @@ $count = $row[0];
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
         </div>
-        <button class="login-button" onclick="window.location.href='login.php';">Login</button>
+        <button class="login-button" id="btn-login">Login</button>
     </header>
     <!-- Popup Menu -->
     <div id="popup-menu" class="popup-menu">
@@ -145,10 +145,11 @@ $count = $row[0];
             </ul>
         </div>
     </div>
-    <video class="background-video" autoplay muted loop>
+    <!--<video class="background-video" autoplay muted loop>
         <source src="Porscheclip2.mp4" type="video/mp4">
         Your browser does not support the video tag. Create with Sora: I would like an inspirational video to advertise a new religion based off of common sense and self optimization. The video should invoke the sence of becoming the best version of yourself whilst lialso living in a society where people help one another. 
-    </video>
+    </video>-->
+    <img class="background-image" src="../Background.png" alt="Background Image"><!--Next Sora prompt: Show the person standing on the top of some roch of a mountain to express that he made it to the top of the world and gives the viewer the scense of fullfillment.-->
     <div class="overlay">
         <section id="home">
             <h1 style="font-size: 4rem; font-weight: 600;">Religion Name</h1>
@@ -247,7 +248,18 @@ $count = $row[0];
                 </div>
             </section>
         </section>
-        
+        <section id="become-member">
+            <h1>Join our community</h1>
+            <p>Join our community and be part of something special. Sign up now to access exclusive content and connect with like-minded individuals.</p>
+            <p>We are currently <span id="member-count">0</span> members strong and growing every day!</p>
+            <div>
+                <div id="counter-display" class="clock" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 20px; background-color: #ffffff21; border: solid 5px #ffffff; border-radius: 10px">
+                    <!-- Digits will be generated dynamically -->
+                  </div>
+            </div>
+            <h1> Sign up here</h1>
+            <button onclick="window.location.href='register.php';">Become a member</button>
+        </section>
         <section id="services">
             <h2>Our Services</h2>
             <div id="carousel" class="carousel">
@@ -281,18 +293,6 @@ $count = $row[0];
                 <button class="carousel-control prev">❮</button>
                 <button class="carousel-control next">❯</button>
             </div>                      
-        </section>
-        <section id="become-member">
-            <h1>Join our community</h1>
-            <p>Join our community and be part of something special. Sign up now to access exclusive content and connect with like-minded individuals.</p>
-            <p>We are currently <span id="member-count">0</span> members strong and growing every day!</p>
-            <div>
-                <div id="counter-display" class="clock" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 20px; background-color: #ffffff21; border: solid 5px #ffffff; border-radius: 10px">
-                    <!-- Digits will be generated dynamically -->
-                  </div>
-            </div>
-            <h1> Sign up here</h1>
-            <button class="custom-button" id="btn-signup">Become a Member</button>
         </section>
     </main>
         <script>
@@ -370,7 +370,7 @@ $count = $row[0];
     </footer>
     <script src="../public/js/carousel.js"></script>
     <script src="../public/js/Smooth-scrolling-behavior.js"></script>
-    <script src="../public/js/Buttonlink.js"></script>
+    
     <script>
         document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';

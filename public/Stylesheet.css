@@ -59,7 +59,7 @@ html, body {
 header {
     position: sticky;
     top: 0;
-    background-color: #ffffff21;
+    background-color: #000000a2;
     color: #FFFFFF;
     padding: 1.5vh 2vh;
     box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
@@ -115,7 +115,7 @@ header .search-bar input::placeholder {
 }
 
 header .search-bar input:focus {
-    box-shadow: 0 0 8px #800020;
+    box-shadow: 0 0 8px #d86d02; /* Changed to #d86d02 */
 }
 
 header .search-bar button {
@@ -123,7 +123,7 @@ header .search-bar button {
     padding: 0.8vh 2vh;
     border: none;
     border-radius: 2.5vh;
-    background-color: #800020;
+    background-color: #d86d02;
     color: #FFFFFF;
     font-size: 1.4vh;
     font-weight: 700;
@@ -132,13 +132,13 @@ header .search-bar button {
 }
 
 header .search-bar button:hover {
-    background-color: #800020;
+    background-color: #d86d02;
 }
 
 header .login-button {
-    background-color: #ffffff21;
+    background-color: #d86d02;
     color: #FFFFFF;
-    border: solid 5px #ffffff;
+    border: solid 5px #000000;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -174,6 +174,7 @@ section {
         color: #E0C4A8; /* Beige */
         margin-bottom: 20px;
         text-transform: capitalize;
+        font-size: 2.3rem;
     }
     p {
         margin-bottom: 20px;
@@ -216,9 +217,11 @@ section {
 /* Newcard system */
 /* From Uiverse.io by suleymanlaarabidev */ 
 .card2 {
+    background-color: #48454533;
+    color: #FFFFFF;
+    border: solid 5px #ffffff;
     width: 40%;
     height: 254px;
-    background: rgb(103, 225, 255);
     transition: all 0.4s;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
@@ -230,11 +233,13 @@ section {
   }
   
   .card2:hover {
+    background-color: #48454533;
+    color: #FFFFFF;
+    border: solid 5px #ffffff;
     border-radius: 15px;
     cursor: pointer;
     transform: scale(1.2);
     box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
-    background: rgb(103, 151, 255);
   }
   
   .first-content {
@@ -344,6 +349,19 @@ section {
     z-index: -1; /* Keeps the video behind all other content */
 }
 
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image maintains aspect ratio */
+    z-index: -1; /* Keeps the image behind all other content */
+    background-size: cover; /* Ensures the image covers the entire area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
 /* Overlay styling */
 .overlay {
     position: absolute; /* Change to absolute so it can be positioned relative to the screen */
@@ -354,9 +372,9 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFFFFF; /* White */
+    color: #ffffff; /* White */
     text-align: center;
-    background-color: rgba(168, 165, 165, 0.65); /* Transparent black */
+    background-color: rgba(168, 165, 165, 0); /* Transparent black */
 }
 
 /* Adjust section inside the overlay if necessary */
@@ -493,6 +511,9 @@ button, #mainselect {
 
 /* Carousel Styles */
 .carousel {
+    background-color: #48454533;
+    color: #FFFFFF;
+    border: solid 5px #ffffff;
     position: relative;
     max-width: calc(100vw - 15%); /* Subtract 75% of the viewport width */
     min-height: auto;
@@ -500,10 +521,23 @@ button, #mainselect {
     overflow: visible;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    background-color: #444;
-    color: #f8f9fa;
     text-align: center;
     transition: transform 0.3s ease-in-out;
+
+    h2 {
+        font-weight: 700;
+        color: #ffffff; /* Beige */
+        margin-bottom: 20px;
+        text-transform: capitalize;
+        font-size: 2.5rem; /* Adjust the size as needed */
+    }
+    p {
+        margin-bottom: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #ffffff; /* Khaki */
+    }
 }
 
 .carousel:hover {
@@ -556,6 +590,8 @@ button, #mainselect {
     right: 10px;
     background-color: rgba(0, 0, 0, 0);
 }
+
+
 
 
 /* Loginform Styling */
@@ -643,16 +679,16 @@ button, #mainselect {
 /* Footer Styling */
 footer {
     background-color: #ffffff21;
-    color: #FFFFFF;
     padding: 20px 0;
     text-align: center;
     width: 100%;
 }
 
 footer a {
-    color: #21acc5; /* Light gold color for better visibility */
+    color: #E0C4A8; /* Light gold color for better visibility */
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.4rem
 }
 
 footer a:hover {
