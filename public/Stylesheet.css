@@ -678,10 +678,12 @@ button, #mainselect {
 
 /* Footer Styling */
 footer {
-    background-color: #ffffff21;
+    background-color: #ffffff00;
     padding: 20px 0;
     text-align: center;
     width: 100%;
+    height: auto;
+    margin-top: 20vh;
 }
 
 footer a {
@@ -708,7 +710,7 @@ footer ul li {
 }
 
 footer ul li a {
-    color: #FFFFFF;
+    color: #E0C4A8;
     text-decoration: none;
     font-weight: 700;
     padding: 10px 20px;
