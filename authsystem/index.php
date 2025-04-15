@@ -17,6 +17,8 @@ $count = $row[0];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Religion Name</title>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../public/Stylesheet.css">
 </head>
 <body>
@@ -375,8 +377,20 @@ $count = $row[0];
         });
 
         function togglePopupMenu() {
-            var popupMenu = document.getElementById("popup-menu");
-            popupMenu.classList.toggle("show");
+            Swal.fire({
+                title: 'Information',
+                text: 'Das Menü ist aktuell deaktiviert.',
+                icon: 'warning',
+                background: '#333',
+                color: 'white',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true
+            });
+            //var popupMenu = document.getElementById("popup-menu");
+            //popupMenu.classList.toggle("show");
         }
 
         document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
