@@ -13,7 +13,7 @@ html, body, main, section {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f6f2f2;
+    background-color: #000000;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@ body {
 header {
     position: sticky;
     top: 0;
-    background-color: #0d2042;
+    background-color: #1b1b1b;
     color: #FFFFFF;
     padding: 1.5vh 2vh;
     box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
@@ -117,7 +117,7 @@ header .login-button:hover {
 
 /* Footer Styles */
 footer {
-    background-color: #0A1F44;
+    background-color: #1b1b1b;
     color: #FFFFFF;
     padding: 20px 0;
     text-align: center;
@@ -152,7 +152,7 @@ footer ul li a {
     font-weight: 700;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #0A1F44;
+    background-color: #1b1b1b;
     transition: background-color 0.3s ease;
 }
 
