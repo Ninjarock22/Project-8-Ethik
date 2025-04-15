@@ -80,7 +80,7 @@ $count = $row[0];
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
         </div>
-        <button class="custom-button" id="btn-login">Login</button>
+        <button class="login-button" onclick="window.location.href='login.php';">Login</button>
     </header>
     <!-- Popup Menu -->
     <div id="popup-menu" class="popup-menu">
