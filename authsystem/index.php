@@ -147,7 +147,7 @@ $count = $row[0];
     </div>
     <video class="background-video" autoplay muted loop>
         <source src="Porscheclip2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        Your browser does not support the video tag. Create with Sora: I would like an inspirational video to advertise a new religion based off of common sense and self optimization. The video should invoke the sence of becoming the best version of yourself whilst lialso living in a society where people help one another. 
     </video>
     <div class="overlay">
         <section id="home">
