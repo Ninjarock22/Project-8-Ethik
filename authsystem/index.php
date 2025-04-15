@@ -151,7 +151,7 @@ $count = $row[0];
         <source src="Porscheclip2.mp4" type="video/mp4">
         Your browser does not support the video tag. Create with Sora: I would like an inspirational video to advertise a new religion based off of common sense and self optimization. The video should invoke the sence of becoming the best version of yourself whilst lialso living in a society where people help one another. 
     </video>-->
-    <img class="background-image" src="../Background.png" alt="Background Image"><!--Next Sora prompt: Show the person standing on the top of some roch of a mountain to express that he made it to the top of the world and gives the viewer the scense of fullfillment.-->
+    <img class="background-image" src="../Background.png" alt="Background Image"><!--Next Sora prompt: Show the person standing on the top of some roch of a mountain to express that he made it to the top of the world and gives the viewer the scense of fullfillment. And: generate a small logo of this man for this religion-->
     <div class="overlay">
         <section id="home">
             <h1 style="font-size: 4rem; font-weight: 600;">Religion Name</h1>
