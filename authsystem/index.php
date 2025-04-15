@@ -369,7 +369,6 @@ $count = $row[0];
         </ul>
     </footer>
     <script src="../public/js/carousel.js"></script>
-    
     <script>
         document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
