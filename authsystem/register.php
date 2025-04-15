@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <title>Register</title>
         <link rel="icon" type="image/jpg" href="../images/icon.jpg">
         <!-- <link rel="stylesheet" type="text/css" href="../public/Stylesheet.css" /> -->
-        <link rel="stylesheet" type="text/css" href="../public/extrastylesheet.css" />
+        <link rel="stylesheet" type="text/css" href="../public/profilestylesheet.css" />
     </head>
     <body>
         <header>
@@ -136,8 +136,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                 </ul>
             </div>
         </div>
-        <main>
-            <div class="signup-container">
+        <main class="main-container">
+        <section>    
+        <div class="signup-container">
                 <div class="row">
                     <div class="col-md-12">
                         <div id="regbody">
@@ -197,19 +198,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     </div>
                 </div>
             </div>
+        </section>
         </main>
         <footer>
             <section id="contact">
                 <h2>Contact Us</h2>
                 <p>Feel free to reach out for more information.</p>
                 <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
-            </section>
-            <p>&copy; 2025 Religion name All rights reserved.</p>
+                <p>&copy; 2025 Religion name All rights reserved.</p>
             <ul>
                 <li><a href="../public/Impressum.html">Impressum</a></li>
-                <li><a href="../public/Privacy Policy.html">Privacy Policy</a></li>
-                <li><a href="../public/Terms and Conditions.html">Terms of Service</a></li>
+                <li><a href="../public/PricacyPolicy.html">Privacy Policy</a></li>
+                <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
             </ul>
+            </section>
         </footer>
     </body>
     <script>

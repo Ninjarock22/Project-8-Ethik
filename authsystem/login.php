@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
-        <link rel="stylesheet" type="text/css" href="../public/extrastylesheet.css" />
+        <link rel="stylesheet" type="text/css" href="../public/profilestylesheet.css" />
         <link rel="icon" type="image/jpg" href="../images/icons/icon.jpg">
         <script src="js/carousel.js"></script>
         <script src="js/Smooth-scrolling-behavior.js"></script>
@@ -166,14 +166,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
             <section id="contact">
                 <h2>Contact Us</h2>
                 <p>Feel free to reach out for more information.</p>
-                <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
-            </section>
-            <p>&copy; 2025 Religion name All rights reserved.</p>
+                <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a><p>&copy; 2025 Religion name All rights reserved.</p>
             <ul>
                 <li><a href="../public/Impressum.html">Impressum</a></li>
-                <li><a href="../public/Privacy Policy.html">Privacy Policy</a></li>
-                <li><a href="../public/Terms and Conditions.html">Terms of Service</a></li>
+                <li><a href="../public/PricacyPolicy.html">Privacy Policy</a></li>
+                <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
             </ul>
+            </section>
         </footer>
         <script>
             function togglePopupMenu() {
