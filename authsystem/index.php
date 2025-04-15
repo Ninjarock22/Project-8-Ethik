@@ -291,14 +291,9 @@ $count = $row[0];
                     <!-- Digits will be generated dynamically -->
                   </div>
             </div>
-           <!-- <h1> Sign up here</h1>
-
+            <h1> Sign up here</h1>
             <button class="custom-button" id="btn-signup">Become a Member</button>
-            <section id="to-top">
-                <button class="to-top-button" onclick="scrollToPosition()">Back to Top</button>
-                Dient als Test für die Funktionalität für zum Beispiel später zum service aus dem dropdown menü zu wechseln(runterscrollen zu der Position) 
-            </section>
-        </section>-->
+        </section>
     </main>
         <script>
             let count = 0;
