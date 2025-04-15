@@ -298,64 +298,64 @@ $count = $row[0];
         </section>
     </main>
         <script>
-            let count = 0;
             const counterDisplay = document.getElementById("counter-display");
-        
+            const memberCount = <?php echo json_encode($count); ?>; // Fetch the member count from PHP
+
             function initializeCounter(digits) {
-                counterDisplay.innerHTML = "";
-                for (let i = 0; i < digits; i++) {
+            counterDisplay.innerHTML = "";
+            for (let i = 0; i < digits; i++) {
                 const digitDiv = document.createElement("div");
                 digitDiv.className = "digit";
                 digitDiv.id = `digit-${i}`;
                 digitDiv.style = `
-                    position: relative; 
-                    width: ${60 / digits}vw; 
-                    height: 20vh; 
-                    background: #000; 
-                    border-radius: 5px; 
-                    overflow: hidden; 
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
-                    display: flex; 
-                    justify-content: center; 
-                    align-items: center; 
-                    font-size: 10vh; 
-                    font-weight: bold; 
-                    color: #800020;
+                position: relative; 
+                width: ${60 / digits}vw; 
+                height: 20vh; 
+                background: #000; 
+                border-radius: 5px; 
+                overflow: hidden; 
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                font-size: 10vh; 
+                font-weight: bold; 
+                color: #800020;
                 `;
                 digitDiv.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">0</span>`;
                 counterDisplay.appendChild(digitDiv);
-                }
             }
-        
-            function incrementCounter() {
-                count++;
-                const countStr = count.toString().padStart(7, "0"); // Ensure 7 digits
-        
-                if (countStr.length > counterDisplay.children.length) {
+            }
+
+            function updateCounter(value) {
+            const countStr = value.toString().padStart(7, "0"); // Ensure 7 digits
+
+            if (countStr.length > counterDisplay.children.length) {
                 initializeCounter(countStr.length);
-                }
-        
-                for (let i = 0; i < countStr.length; i++) {
+            }
+
+            for (let i = 0; i < countStr.length; i++) {
                 updateDigit(`digit-${i}`, countStr[i]);
-                }
             }
-        
+            }
+
             function updateDigit(id, newValue) {
-                const digitElement = document.getElementById(id);
-                const currentValue = digitElement.querySelector("span").textContent;
-        
-                if (currentValue !== newValue) {
+            const digitElement = document.getElementById(id);
+            const currentValue = digitElement.querySelector("span").textContent;
+
+            if (currentValue !== newValue) {
                 digitElement.classList.add("flip");
-        
+
                 setTimeout(() => {
-                    digitElement.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">${newValue}</span>`;
-                    digitElement.classList.remove("flip");
+                digitElement.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">${newValue}</span>`;
+                digitElement.classList.remove("flip");
                 }, 500);
-                }
             }
-        
-            // Initialize with 7 digits
+            }
+
+            // Initialize with 7 digits and update with the member count
             initializeCounter(7);
+            updateCounter(memberCount);
         </script>
     <footer>
         <section id="contact">
