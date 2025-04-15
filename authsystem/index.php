@@ -287,7 +287,7 @@ $count = $row[0];
             <p>Join our community and be part of something special. Sign up now to access exclusive content and connect with like-minded individuals.</p>
             <p>We are currently <span id="member-count">0</span> members strong and growing every day!</p>
             <div>
-                <div id="counter-display" class="clock" style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <div id="counter-display" class="clock" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 20px; background-color: #ffffff21; border: solid 5px #ffffff; border-radius: 10px">
                     <!-- Digits will be generated dynamically -->
                   </div>
             </div>
