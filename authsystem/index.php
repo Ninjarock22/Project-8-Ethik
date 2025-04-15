@@ -389,8 +389,8 @@ $count = $row[0];
                 timer: 3000,
                 timerProgressBar: true
             });
-            //var popupMenu = document.getElementById("popup-menu");
-            //popupMenu.classList.toggle("show");
+            var popupMenu = document.getElementById("popup-menu");
+            popupMenu.classList.toggle("show");
         }
 
         document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
