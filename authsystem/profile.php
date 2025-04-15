@@ -174,7 +174,7 @@ require_once "config.php";
                 <p>&copy; 2025 Religion name All rights reserved.</p>
                 <ul>
                     <li><a href="../public/Impressum.html">Impressum</a></li>
-                    <li><a href="../public/PricacyPolicy.html">Privacy Policy</a></li>
+                    <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>
                     <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
                 </ul>
             </section>
