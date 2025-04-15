@@ -1,6 +1,6 @@
 # Project-8-Ethik
 
-## Project Description
+## Projekt Bechreibung
 Die vollständige Projektbeschreibung finden sie [hier](https://github.com/Ninjarock22/Project-8-Ethik/blob/main/Project%20Description).
 
 ## Projektstatus:
