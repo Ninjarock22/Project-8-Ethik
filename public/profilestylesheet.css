@@ -13,7 +13,7 @@ html, body, main, section {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #e3e3e7;
+    background-color: #f6f2f2;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@ body {
 header {
     position: sticky;
     top: 0;
-    background-color: #0A1F44;
+    background-color: #0d2042;
     color: #FFFFFF;
     padding: 1.5vh 2vh;
     box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
@@ -122,6 +122,17 @@ footer {
     padding: 20px 0;
     text-align: center;
     width: 100%;
+}
+
+footer a {
+    color: #21acc5; /* Light gold color for better visibility */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #FFFFFF; /* Change to white on hover for contrast */
+    text-decoration: underline;
 }
 
 footer ul {
@@ -223,6 +234,8 @@ footer p {
     align-items: center;
     height: 100%; /* Changed from 100vh to 100% */
     text-align: center;
+    margin-bottom: 20px;
+    height: auto; /* Adjusted height for flexibility */
 }
 
 section {
@@ -245,23 +258,35 @@ section h2 {
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: auto;
     
 }
 
 
 /* Signup, Login, Profile, Messaging, and Admin Containers */
+/* Signup and Login Containers */
 .signup-container,
-.login-container,
-.profile-container,
-.messaging-container,
-.admin-container {
+.login-container {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: auto;
-    max-width:80%;
+    max-width: 30%;
+    margin: 10vh auto; /* Centered horizontally and added vertical margin */
+    text-align: center;
+}
+
+/* Profile, Messaging, and Admin Containers */
+.profile-container,
+.messaging-container,
+.admin-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: auto;
+    max-width: 80%;
     margin: 10vh auto; /* Centered horizontally and added vertical margin */
     text-align: center;
 }
