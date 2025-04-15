@@ -13,7 +13,10 @@ html, body, main, section {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000;
+    background-color: #000000; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -24,7 +27,7 @@ body {
 header {
     position: sticky;
     top: 0;
-    background-color: #1b1b1b;
+    background-color: #ffffff21;
     color: #FFFFFF;
     padding: 1.5vh 2vh;
     box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
@@ -101,8 +104,9 @@ header .search-bar button:hover {
 }
 
 header .login-button {
-    background-color: #800020;
+    background-color: #ffffff21;
     color: #FFFFFF;
+    border: solid 5px #ffffff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -112,12 +116,13 @@ header .login-button {
 }
 
 header .login-button:hover {
-    background-color: #a71d2a;
+    background-color: #ffffffc4;
+    color: black
 }
 
 /* Footer Styles */
 footer {
-    background-color: #1b1b1b;
+    background-color: #ffffff21;
     color: #FFFFFF;
     padding: 20px 0;
     text-align: center;
@@ -267,7 +272,9 @@ section h2 {
 /* Signup and Login Containers */
 .signup-container,
 .login-container {
-    background-color: #fff;
+    background-color: #ffffff21;
+    color: #FFFFFF;
+    border: solid 5px #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -275,6 +282,7 @@ section h2 {
     max-width: 30%;
     margin: 10vh auto; /* Centered horizontally and added vertical margin */
     text-align: center;
+    
 }
 
 /* Profile, Messaging, and Admin Containers */
