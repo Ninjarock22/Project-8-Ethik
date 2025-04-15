@@ -23,6 +23,16 @@ body {
     min-height: 100vh;
 }
 
+body.login-page,
+body.register-page {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../Background.png'); /* Added semi-transparent black layer */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000; /* Fallback color for better visibility */
+}
+
+
 /* Header Styles */
 header {
     position: sticky;
