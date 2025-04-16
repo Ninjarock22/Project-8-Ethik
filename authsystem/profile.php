@@ -176,7 +176,7 @@ require_once "config.php";
                                                 <span><strong>Email:</strong> <?= htmlspecialchars($row['email']) ?></span>
                                             </div>
                                             <div class="action-buttons">
-                                                <button class="action-btn" onclick="editUser(<?= $row['id'] ?>)">Edit</button>
+                                                <button class="action-btn" onclick="showForm(<?= htmlspecialchars(json_encode($row)) ?>)">Edit</button>
                                                 <button class="action-btn delete-btn" onclick="deleteUser(<?= $row['id'] ?>)">Delete</button>
                                             </div>
                                         </div>
@@ -189,15 +189,12 @@ require_once "config.php";
                                 <h3>Edit User</h3>
                                 <form id="editForm" method="POST" action="update_user.php">
                                     <input type="hidden" name="id" id="edit-user-id">
-                                    <label for="edit-name">Name:</label>
-                                    <input type="text" name="name" id="edit-name" required>
-                                    <label for="edit-email">Email:</label>
-                                    <input type="email" name="email" id="edit-email" required>
-                                    <label for="edit-age">Age:</label>
-                                    <input type="number" name="age" id="edit-age" required>
-                                    <label for="edit-status">Status:</label>
-                                    <select name="status" id="edit-status">
-                                        <option value="0">Benutzer</option>
+                                    <input type="text" name="name" id="edit-name"  placeholder="Name" required>
+                                    <input type="email" name="email" id="edit-email" placeholder="E-Mail"required>
+                                    <input type="number" name="age" id="edit-age" placeholder="Alter, mindestens 18" required>  <!-- Min. 18 -->
+                                    <br>
+                                    <select id="status" name="status" oninput="setCustomValidity('')"> <!-- Benötigt Design  oder als Check-->
+                                        <option value="0" selected ="selected">Benutzer</option>
                                         <option value="1">Administrator</option>
                                     </select>
                                     <button type="submit">Submit</button>
@@ -246,13 +243,13 @@ require_once "config.php";
                 });
             }
 
-                <?php
-                    $allowedPanels = ['profilePanel', 'messagingPanel', 'aiGuidancePanel'];
+            <?php
+                $allowedPanels = ['profilePanel', 'messagingPanel', 'aiGuidancePanel'];
 
-                    if ($user['status'] == 1) {
-                        $allowedPanels[] = 'adminPanel';
-                    }
-                ?>
+                if ($user['status'] == 1) {
+                    $allowedPanels[] = 'adminPanel';
+                }
+            ?>
 
             const allowedPanels = <?= json_encode($allowedPanels) ?>;
 
@@ -343,14 +340,13 @@ require_once "config.php";
 
             renderMessages();
 
-            function editUser(userId) {
-                const userCard = document.getElementById(`user-${userId}`);
-                const name = userCard.querySelector('p:nth-child(1)').textContent.split(': ')[1];
-                const email = userCard.querySelector('p:nth-child(2)').textContent.split(': ')[1];
+            function showForm(user) {
 
-                document.getElementById('edit-user-id').value = userId;
-                document.getElementById('edit-name').value = name;
-                document.getElementById('edit-email').value = email;
+                document.getElementById('edit-user-id').value = user.Id;
+                document.getElementById('edit-name').value = user.name;
+                document.getElementById('edit-email').value = user.email;
+                document.getElementById('edit-age').value = user.age;
+                document.getElementById('status').value = user.status;
 
                 document.getElementById('user-list').style.display = 'none';
                 document.getElementById('edit-user-form').style.display = 'block';
