@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <!-- <link rel="stylesheet" type="text/css" href="../public/Stylesheet.css" /> -->
         <link rel="stylesheet" type="text/css" href="../public/profilestylesheet.css" />
     </head>
-    <body>
+    <body class="register-page">
         <header>
             <div class="popup-icon" onclick="togglePopupMenu()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
@@ -208,7 +208,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                 <p>&copy; 2025 Religion name All rights reserved.</p>
             <ul>
                 <li><a href="../public/Impressum.html">Impressum</a></li>
-                <li><a href="../public/PricacyPolicy.html">Privacy Policy</a></li>
+                <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>
                 <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
             </ul>
             </section>

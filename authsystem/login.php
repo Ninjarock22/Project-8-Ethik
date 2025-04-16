@@ -48,11 +48,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="../public/profilestylesheet.css" />
         <link rel="icon" type="image/jpg" href="../images/icons/icon.jpg">
-        <script src="js/carousel.js"></script>
-        <script src="js/Smooth-scrolling-behavior.js"></script>
-        <script src="js/Buttonlink.js"></script>
     </head>
-    <body>
+    <body class="login-page">
         <header>
             <div class="popup-icon" onclick="togglePopupMenu()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu">
@@ -169,7 +166,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                 <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a><p>&copy; 2025 Religion name All rights reserved.</p>
             <ul>
                 <li><a href="../public/Impressum.html">Impressum</a></li>
-                <li><a href="../public/PricacyPolicy.html">Privacy Policy</a></li>
+                <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>
                 <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
             </ul>
             </section>

@@ -17,6 +17,8 @@ $count = $row[0];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Religion Name</title>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../public/Stylesheet.css">
 </head>
 <body>
@@ -80,7 +82,7 @@ $count = $row[0];
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
         </div>
-        <button class="custom-button" id="btn-login">Login</button>
+        <button class="login-button" id="btn-login">Login</button>
     </header>
     <!-- Popup Menu -->
     <div id="popup-menu" class="popup-menu">
@@ -145,10 +147,11 @@ $count = $row[0];
             </ul>
         </div>
     </div>
-    <video class="background-video" autoplay muted loop>
+    <!--<video class="background-video" autoplay muted loop>
         <source src="Porscheclip2.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+        Your browser does not support the video tag. Create with Sora: I would like an inspirational video to advertise a new religion based off of common sense and self optimization. The video should invoke the sence of becoming the best version of yourself whilst lialso living in a society where people help one another. 
+    </video>-->
+    <img class="background-image" src="../Background.png" alt="Background Image"><!--Next Sora prompt: Show the person standing on the top of some roch of a mountain to express that he made it to the top of the world and gives the viewer the scense of fullfillment. And: generate a small logo of this man for this religion-->
     <div class="overlay">
         <section id="home">
             <h1 style="font-size: 4rem; font-weight: 600;">Religion Name</h1>
@@ -247,7 +250,18 @@ $count = $row[0];
                 </div>
             </section>
         </section>
-        
+        <section id="become-member">
+            <h1>Join our community</h1>
+            <p>Join our community and be part of something special. Sign up now to access exclusive content and connect with like-minded individuals.</p>
+            <p>We are currently <span id="member-count"><?php echo ($count) ?></span> members strong and growing every day!</p>
+            <div>
+                <div id="counter-display" class="clock" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 20px; background-color: #ffffff21; border: solid 5px #ffffff; border-radius: 10px">
+                    <!-- Digits will be generated dynamically -->
+                  </div>
+            </div>
+            <h1> Sign up here</h1>
+            <button onclick="window.location.href='register.php';">Become a member</button>
+        </section>
         <section id="services">
             <h2>Our Services</h2>
             <div id="carousel" class="carousel">
@@ -282,83 +296,66 @@ $count = $row[0];
                 <button class="carousel-control next">❯</button>
             </div>                      
         </section>
-        <section id="become-member">
-            <h1>Join our community</h1>
-            <p>Join our community and be part of something special. Sign up now to access exclusive content and connect with like-minded individuals.</p>
-            <p>We are currently <span id="member-count">0</span> members strong and growing every day!</p>
-            <div>
-                <div id="counter-display" class="clock" style="display: flex; gap: 10px; margin-bottom: 20px;">
-                    <!-- Digits will be generated dynamically -->
-                  </div>
-            </div>
-           <!-- <h1> Sign up here</h1>
-
-            <button class="custom-button" id="btn-signup">Become a Member</button>
-            <section id="to-top">
-                <button class="to-top-button" onclick="scrollToPosition()">Back to Top</button>
-                Dient als Test für die Funktionalität für zum Beispiel später zum service aus dem dropdown menü zu wechseln(runterscrollen zu der Position) 
-            </section>
-        </section>-->
     </main>
         <script>
-            let count = 0;
             const counterDisplay = document.getElementById("counter-display");
-        
+            const memberCount = <?php echo json_encode($count); ?>; // Fetch the member count from PHP
+
             function initializeCounter(digits) {
-                counterDisplay.innerHTML = "";
-                for (let i = 0; i < digits; i++) {
+            counterDisplay.innerHTML = "";
+            for (let i = 0; i < digits; i++) {
                 const digitDiv = document.createElement("div");
                 digitDiv.className = "digit";
                 digitDiv.id = `digit-${i}`;
                 digitDiv.style = `
-                    position: relative; 
-                    width: ${60 / digits}vw; 
-                    height: 20vh; 
-                    background: #000; 
-                    border-radius: 5px; 
-                    overflow: hidden; 
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
-                    display: flex; 
-                    justify-content: center; 
-                    align-items: center; 
-                    font-size: 10vh; 
-                    font-weight: bold; 
-                    color: #800020;
+                position: relative; 
+                width: ${60 / digits}vw; 
+                height: 20vh; 
+                background: #000; 
+                border-radius: 5px; 
+                overflow: hidden; 
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                font-size: 10vh; 
+                font-weight: bold; 
+                color: #800020;
                 `;
                 digitDiv.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">0</span>`;
                 counterDisplay.appendChild(digitDiv);
-                }
             }
-        
-            function incrementCounter() {
-                count++;
-                const countStr = count.toString().padStart(7, "0"); // Ensure 7 digits
-        
-                if (countStr.length > counterDisplay.children.length) {
+            }
+
+            function updateCounter(value) {
+            const countStr = value.toString().padStart(7, "0"); // Ensure 7 digits
+
+            if (countStr.length > counterDisplay.children.length) {
                 initializeCounter(countStr.length);
-                }
-        
-                for (let i = 0; i < countStr.length; i++) {
+            }
+
+            for (let i = 0; i < countStr.length; i++) {
                 updateDigit(`digit-${i}`, countStr[i]);
-                }
             }
-        
+            }
+
             function updateDigit(id, newValue) {
-                const digitElement = document.getElementById(id);
-                const currentValue = digitElement.querySelector("span").textContent;
-        
-                if (currentValue !== newValue) {
+            const digitElement = document.getElementById(id);
+            const currentValue = digitElement.querySelector("span").textContent;
+
+            if (currentValue !== newValue) {
                 digitElement.classList.add("flip");
-        
+
                 setTimeout(() => {
-                    digitElement.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">${newValue}</span>`;
-                    digitElement.classList.remove("flip");
+                digitElement.innerHTML = `<span style="position: absolute; transition: transform 0.5s ease-in-out;">${newValue}</span>`;
+                digitElement.classList.remove("flip");
                 }, 500);
-                }
             }
-        
-            // Initialize with 7 digits
+            }
+
+            // Initialize with 7 digits and update with the member count
             initializeCounter(7);
+            updateCounter(memberCount);
         </script>
     <footer>
         <section id="contact">
@@ -369,19 +366,29 @@ $count = $row[0];
         <p>&copy; 2025 Religion name All rights reserved.</p>
         <ul>
             <li><a href="../public/Impressum.html">Impressum</a></li>
-            <li><a href="../public/PricacyPolicy.html">Privacy Policy</a></li>
+            <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>
             <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
         </ul>
     </footer>
     <script src="../public/js/carousel.js"></script>
-    <script src="../public/js/Smooth-scrolling-behavior.js"></script>
-    <script src="../public/js/Buttonlink.js"></script>
     <script>
         document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
         });
 
         function togglePopupMenu() {
+            Swal.fire({
+                title: 'Information',
+                text: 'Das Menü ist aktuell deaktiviert.',
+                icon: 'warning',
+                background: '#333',
+                color: 'white',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true
+            });
             var popupMenu = document.getElementById("popup-menu");
             popupMenu.classList.toggle("show");
         }

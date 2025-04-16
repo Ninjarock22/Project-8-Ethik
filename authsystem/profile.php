@@ -138,7 +138,7 @@ require_once "config.php";
                         <button class="logout-btn" onclick="logoutUser()">Logout</button>
                     </div>
                 </div>
-                <div class="panel-container" id="messagingPanel">
+                <div class="panel-container" id="messagingPanel" style="display: none;">
                     <h2>Forum</h2>
                     <div class="messaging-container">
                         <h3>Send a Message</h3>
@@ -147,20 +147,65 @@ require_once "config.php";
                         <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
                     </div>
                 </div>
-                <div class="panel-container" id="aiGuidancePanel">
+                <div class="panel-container" id="aiGuidancePanel" style="display: none;">
                     <h2>AI Guidance</h2>
-                    <div class="ai-guidance-container">
-                        <div id="chat-container">
-                            <?php include "../public/chat.html"; ?>
+                    <div class="chat-wrapper">
+                        <div class="chat-container">
+                            <div id="chat-box"></div>
+                            <div class="input-container">
+                                <input id="message-input" type="text" placeholder="Type a message...">
+                                <button id="send-btn" class="send-btn">Send</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="panel-container" id="adminPanel">
+                <div class="panel-container" id="adminPanel" style="display: none;">
                     <h2>Admin Panel</h2>
                     <div class="admin-container">
                         <?php if ($user['status'] == 1): ?>
-                            <h3>Admin Panel: View and Edit</h3>
-                            <textarea disabled>NOT Available</textarea>
+                            <h3>Manage Users</h3>
+                            <div id="user-list">
+                                <?php
+                                $query = "SELECT * FROM users";
+                                $result = $db->query($query);
+                                if ($result->num_rows > 0):
+                                    while ($row = $result->fetch_assoc()): ?>
+                                        <div class="user-card" id="user-<?= $row['id'] ?>">
+                                            <div class="user-info">
+                                                <span><strong>Name:</strong> <?= htmlspecialchars($row['name']) ?></span>
+                                                <span><strong>Email:</strong> <?= htmlspecialchars($row['email']) ?></span>
+                                            </div>
+                                            <div class="action-buttons">
+                                                <button class="action-btn" onclick="editUser(<?= $row['id'] ?>)">Edit</button>
+                                                <button class="action-btn delete-btn" onclick="deleteUser(<?= $row['id'] ?>)">Delete</button>
+                                            </div>
+                                        </div>
+                                    <?php endwhile;
+                                else: ?>
+                                    <p>No users found.</p>
+                                <?php endif; ?>
+                            </div>
+                            <div id="edit-user-form" style="display: none;">
+                                <h3>Edit User</h3>
+                                <form id="editForm" method="POST" action="update_user.php">
+                                    <input type="hidden" name="id" id="edit-user-id">
+                                    <label for="edit-name">Name:</label>
+                                    <input type="text" name="name" id="edit-name" required>
+                                    <label for="edit-email">Email:</label>
+                                    <input type="email" name="email" id="edit-email" required>
+                                    <label for="edit-age">Age:</label>
+                                    <input type="number" name="age" id="edit-age" required>
+                                    <label for="edit-status">Status:</label>
+                                    <select name="status" id="edit-status">
+                                        <option value="0">Benutzer</option>
+                                        <option value="1">Administrator</option>
+                                    </select>
+                                    <button type="submit">Submit</button>
+                                    <button type="button" onclick="cancelEdit()">Cancel</button>
+                                </form>
+                            </div>
+                        <?php else: ?>
+                            <p>You do not have access to this panel.</p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -174,7 +219,7 @@ require_once "config.php";
                 <p>&copy; 2025 Religion name All rights reserved.</p>
                 <ul>
                     <li><a href="../public/Impressum.html">Impressum</a></li>
-                    <li><a href="../public/PricacyPolicy.html">Privacy Policy</a></li>
+                    <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>
                     <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
                 </ul>
             </section>
@@ -221,6 +266,85 @@ require_once "config.php";
                     switchPanel('profilePanel');
                 }
             });
+
+            const messages = [
+                { avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "Hello! How can I assist you today?", type: "ai" },
+            ];
+
+            function renderMessages() {
+                const chatBox = document.getElementById("chat-box");
+                chatBox.innerHTML = "";
+                messages.forEach(msg => {
+                    const msgDiv = document.createElement("div");
+                    msgDiv.className = `message ${msg.type}`;
+                    msgDiv.innerHTML = `
+                        ${msg.type !== "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                        <div class="text">${msg.text}</div>
+                        ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                    `;
+                    chatBox.appendChild(msgDiv);
+                });
+
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+
+            document.getElementById("send-btn").addEventListener("click", () => {
+                const input = document.getElementById("message-input");
+                if (input.value.trim() !== "") {
+                    // User message
+                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/bust-in-silhouette_1f464.png", name: "You", text: input.value, type: "user" });
+
+                    // AI response
+                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "This feature is not yet supported!", type: "ai" });
+                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "The AI is still being trained!", type: "ai" });
+                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "Our Team is working day and night to perfect its responses!", type: "ai" });
+
+                    input.value = "";
+                    renderMessages();
+                }
+            });
+
+            document.getElementById("message-input").addEventListener("keypress", (event) => {
+                if (event.key === "Enter") {
+                    document.getElementById("send-btn").click();
+                }
+            });
+
+            renderMessages();
+
+            function editUser(userId) {
+                const userCard = document.getElementById(`user-${userId}`);
+                const name = userCard.querySelector('p:nth-child(1)').textContent.split(': ')[1];
+                const email = userCard.querySelector('p:nth-child(2)').textContent.split(': ')[1];
+
+                document.getElementById('edit-user-id').value = userId;
+                document.getElementById('edit-name').value = name;
+                document.getElementById('edit-email').value = email;
+
+                document.getElementById('user-list').style.display = 'none';
+                document.getElementById('edit-user-form').style.display = 'block';
+            }
+
+            function cancelEdit() {
+                document.getElementById('edit-user-form').style.display = 'none';
+                document.getElementById('user-list').style.display = 'block';
+            }
+
+            function deleteUser(userId) {
+                if (confirm('Are you sure you want to delete this user?')) {
+                    fetch(`delete_user.php?id=${userId}`, { method: 'GET' })
+                        .then(response => response.text())
+                        .then(data => {
+                            if (data === 'success') {
+                                document.getElementById(`user-${userId}`).remove();
+                                alert('User deleted successfully.');
+                            } else {
+                                alert('Failed to delete user.');
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+            }
         </script>
     </body>
 </html>
