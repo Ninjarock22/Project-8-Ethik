@@ -37,7 +37,7 @@ require_once "config.php";
                     <span class="text">Ziele</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('messagingPanel')" />
+                    <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('forumPanel')" />
                     <span class="text">Forum</span>
                 </label>
                 <label class="label">
@@ -173,14 +173,22 @@ require_once "config.php";
                         </div>
                     </div>
                 </div>
-                <div class="panel-container" id="messagingPanel" style="display: none;">
+                <div class="panel-container" id="forumPanel" style="display: none;">
                     <h2>Forum</h2>
-                    <div class="messaging-container">
-                        <h3>Send a Message</h3>
-                        <textarea id="messageContent" placeholder="NOT Available" disabled></textarea>
-                        <input type="text" id="messageTo" placeholder="" disabled>
-                        <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
+                    <div class="forum-chat-wrapper">
+                        <div class="forum-chat-container">
+                            <div id="forum-chat-box"></div>
+                            <div class="forum-input-container">
+                                <input id="forum-message-input" type="text" placeholder="Type a message...">
+                                <button id="forum-send-btn" class="forum-send-btn">Send</button>
+                            </div>
+                        </div>
                     </div>
+
+
+
+
+
                 </div>
                 <div class="panel-container" id="aiGuidancePanel" style="display: none;">
                     <h2>AI Guidance</h2>
