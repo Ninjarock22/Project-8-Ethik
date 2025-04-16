@@ -695,6 +695,9 @@ section h2 {
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    word-wrap: break-word; /* Lange Wörter umbrechen */
+    white-space: normal; /* Zeilenumbrüche erlauben */
+    display: block; /* Standard-Blockverhalten */
 }
 
 .ziele-entry button {
@@ -709,4 +712,21 @@ section h2 {
 
 .ziele-entry button:hover {
     background-color: #a71d2a;
+}
+
+textarea {
+    resize: none; /* Benutzer kann die Größe nicht manuell ändern */
+    overflow: hidden; /* Keine Scrollleisten anzeigen */
+    width: 100%; /* Volle Breite */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Padding und Border in die Breite einbeziehen */
+}
+
+#zieleList {
+    display: flex;
+    flex-direction: column; /* Ziele untereinander anordnen */
+    gap: 10px; /* Abstand zwischen den Einträgen */
+    width: 100%; /* Volle Breite */
 }

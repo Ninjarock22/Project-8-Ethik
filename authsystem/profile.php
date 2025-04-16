@@ -419,5 +419,13 @@ require_once "config.php";
                 entry.remove();
             }
         </script>
+        <script>
+            document.querySelectorAll('textarea').forEach(textarea => {
+                textarea.addEventListener('input', function () {
+                    this.style.height = 'auto'; // Setze die Höhe zurück
+                    this.style.height = this.scrollHeight + 'px'; // Passe die Höhe an den Inhalt an
+                });
+            });
+        </script>
     </body>
 </html>
