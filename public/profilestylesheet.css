@@ -648,3 +648,65 @@ section h2 {
 .delete-btn:hover {
     background-color: #d32f2f;
 }
+
+.meineZiele-container {
+    margin: 20px;
+    background-color: #ffffff21;
+    border: solid 5px #ffffff;
+    border-radius: 20px;
+    padding: 5vh;
+
+
+    h3{
+        color: #ffffff;
+        padding: 5px; /* Abstand für bessere Lesbarkeit */
+        text-align: left; /* Überschrift linksbündig ausrichten */
+    }
+}
+
+.meineZiele-container form {
+    margin-bottom: 20px;
+}
+
+.meineZiele-container textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.meineZiele-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.meineZiele-container button:hover {
+    background-color: #0056b3;
+}
+
+.ziele-entry {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.ziele-entry button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ziele-entry button:hover {
+    background-color: #a71d2a;
+}
