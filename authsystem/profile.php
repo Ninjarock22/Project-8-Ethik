@@ -170,20 +170,18 @@ require_once "config.php";
                                 $result = $db->query($query);
                                 if ($result->num_rows > 0):
                                     while ($row = $result->fetch_assoc()): ?>
-                                        <div class="user-card" id="user-<?= $row['id'] ?>">
+                                        <div class="user-card" id="user-<?= $row['id'] ?>-<?= $row['name'] ?>">
                                             <div class="user-info">
                                                 <span><strong>Name:</strong> <?= htmlspecialchars($row['name']) ?></span>
                                                 <span><strong>Email:</strong> <?= htmlspecialchars($row['email']) ?></span>
                                             </div>
                                             <div class="action-buttons">
                                                 <button class="action-btn" onclick="showForm(<?= htmlspecialchars(json_encode($row)) ?>)">Edit</button>
-                                                <button class="action-btn delete-btn" onclick="deleteUser(<?= $row['id'] ?>)">Delete</button>
+                                                <button class="action-btn delete-btn" onclick="deleteUser('<?= $row['id']?>', '<?php $row['name'] ?>')">Delete</button>
                                             </div>
                                         </div>
                                     <?php endwhile;
-                                else: ?>
-                                    <p>No users found.</p>
-                                <?php endif; ?>
+                                endif; ?>
                             </div>
                             <div id="edit-user-form" style="display: none;">
                                 <h3>Edit User</h3>
@@ -269,6 +267,8 @@ require_once "config.php";
                         color: 'white',
                         confirmButtonText: 'OK',
                         confirmButtonColor: '#FF0000',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
                     }).then (result => {
                         if (result.isConfirmed) {
                             switchPanel('profilePanel');
@@ -284,16 +284,6 @@ require_once "config.php";
             } else {
                 switchPanel('profilePanel');
             }
-
-
-            window.addEventListener('load', function () {
-                const panelId = sessionStorage.getItem('panelId');
-                if (panelId) {
-                    switchPanel(panelId);
-                } else {
-                    switchPanel('profilePanel');
-                }
-            });
 
             const messages = [
                 { avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "Hello! How can I assist you today?", type: "ai" },
@@ -342,7 +332,7 @@ require_once "config.php";
 
             function showForm(user) {
 
-                document.getElementById('edit-user-id').value = user.Id;
+                document.getElementById('edit-user-id').value = user.id;
                 document.getElementById('edit-name').value = user.name;
                 document.getElementById('edit-email').value = user.email;
                 document.getElementById('edit-age').value = user.age;
@@ -357,21 +347,69 @@ require_once "config.php";
                 document.getElementById('user-list').style.display = 'block';
             }
 
-            function deleteUser(userId) {
-                if (confirm('Are you sure you want to delete this user?')) {
-                    fetch(`delete_user.php?id=${userId}`, { method: 'GET' })
-                        .then(response => response.text())
+            function deleteUser(userId, username) {
+                console.log(userId, username);
+                Swal.fire({
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    theme: 'dark',
+                    title: 'Nutzer löschen?',
+                    text: 'Benutzer ' + username + ' wird gelöscht',
+                    icon: 'question',
+                    showCancelButton: true,
+                    showConfirmButton: true,
+                    color: 'white',
+                    confirmButtonColor: '#FF0000',
+                    cancelButtonColor: '#00FF00',
+                    confirmButtonText: 'Ja, Löschen!',
+                    cancelButtonText:  'Nein'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch('delete_user.php', {
+                            method: 'POST',
+                            body: JSON.stringify({ userId: userId }),
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                            
+                        }).then(response => response.json())
                         .then(data => {
-                            if (data === 'success') {
-                                document.getElementById(`user-${userId}`).remove();
-                                alert('User deleted successfully.');
+                            if (data.status === 'success') {
+                                Swal.fire({
+                                    title: 'Erfolg',
+                                    text: 'Der Nutzer wurde erfolgreich gelöscht.',
+                                    icon: 'success',
+                                    background: '#333',
+                                    color: 'white',
+                                    confirmButtonText: 'OK'
+                                }).then(() => {
+                                    window.location.href = 'profile.php';
+                                });
                             } else {
-                                alert('Failed to delete user.');
+                                Swal.fire({
+                                    title: 'Fehler',
+                                    text: 'Fehler beim Löschen des Nutzers.',
+                                    icon: 'error',
+                                    background: '#333',
+                                    color: 'white',
+                                    confirmButtonText: 'OK'
+                                });
                             }
                         })
-                        .catch(error => console.error('Error:', error));
-                }
+                        .catch(error => {
+                            Swal.fire({
+                                title: 'Fehler',
+                                text: 'Es gab ein Problem mit der Anfrage.',
+                                icon: 'error',
+                                background: '#333',
+                                color: 'white',
+                                confirmButtonText: 'OK'
+                            });
+                        });
+                    }
+                });
             }
         </script>
+
     </body>
 </html>
