@@ -602,10 +602,9 @@ section h2 {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 3px solid #bebcbc;
     border-radius: 5px;
     margin-bottom: 10px;
-    background-color: #f9f9f9;
 }
 
 .user-info {
@@ -618,7 +617,6 @@ section h2 {
     flex-direction: row; /* Align spans horizontally */
     align-items: center; /* Vertically align spans */
     gap: 10px; /* Add spacing between spans */
-    color: #000;
 }
 
 .action-buttons {
