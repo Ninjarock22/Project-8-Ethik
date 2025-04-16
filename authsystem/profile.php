@@ -147,11 +147,15 @@ require_once "config.php";
                         <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
                     </div>
                 </div>
-                <div class="panel-container" id="aiGuidancePanel">
+                <div class="aiGuidancePanel" id="aiGuidancePanel">
                     <h2>AI Guidance</h2>
-                    <div class="ai-guidance-container">
-                        <div id="chat-container">
-                            <?php include "../public/chat.html"; ?>
+                    <div class="chat-wrapper">
+                        <div class="chat-container">
+                            <div id="chat-box"></div>
+                            <div class="input-container">
+                                <input id="message-input" type="text" placeholder="Type a message...">
+                                <button id="send-btn" class="send-btn">Send</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -221,6 +225,51 @@ require_once "config.php";
                     switchPanel('profilePanel');
                 }
             });
+
+            const messages = [
+                { avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "Hello! How can I assist you today?", type: "ai" },
+            ];
+
+            function renderMessages() {
+                const chatBox = document.getElementById("chat-box");
+                chatBox.innerHTML = "";
+                messages.forEach(msg => {
+                    const msgDiv = document.createElement("div");
+                    msgDiv.className = `message ${msg.type}`;
+                    msgDiv.innerHTML = `
+                        ${msg.type !== "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                        <div class="text">${msg.text}</div>
+                        ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                    `;
+                    chatBox.appendChild(msgDiv);
+                });
+
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+
+            document.getElementById("send-btn").addEventListener("click", () => {
+                const input = document.getElementById("message-input");
+                if (input.value.trim() !== "") {
+                    // User message
+                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/bust-in-silhouette_1f464.png", name: "You", text: input.value, type: "user" });
+
+                    // AI response
+                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "This feature is not yet supported!", type: "ai" });
+                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "The AI is still being trained!", type: "ai" });
+                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "Our Team is working day and night to perfect its responses!", type: "ai" });
+
+                    input.value = "";
+                    renderMessages();
+                }
+            });
+
+            document.getElementById("message-input").addEventListener("keypress", (event) => {
+                if (event.key === "Enter") {
+                    document.getElementById("send-btn").click();
+                }
+            });
+
+            renderMessages();
         </script>
     </body>
 </html>
