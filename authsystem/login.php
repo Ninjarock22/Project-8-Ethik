@@ -10,10 +10,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     $password = trim($_POST['password']);
 
     if(empty($email)) {
-        $error .= '<p class="error"> Bitte eine E-Mail angeben</p>';
+        $error .= 'Bitte eine E-Mail angeben';
     }
-    if (empty($password)) {
-        $error .= '<p class="error"> Bitte Passwort eingeben</p>';
+    if (empty($password) && !empty($email)) {
+        $error .= 'Bitte Passwort eingeben';
     }
     if(empty($error)){
         if($query = $db->prepare("SELECT * FROM users WHERE email =?")){
@@ -29,10 +29,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     header("Location: ../authsystem/profile.php");
                     exit;
                 }else{
-                    $error .= '<p class="error"> E-Mail oder Kennwort falsch.</p>'; #Falsches Passwort
+                    $error .= 'E-Mail oder Kennwort falsch.'; #Falsches Passwort
                 }
             }else{
-                $error .= '<p class="error"> E-Mail oder Kennwort falsch.</p>'; #Falsche E-Mail
+                $error .= 'E-Mail oder Kennwort falsch.'; #Falsche E-Mail
             }
         }
         $query->close();
@@ -48,6 +48,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="../public/profilestylesheet.css" />
         <link rel="icon" type="image/jpg" href="../images/icons/icon.jpg">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body class="login-page">
         <header>
@@ -58,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </div>
-            <button class="login-button" onclick="window.location.href='login.php';">Login</button>
+            <button class="login-button" onclick="window.location.href='register.php';">Sign up</button>
         </header>
         <div id="popup-menu" class="popup-menu">
             <div class="card3">
@@ -133,11 +135,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     </div>
                     <div class="form-group">
                         <!-- <label>E-Mail Adresse</label> -->
-                        <input type="email" name="email" class="form-control" placeholder="E-Mail" required=""  oninvalid="this.setCustomValidity('Bitte eine gültige E-Mail eingeben')" oninput="setCustomValidity('')"/>
+                        <input type="email" name="email" class="form-control" placeholder="E-Mail" oninput="setCustomValidity('')"/>
                     </div>
                     <div class="form-group">
                         <!-- <label>Passwort</label>-->
-                        <input type="password" name="password" class="form-control" required="" placeholder="Passwort" oninvalid="this.setCustomValidity('Bitte ein Passwort eingeben')" oninput="setCustomValidity('')" />
+                        <input type="password" name="password" class="form-control" oninput="setCustomValidity('')" />
                     </div>
                     <br>
                     <div class="form-group">
@@ -153,9 +155,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                         </div>
                     </div>
                     <br>
-                    <div class="messages">
-                        <?php echo $error; ?>   
-                    </div>
+                    <?php
+                        if (!empty($error)) {
+                            echo "<script>
+                                Swal.fire({
+                                    title: 'Fehler!',
+                                    text: '" . addslashes($error) . "',
+                                    icon: 'error',
+                                    confirmButtonText: 'OK',
+                                    background: '#333',
+                                    color: 'white',
+                                    showConfirmButton: false,
+                                    timer: 4000,
+                                    showProgressBar: true,
+                                    toast: true,
+                                    position: 'top-end',
+                                });
+                            </script>";
+                        }
+                    ?>
                 </form>
             </div>
         </main>
