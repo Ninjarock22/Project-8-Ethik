@@ -29,19 +29,19 @@ require_once "config.php";
             </div> 
             <div class="radio-input">
                 <label class="label">
-                    <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('profilePanel')" />
+                    <input type="radio" id="1" name="value-radio" value="1" onclick="switchPanel('profilePanel')" />
                     <span class="text">Profile</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('messagingPanel')" />
+                    <input type="radio" id="2" name="value-radio" value="2" onclick="switchPanel('messagingPanel')" />
                     <span class="text">Forum</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="value-3" name="value-radio" value="value-3" onclick="switchPanel('aiGuidancePanel')" />
+                    <input type="radio" id="3" name="value-radio" value="3" onclick="switchPanel('aiGuidancePanel')" />
                     <span class="text">Ask AI</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="value-4" name="value-radio" value="value-4" onclick="switchPanel('adminPanel')" />
+                    <input type="radio" id="4" name="value-radio" value="4" onclick="switchPanel('adminPanel')" />
                     <span class="text">Admin</span>
                 </label>
             </div>
@@ -205,7 +205,7 @@ require_once "config.php";
                                 </form>
                             </div>
                         <?php else: ?>
-                            <p>You do not have access to this panel.</p>
+                           <p>You do not have permission to access the admin panel.</p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -246,17 +246,48 @@ require_once "config.php";
                 });
             }
 
+                <?php
+                    $allowedPanels = ['profilePanel', 'messagingPanel', 'aiGuidancePanel'];
+
+                    if ($user['status'] == 1) {
+                        $allowedPanels[] = 'adminPanel';
+                    }
+                ?>
+
+            const allowedPanels = <?= json_encode($allowedPanels) ?>;
+
             function switchPanel(panelId) {
-                const panel = document.querySelectorAll('.panel-container');
-                panel.forEach(panel => panel.style.display = 'none');
-                const targetPanel = document.getElementById(panelId);
-                if (targetPanel) {
-                    targetPanel.style.display = 'block';
+                const panels = document.querySelectorAll('.panel-container');
+                panels.forEach(panel => panel.style.display = 'none');
+
+                if (allowedPanels.includes(panelId)) {
+                    document.getElementById(panelId).style.display = 'block';
                     sessionStorage.setItem('panelId', panelId);
                 } else {
-                    console.error(`Panel with ID "${panelId}" not found.`);
+                    Swal.fire({
+                        title: 'Access Denied',
+                        text: 'You do not have permission to access this panel.',
+                        icon: 'error',
+                        background: '#333',
+                        color: 'white',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#FF0000',
+                    }).then (result => {
+                        if (result.isConfirmed) {
+                            switchPanel('profilePanel');
+                        }
+                    });
+                    sessionStorage.setItem('panelId', 'profilePanel');
                 }
             }
+
+            const savedPanel = sessionStorage.getItem('panelId');
+            if (savedPanel) {
+                switchPanel(savedPanel);
+            } else {
+                switchPanel('profilePanel');
+            }
+
 
             window.addEventListener('load', function () {
                 const panelId = sessionStorage.getItem('panelId');
