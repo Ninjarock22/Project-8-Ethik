@@ -48,9 +48,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="../public/profilestylesheet.css" />
         <link rel="icon" type="image/jpg" href="../images/icons/icon.jpg">
-        <script src="js/carousel.js"></script>
-        <script src="js/Smooth-scrolling-behavior.js"></script>
-        <script src="js/Buttonlink.js"></script>
     </head>
     <body class="login-page">
         <header>
