@@ -596,3 +596,57 @@ section h2 {
 #aiGuidancePanel .message.user .text {
     order: 1; /* Ensure the text appears before the avatar */
 }
+
+.user-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.user-info {
+    flex: 7; /* Takes up 70% of the width */
+    margin-right: 10px;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+    display: flex; /* Use flexbox to align items */
+    flex-direction: row; /* Align spans horizontally */
+    align-items: center; /* Vertically align spans */
+    gap: 10px; /* Add spacing between spans */
+    color: #000;
+}
+
+.action-buttons {
+    flex: 2; /* Takes up 30% of the width */
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 5px; /* Add spacing between buttons */
+}
+
+.action-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    width: auto; /* Adjust width to fit the text */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.action-btn:hover {
+    background-color: #ddd;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+}
