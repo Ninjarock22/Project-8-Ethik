@@ -274,6 +274,12 @@ section h2 {
     flex-direction: column;
     width: 100%;
     height: auto;
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #FFFFFF;
+    }
     
 }
 
@@ -464,11 +470,6 @@ section h2 {
     width: 100%;
     height: calc(100vh - 60px); /* Adjust height to fill the screen minus the header height */
     margin-top: 60px; /* Offset to account for the header */
-    
-h2{
-        color: #FFFFFF;
-        font-size: 2rem;
-    }
 }
 
 /* Center the chat-wrapper within the aiGuidancePanel */

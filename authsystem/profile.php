@@ -138,7 +138,7 @@ require_once "config.php";
                         <button class="logout-btn" onclick="logoutUser()">Logout</button>
                     </div>
                 </div>
-                <div class="panel-container" id="messagingPanel">
+                <div class="panel-container" id="messagingPanel" style="display: none;">
                     <h2>Forum</h2>
                     <div class="messaging-container">
                         <h3>Send a Message</h3>
@@ -147,7 +147,7 @@ require_once "config.php";
                         <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
                     </div>
                 </div>
-                <div class="aiGuidancePanel" id="aiGuidancePanel">
+                <div class="panel-container" id="aiGuidancePanel" style="display: none;">
                     <h2>AI Guidance</h2>
                     <div class="chat-wrapper">
                         <div class="chat-container">
@@ -159,7 +159,7 @@ require_once "config.php";
                         </div>
                     </div>
                 </div>
-                <div class="panel-container" id="adminPanel">
+                <div class="panel-container" id="adminPanel" style="display: none;">
                     <h2>Admin Panel</h2>
                     <div class="admin-container">
                         <?php if ($user['status'] == 1): ?>
