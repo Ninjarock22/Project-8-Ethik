@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="extrastylesheet.css">        
+    <link rel="stylesheet" href="profilestylesheet.css">        
 </head>
 <body>
     <header>
@@ -16,7 +16,7 @@
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
         </div>
-        <button class="login-button" onclick="window.location.href='login.html';">Login</button>
+        <button class="login-button" onclick="window.location.href='../authsystem/login.php';">Login</button>
     </header>
     <!-- Popup Menu -->
     <div id="popup-menu" class="popup-menu">
@@ -81,12 +81,12 @@
             </ul>
         </div>
     </div>
-<main></main>    
-    <div class="container">
+<main style="margin-top: 100px; margin-bottom: 100px;">   
+    <div class="container" style=" text-align: center; color: #FFFFFFFF; background-color: #000000; border-radius: 10px; border-width: 2px; border-color: #FFFFFF; border-style: solid; padding: 20px;">
         <h1>About Us</h1>
         <p>Welcome to Ethik! We are dedicated to providing ethical solutions for modern challenges. Our mission is to create a better future through innovation, collaboration, and integrity.</p>
         <p>Feel free to explore our website to learn more about our values, team, and projects.</p>
-        <a href="../authsystem/index.php">Return to Home</a>
+        <button onclick="window.location.href='../authsystem/index.php';" >Return to Home</button>
     </div>
 </main>    
     <footer>
@@ -94,13 +94,13 @@
             <h2>Contact Us</h2>
             <p>Feel free to reach out for more information.</p>
             <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
-        </section>
-        <p>&copy; 2025 Religion name All rights reserved.</p>
+            <p>&copy; 2025 Religion name All rights reserved.</p>
         <ul>
             <li><a href="../public/Impressum.html">Impressum</a></li>
             <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>
             <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
         </ul>
+        </section>
     </footer>
     <script>
         function togglePopupMenu() {

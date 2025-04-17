@@ -863,3 +863,54 @@ body.terms-open {
     border-radius: 4px;
     cursor: pointer;
 }
+
+/* Scoped styles for the Quote of the Month section */
+#quote-of-the-month .quote-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#quote-of-the-month .quote-card {
+    border: 2px solid #ffffff;
+    width: 300px;
+    height: 350px;
+    background: rgba(158, 158, 158, 0);
+    font-family: inherit;
+    position: relative;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#quote-of-the-month .quote-card .card-name {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgb(241, 139, 23);
+    margin-bottom: 20px;
+}
+
+#quote-of-the-month .quote-card .quote {
+    color: rgb(241, 139, 23);
+    margin-bottom: 20px;
+}
+
+#quote-of-the-month .quote-card .body-text {
+    font-size: 20px;
+    font-weight: 900;
+    color: rgb(241, 155, 58);
+    margin-bottom: 20px;
+}
+
+#quote-of-the-month .quote-card .author {
+    font-weight: 700;
+    color: rgb(241, 155, 58);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#quote-of-the-month .quote-card:hover .author {
+    opacity: 1;
+}
