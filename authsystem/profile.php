@@ -378,7 +378,7 @@ require_once "config.php";
             }
 
             <?php
-                $allowedPanels = ['profilePanel', 'messagingPanel', 'aiGuidancePanel'];
+                $allowedPanels = ['profilePanel', 'meineZielePanel', 'forumPanel', 'aiGuidancePanel'];
 
                 if ($user['status'] == 1) {
                     $allowedPanels[] = 'adminPanel';
