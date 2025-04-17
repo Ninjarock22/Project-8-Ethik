@@ -46,6 +46,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="../logo.ico">
+        <meta name="description" content="Religion Name - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
+    <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
         <title>Login</title>
         <link rel="stylesheet" type="text/css" href="../public/profilestylesheet.css" />
         <link rel="icon" type="image/jpg" href="../images/icons/icon.jpg">
@@ -126,9 +129,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
             </div>
         </div>
         <main>
-            <!--<header>
-                <h1>Login</h1>
-            </header>-->
             <div class="login-container">
                 <form action="" method="post">
                     <div class="form-group">
