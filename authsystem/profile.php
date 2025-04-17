@@ -29,7 +29,7 @@ require_once "config.php";
             </div> 
             <div class="radio-input">
                 <label class="label">
-                    <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('profilePanel')" />
+                    <input type="radio" id="1" name="value-radio" value="1" onclick="switchPanel('profilePanel')" />
                     <span class="text">Profile</span>
                 </label>
                 <label class="label">
@@ -41,11 +41,11 @@ require_once "config.php";
                     <span class="text">Forum</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="value-3" name="value-radio" value="value-3" onclick="switchPanel('aiGuidancePanel')" />
+                    <input type="radio" id="3" name="value-radio" value="3" onclick="switchPanel('aiGuidancePanel')" />
                     <span class="text">Ask AI</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="value-4" name="value-radio" value="value-4" onclick="switchPanel('adminPanel')" />
+                    <input type="radio" id="4" name="value-radio" value="4" onclick="switchPanel('adminPanel')" />
                     <span class="text">Admin</span>
                 </label>
             </div>
@@ -208,42 +208,98 @@ require_once "config.php";
                                 $result = $db->query($query);
                                 if ($result->num_rows > 0):
                                     while ($row = $result->fetch_assoc()): ?>
-                                        <div class="user-card" id="user-<?= $row['id'] ?>">
+                                        <div class="user-card" id="user-<?= $row['id'] ?>-<?= $row['name'] ?>">
                                             <div class="user-info">
                                                 <span><strong>Name:</strong> <?= htmlspecialchars($row['name']) ?></span>
                                                 <span><strong>Email:</strong> <?= htmlspecialchars($row['email']) ?></span>
                                             </div>
                                             <div class="action-buttons">
-                                                <button class="action-btn" onclick="editUser(<?= $row['id'] ?>)">Edit</button>
-                                                <button class="action-btn delete-btn" onclick="deleteUser(<?= $row['id'] ?>)">Delete</button>
+                                                <button class="action-btn" onclick="showForm(<?= htmlspecialchars(json_encode($row)) ?>)">Edit</button>
+                                                <button class="action-btn delete-btn" onclick="deleteUser('<?= $row['id']?>', '<?php $row['name'] ?>')">Delete</button>
                                             </div>
                                         </div>
                                     <?php endwhile;
-                                else: ?>
-                                    <p>No users found.</p>
-                                <?php endif; ?>
+                                endif; ?>
                             </div>
                             <div id="edit-user-form" style="display: none;">
                                 <h3>Edit User</h3>
                                 <form id="editForm" method="POST" action="update_user.php">
                                     <input type="hidden" name="id" id="edit-user-id">
-                                    <label for="edit-name">Name:</label>
-                                    <input type="text" name="name" id="edit-name" required>
-                                    <label for="edit-email">Email:</label>
-                                    <input type="email" name="email" id="edit-email" required>
-                                    <label for="edit-age">Age:</label>
-                                    <input type="number" name="age" id="edit-age" required>
-                                    <label for="edit-status">Status:</label>
-                                    <select name="status" id="edit-status">
-                                        <option value="0">Benutzer</option>
+                                    <input type="text" name="name" id="edit-name"  placeholder="Name" autocomplete="on">
+                                    <input type="email" name="email" id="edit-email" placeholder="E-Mail">
+                                    <input type="number" name="age" id="edit-age" placeholder="Alter">  <!-- Min. 18 -->
+                                    <br>
+                                    <!--<select id="status" name="status" data-original-value="0" oninput="setCustomValidity('')">
+                                        <option value="0" selected ="selected">Benutzer</option>
                                         <option value="1">Administrator</option>
-                                    </select>
-                                    <button type="submit">Submit</button>
-                                    <button type="button" onclick="cancelEdit()">Cancel</button>
+                                    </select>-->
+                                    <div class="check-status">
+                                        <input type="hidden" name="status" value="0" data-original-value="0">
+                                        <input type="checkbox" name="status" value="1" id="check-status" data-original-value="0">
+                                        <br>
+                                        <label for="check-status">Administrator</label>
+                                    </div>
+                                    <br>
+                                    <div class="button-container">
+                                        <button type="submit">Submit</button>
+                                        <button type="button" onclick="cancelEdit()">Cancel</button>
+                                    </div>
                                 </form>
+                                <script>
+                                    document.getElementById('editForm').addEventListener('submit', function(e) {
+                                        e.preventDefault();
+
+                                        const isAdminSelect = document.getElementById('check-status');
+                                        const originalValue = isAdminSelect.getAttribute('data-original-value');
+                                        const newValue = isAdminSelect.checked ? "1" : "0";
+
+
+                                        Swal.fire({
+                                            allowOutsideClick: false,
+                                            allowEscapeKey: false,
+                                            title: 'Sind Sie sich sicher, das zu ändern?',
+                                            text: "Die Änderungen lassen sich nicht rückgängig machen.",
+                                            icon: 'question',
+                                            theme: 'dark',
+                                            confirmButtonColor: '#FF0000',
+                                            cancelButtonColor: '#3549C7',
+                                            showCancelButton: true,
+                                            confirmButtonText: 'Ja, ändern!',
+                                            cancelButtonText: 'Abbrechen'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                if (originalValue !== newValue) {
+
+                                                    const statusAlt = originalValue === "1" ? "Admin" : "Benutzer";
+                                                    const statusNeu = newValue === "1" ? "Admin" : "Benutzer";
+
+                                                    Swal.fire({
+                                                        allowOutsideClick: false,
+                                                        allowEscapeKey: false,
+                                                        title: 'Sicherheitshinweis!',
+                                                        text: `Der Status wird von "${statusAlt}" zu "${statusNeu}" geändert. Möchten Sie wirklich fortfahren?`,
+                                                        icon: 'warning',
+                                                        theme: 'dark',
+                                                        confirmButtonColor: '#FF0000',
+                                                        cancelButtonColor: '#3549C7',
+                                                        showCancelButton: true,
+                                                        confirmButtonText: 'Ja, fortfahren!',
+                                                        cancelButtonText: 'Abbrechen'
+                                                    }).then((secondResult) => {
+                                                        if (secondResult.isConfirmed) {
+                                                            e.target.submit();
+                                                        }
+                                                    });
+                                                } else {
+                                                    e.target.submit();
+                                                }
+                                            }
+                                        });
+                                    });
+                                </script>
                             </div>
                         <?php else: ?>
-                            <p>You do not have access to this panel.</p>
+                           <p>You do not have permission to access the admin panel.</p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -262,6 +318,43 @@ require_once "config.php";
                 </ul>
             </section>
         </footer>
+        <?php
+            if (!empty($_SESSION['error'])) {
+                echo "<script>
+                    Swal.fire({
+                        title: 'Fehler!',
+                        text: '" . addslashes($_SESSION['error']) . "',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        background: '#333',
+                        color: 'white',
+                        showConfirmButton: false,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        toast: true,
+                        position: 'top-end',
+                    });
+                </script>";
+                unset($_SESSION['error']);
+            } elseif (!empty($_SESSION['success'])) {
+                echo "<script>
+                    Swal.fire({
+                        title: 'Erfolg!',
+                        text: '" . addslashes($_SESSION['success']) . "',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        background: '#333',
+                        color: 'white',
+                        showConfirmButton: false,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        toast: true,
+                        position: 'top-end',
+                    });
+                </script>";
+                unset($_SESSION['success']);
+            }
+        ?>
         <script>
             function logoutUser() {
                 window.location.href = '/Project-8-Ethik/authsystem/logout.php';
@@ -284,26 +377,49 @@ require_once "config.php";
                 });
             }
 
+            <?php
+                $allowedPanels = ['profilePanel', 'messagingPanel', 'aiGuidancePanel'];
+
+                if ($user['status'] == 1) {
+                    $allowedPanels[] = 'adminPanel';
+                }
+            ?>
+
+            const allowedPanels = <?= json_encode($allowedPanels) ?>;
+
             function switchPanel(panelId) {
-                const panel = document.querySelectorAll('.panel-container');
-                panel.forEach(panel => panel.style.display = 'none');
-                const targetPanel = document.getElementById(panelId);
-                if (targetPanel) {
-                    targetPanel.style.display = 'block';
+                const panels = document.querySelectorAll('.panel-container');
+                panels.forEach(panel => panel.style.display = 'none');
+
+                if (allowedPanels.includes(panelId)) {
+                    document.getElementById(panelId).style.display = 'block';
                     sessionStorage.setItem('panelId', panelId);
                 } else {
-                    console.error(`Panel with ID "${panelId}" not found.`);
+                    Swal.fire({
+                        title: 'Access Denied',
+                        text: 'You do not have permission to access this panel.',
+                        icon: 'error',
+                        background: '#333',
+                        color: 'white',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#FF0000',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                    }).then (result => {
+                        if (result.isConfirmed) {
+                            switchPanel('profilePanel');
+                        }
+                    });
+                    sessionStorage.setItem('panelId', 'profilePanel');
                 }
             }
 
-            window.addEventListener('load', function () {
-                const panelId = sessionStorage.getItem('panelId');
-                if (panelId) {
-                    switchPanel(panelId);
-                } else {
-                    switchPanel('profilePanel');
-                }
-            });
+            const savedPanel = sessionStorage.getItem('panelId');
+            if (savedPanel) {
+                switchPanel(savedPanel);
+            } else {
+                switchPanel('profilePanel');
+            }
 
             const messages = [
                 { avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "Hello! How can I assist you today?", type: "ai" },
@@ -350,14 +466,21 @@ require_once "config.php";
 
             renderMessages();
 
-            function editUser(userId) {
-                const userCard = document.getElementById(`user-${userId}`);
-                const name = userCard.querySelector('p:nth-child(1)').textContent.split(': ')[1];
-                const email = userCard.querySelector('p:nth-child(2)').textContent.split(': ')[1];
+            function showForm(user) {
 
-                document.getElementById('edit-user-id').value = userId;
-                document.getElementById('edit-name').value = name;
-                document.getElementById('edit-email').value = email;
+                document.getElementById('edit-user-id').value = user.id;
+                document.getElementById('edit-name').value = user.name;
+                document.getElementById('edit-email').value = user.email;
+                document.getElementById('edit-age').value = user.age;
+
+                const statusCheckbox = document.getElementById('check-status');
+                if (statusCheckbox) {
+                    const isAdmin = parseInt(user.status) === 1;
+                    statusCheckbox.checked = isAdmin;
+                    statusCheckbox.setAttribute('data-original-value', isAdmin ? '1' : '0');
+                } else {
+                    console.error('Checkbox with ID "status-checkbox" not found.');
+                }
 
                 document.getElementById('user-list').style.display = 'none';
                 document.getElementById('edit-user-form').style.display = 'block';
@@ -368,20 +491,67 @@ require_once "config.php";
                 document.getElementById('user-list').style.display = 'block';
             }
 
-            function deleteUser(userId) {
-                if (confirm('Are you sure you want to delete this user?')) {
-                    fetch(`delete_user.php?id=${userId}`, { method: 'GET' })
-                        .then(response => response.text())
+            function deleteUser(userId, username) {
+                console.log(userId, username);
+                Swal.fire({
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    theme: 'dark',
+                    title: 'Nutzer löschen?',
+                    text: 'Benutzer ' + username + ' wird gelöscht',
+                    icon: 'question',
+                    showCancelButton: true,
+                    showConfirmButton: true,
+                    color: 'white',
+                    confirmButtonColor: '#FF0000',
+                    cancelButtonColor: '#00FF00',
+                    confirmButtonText: 'Ja, Löschen!',
+                    cancelButtonText:  'Nein'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch('delete_user.php', {
+                            method: 'POST',
+                            body: JSON.stringify({ userId: userId }),
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                            
+                        }).then(response => response.json())
                         .then(data => {
-                            if (data === 'success') {
-                                document.getElementById(`user-${userId}`).remove();
-                                alert('User deleted successfully.');
+                            if (data.status === 'success') {
+                                Swal.fire({
+                                    title: 'Erfolg',
+                                    text: 'Der Nutzer wurde erfolgreich gelöscht.',
+                                    icon: 'success',
+                                    background: '#333',
+                                    color: 'white',
+                                    confirmButtonText: 'OK'
+                                }).then(() => {
+                                    window.location.href = 'profile.php';
+                                });
                             } else {
-                                alert('Failed to delete user.');
+                                Swal.fire({
+                                    title: 'Fehler',
+                                    text: 'Fehler beim Löschen des Nutzers.',
+                                    icon: 'error',
+                                    background: '#333',
+                                    color: 'white',
+                                    confirmButtonText: 'OK'
+                                });
                             }
                         })
-                        .catch(error => console.error('Error:', error));
-                }
+                        .catch(error => {
+                            Swal.fire({
+                                title: 'Fehler',
+                                text: 'Es gab ein Problem mit der Anfrage.',
+                                icon: 'error',
+                                background: '#333',
+                                color: 'white',
+                                confirmButtonText: 'OK'
+                            });
+                        });
+                    }
+                });
             }
 
             function saveZiele() {
@@ -429,6 +599,8 @@ require_once "config.php";
                     this.style.height = this.scrollHeight + 'px'; // Passe die Höhe an den Inhalt an
                 });
             });
+
         </script>
+        
     </body>
 </html>
