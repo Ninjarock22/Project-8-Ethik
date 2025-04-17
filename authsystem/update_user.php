@@ -7,10 +7,10 @@ $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'];
-    $name = $_POST['name'];
-    $email = $_POST['email'];   
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);   
     $age = $_POST['age'];
-    $status = $_POST['status'];
+    $status = isset($_POST['status']) ? intval($_POST['status']) : 0;
 
     $stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
     $stmt->bind_param("i", $id);
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $statusdb = $emaildbresult['status'];
 
     if (!empty($name) && !empty($email) && !empty($age)) {
-        if((strtolower(trim($name !== $namedb))) || ($age !== $agedb) || ($status !== $statusdb)){
+        if((strtolower(trim($name)) !== strtolower(trim($namedb))) || (intval($age) !== intval($agedb)) || ($status !== $statusdb)){
             if (strtolower(trim($emaildb)) === strtolower(trim($email))) {
                 if($age >= 18 && $age < 120){
                     $query = "UPDATE users SET name = ?, email = ?, age = ?, status = ? WHERE id = ?";
