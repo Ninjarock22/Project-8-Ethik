@@ -1,17 +1,44 @@
 <?php
 require_once "config.php";
+session_start();
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+$error = '';
+$success = '';
+$data = json_decode(file_get_contents("php://input"), true); 
 
-    $query = "DELETE FROM users WHERE id = ?";
-    $stmt = $db->prepare($query);
-    $stmt->bind_param("i", $id);
+if ($_SESSION["userid"] == ($data['userId'])) {
+    $error .= 'Du kannst dich nicht selbst löschen.';
+} else {
+    if (isset($data['userId'])) {
+        $id = $data['userId'];
 
-    if ($stmt->execute()) {
-        echo "success";
+        $stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows == 0) {
+            $error .= 'Nutzer nicht gefunden.';
+        } else {
+            $stmt->close();
+
+            $stmt = $db->prepare("DELETE FROM users WHERE id = ?");
+            $stmt->bind_param("i", $id);
+            if ($stmt->execute()) {
+                $success .= 'Account wurde erfolgreich gelöscht.';
+            } else {
+                $error .= 'Fehler beim Löschen.';
+            }
+        }
     } else {
-        echo "error";
+        $error .= 'ID nicht gefunden.';
     }
 }
+
+if (!empty($success)) {
+    echo json_encode(['status' => 'success', 'message' => $success]);
+} else {
+    echo json_encode(['status' => 'error', 'message' => $error]);
+}
+mysqli_close($db);
 ?>

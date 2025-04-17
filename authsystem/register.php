@@ -64,6 +64,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <link rel="icon" type="image/jpg" href="../images/icon.jpg">
         <!-- <link rel="stylesheet" type="text/css" href="../public/Stylesheet.css" /> -->
         <link rel="stylesheet" type="text/css" href="../public/profilestylesheet.css" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body class="register-page">
         <header>
@@ -179,22 +181,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                     </div>
                                 </div>
                                 <br>
-                                <div class="message">
-                                    <div id="message" style="color: green;">
-                                        <?php if (!empty($success)) echo $success; ?>
-                                    </div>
-                                    <div id="message">
-                                        <?php if (!empty($error)) echo $error; ?>
-                                    </div>
-                                </div>
                                 <?php
-                                if (!empty($success)) {
-                                    echo '<script>
-                                        setTimeout(function() {
-                                            window.location.href = "../authsystem/login.php";
-                                        }, 2000);
-                                    </script>';
-                                }
+                                    if (!empty($error)) {
+                                        echo "<script>
+                                            Swal.fire({
+                                                title: 'Fehler!',
+                                                text: '" . addslashes($error) . "',
+                                                icon: 'error',
+                                                confirmButtonText: 'OK',
+                                                background: '#333',
+                                                color: 'white',
+                                                showConfirmButton: false,
+                                                timer: 4000,
+                                                showProgressBar: true,
+                                                toast: true,
+                                                position: 'top-end',
+                                            });
+                                        </script>";
+                                    }else if(!empty($success)){
+                                        echo "<script>
+                                            Swal.fire({
+                                                title: 'Erfolg!',
+                                                text: '" . addslashes($success) . "',
+                                                icon: 'success',
+                                                confirmButtonText: 'OK',
+                                                background: '#333',
+                                                color: 'white',
+                                                showConfirmButton: false,
+                                                timer: 4000,
+                                                showProgressBar: true,
+                                                toast: true,
+                                                position: 'top-end',
+                                            });
+                                            setTimeout(function() {
+                                                window.location.href = 'login.php';
+                                            }, 4000);
+                                        </script>";
+                                    }
                                 ?>
                             </form>
                         </div>

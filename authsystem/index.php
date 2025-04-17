@@ -158,7 +158,7 @@ $count = $row[0];
     <div class="overlay">
         <section id="home">
             <h1 style="font-size: 4rem; font-weight: 600;">Religion Name</h1>
-            <p style="font-size: 2rem; font-weight: 400;">Slogan here</p>
+            <p style="font-size: 2rem; font-weight: 400;">Slogan</p>
         </section>
     </div>
     <main>
@@ -438,6 +438,45 @@ $count = $row[0];
             let offsetTop = element.offsetTop;
             window.scrollTo({ top: offsetTop, behavior: "smooth" });
         }
+
+        function errinerung(){
+            Swal.fire({
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                title: 'Ihre Hilfe ist gefragt!',
+                text: 'Werden Sie jetzt Teil von etwas Großem!',
+                icon: 'question',
+                theme: 'dark',
+                color: 'white',
+                position: 'center',
+                confirmButtonColor: '#FF0000',
+                cancelButtonColor: '#00FF00',
+                showCancelButton: true,
+                showConfirmButton: true,
+                confirmButtonText: 'Jetzt anmelden',
+                cancelButtonText: 'Später',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
+                } else if (result.isDismissed) {
+                    Swal.fire({
+                        title: 'Kein Problem!',
+                        text: 'Wir sind immer hier, wenn Sie bereit sind!',
+                        icon: 'success',
+                        theme: 'dark',
+                        color: 'white',
+                        position: 'top-end',
+                        toast: true,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(errinerung, 20000);
+        });
     </script>
 </body>
 </html>
