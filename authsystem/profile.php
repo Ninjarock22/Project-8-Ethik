@@ -184,11 +184,6 @@ require_once "config.php";
                             </div>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
                 <div class="panel-container" id="aiGuidancePanel" style="display: none;">
                     <h2>AI Guidance</h2>
