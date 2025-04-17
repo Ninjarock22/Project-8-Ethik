@@ -648,3 +648,56 @@ section h2 {
 .delete-btn:hover {
     background-color: #d32f2f;
 }
+
+#status {
+    width: 90%; /* Matches the width of the input fields above */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    appearance: none; /* Removes default browser styling */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    cursor: pointer;
+}
+
+#status:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#status option {
+    padding: 10px;
+}
+
+#editForm .button-container {
+    display: flex;
+    justify-content: flex-end; /* Center the buttons horizontally */
+    gap: 10px; /* Add spacing between the buttons */
+    margin-top: 10px; /* Add some space above the buttons */
+    margin-left: auto; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    width: 90%; /* Let the container size itself based on its content */
+}
+
+#editForm .button-container button {
+    padding: 5px 10px; /* Adjust padding for a compact size */
+    font-size: 14px; /* Adjust font size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5c67f2; /* Primary button color */
+    color: white;
+    transition: background-color 0.3s ease;
+    width: auto; /* Adjust width to fit the text */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+#editForm .button-container button:hover {
+    background-color: #4a54d1; /* Darker shade on hover */
+}

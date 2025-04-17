@@ -195,8 +195,10 @@ require_once "config.php";
                                         <option value="0" selected ="selected">Benutzer</option>
                                         <option value="1">Administrator</option>
                                     </select>
-                                    <button type="submit">Submit</button>
-                                    <button type="button" onclick="cancelEdit()">Cancel</button>
+                                    <div class="button-container">
+                                        <button type="submit">Submit</button>
+                                        <button type="button" onclick="cancelEdit()">Cancel</button>
+                                    </div>
                                 </form>
                             </div>
                         <?php else: ?>
