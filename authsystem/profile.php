@@ -52,7 +52,7 @@ require_once "config.php";
                     <span class="text">Admin</span>
                 </label>
             </div>
-            <button class="logout-btn" onclick="logoutUser()">Logout</button>
+            <button class="login-button" onclick="logoutUser()">Logout</button>
         </header>
         <div id="popup-menu" class="popup-menu">
             <div class="card3">
