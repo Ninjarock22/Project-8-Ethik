@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </div>
-            <button class="login-button" onclick="window.location.href='login.php';">Login</button>
+            <button class="login-button" onclick="window.location.href='register.php';">SIGN UP</button>
         </header>
         <div id="popup-menu" class="popup-menu">
             <div class="card3">
@@ -123,9 +123,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
             </div>
         </div>
         <main>
-            <!--<header>
-                <h1>Login</h1>
-            </header>-->
             <div class="login-container">
                 <form action="" method="post">
                     <div class="form-group">
