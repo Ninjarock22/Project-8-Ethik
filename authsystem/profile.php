@@ -187,19 +187,74 @@ require_once "config.php";
                                 <h3>Edit User</h3>
                                 <form id="editForm" method="POST" action="update_user.php">
                                     <input type="hidden" name="id" id="edit-user-id">
-                                    <input type="text" name="name" id="edit-name"  placeholder="Name" required>
-                                    <input type="email" name="email" id="edit-email" placeholder="E-Mail"required>
-                                    <input type="number" name="age" id="edit-age" placeholder="Alter, mindestens 18" required>  <!-- Min. 18 -->
+                                    <input type="text" name="name" id="edit-name"  placeholder="Name" autocomplete="on">
+                                    <input type="email" name="email" id="edit-email" placeholder="E-Mail">
+                                    <input type="number" name="age" id="edit-age" placeholder="Alter">  <!-- Min. 18 -->
                                     <br>
-                                    <select id="status" name="status" oninput="setCustomValidity('')"> <!-- Benötigt Design  oder als Check-->
+                                    <!--<select id="status" name="status" data-original-value="0" oninput="setCustomValidity('')">
                                         <option value="0" selected ="selected">Benutzer</option>
                                         <option value="1">Administrator</option>
-                                    </select>
+                                    </select>-->
+                                    <div class="check-status">
+                                        <input type="hidden" name="status" value="0" data-original-value="0">
+                                        <input type="checkbox" name="status" value="1" id="check-status" data-original-value="0">
+                                        <br>
+                                        <label for="check-status">Administrator</label>
+                                    </div>
+                                    <br>
                                     <div class="button-container">
                                         <button type="submit">Submit</button>
                                         <button type="button" onclick="cancelEdit()">Cancel</button>
                                     </div>
                                 </form>
+                                <script>
+                                    document.getElementById('editForm').addEventListener('submit', function(e) {
+                                        e.preventDefault();
+
+                                        const isAdminSelect = document.getElementById('check-status');
+                                        const originalValue = isAdminSelect.getAttribute('data-original-value');
+                                        const newValue = isAdminSelect.checked ? "1" : "0";
+
+
+                                        Swal.fire({
+                                            title: 'Sind Sie sich sicher, das zu ändern?',
+                                            text: "Die Änderungen lassen sich nicht rückgängig machen.",
+                                            icon: 'question',
+                                            theme: 'dark',
+                                            confirmButtonColor: '#FF0000',
+                                            cancelButtonColor: '#3549C7',
+                                            showCancelButton: true,
+                                            confirmButtonText: 'Ja, ändern!',
+                                            cancelButtonText: 'Abbrechen'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                if (originalValue !== newValue) {
+
+                                                    const statusAlt = originalValue === "1" ? "Admin" : "Benutzer";
+                                                    const statusNeu = newValue === "1" ? "Admin" : "Benutzer";
+
+                                                    Swal.fire({
+                                                        title: 'Sicherheitshinweis!',
+                                                        text: `Der Status wird von "${statusAlt}" zu "${statusNeu}" geändert. Möchten Sie wirklich fortfahren?`,
+                                                        icon: 'warning',
+                                                        theme: 'dark',
+                                                        confirmButtonColor: '#FF0000',
+                                                        cancelButtonColor: '#3549C7',
+                                                        showCancelButton: true,
+                                                        confirmButtonText: 'Ja, fortfahren!',
+                                                        cancelButtonText: 'Abbrechen'
+                                                    }).then((secondResult) => {
+                                                        if (secondResult.isConfirmed) {
+                                                            e.target.submit();
+                                                        }
+                                                    });
+                                                } else {
+                                                    e.target.submit();
+                                                }
+                                            }
+                                        });
+                                    });
+                                </script>
                             </div>
                         <?php else: ?>
                            <p>You do not have permission to access the admin panel.</p>
@@ -221,6 +276,43 @@ require_once "config.php";
                 </ul>
             </section>
         </footer>
+        <?php
+            if (!empty($_SESSION['error'])) {
+                echo "<script>
+                    Swal.fire({
+                        title: 'Fehler!',
+                        text: '" . addslashes($_SESSION['error']) . "',
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                        background: '#333',
+                        color: 'white',
+                        showConfirmButton: false,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        toast: true,
+                        position: 'top-end',
+                    });
+                </script>";
+                unset($_SESSION['error']);
+            } elseif (!empty($_SESSION['success'])) {
+                echo "<script>
+                    Swal.fire({
+                        title: 'Erfolg!',
+                        text: '" . addslashes($_SESSION['success']) . "',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        background: '#333',
+                        color: 'white',
+                        showConfirmButton: false,
+                        timer: 4000,
+                        timerProgressBar: true,
+                        toast: true,
+                        position: 'top-end',
+                    });
+                </script>";
+                unset($_SESSION['success']);
+            }
+        ?>
         <script>
             function logoutUser() {
                 window.location.href = '/Project-8-Ethik/authsystem/logout.php';
@@ -338,7 +430,15 @@ require_once "config.php";
                 document.getElementById('edit-name').value = user.name;
                 document.getElementById('edit-email').value = user.email;
                 document.getElementById('edit-age').value = user.age;
-                document.getElementById('status').value = user.status;
+
+                const statusCheckbox = document.getElementById('check-status');
+                if (statusCheckbox) {
+                    const isAdmin = parseInt(user.status) === 1;
+                    statusCheckbox.checked = isAdmin;
+                    statusCheckbox.setAttribute('data-original-value', isAdmin ? '1' : '0');
+                } else {
+                    console.error('Checkbox with ID "status-checkbox" not found.');
+                }
 
                 document.getElementById('user-list').style.display = 'none';
                 document.getElementById('edit-user-form').style.display = 'block';
@@ -411,7 +511,8 @@ require_once "config.php";
                     }
                 });
             }
+            console.log("Checkbox gefunden?", document.getElementById('status-checkbox'));
         </script>
-
+        
     </body>
 </html>

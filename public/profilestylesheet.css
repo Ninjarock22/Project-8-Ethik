@@ -634,19 +634,19 @@ section h2 {
     font-size: 14px;
     width: auto; /* Adjust width to fit the text */
     white-space: nowrap; /* Prevent text wrapping */
-}
 
-.action-btn:hover {
-    background-color: #ddd;
+    :hover {
+        background-color: #ddd;
+    }
 }
 
 .delete-btn {
     background-color: #f44336;
     color: white;
-}
 
-.delete-btn:hover {
-    background-color: #d32f2f;
+    :hover {
+        background-color: #d32f2f;
+    }
 }
 
 #status {
@@ -663,41 +663,66 @@ section h2 {
     background-position: right 10px center;
     background-size: 16px;
     cursor: pointer;
+
+    :focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+    option{
+        padding: 10px;
+    }
 }
 
-#status:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
+#editForm {
 
-#status option {
-    padding: 10px;
-}
+    .button-container {
+        display: flex;
+        justify-content: flex-end; /* Center the buttons horizontally */
+        gap: 10px; /* Add spacing between the buttons */
+        margin-top: 10px; /* Add some space above the buttons */
+        margin-left: auto; /* Center horizontally */
+        margin-right: auto; /* Center horizontally */
+        width: 90%; /* Let the container size itself based on its content */
+    }
 
-#editForm .button-container {
-    display: flex;
-    justify-content: flex-end; /* Center the buttons horizontally */
-    gap: 10px; /* Add spacing between the buttons */
-    margin-top: 10px; /* Add some space above the buttons */
-    margin-left: auto; /* Center horizontally */
-    margin-right: auto; /* Center horizontally */
-    width: 90%; /* Let the container size itself based on its content */
-}
+    .button-container button {
+        padding: 5px 10px; /* Adjust padding for a compact size */
+        font-size: 14px; /* Adjust font size */
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #5c67f2; /* Primary button color */
+        color: white;
+        transition: background-color 0.3s ease;
+        width: auto; /* Adjust width to fit the text */
+        white-space: nowrap; /* Prevent text wrapping */
+    }
 
-#editForm .button-container button {
-    padding: 5px 10px; /* Adjust padding for a compact size */
-    font-size: 14px; /* Adjust font size */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #5c67f2; /* Primary button color */
-    color: white;
-    transition: background-color 0.3s ease;
-    width: auto; /* Adjust width to fit the text */
-    white-space: nowrap; /* Prevent text wrapping */
-}
+    .button-container button:hover {
+        background-color: #4a54d1; /* Darker shade on hover */
+    }
 
-#editForm .button-container button:hover {
-    background-color: #4a54d1; /* Darker shade on hover */
+    .check-status{
+        width: 100%;
+        text-align: center;
+        padding: 3vh;
+        margin-bottom: 10px;
+        input[type="checkbox"]{
+            justify-content: center;
+            text-align: center;
+            max-width: 4vh;
+            height: 4vh;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("../images/icons/cross.png");
+            background-repeat: no-repeat;
+            background-size: 100%, auto;
+            background-position: center;
+            border: hidden;
+        }
+        input[type="checkbox"]:checked{
+            background-image: url("../images/icons/check.png");
+        }
+    }
 }
