@@ -164,7 +164,7 @@ $count = $row[0];
                 <h1>Summary here:</h1>
             </div>
             <div class="container1">
-                <h3> text goes here this is very interesting because here we talk about the reigion and what it does and how cool it is and all that kind of stuff it is very interesting and everyone will love it and stuff and i am running out of things to write so this is going to be it. acctually i want to test the limits for this because i am deffenetly not going to let chat gpt write something for me and put it into this magnificant container i have deffinetly created.</h3>
+                <h3> Lorem ipsum dolor sit amet. Id odit explicabo ut ipsum voluptatem est autem assumenda in sequi nisi et vitae perspiciatis. Aut consequuntur dolores non dolores illo qui necessitatibus tenetur aut quaerat voluptate est quod porro. Qui ratione quia ad corporis magnam At error voluptatem ad sint ducimus qui cumque voluptas. Sed quis praesentium et omnis provident ab voluptatum explicabo qui sunt minima. Non voluptatibus sequi eos consequatur voluptas non earum omnis. Est galisum porro nam necessitatibus voluptatibus nam itaque natus eos deleniti facilis eum molestiae porro. Ea galisum necessitatibus ut sint nobis est autem maiores sed accusantium dicta ad reprehenderit natus ut sapiente alias. Ut eligendi voluptate aut reiciendis ullam ut aliquam animi id omnis eligendi. In vitae explicabo ut nostrum atque est voluptas harum. Non galisum voluptatem et dolorem commodi vel labore nostrum aut alias perferendis sed iste facere.</h3>
             </div>
         </section>
         <section class="text-section">
@@ -172,7 +172,7 @@ $count = $row[0];
                 <h1>Explination here:</h1>
             </div>
             <div class="container1">
-                <h3> text goes here this is very interesting because here we talk about the reigion and what it does and how cool it is and all that kind of stuff it is very interesting and everyone will love it and stuff and i am running out of things to write so this is going to be it. acctually i want to test the limits for this because i am deffenetly not going to let chat gpt write something for me and put it into this magnificant container i have deffinetly created.</h3>
+            <h3> Lorem ipsum dolor sit amet. Id odit explicabo ut ipsum voluptatem est autem assumenda in sequi nisi et vitae perspiciatis. Aut consequuntur dolores non dolores illo qui necessitatibus tenetur aut quaerat voluptate est quod porro. Qui ratione quia ad corporis magnam At error voluptatem ad sint ducimus qui cumque voluptas. Sed quis praesentium et omnis provident ab voluptatum explicabo qui sunt minima. Non voluptatibus sequi eos consequatur voluptas non earum omnis. Est galisum porro nam necessitatibus voluptatibus nam itaque natus eos deleniti facilis eum molestiae porro. Ea galisum necessitatibus ut sint nobis est autem maiores sed accusantium dicta ad reprehenderit natus ut sapiente alias. Ut eligendi voluptate aut reiciendis ullam ut aliquam animi id omnis eligendi. In vitae explicabo ut nostrum atque est voluptas harum. Non galisum voluptatem et dolorem commodi vel labore nostrum aut alias perferendis sed iste facere.</h3>
             </div>
         </section>
         <section class="section-cards">
