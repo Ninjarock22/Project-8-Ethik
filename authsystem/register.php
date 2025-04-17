@@ -57,6 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="../logo.ico">
         <title>Register</title>
         <link rel="icon" type="image/jpg" href="../images/icon.jpg">
         <!-- <link rel="stylesheet" type="text/css" href="../public/Stylesheet.css" /> -->
