@@ -154,8 +154,8 @@ $count = $row[0];
     <img class="background-image" src="../Background.png" alt="Background Image"><!--Next Sora prompt: Show the person standing on the top of some roch of a mountain to express that he made it to the top of the world and gives the viewer the scense of fullfillment. And: generate a small logo of this man for this religion-->
     <div class="overlay">
         <section id="home">
-            <h1 style="font-size: 4rem; font-weight: 600;">Trumpisten</h1>
-            <p style="font-size: 2rem; font-weight: 400;">Make America great again</p>
+            <h1 style="font-size: 4rem; font-weight: 600;">Religion Name</h1>
+            <p style="font-size: 2rem; font-weight: 400;">Slogan</p>
         </section>
     </div>
     <main>
