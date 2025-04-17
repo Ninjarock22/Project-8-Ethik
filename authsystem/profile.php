@@ -217,6 +217,8 @@ require_once "config.php";
 
 
                                         Swal.fire({
+                                            allowOutsideClick: false,
+                                            allowEscapeKey: false,
                                             title: 'Sind Sie sich sicher, das zu ändern?',
                                             text: "Die Änderungen lassen sich nicht rückgängig machen.",
                                             icon: 'question',
@@ -234,6 +236,8 @@ require_once "config.php";
                                                     const statusNeu = newValue === "1" ? "Admin" : "Benutzer";
 
                                                     Swal.fire({
+                                                        allowOutsideClick: false,
+                                                        allowEscapeKey: false,
                                                         title: 'Sicherheitshinweis!',
                                                         text: `Der Status wird von "${statusAlt}" zu "${statusNeu}" geändert. Möchten Sie wirklich fortfahren?`,
                                                         icon: 'warning',
