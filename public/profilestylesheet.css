@@ -659,11 +659,12 @@ section h2 {
 }
 
 .meineZiele-container {
-    margin: 20px;
+    margin: 20px auto; /* Center horizontally using auto for left and right margins */
     background-color: #ffffff21;
     border: solid 5px #ffffff;
     border-radius: 20px;
     padding: 5vh;
+    width: 80%;
 
 
     h3{
