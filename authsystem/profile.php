@@ -33,7 +33,11 @@ require_once "config.php";
                     <span class="text">Profile</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="2" name="value-radio" value="2" onclick="switchPanel('messagingPanel')" />
+                    <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('meineZielePanel')" />
+                    <span class="text">Ziele</span>
+                </label>
+                <label class="label">
+                    <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('forumPanel')" />
                     <span class="text">Forum</span>
                 </label>
                 <label class="label">
@@ -138,13 +142,47 @@ require_once "config.php";
                         <button class="logout-btn" onclick="logoutUser()">Logout</button>
                     </div>
                 </div>
-                <div class="panel-container" id="messagingPanel" style="display: none;">
+                <div class="panel-container" id="meineZielePanel" style="display: none;">
+                    <h2>Meine Ziele</h2>
+                    <div class="meineZiele-container">
+                        <form id="meineZieleForm">
+                            <h3>1. Beschreiben Sie Ihr Problem</h3>
+                            <label for="problem">Problem:</label>
+                            <textarea id="problem" name="problem" placeholder="Beschreiben Sie Ihr Problem..." required></textarea>
+
+                            <h3>2. Beschreiben Sie Ihr Ziel</h3>
+                            <label for="goal">Ziel:</label>
+                            <textarea id="goal" name="goal" placeholder="Beschreiben Sie Ihr Ziel..." required></textarea>
+
+                            <h3>3. Wege, um Ihr Ziel zu erreichen</h3>
+                            <label for="way1">Weg 1:</label>
+                            <textarea id="way1" name="way1" placeholder="Beschreiben Sie den ersten Weg, Ihr Ziel zu erreichen..." required></textarea>
+
+                            <label for="way2">Weg 2:</label>
+                            <textarea id="way2" name="way2" placeholder="Beschreiben Sie den zweiten Weg, Ihr Ziel zu erreichen..." required></textarea>
+                            
+                            <label for="way3">Weg 2:</label>
+                            <textarea id="way3" name="way2" placeholder="Beschreiben Sie den dritten Weg, Ihr Ziel zu erreichen..." required></textarea>
+                            
+                            <button type="button" onclick="saveZiele()">Speichern</button>
+                        </form>
+
+                        <h3>Ihre Ziele</h3>
+                        <div id="zieleList">
+                            <!-- User's goals will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-container" id="forumPanel" style="display: none;">
                     <h2>Forum</h2>
-                    <div class="messaging-container">
-                        <h3>Send a Message</h3>
-                        <textarea id="messageContent" placeholder="NOT Available" disabled></textarea>
-                        <input type="text" id="messageTo" placeholder="" disabled>
-                        <button class="message-btn" onclick="sendMessage()" disabled>Send Message</button>
+                    <div class="forum-chat-wrapper">
+                        <div class="forum-chat-container">
+                            <div id="forum-chat-box"></div>
+                            <div class="forum-input-container">
+                                <input id="forum-message-input" type="text" placeholder="Type a message...">
+                                <button id="forum-send-btn" class="forum-send-btn">Send</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="panel-container" id="aiGuidancePanel" style="display: none;">
@@ -515,7 +553,53 @@ require_once "config.php";
                     }
                 });
             }
-            console.log("Checkbox gefunden?", document.getElementById('status-checkbox'));
+
+            function saveZiele() {
+                const problem = document.getElementById("problem").value.trim();
+                const goal = document.getElementById("goal").value.trim();
+                const way1 = document.getElementById("way1").value.trim();
+                const way2 = document.getElementById("way2").value.trim();
+                const way3 = document.getElementById("way3").value.trim();
+
+                if (!problem || !goal || !way1 || !way2) {
+                    alert("Bitte füllen Sie alle Felder aus.");
+                    return;
+                }
+
+                const zieleList = document.getElementById("zieleList");
+
+                // Create a new goal entry
+                const zieleEntry = document.createElement("div");
+                zieleEntry.className = "ziele-entry";
+                zieleEntry.innerHTML = `
+                    <p><strong>Problem:</strong> ${problem}</p>
+                    <p><strong>Ziel:</strong> ${goal}</p>
+                    <p><strong>Weg 1:</strong> ${way1}</p>
+                    <p><strong>Weg 2:</strong> ${way2}</p>
+                    <p><strong>Weg 3:</strong> ${way3}</p>
+                    <button onclick="deleteZiele(this)">Löschen</button>
+                `;
+
+                // Append the new entry to the list
+                zieleList.appendChild(zieleEntry);
+
+                // Clear the form
+                document.getElementById("meineZieleForm").reset();
+            }
+
+            function deleteZiele(button) {
+                const entry = button.parentElement;
+                entry.remove();
+            }
+        </script>
+        <script>
+            document.querySelectorAll('textarea').forEach(textarea => {
+                textarea.addEventListener('input', function () {
+                    this.style.height = 'auto'; // Setze die Höhe zurück
+                    this.style.height = this.scrollHeight + 'px'; // Passe die Höhe an den Inhalt an
+                });
+            });
+
         </script>
         
     </body>
