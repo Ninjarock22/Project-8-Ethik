@@ -184,7 +184,8 @@ require_once "config.php";
                             <div id="forum-chat-box"></div>
                             <div class="forum-input-container">
                                 <input id="forum-message-input" type="text" placeholder="Type a message...">
-                                <button id="forum-send-btn" class="forum-send-btn">Send</button>
+                                <button id="forum-send-btn" onclick="forumMessages()">Posten</button>
+                                <!-- <button id="forum-refresh-btn" onclick="renderForumMessages()">Render Test</button>  Button zum Testen des Renderns-->
                             </div>
                         </div>
                     </div>
@@ -428,6 +429,96 @@ require_once "config.php";
             const messages = [
                 { avatar: "../images/icons/logo.ico", name: "AI", text: "Hello! How can I assist you today?", type: "ai" },
             ];
+            
+            function forumMessages(){
+               const text = document.getElementById("forum-message-input").value;
+               console.log(text);
+               fetch('forum_messages.php', {
+                    method: 'POST',
+                    body: JSON.stringify({ messagetext: text }),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                    
+                }).then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        Swal.fire({
+                            title: 'Erfolgreich gesendet',
+                            text: '',
+                            icon: 'success',
+                            background: '#333',
+                            color: 'white',
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                        }).then(() => {
+                            window.location.href = 'profile.php';
+                        });
+                    } else {
+                        console.log(data);
+                        Swal.fire({
+                            title: 'Fehler',
+                            text: 'Fehler beim Senden der Nachricht.',
+                            icon: 'error',
+                            background: '#333',
+                            color: 'white',
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                        });
+                    }
+                })
+                .catch(error => {
+                    Swal.fire({
+                        title: 'Fehler',
+                        text: 'Es gab ein Problem mit der Anfrage.',
+                        icon: 'error',
+                        background: '#333',
+                        color: 'white',
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                    });
+                });
+            }
+
+            function renderForumMessages() {
+                const chatBox = document.getElementById("forum-chat-box");
+                chatBox.innerHTML = "";
+
+                const forumMessagesRENDER = <?php
+                    $query = "SELECT * FROM forum WHERE showentry = 1 ORDER BY id ASC";
+                    $result = $db->query($query);
+                    $daten = array();
+                    while ($rowa = $result->fetch_assoc()) {
+                        $daten[] = array(
+                            'id' => $rowa['id'],
+                            'idnutzer' => $rowa['idnutzer'],
+                            'messagetext' => $rowa['messagetext'],
+                            'type' => ($rowa['idnutzer'] == $_SESSION['userid']) ? 'user' : 'ai',
+                            'text' => $rowa['messagetext'],
+                            'avatar' => ($rowa['idnutzer'] == $_SESSION['userid']) ? 'https://em-content.zobj.net/thumbs/240/apple/325/bust-in-silhouette_1f464.png' : 'https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png'
+                        );
+                    }
+                    echo json_encode($daten);
+                ?>;            
+                forumMessagesRENDER.forEach(msg => {
+                    const msgDiv = document.createElement("div");
+                    msgDiv.className = `message ${msg.type}`;
+                    msgDiv.innerHTML = `
+                        ${msg.type !== "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                        <div class="text">${msg.text}</div>
+                        ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                    `;
+                    chatBox.appendChild(msgDiv);
+                });
+
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
 
             function renderMessages() {
                 const chatBox = document.getElementById("chat-box");
@@ -594,8 +685,9 @@ require_once "config.php";
                 const entry = button.parentElement;
                 entry.remove();
             }
-        </script>
-        <script>
+
+            renderForumMessages();
+
             document.querySelectorAll('textarea').forEach(textarea => {
                 textarea.addEventListener('input', function () {
                     this.style.height = 'auto'; // Setze die Höhe zurück
