@@ -426,7 +426,7 @@ require_once "config.php";
             }
 
             const messages = [
-                { avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "Hello! How can I assist you today?", type: "ai" },
+                { avatar: "../images/icons/logo.ico", name: "AI", text: "Hello! How can I assist you today?", type: "ai" },
             ];
 
             function renderMessages() {
@@ -450,12 +450,11 @@ require_once "config.php";
                 const input = document.getElementById("message-input");
                 if (input.value.trim() !== "") {
                     // User message
-                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/bust-in-silhouette_1f464.png", name: "You", text: input.value, type: "user" });
-
+                    messages.push({ avatar: "../images/icons/profilelogo.png", name: "You", text: input.value, type: "user" });
                     // AI response
-                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "This feature is not yet supported!", type: "ai" });
-                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "The AI is still being trained!", type: "ai" });
-                    messages.push({ avatar: "https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png", name: "AI", text: "Our Team is working day and night to perfect its responses!", type: "ai" });
+                    messages.push({ avatar: "../images/icons/logo.ico", name: "AI", text: "This feature is not yet supported!", type: "ai" });
+                    messages.push({ avatar: "../images/icons/logo2.png", name: "AI", text: "The AI is still being trained!", type: "ai" });
+                    messages.push({ avatar: "../images/icons/logo2.png", name: "AI", text: "Our Team is working day and night to perfect its responses!", type: "ai" });
 
                     input.value = "";
                     renderMessages();
