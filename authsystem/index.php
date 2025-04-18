@@ -449,11 +449,11 @@ $count = $row[0];
                 theme: 'dark',
                 color: 'white',
                 position: 'center',
-                confirmButtonColor: '#FF0000',
-                cancelButtonColor: '#00FF00',
+                confirmButtonColor: '#098105',
+                cancelButtonColor: '#FF0000',
                 showCancelButton: true,
                 showConfirmButton: true,
-                confirmButtonText: 'Jetzt anmelden',
+                confirmButtonText: 'Jetzt registrieren',
                 cancelButtonText: 'Später',
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -468,7 +468,7 @@ $count = $row[0];
                         position: 'top-end',
                         toast: true,
                         showConfirmButton: false,
-                        timer: 2000
+                        timer: 3000
                     });
                 }
             });
