@@ -422,7 +422,7 @@ $count = $row[0];
                 toast: true,
                 position: 'top-end',
                 showConfirmButton: false,
-                timer: 3000,
+                timer: 1500,
                 timerProgressBar: true
             });
             var popupMenu = document.getElementById("popup-menu");
@@ -475,7 +475,7 @@ $count = $row[0];
         }
 
         window.addEventListener('load', function () {
-            setTimeout(errinerung, 20000);
+            setTimeout(errinerung, 5000);
         });
     </script>
 </body>
