@@ -413,7 +413,9 @@ $count = $row[0];
         });
 
         function togglePopupMenu() {
-            Swal.fire({
+            var popupMenu = document.getElementById("popup-menu");
+            popupMenu.classList.toggle("show");
+            /*Swal.fire({
                 title: 'Information',
                 text: 'Das Menü ist aktuell deaktiviert.',
                 icon: 'warning',
@@ -424,9 +426,8 @@ $count = $row[0];
                 showConfirmButton: false,
                 timer: 1500,
                 timerProgressBar: true
-            });
-            var popupMenu = document.getElementById("popup-menu");
-            popupMenu.classList.toggle("show");
+            });*/
+            
         }
 
         document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
