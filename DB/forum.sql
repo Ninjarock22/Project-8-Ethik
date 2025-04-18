@@ -40,7 +40,7 @@ CREATE TABLE `forum` (
 --
 
 INSERT INTO `forum` (`id`, `idnutzer`, `messagetext`, `showentry`, `entrytime`) VALUES
-(1, 1, 'Dies ein Text, welcher schon in der Datenbank steht.', 1, '2025-04-17 20:21:18'),
+(1, 1, 'Dies ein Text, welcher schon in der Datenbank steht.', 1, '2025-04-17 20:21:18');
 
 --
 -- Indizes der exportierten Tabellen
@@ -60,7 +60,7 @@ ALTER TABLE `forum`
 -- AUTO_INCREMENT für Tabelle `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
