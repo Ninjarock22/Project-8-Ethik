@@ -42,16 +42,17 @@ body.register-page {
 
 /* Header Styles */
 header {
-    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* Ensure the header is the positioning context */
+    padding: 0 20px;
     top: 0;
     background-color: #2e2b2bb5;
     color: #ffffff;
     padding: 1.5vh 2vh;
     box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.3);
     z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 header nav ul {
@@ -415,7 +416,11 @@ section h2 {
 }
 
 .radio-input {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
+    gap: 10px; /* Adjust spacing between radio buttons */
     align-items: center;
     gap: 10px;
     padding: 10px;
@@ -933,4 +938,12 @@ textarea {
 #forumPanel .forum-message.user .text {
     order: 1; /* Ensure the text appears before the avatar */
 
+}
+
+.popup-icon {
+    z-index: 1; /* Ensure it stays on top */
+}
+
+.login-button {
+    z-index: 1; /* Ensure it stays on top */
 }
