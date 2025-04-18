@@ -39,9 +39,9 @@ Die vollständige Projektbeschreibung finden sie [hier](https://github.com/Ninja
 
 4. ### Anschließend sollte die Webseite angezeigt werden und durch die Nutzung des Login/Sign-up Systems möglich sein
     - Standard Account für Anmeldung:<br>
-        E-Mail: test@test.de <br>
+        E-Mail: `test@test.de` <br>
         ⚠️ **(KEINE echte E-Mail Adresse)** ⚠️ <br>
-        Passwort: testtest<br>
+        Passwort: `testtest`<br>
         (Erstellen Sie dann einen Neuen Zugang und löschen den Standardzugang um die Sicherheit zu gewährleisten)<br>
         (Löschen nur via Datenbank möglich in diesem Programm)
         <br>
