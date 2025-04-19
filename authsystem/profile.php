@@ -36,19 +36,19 @@ require_once "config.php";
                     <span class="text">Profile</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="value-1" name="value-radio" value="value-1" onclick="switchPanel('meineZielePanel')" />
+                    <input type="radio" id="2" name="value-radio" value="2" onclick="switchPanel('meineZielePanel')" />
                     <span class="text">Ziele</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="value-2" name="value-radio" value="value-2" onclick="switchPanel('forumPanel')" />
+                    <input type="radio" id="3" name="value-radio" value="3" onclick="switchPanel('forumPanel')" />
                     <span class="text">Forum</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="3" name="value-radio" value="3" onclick="switchPanel('aiGuidancePanel')" />
+                    <input type="radio" id="4" name="value-radio" value="4" onclick="switchPanel('aiGuidancePanel')" />
                     <span class="text">Ask AI</span>
                 </label>
                 <label class="label">
-                    <input type="radio" id="4" name="value-radio" value="4" onclick="switchPanel('adminPanel')" />
+                    <input type="radio" id="5" name="value-radio" value="5" onclick="switchPanel('adminPanel')" />
                     <span class="text">Admin</span>
                 </label>
             </div>
@@ -778,37 +778,191 @@ require_once "config.php";
                 const way2 = document.getElementById("way2").value.trim();
                 const way3 = document.getElementById("way3").value.trim();
 
-                if (!problem || !goal || !way1 || !way2) {
-                    alert("Bitte füllen Sie alle Felder aus.");
-                    return;
-                }
+                document.querySelectorAll(".meineZieleForm").forEach(input => input.value = "");
 
+
+                const zieleData = {
+                    problem: problem,
+                    goal: goal,
+                    way1: way1,
+                    way2: way2,
+                    way3: way3
+                };
+
+                fetch('goals.php', {
+                    method: 'POST',
+                    body: JSON.stringify(zieleData),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        Swal.fire({
+                            title: 'Erfolg',
+                            text: 'Ziel wurde erfolgreich gespeichert.',
+                            icon: 'success',
+                            background: '#333',
+                            color: 'white',
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                        }).then(() => {
+                            window.location.href = 'profile.php';
+                        });
+                    } else {
+                        Swal.fire({
+                            title: 'Fehler',
+                            text: data.message,
+                            icon: 'error',
+                            background: '#333',
+                            color: 'white',
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                        });
+                    }
+                })
+                .catch(error => {
+                    Swal.fire({
+                        title: 'Fehler',
+                        text: 'Es gab ein Problem mit der Anfrage.',
+                        icon: 'error',
+                        background: '#333',
+                        color: 'white',
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                    });
+                });
+            }
+            const zieleDATA = <?php
+                    $idnutzer = $_SESSION['userid'];
+                    $query = "SELECT * from goals WHERE idnutzer = ?";
+                    $stmt = $db->prepare($query);
+                    $stmt->bind_param("i", $idnutzer);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $datengoals = [];
+                    while ($row = $result->fetch_assoc()) {
+                        $datengoals[] = array(
+                            'id' => $row['id'],
+                            'problem' => $row['problem'],
+                            'goal' => $row['goal'],
+                            'way1' => $row['way1'],
+                            'way2' => $row['way2'],
+                            'way3' => $row['way3']
+                        );
+                    }
+                    
+    
+                    echo json_encode($datengoals);
+                ?>
+            
+            function showZiele(){
+                const zieleDATA = <?php echo json_encode($datengoals); ?>;
                 const zieleList = document.getElementById("zieleList");
-
-                // Create a new goal entry
-                const zieleEntry = document.createElement("div");
-                zieleEntry.className = "ziele-entry";
-                zieleEntry.innerHTML = `
-                    <p><strong>Problem:</strong> ${problem}</p>
-                    <p><strong>Ziel:</strong> ${goal}</p>
-                    <p><strong>Weg 1:</strong> ${way1}</p>
-                    <p><strong>Weg 2:</strong> ${way2}</p>
-                    <p><strong>Weg 3:</strong> ${way3}</p>
-                    <button onclick="deleteZiele(this)">Löschen</button>
-                `;
-
-                // Append the new entry to the list
-                zieleList.appendChild(zieleEntry);
-
-                // Clear the form
-                document.getElementById("meineZieleForm").reset();
+                zieleList.innerHTML = "";
+                zieleDATA.forEach(entry => {
+                    const zieleEntry = document.createElement("div");
+                    zieleEntry.className = "ziele-entry";
+                    zieleEntry.innerHTML = `
+                        <p><strong>Problem:</strong> ${entry.problem}</p>
+                        <p><strong>Ziel:</strong> ${entry.goal}</p>
+                        <p><strong>Weg 1:</strong> ${entry.way1}</p>
+                        <p><strong>Weg 2:</strong> ${entry.way2}</p>
+                        <p><strong>Weg 3:</strong> ${entry.way3}</p>
+                        <button onclick="deleteZiele(${entry.id})">Löschen</button>
+                    `;
+                    zieleList.appendChild(zieleEntry);
+                });
+                Swal.fire({
+                    title: 'Alle Ziele abgerufen',
+                    icon: 'success',
+                    background: '#333',
+                    color: 'white',
+                    position: 'top-end',
+                    toast: true,
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                });
             }
 
-            function deleteZiele(button) {
-                const entry = button.parentElement;
-                entry.remove();
+            function deleteZiele(id) {  
+                Swal.fire({
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    theme: 'dark',
+                    title: 'Ziel löschen?',
+                    text: 'Sind Sie sicher, dass Sie dieses Ziel löschen möchten?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    showConfirmButton: true,
+                    color: 'white',
+                    confirmButtonColor: '#FF0000',
+                    cancelButtonColor: '#00FF00',
+                    confirmButtonText: 'Ja, Löschen!',
+                    cancelButtonText:  'Nein'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch('delete_goals.php', {
+                                    method: 'POST',
+                                    body: JSON.stringify({ goalid: id }),
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    }
+                                    
+                                }).then(response => response.json())
+                                .then(data => {
+                                    if (data.status === 'success') {
+                                        Swal.fire({
+                                            title: 'Erfolg',
+                                            text: 'Der Ziel wurde erfolgreich gelöscht.',
+                                            icon: 'success',
+                                            background: '#333',
+                                            color: 'white',
+                                            toast: true,
+                                            position: 'top-end',
+                                            showConfirmButton: false,
+                                            timer: 2000,
+                                            timerProgressBar: true,
+                                        }).then(() => {
+                                            window.location.href = 'profile.php';
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Fehler',
+                                            text: data.message,
+                                            icon: 'error',
+                                            background: '#333',
+                                            color: 'white',
+                                            confirmButtonText: 'OK'
+                                        });
+                                    }
+                                })
+                                .catch(error => {
+                                    Swal.fire({
+                                        title: 'Fehler',
+                                        text: 'Es gab ein Problem mit der Anfrage.',
+                                        icon: 'error',
+                                        background: '#333',
+                                        color: 'white',
+                                        confirmButtonText: 'OK'
+                                    });
+                                });
+                            };
+                });
             }
 
+            showZiele();
             renderForumMessages();
 
             document.querySelectorAll('textarea').forEach(textarea => {
