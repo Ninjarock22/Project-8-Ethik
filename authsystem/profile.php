@@ -185,7 +185,7 @@ require_once "config.php";
                             <div class="forum-input-container">
                                 <input id="forum-message-input" type="text" placeholder="Type a message...">
                                 <button id="forum-send-btn" onclick="forumMessages()">Posten</button>
-                                <!-- <button id="forum-refresh-btn" onclick="renderForumMessages()">Render Test</button>  Button zum Testen des Renderns-->
+                                <button id="forum-refresh-btn" onclick="renderForumMessages()">Refresh</button>  <!-- Ehemaliger Button zum Testen des Renderns-->
                             </div>
                         </div>
                     </div>
@@ -450,6 +450,7 @@ require_once "config.php";
                             background: '#333',
                             color: 'white',
                             position: 'top-end',
+                            toast: true,
                             showConfirmButton: false,
                             timer: 2000,
                             timerProgressBar: true,
@@ -464,6 +465,7 @@ require_once "config.php";
                             icon: 'error',
                             background: '#333',
                             color: 'white',
+                            toast: true,
                             position: 'top-end',
                             showConfirmButton: false,
                             timer: 2000,
@@ -479,6 +481,7 @@ require_once "config.php";
                         background: '#333',
                         color: 'white',
                         position: 'top-end',
+                        toast: true,
                         showConfirmButton: false,
                         timer: 2000,
                         timerProgressBar: true,
@@ -486,12 +489,109 @@ require_once "config.php";
                 });
             }
 
+            function admin() {
+                const nutzerId = event.target.getAttribute('nutzer');
+                const messageid = event.target.getAttribute('messageid');
+                const entrytime = event.target.getAttribute('msgtime');
+                const userStatus = <?= $_SESSION['status'] ?>;
+
+                fetch('get_user_info.php?id=' + nutzerId)
+                    .then(response => response.json())
+                    .then(nutzerdaten => {
+                        if(userStatus == 1){
+                        Swal.fire({
+                            title: 'Admin Panel',
+                            html: 'Nachricht vom '  + (nutzerdaten.status == 1 ? ' Administrator' : ' Nutzer ') + ': <b>' + nutzerdaten.name + '</b><br>zuletzt aktualisiert am: <i> ' + entrytime + '</i>',
+                            icon: 'info',
+                            background: '#333',
+                            color: 'white',
+                            confirmButtonColor: '#FF0000',
+                            cancelButtonColor: '#00FF00',
+                            confirmButtonText: 'Nachricht löschen',
+                            showCancelButton: true,
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                fetch('delete_message.php', {
+                                    method: 'POST',
+                                    body: JSON.stringify({ messageid: messageid }),
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    }
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.status === 'success') {
+                                        Swal.fire({
+                                            title: 'Erfolg',
+                                            text: 'Die Nachricht wurde erfolgreich gelöscht.',
+                                            icon: 'success',
+                                            background: '#333',
+                                            color: 'white',
+                                            position: 'top-end',
+                                            toast: true,
+                                            showConfirmButton: false,
+                                            timer: 2000,
+                                            timerProgressBar: true,
+                                        }).then(() => {
+                                            window.location.reload();
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            title: 'Fehler',
+                                            text: error.message,    
+                                            icon: 'error',
+                                            background: '#333',
+                                            color: 'white',
+                                            toast: true,
+                                            position: 'top-end',
+                                            showConfirmButton: false,
+                                            timer: 2000,
+                                            timerProgressBar: true,
+                                        });
+                                    }
+                                })
+                                .catch(() => {
+                                    Swal.fire({
+                                        title: 'Fehler',
+                                        text: 'Es gab ein Problem mit der Anfrage.',
+                                        icon: 'error',
+                                        background: '#333',
+                                        color: 'white',
+                                        position: 'top-end',
+                                        toast: true,
+                                        showConfirmButton: false,
+                                        timer: 2000,
+                                        timerProgressBar: true,
+                                    });
+                                });
+                            }
+                        });
+                        
+                    }else{
+                        Swal.fire({
+                            title: 'Access Denied',
+                            text: 'You do not have permission to access this information.',
+                            icon: 'error',
+                            background: '#333',
+                            color: 'white',
+                            position: 'top-end',
+                            toast: true,
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                        });
+                    }
+                    });
+            }
+
+
+
             function renderForumMessages() {
                 const chatBox = document.getElementById("forum-chat-box");
                 chatBox.innerHTML = "";
 
                 const forumMessagesRENDER = <?php
-                    $query = "SELECT * FROM forum WHERE showentry = 1 ORDER BY id ASC";
+                    $query = "SELECT * FROM forum WHERE showentry = 1 && deleteentry = 0 ORDER BY id ASC";
                     $result = $db->query($query);
                     $daten = array();
                     while ($rowa = $result->fetch_assoc()) {
@@ -501,23 +601,48 @@ require_once "config.php";
                             'messagetext' => $rowa['messagetext'],
                             'type' => ($rowa['idnutzer'] == $_SESSION['userid']) ? 'user' : 'ai',
                             'text' => $rowa['messagetext'],
+                            'time' => $rowa['entrytime'],
                             'avatar' => ($rowa['idnutzer'] == $_SESSION['userid']) ? 'https://em-content.zobj.net/thumbs/240/apple/325/bust-in-silhouette_1f464.png' : 'https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png'
                         );
                     }
                     echo json_encode($daten);
                 ?>;            
-                forumMessagesRENDER.forEach(msg => {
-                    const msgDiv = document.createElement("div");
-                    msgDiv.className = `message ${msg.type}`;
-                    msgDiv.innerHTML = `
-                        ${msg.type !== "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
-                        <div class="text">${msg.text}</div>
-                        ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
-                    `;
-                    chatBox.appendChild(msgDiv);
-                });
+                <?php if($_SESSION['userid'] === 0): ?>
+                    forumMessagesRENDER.forEach(msg => {
+                        const msgDiv = document.createElement("div");
+                        msgDiv.className = `message ${msg.type}`;
+                        msgDiv.innerHTML = `
+                            ${msg.type !== "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                            <div class="text">${msg.text}</div>
+                            ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                        `;
+                        chatBox.appendChild(msgDiv);
+                    });
+                <?php else: ?>
+                    forumMessagesRENDER.forEach(msg => {
+                        const msgDiv = document.createElement("div");
+                        msgDiv.className = `message ${msg.type}`;
+                        msgDiv.innerHTML = `
+                            ${msg.type !== "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                            <div class="text" nutzer="${msg.idnutzer}" messageid="${msg.id}" msgtime="${msg.time}" onclick="admin()">${msg.text}</div>
+                            ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                        `;
+                        chatBox.appendChild(msgDiv);
+                    });
+                <?php endif; ?>
 
                 chatBox.scrollTop = chatBox.scrollHeight;
+                Swal.fire({
+                    title: 'Alle Posts abgerufen',
+                    icon: 'success',
+                    background: '#333',
+                    color: 'white',
+                    position: 'top-end',
+                    toast: true,
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                });
             }
 
             function renderMessages() {
@@ -557,8 +682,6 @@ require_once "config.php";
                     document.getElementById("send-btn").click();
                 }
             });
-
-            renderMessages();
 
             function showForm(user) {
 

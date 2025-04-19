@@ -27,6 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     $_SESSION["userid"] = $row['id'];
                     $_SESSION["user"] = $row['name'];
                     $_SESSION["email"] = $row['email'];
+                    $_SESSION["status"] = $row['status'];
                     header("Location: ../authsystem/profile.php");
                     exit;
                 }else{

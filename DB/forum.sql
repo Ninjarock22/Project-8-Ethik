@@ -32,6 +32,7 @@ CREATE TABLE `forum` (
   `idnutzer` int(11) NOT NULL,
   `messagetext` text NOT NULL,
   `showentry` tinyint(4) NOT NULL,
+  `deleteentry` tinyint(4) NOT NULL DEFAULT '0',
   `entrytime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
