@@ -31,9 +31,10 @@ Die vollständige Projektbeschreibung finden sie [hier](https://github.com/Ninja
     - Starten Sie zusätzlich den MySQL Server
     - Öfnen Sie anschließend `http://localhost/phpmyadmin/`
     - Erstellen sie nun mit "Neu" eine neue Datenbank mit dem Namen: `ethik-project` mit `utf8_unicode_ci`
-    - Wählen Sie nun am linken Rand die erstellte Datenbank aus und wählen Sie oben den Reiter *Importieren*
+    - A) Wählen Sie nun am linken Rand die erstellte Datenbank aus und wählen Sie oben den Reiter *Importieren*
     - Importieren Sie die Datei: `users.sql.gz` und bestätigen das ganze mit *ok*
-    - Wiederholen Sie die letzten beiden Schritte erneut mit der Datei: `forum.sql.gz`
+    - Wiederholen Sie den Schritt **A** erneut und importieren Sie die Datei: `forum.sql.gz`
+    - Wiederholen Sie den Schritt **A** erneut und importieren Sie die Datei: `goals.sql.gz`
     - ⚠️ Es sollte zu **keiner** Fehlermeldung kommen. Sollte dennoch eine Fehlermeldung auftreten, melden Sie dies bitte [hier](https://github.com/Ninjarock22/Project-8-Ethik/issues)
     - Rufen Sie dann im Browser: `../authsystem/index.php` auf
 
