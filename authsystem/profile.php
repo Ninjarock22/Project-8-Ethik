@@ -185,7 +185,7 @@ require_once "config.php";
                             <div class="forum-input-container">
                                 <input id="forum-message-input" type="text" placeholder="Type a message...">
                                 <button id="forum-send-btn" onclick="forumMessages()">Posten</button>
-                                <!-- <button id="forum-refresh-btn" onclick="renderForumMessages()">Render Test</button>  Button zum Testen des Renderns-->
+                                <button id="forum-refresh-btn" onclick="renderForumMessages()">Refresh</button>  <!-- Ehemaliger Button zum Testen des Renderns-->
                             </div>
                         </div>
                     </div>
@@ -450,6 +450,7 @@ require_once "config.php";
                             background: '#333',
                             color: 'white',
                             position: 'top-end',
+                            toast: true,
                             showConfirmButton: false,
                             timer: 2000,
                             timerProgressBar: true,
@@ -464,6 +465,7 @@ require_once "config.php";
                             icon: 'error',
                             background: '#333',
                             color: 'white',
+                            toast: true,
                             position: 'top-end',
                             showConfirmButton: false,
                             timer: 2000,
@@ -479,6 +481,7 @@ require_once "config.php";
                         background: '#333',
                         color: 'white',
                         position: 'top-end',
+                        toast: true,
                         showConfirmButton: false,
                         timer: 2000,
                         timerProgressBar: true,
@@ -525,6 +528,7 @@ require_once "config.php";
                                             background: '#333',
                                             color: 'white',
                                             position: 'top-end',
+                                            toast: true,
                                             showConfirmButton: false,
                                             timer: 2000,
                                             timerProgressBar: true,
@@ -538,6 +542,7 @@ require_once "config.php";
                                             icon: 'error',
                                             background: '#333',
                                             color: 'white',
+                                            toast: true,
                                             position: 'top-end',
                                             showConfirmButton: false,
                                             timer: 2000,
@@ -553,6 +558,7 @@ require_once "config.php";
                                         background: '#333',
                                         color: 'white',
                                         position: 'top-end',
+                                        toast: true,
                                         showConfirmButton: false,
                                         timer: 2000,
                                         timerProgressBar: true,
@@ -569,6 +575,7 @@ require_once "config.php";
                             background: '#333',
                             color: 'white',
                             position: 'top-end',
+                            toast: true,
                             showConfirmButton: false,
                             timer: 2000,
                             timerProgressBar: true,
@@ -625,6 +632,17 @@ require_once "config.php";
                 <?php endif; ?>
 
                 chatBox.scrollTop = chatBox.scrollHeight;
+                Swal.fire({
+                    title: 'Alle Posts abgerufen',
+                    icon: 'success',
+                    background: '#333',
+                    color: 'white',
+                    position: 'top-end',
+                    toast: true,
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                });
             }
 
             function renderMessages() {
@@ -664,8 +682,6 @@ require_once "config.php";
                     document.getElementById("send-btn").click();
                 }
             });
-
-            renderMessages();
 
             function showForm(user) {
 
