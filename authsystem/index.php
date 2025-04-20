@@ -88,7 +88,7 @@ $count = $row[0];
         <button class="login-button" id="btn-login">Login</button>
     </header>
     <!-- Popup Menu -->
-    <div id="popup-menu" class="popup-menu">
+    <div id="popup-menu" class="popup-menu" style="display: none;">
         <div class="card3">
             <ul class="list">
                 <li class="element">
@@ -409,26 +409,26 @@ $count = $row[0];
     <script src="../public/js/carousel.js"></script>
     <script>
         document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
-            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
+            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/profile.php';
         });
 
         function togglePopupMenu() {
-            var popupMenu = document.getElementById("popup-menu");
-            popupMenu.classList.toggle("show");
-            /*Swal.fire({
-                title: 'Information',
-                text: 'Das Menü ist aktuell deaktiviert.',
-                icon: 'warning',
-                background: '#333',
-                color: 'white',
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 1500,
-                timerProgressBar: true
-            });*/
-            
-        }
+                var popupMenu = document.getElementById("popup-menu");
+                popupMenu.style.display = popupMenu.style.display === "none" ? "block" : "none";
+                popupMenu.classList.toggle("show");
+                //Swal.fire({
+                    //title: 'Info',
+                    //text: 'Das Menü ist aktuell deaktiviert.',
+                    //icon: 'warning',
+                    //background: '#333',
+                    //color: 'white',
+                    //toast: true,
+                    //position: 'top-end',
+                    //showConfirmButton: false,
+                    //timer: 1500,
+                    //timerProgressBar: true
+                //});
+            }
 
         document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';

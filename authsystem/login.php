@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </div>
-            <button class="login-button" onclick="window.location.href='register.php';">Sign up</button>
+            <button class="login-button" onclick="window.location.href='register.php';">Register</button>
         </header>
         <div id="popup-menu" class="popup-menu">
             <div class="card3">
@@ -194,6 +194,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <script>
             function togglePopupMenu() {
                 var popupMenu = document.getElementById("popup-menu");
+                popupMenu.style.display = popupMenu.style.display === "none" ? "block" : "none";
                 popupMenu.classList.toggle("show");
             }
 

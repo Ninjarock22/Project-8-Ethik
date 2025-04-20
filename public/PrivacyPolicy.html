@@ -19,7 +19,7 @@
                 <line x1="3" y1="18" x2="21" y2="18"></line>
             </svg>
         </div>
-        <button class="login-button" onclick="window.location.href='../authsystem/login.php';">Login</button>
+        <button class="login-button" onclick="window.location.href='../authsystem/profile.php';">Login</button>
     </header>
     <!-- Popup Menu -->
     <div id="popup-menu" class="popup-menu">
@@ -129,6 +129,7 @@
     <script>
         function togglePopupMenu() {
             var popupMenu = document.getElementById("popup-menu");
+            popupMenu.style.display = popupMenu.style.display === "none" ? "block" : "none";
             popupMenu.classList.toggle("show");
         }
     </script>
