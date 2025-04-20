@@ -181,7 +181,19 @@ require_once "config.php";
                     <h2>Forum</h2>
                     <div class="forum-chat-wrapper">
                         <div class="forum-chat-container">
-                            <div id="forum-chat-box"></div>
+                            <div id="forum-chat-box">
+                                <!-- Example of a user message -->
+                                <div class="forum-message user">
+                                    <img class="avatar" src="user-avatar.png" alt="User Avatar">
+                                    <div class="text">This is a user message.</div>
+                                </div>
+
+                                <!-- Example of another user's message -->
+                                <div class="forum-message ai">
+                                    <img class="avatar" src="ai-avatar.png" alt="AI Avatar">
+                                    <div class="text">This is another user's message.</div>
+                                </div>
+                            </div>
                             <div class="forum-input-container">
                                 <input id="forum-message-input" type="text" placeholder="Type a message...">
                                 <button id="forum-send-btn" onclick="forumMessages()">Posten</button>
@@ -602,47 +614,23 @@ require_once "config.php";
                             'type' => ($rowa['idnutzer'] == $_SESSION['userid']) ? 'user' : 'ai',
                             'text' => $rowa['messagetext'],
                             'time' => $rowa['entrytime'],
-                            'avatar' => ($rowa['idnutzer'] == $_SESSION['userid']) ? 'https://em-content.zobj.net/thumbs/240/apple/325/bust-in-silhouette_1f464.png' : 'https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png'
+                            'avatar' => ($rowa['idnutzer'] == $_SESSION['userid']) ? '../images/icons/profilelogo.png' : 'user-avatar.png'
                         );
                     }
                     echo json_encode($daten);
-                ?>;            
-                <?php if($_SESSION['userid'] === 0): ?>
-                    forumMessagesRENDER.forEach(msg => {
-                        const msgDiv = document.createElement("div");
-                        msgDiv.className = `message ${msg.type}`;
-                        msgDiv.innerHTML = `
-                            ${msg.type !== "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
-                            <div class="text">${msg.text}</div>
-                            ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
-                        `;
-                        chatBox.appendChild(msgDiv);
-                    });
-                <?php else: ?>
-                    forumMessagesRENDER.forEach(msg => {
-                        const msgDiv = document.createElement("div");
-                        msgDiv.className = `message ${msg.type}`;
-                        msgDiv.innerHTML = `
-                            ${msg.type !== "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
-                            <div class="text" nutzer="${msg.idnutzer}" messageid="${msg.id}" msgtime="${msg.time}" onclick="admin()">${msg.text}</div>
-                            ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
-                        `;
-                        chatBox.appendChild(msgDiv);
-                    });
-                <?php endif; ?>
+                ?>;
+
+                forumMessagesRENDER.forEach(msg => {
+                    const msgDiv = document.createElement("div");
+                    msgDiv.className = `forum-message ${msg.type}`;
+                    msgDiv.innerHTML = `
+                        <img src="${msg.avatar}" class="avatar">
+                        <div class="text">${msg.text}</div>
+                    `;
+                    chatBox.appendChild(msgDiv);
+                });
 
                 chatBox.scrollTop = chatBox.scrollHeight;
-                Swal.fire({
-                    title: 'Alle Posts abgerufen',
-                    icon: 'success',
-                    background: '#333',
-                    color: 'white',
-                    position: 'top-end',
-                    toast: true,
-                    showConfirmButton: false,
-                    timer: 2000,
-                    timerProgressBar: true,
-                });
             }
 
             function renderMessages() {
