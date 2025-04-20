@@ -87,7 +87,7 @@ $count = $row[0];
         <button class="login-button" id="btn-login">Login</button>
     </header>
     <!-- Popup Menu -->
-    <div id="popup-menu" class="popup-menu" style="display: none;">
+    <div id="popup-menu" class="popup-menu">
         <div class="card3">
             <ul class="list">
                 <li class="element">
