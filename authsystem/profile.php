@@ -12,7 +12,7 @@ require_once "config.php";
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../logo.ico">
+        <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
         <meta name="description" content="Religion Name - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
     <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
         <title>User Profile</title>
@@ -184,13 +184,13 @@ require_once "config.php";
                             <div id="forum-chat-box">
                                 <!-- Example of a user message -->
                                 <div class="forum-message user">
-                                    <img class="avatar" src="user-avatar.png" alt="User Avatar">
+                                    <img class="avatar" src="../images/icons/profilelogo.png" alt="User Avatar">
                                     <div class="text">This is a user message.</div>
                                 </div>
 
                                 <!-- Example of another user's message -->
                                 <div class="forum-message ai">
-                                    <img class="avatar" src="ai-avatar.png" alt="AI Avatar">
+                                    <img class="avatar" src="../images/icons/logo.ico" alt="AI Avatar">
                                     <div class="text">This is another user's message.</div>
                                 </div>
                             </div>
