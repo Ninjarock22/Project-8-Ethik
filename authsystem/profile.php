@@ -125,18 +125,10 @@ require_once "config.php";
                         $userid = $_SESSION["userid"];
                         $query = "SELECT * FROM users WHERE id = ?";
                         $stmt = $db->prepare($query);
-                        if (!$stmt) {
-                            die("Database error: " . $db->error);
-                        }
                         $stmt->bind_param("i", $userid);
-                        if (!$stmt->execute()) {
-                            die("Query execution failed: " . $stmt->error);
-                        }
+                        $stmt->execute();
                         $result = $stmt->get_result();
                         $user = $result->fetch_assoc();
-                        if (!$user) {
-                            die("User not found.");
-                        }
                         ?>
                         <h2>User Profile</h2>
                         <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>

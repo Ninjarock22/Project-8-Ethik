@@ -1,5 +1,4 @@
 <?php
-//echo "Mitglieder aktuell: " . htmlspecialchars($count);
 
 require_once "config.php";
 
