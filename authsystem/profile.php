@@ -614,7 +614,7 @@ require_once "config.php";
                             'type' => ($rowa['idnutzer'] == $_SESSION['userid']) ? 'user' : 'ai',
                             'text' => $rowa['messagetext'],
                             'time' => $rowa['entrytime'],
-                            'avatar' => ($rowa['idnutzer'] == $_SESSION['userid']) ? '../images/icons/profilelogo.png' : '../images/icons/check.png'
+                            'avatar' => ($rowa['idnutzer'] == $_SESSION['userid']) ? '../images/icons/profilelogo.png' : '../images/icons/logo.ico'
                         );
                     }
                     echo json_encode($daten);
