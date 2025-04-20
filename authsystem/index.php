@@ -88,7 +88,7 @@ $count = $row[0];
         <button class="login-button" id="btn-login">Login</button>
     </header>
     <!-- Popup Menu -->
-    <div id="popup-menu" class="popup-menu">
+    <div id="popup-menu" class="popup-menu" style="display: none;">
         <div class="card3">
             <ul class="list">
                 <li class="element">
@@ -414,6 +414,7 @@ $count = $row[0];
 
         function togglePopupMenu() {
             var popupMenu = document.getElementById("popup-menu");
+            popupMenu.style.display = popupMenu.style.display === "none" ? "block" : "none";
             popupMenu.classList.toggle("show");
             /*Swal.fire({
                 title: 'Information',
