@@ -25,7 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($name) && !empty($email) && !empty($age)) {
         if((strtolower(trim($name)) !== strtolower(trim($namedb))) || (intval($age) !== intval($agedb)) || ($status !== $statusdb)){
             if (strtolower(trim($emaildb)) === strtolower(trim($email))) {
-                if ($id !== $_SESSION['id'] && $status == $statusdb ){
+                if ($id == $_SESSION['userid'] && $status == 0) {
+                    $error .= 'Der eigene Status kann nicht geändert werden.';
+                }else{
                     if($age >= 18 && $age < 120){
                         $query = "UPDATE users SET name = ?, email = ?, age = ?, status = ? WHERE id = ?";
                         $stmt = $db->prepare($query);
@@ -35,8 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }else{
                         $error .= 'Das Alter muss zwischen 18 und 120 Jahren liegen.';
                     }
-                }else{
-                    $error .= 'Der eigene Status kann nicht geändert werden.';
                 }
             }else{
                 $error .= 'Nutzer E-Mail Adresse kann nicht geändert werden.';

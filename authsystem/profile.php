@@ -596,8 +596,6 @@ require_once "config.php";
                     });
             }
 
-
-
             function renderForumMessages() {
                 const chatBox = document.getElementById("forum-chat-box");
                 chatBox.innerHTML = "";
@@ -648,17 +646,6 @@ require_once "config.php";
                     });
                 <?php endif; ?>
                 chatBox.scrollTop = chatBox.scrollHeight;
-                Swal.fire({
-                    title: 'Alle Posts abgerufen',
-                    icon: 'success',
-                    background: '#333',
-                    color: 'white',
-                    position: 'top-end',
-                    toast: true,
-                    showConfirmButton: false,
-                    timer: 2000,
-                    timerProgressBar: true,
-                });
             }
 
             function renderMessages() {
@@ -898,17 +885,6 @@ require_once "config.php";
                         <button onclick="deleteZiele(${entry.id})">Löschen</button>
                     `;
                     zieleList.appendChild(zieleEntry);
-                });
-                Swal.fire({
-                    title: 'Alle Ziele abgerufen',
-                    icon: 'success',
-                    background: '#333',
-                    color: 'white',
-                    position: 'top-end',
-                    toast: true,
-                    showConfirmButton: false,
-                    timer: 2000,
-                    timerProgressBar: true,
                 });
             }
 
