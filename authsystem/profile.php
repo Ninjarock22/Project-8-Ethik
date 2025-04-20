@@ -965,6 +965,17 @@ require_once "config.php";
                 });
             });
 
+            const chatBox = document.getElementById("chat-box");
+
+            messages.forEach((message) => {
+                const messageElement = document.createElement("div");
+                messageElement.className = `message ${message.type}`;
+                messageElement.innerHTML = `
+                    <img src="${message.avatar}" alt="${message.name}" class="avatar">
+                    <div class="text">${message.text}</div>
+                `;
+                chatBox.appendChild(messageElement);
+            });
         </script>
         
     </body>
