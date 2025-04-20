@@ -25,14 +25,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($name) && !empty($email) && !empty($age)) {
         if((strtolower(trim($name)) !== strtolower(trim($namedb))) || (intval($age) !== intval($agedb)) || ($status !== $statusdb)){
             if (strtolower(trim($emaildb)) === strtolower(trim($email))) {
-                if($age >= 18 && $age < 120){
-                    $query = "UPDATE users SET name = ?, email = ?, age = ?, status = ? WHERE id = ?";
-                    $stmt = $db->prepare($query);
-                    $stmt->bind_param("ssiii", $name, $email, $age, $status, $id);
-                    $stmt->execute();
-                    $success .= 'Account wurde erfolgreich aktualisiert.';
+                if ($id !== $_SESSION['id'] && $status == $statusdb ){
+                    if($age >= 18 && $age < 120){
+                        $query = "UPDATE users SET name = ?, email = ?, age = ?, status = ? WHERE id = ?";
+                        $stmt = $db->prepare($query);
+                        $stmt->bind_param("ssiii", $name, $email, $age, $status, $id);
+                        $stmt->execute();
+                        $success .= 'Account wurde erfolgreich aktualisiert.';
+                    }else{
+                        $error .= 'Das Alter muss zwischen 18 und 120 Jahren liegen.';
+                    }
                 }else{
-                    $error .= 'Das Alter muss zwischen 18 und 120 Jahren liegen.';
+                    $error .= 'Der eigene Status kann nicht geändert werden.';
                 }
             }else{
                 $error .= 'Nutzer E-Mail Adresse kann nicht geändert werden.';
