@@ -50,7 +50,7 @@ $count = $row[0];
             <p>We reserve the right to modify these terms at any time. Continued use of the website constitutes your acceptance of any changes.</p>
     
             <h3>Contact Us</h3>
-            <p>If you have any questions about these terms, please contact us at support@johannbehling.com.</p>
+            <p>If you have any questions about these terms, please contact us at behj8622@gmail.com.</p>
             <button class="accept-button" onclick="acceptTerms()">Accept</button>
         </div>
     </div>
@@ -444,8 +444,8 @@ $count = $row[0];
             Swal.fire({
                 allowOutsideClick: false,
                 allowEscapeKey: false,
-                title: 'Ihre Hilfe ist gefragt!',
-                text: 'Werden Sie jetzt Teil von etwas Großem!',
+                title: 'Your help is needed!',
+                text: 'Become part of something big now!',
                 icon: 'question',
                 theme: 'dark',
                 color: 'white',
@@ -454,15 +454,15 @@ $count = $row[0];
                 cancelButtonColor: '#FF0000',
                 showCancelButton: true,
                 showConfirmButton: true,
-                confirmButtonText: 'Jetzt registrieren',
-                cancelButtonText: 'Später',
+                confirmButtonText: 'Register now',
+                cancelButtonText: 'Later',
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
                 } else if (result.isDismissed) {
                     Swal.fire({
-                        title: 'Kein Problem!',
-                        text: 'Wir sind immer hier, wenn Sie bereit sind!',
+                        title: 'No problem!',
+                        text: 'We are always here when you are ready!',
                         icon: 'success',
                         theme: 'dark',
                         color: 'white',

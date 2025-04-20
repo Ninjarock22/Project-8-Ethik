@@ -141,19 +141,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     </div>
                     <div class="form-group">
                         <!-- <label>Passwort</label>-->
-                        <input type="password" name="password" class="form-control" oninput="setCustomValidity('')" />
+                        <input type="password" name="password" class="form-control" placeholder="Password" oninput="setCustomValidity('')" />
                     </div>
                     <br>
                     <div class="form-group">
                         <div class="form-group-button">
-                            <input type="submit" name="submit" class="btn-primary" value="Anmelden">
-                            <input type="button" name="submit" class="btn-primary" value="Zurück" id="back">
+                            <input type="submit" name="submit" class="btn-primary" value="Sign up">
+                            <input type="button" name="submit" class="btn-primary" value="Go back" id="back">
                         </div>
                     </div>
                     <br>
                     <div class="form-group">
                         <div class="form-group-button">
-                            <input type="button" name="submit" class="btn-primary" value="Passwort zurücksetzen" id="reset">
+                            <input type="button" name="submit" class="btn-primary" value="Reset password" id="reset">
                         </div>
                     </div>
                     <br>
@@ -161,7 +161,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                         if (!empty($error)) {
                             echo "<script>
                                 Swal.fire({
-                                    title: 'Fehler!',
+                                    title: 'Error!',
                                     text: '" . addslashes($error) . "',
                                     icon: 'error',
                                     confirmButtonText: 'OK',

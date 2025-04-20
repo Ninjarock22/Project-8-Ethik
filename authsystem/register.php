@@ -153,31 +153,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <!--<label>Vor- und Zuname</label>-->
-                                    <input type="text" name="name" class="form-control" placeholder="Vor- und Nachname"  oninvalid="this.setCustomValidity('Bitte einen gültige Namen eingeben')" oninput="setCustomValidity('')"required>
+                                    <input type="text" name="name" class="form-control" placeholder="First- and Lastname"  oninvalid="this.setCustomValidity('Please enter a valid name.')" oninput="setCustomValidity('')"required>
                                 </div>
                                 <div class="form-group">
                                     <!--<label>E-Mail Adresse</label>-->
-                                    <input type="email" name="email" class="form-control" placeholder="E-Mail" oninvalid="this.setCustomValidity('Bitte eine gültige E-Mail eingeben')" oninput="setCustomValidity('')">
+                                    <input type="email" name="email" class="form-control" placeholder="E-Mail" oninvalid="this.setCustomValidity('Please enter a valid E-mail address.')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="form-group">
                                     <!--<label>Passwort</label>-->
-                                    <input type="password" name="password" class="form-control" placeholder="Passwort" oninvalid="this.setCustomValidity('Bitte ein Passwort eingeben')" oninput="setCustomValidity('')">
+                                    <input type="password" name="password" class="form-control" placeholder="Password" oninvalid="this.setCustomValidity('Please enter a password.')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="form-group">
                                     <!--<label>Passwort wiederholen</label>-->
-                                    <input type="password" name="confirm_password" class="form-control" placeholder="Passwort wiederholen" oninvalid="this.setCustomValidity('Bitte das Passwort erneut eingeben')" oninput="setCustomValidity('')">
+                                    <input type="password" name="confirm_password" class="form-control" placeholder="Repeat password" oninvalid="this.setCustomValidity('Please repeat the password.')" oninput="setCustomValidity('')">
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <div class="form-group-button">
                                         <input type="submit" name="submit" class="btn-primary" value="Sign up">
-                                        <input type="button" name="submit" class="btn-primary" value="Zurück" id="back">
+                                        <input type="button" name="submit" class="btn-primary" value="Go back" id="back">
                                     </div>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <div class="form-group-button">
-                                        <input type="button" name="submit" class="btn-primary" value="Zum Login" id="tologin">
+                                        <input type="button" name="submit" class="btn-primary" value="Login instead" id="tologin">
                                     </div>
                                 </div>
                                 <br>
@@ -185,7 +185,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                     if (!empty($error)) {
                                         echo "<script>
                                             Swal.fire({
-                                                title: 'Fehler!',
+                                                title: 'Error!',
                                                 text: '" . addslashes($error) . "',
                                                 icon: 'error',
                                                 confirmButtonText: 'OK',
@@ -201,7 +201,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                     }else if(!empty($success)){
                                         echo "<script>
                                             Swal.fire({
-                                                title: 'Erfolg!',
+                                                title: 'Success!',
                                                 text: '" . addslashes($success) . "',
                                                 icon: 'success',
                                                 confirmButtonText: 'OK',

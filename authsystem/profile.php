@@ -37,7 +37,7 @@ require_once "config.php";
                 </label>
                 <label class="label">
                     <input type="radio" id="2" name="value-radio" value="2" onclick="switchPanel('meineZielePanel')" />
-                    <span class="text">Ziele</span>
+                    <span class="text">Goals</span>
                 </label>
                 <label class="label">
                     <input type="radio" id="3" name="value-radio" value="3" onclick="switchPanel('forumPanel')" />
@@ -147,31 +147,31 @@ require_once "config.php";
                     </div>
                 </div>
                 <div class="panel-container" id="meineZielePanel" style="display: none;">
-                    <h2>Meine Ziele</h2>
+                    <h2>My Goals</h2>
                     <div class="meineZiele-container">
                         <form id="meineZieleForm">
-                            <h3>1. Beschreiben Sie Ihr Problem</h3>
+                            <h3>1. Explain your problem</h3>
                             <label for="problem">Problem:</label>
-                            <textarea id="problem" name="problem" placeholder="Beschreiben Sie Ihr Problem..." required></textarea>
+                            <textarea id="problem" name="problem" placeholder="Explain your problem here..." required></textarea>
 
-                            <h3>2. Beschreiben Sie Ihr Ziel</h3>
+                            <h3>2. Explain your goal</h3>
                             <label for="goal">Ziel:</label>
-                            <textarea id="goal" name="goal" placeholder="Beschreiben Sie Ihr Ziel..." required></textarea>
+                            <textarea id="goal" name="goal" placeholder="Explain your goal here..." required></textarea>
 
-                            <h3>3. Wege, um Ihr Ziel zu erreichen</h3>
-                            <label for="way1">Weg 1:</label>
-                            <textarea id="way1" name="way1" placeholder="Beschreiben Sie den ersten Weg, Ihr Ziel zu erreichen..." required></textarea>
+                            <h3>3. How would you like to reach you goal</h3>
+                            <label for="way1">First way:</label>
+                            <textarea id="way1" name="way1" placeholder="Describe the first way to achieve your goal here..." required></textarea>
 
-                            <label for="way2">Weg 2:</label>
-                            <textarea id="way2" name="way2" placeholder="Beschreiben Sie den zweiten Weg, Ihr Ziel zu erreichen..." required></textarea>
+                            <label for="way2">Second way:</label>
+                            <textarea id="way2" name="way2" placeholder="Describe the second way to achieve your goal here..." required></textarea>
                             
-                            <label for="way3">Weg 2:</label>
-                            <textarea id="way3" name="way2" placeholder="Beschreiben Sie den dritten Weg, Ihr Ziel zu erreichen..." required></textarea>
+                            <label for="way3">Third way:</label>
+                            <textarea id="way3" name="way2" placeholder="Describe the third way to achieve your goal here..." required></textarea>
                             
-                            <button type="button" onclick="saveZiele()">Speichern</button>
+                            <button type="button" onclick="saveZiele()">Save</button>
                         </form>
 
-                        <h3>Ihre Ziele</h3>
+                        <h3>Your goals</h3>
                         <div id="zieleList">
                             <!-- User's goals will be displayed here -->
                         </div>
@@ -196,8 +196,8 @@ require_once "config.php";
                             </div>
                             <div class="forum-input-container">
                                 <input id="forum-message-input" type="text" placeholder="Type a message...">
-                                <button id="forum-send-btn" onclick="forumMessages()">Posten</button>
-                                <button id="forum-refresh-btn" onclick="renderForumMessages()">Refresh</button>  <!-- Ehemaliger Button zum Testen des Renderns-->
+                                <button id="forum-send-btn" onclick="forumMessages()">Post</button>
+                                <button id="forum-refresh-btn" onclick="renderForumMessages()">refresh</button>  <!-- Ehemaliger Button zum Testen des Renderns-->
                             </div>
                         </div>
                     </div>
@@ -339,7 +339,7 @@ require_once "config.php";
             if (!empty($_SESSION['error'])) {
                 echo "<script>
                     Swal.fire({
-                        title: 'Fehler!',
+                        title: 'Error!',
                         text: '" . addslashes($_SESSION['error']) . "',
                         icon: 'error',
                         confirmButtonText: 'OK',
@@ -356,7 +356,7 @@ require_once "config.php";
             } elseif (!empty($_SESSION['success'])) {
                 echo "<script>
                     Swal.fire({
-                        title: 'Erfolg!',
+                        title: 'Success!',
                         text: '" . addslashes($_SESSION['success']) . "',
                         icon: 'success',
                         confirmButtonText: 'OK',
@@ -456,7 +456,7 @@ require_once "config.php";
                 .then(data => {
                     if (data.status === 'success') {
                         Swal.fire({
-                            title: 'Erfolgreich gesendet',
+                            title: 'Sent successfully',
                             text: '',
                             icon: 'success',
                             background: '#333',
@@ -472,8 +472,8 @@ require_once "config.php";
                     } else {
                         console.log(data);
                         Swal.fire({
-                            title: 'Fehler',
-                            text: 'Fehler beim Senden der Nachricht.',
+                            title: 'Error',
+                            text: 'Error sending message.',
                             icon: 'error',
                             background: '#333',
                             color: 'white',
@@ -487,8 +487,8 @@ require_once "config.php";
                 })
                 .catch(error => {
                     Swal.fire({
-                        title: 'Fehler',
-                        text: 'Es gab ein Problem mit der Anfrage.',
+                        title: 'Error',
+                        text: 'There was a problem with the request.',
                         icon: 'error',
                         background: '#333',
                         color: 'white',
@@ -564,8 +564,8 @@ require_once "config.php";
                                 })
                                 .catch(() => {
                                     Swal.fire({
-                                        title: 'Fehler',
-                                        text: 'Es gab ein Problem mit der Anfrage.',
+                                        title: 'Error',
+                                        text: 'There was a problem with the request.',
                                         icon: 'error',
                                         background: '#333',
                                         color: 'white',
@@ -803,8 +803,8 @@ require_once "config.php";
                 .then(data => {
                     if (data.status === 'success') {
                         Swal.fire({
-                            title: 'Erfolg',
-                            text: 'Ziel wurde erfolgreich gespeichert.',
+                            title: 'Success',
+                            text: 'Goal was successfully saved.',
                             icon: 'success',
                             background: '#333',
                             color: 'white',
@@ -818,7 +818,7 @@ require_once "config.php";
                         });
                     } else {
                         Swal.fire({
-                            title: 'Fehler',
+                            title: 'Error',
                             text: data.message,
                             icon: 'error',
                             background: '#333',
@@ -833,8 +833,8 @@ require_once "config.php";
                 })
                 .catch(error => {
                     Swal.fire({
-                        title: 'Fehler',
-                        text: 'Es gab ein Problem mit der Anfrage.',
+                        title: 'Error',
+                        text: 'There was a problem with the request.',
                         icon: 'error',
                         background: '#333',
                         color: 'white',
@@ -878,11 +878,11 @@ require_once "config.php";
                     zieleEntry.className = "ziele-entry";
                     zieleEntry.innerHTML = `
                         <p><strong>Problem:</strong> ${entry.problem}</p>
-                        <p><strong>Ziel:</strong> ${entry.goal}</p>
-                        <p><strong>Weg 1:</strong> ${entry.way1}</p>
-                        <p><strong>Weg 2:</strong> ${entry.way2}</p>
-                        <p><strong>Weg 3:</strong> ${entry.way3}</p>
-                        <button onclick="deleteZiele(${entry.id})">Löschen</button>
+                        <p><strong>Goal:</strong> ${entry.goal}</p>
+                        <p><strong>Way 1:</strong> ${entry.way1}</p>
+                        <p><strong>Way 2:</strong> ${entry.way2}</p>
+                        <p><strong>Way 3:</strong> ${entry.way3}</p>
+                        <button onclick="deleteZiele(${entry.id})">Delete</button>
                     `;
                     zieleList.appendChild(zieleEntry);
                 });
@@ -893,16 +893,16 @@ require_once "config.php";
                     allowOutsideClick: false,
                     allowEscapeKey: false,
                     theme: 'dark',
-                    title: 'Ziel löschen?',
-                    text: 'Sind Sie sicher, dass Sie dieses Ziel löschen möchten?',
+                    title: 'Delete Goal?',
+                    text: 'Are you sure that you would like to delete this goal?',
                     icon: 'question',
                     showCancelButton: true,
                     showConfirmButton: true,
                     color: 'white',
                     confirmButtonColor: '#FF0000',
                     cancelButtonColor: '#00FF00',
-                    confirmButtonText: 'Ja, Löschen!',
-                    cancelButtonText:  'Nein'
+                    confirmButtonText: 'Yes, delete!',
+                    cancelButtonText:  'No'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         fetch('delete_goals.php', {
@@ -916,8 +916,8 @@ require_once "config.php";
                                 .then(data => {
                                     if (data.status === 'success') {
                                         Swal.fire({
-                                            title: 'Erfolg',
-                                            text: 'Der Ziel wurde erfolgreich gelöscht.',
+                                            title: 'Success',
+                                            text: 'The Goal was successfully deleted.',
                                             icon: 'success',
                                             background: '#333',
                                             color: 'white',
@@ -942,8 +942,8 @@ require_once "config.php";
                                 })
                                 .catch(error => {
                                     Swal.fire({
-                                        title: 'Fehler',
-                                        text: 'Es gab ein Problem mit der Anfrage.',
+                                        title: 'Error',
+                                        text: 'There was a problem with the request.',
                                         icon: 'error',
                                         background: '#333',
                                         color: 'white',
