@@ -1,5 +1,4 @@
 <?php
-//echo "Mitglieder aktuell: " . htmlspecialchars($count);
 
 require_once "config.php";
 
@@ -413,22 +412,23 @@ $count = $row[0];
         });
 
         function togglePopupMenu() {
-                var popupMenu = document.getElementById("popup-menu");
-                popupMenu.style.display = popupMenu.style.display === "none" ? "block" : "none";
-                popupMenu.classList.toggle("show");
-                //Swal.fire({
-                    //title: 'Info',
-                    //text: 'Das Menü ist aktuell deaktiviert.',
-                    //icon: 'warning',
-                    //background: '#333',
-                    //color: 'white',
-                    //toast: true,
-                    //position: 'top-end',
-                    //showConfirmButton: false,
-                    //timer: 1500,
-                    //timerProgressBar: true
-                //});
-            }
+            var popupMenu = document.getElementById("popup-menu");
+            popupMenu.style.display = popupMenu.style.display === "none" ? "block" : "none";
+            popupMenu.classList.toggle("show");
+            /*Swal.fire({
+                title: 'Information',
+                text: 'Das Menü ist aktuell deaktiviert.',
+                icon: 'warning',
+                background: '#333',
+                color: 'white',
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true
+            });*/
+            
+        }
 
         document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
             window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
