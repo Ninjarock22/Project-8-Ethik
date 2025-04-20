@@ -614,23 +614,51 @@ require_once "config.php";
                             'type' => ($rowa['idnutzer'] == $_SESSION['userid']) ? 'user' : 'ai',
                             'text' => $rowa['messagetext'],
                             'time' => $rowa['entrytime'],
-                            'avatar' => ($rowa['idnutzer'] == $_SESSION['userid']) ? '../images/icons/profilelogo.png' : 'user-avatar.png'
+                            'avatar' => ($rowa['idnutzer'] == $_SESSION['userid']) ? '../images/icons/profilelogo.png' : '../images/icons/check.png'
                         );
                     }
                     echo json_encode($daten);
                 ?>;
 
-                forumMessagesRENDER.forEach(msg => {
-                    const msgDiv = document.createElement("div");
-                    msgDiv.className = `forum-message ${msg.type}`;
-                    msgDiv.innerHTML = `
-                        <img src="${msg.avatar}" class="avatar">
-                        <div class="text">${msg.text}</div>
-                    `;
-                    chatBox.appendChild(msgDiv);
-                });
-
+                <?php if($_SESSION['userid'] === 0): ?>
+                    forumMessagesRENDER.forEach(msg => {
+                        const msgDiv = document.createElement("div");
+                        msgDiv.className = `message ${msg.type}`;
+                        msgDiv.innerHTML = `
+                            ${msg.type !== "user" ? `<div class="forum-message ai"><img src="${msg.avatar}" class="avatar">` : ""}
+                            ${msg.type === "user" ? `<div class="forum-message user">` : ""}
+                            <div class="text">${msg.text}
+                            ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                            </div>
+                        `;
+                        chatBox.appendChild(msgDiv);
+                    });
+                <?php else: ?>
+                    forumMessagesRENDER.forEach(msg => {
+                        const msgDiv = document.createElement("div");
+                        msgDiv.className = `message ${msg.type}`;
+                        msgDiv.innerHTML = `
+                            ${msg.type !== "user" ? `<div class="forum-message ai" "><img src="${msg.avatar}" class="avatar">` : ""}
+                            ${msg.type === "user" ? `<div class="forum-message user">` : ""}
+                            ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                            <div class="text" nutzer="${msg.idnutzer}" messageid="${msg.id}" msgtime="${msg.time}" onclick="admin()">${msg.text}
+                            </div>
+                        `;
+                        chatBox.appendChild(msgDiv);
+                    });
+                <?php endif; ?>
                 chatBox.scrollTop = chatBox.scrollHeight;
+                Swal.fire({
+                    title: 'Alle Posts abgerufen',
+                    icon: 'success',
+                    background: '#333',
+                    color: 'white',
+                    position: 'top-end',
+                    toast: true,
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                });
             }
 
             function renderMessages() {
@@ -950,8 +978,9 @@ require_once "config.php";
                 });
             }
 
-            showZiele();
             renderForumMessages();
+            showZiele();
+           
 
             document.querySelectorAll('textarea').forEach(textarea => {
                 textarea.addEventListener('input', function () {
