@@ -146,7 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     <br>
                     <div class="form-group">
                         <div class="form-group-button">
-                            <input type="submit" name="submit" class="btn-primary" value="Sign up">
+                            <input type="submit" name="submit" class="btn-primary" value="Sign in">
                             <input type="button" name="submit" class="btn-primary" value="Go back" id="back">
                         </div>
                     </div>
