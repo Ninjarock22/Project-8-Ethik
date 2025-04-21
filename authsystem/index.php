@@ -26,26 +26,46 @@ $count = $row[0];
 <body>
     <div class="terms-overlay" id="termsOverlay">
         <div class="terms-box">
-            <h2>Terms and Conditions</h2>
-            <p>Welcome to this site!</p>
-            <p>By using this site, you agree to our terms and conditions. Please read them carefully before proceeding.</p>
-            <h3>1. Introduction</h3>
-            <p>Welcome to Egoinfinitura! By accessing or using our website, you agree to be bound by these terms and conditions. If you do not agree with any part of these terms, please do not use our website.</p>
-            <h3>2. Use of the Website</h3>
-            <ul>
-                <li>You agree to use the website only for lawful purposes.</li>
-                <li>You must not use the website in any way that causes, or may cause, damage or impairment of access.</li>
-                <li>You must not engage in any form of harmful conduct or misuse.</li>
-            </ul>
+        <h3>1. Introduction</h3>
+    <p>Welcome to Egoinfinitura. By using our website, you agree to the following Terms and Privacy Policy. Please read them carefully before continuing.</p>
     
-            <h3>3. Intellectual Property</h3>
-            <p>All content, logos, trademarks, and designs on this website are the property of Egoinfinitura. You may not use, reproduce, or distribute any content without prior written permission.</p>
-    
-            <h3>4. Limitation of Liability</h3>
-            <p>We are not liable for any damages that arise from the use of our website. This includes indirect, incidental, or consequential damages.</p>
-    
-            <h3>5. Changes to Terms</h3>
-            <p>We reserve the right to modify these terms at any time. Continued use of the website constitutes your acceptance of any changes.</p>
+    <h3>2. Use of the Website</h3>
+    <ul style="color: #C4A484;">
+      <li>Use the website only for lawful purposes.</li>
+      <li>Do not damage or interfere with website access.</li>
+      <li>Do not misuse, harm, or attempt unauthorized access.</li>
+    </ul>
+
+    <h3>3. Intellectual Property</h3>
+    <p>All content, logos, and designs are the property of Egoinfinitura. Reproduction or distribution without permission is prohibited.</p>
+
+    <h3>4. Account and Personal Data</h3>
+    <p>Creating an account may require your name and/or email. This data is used only for account login and security. It will never be sold or shared and is only accessible to administrators.</p>
+
+    <h3>5. Forum and Goals Privacy</h3>
+    <p>Forum messages are anonymous and cannot be traced to individual users. However, they can be viewed by administrators for security and legal compliance. Goals page entries are private and viewable only by you.</p>
+
+    <h3>6. Cookies</h3>
+    <p>We use two essential cookies:
+      <ul style="color: #C4A484;">
+        <li>One to store whether you have accepted these terms.</li>
+        <li>Another to keep you logged in while using your account.</li>
+      </ul>
+      These cookies do not track or collect additional data.
+    </p>
+
+    <h3>7. Data Collection and Use</h3>
+    <p>We only collect the information you provide voluntarily during registration (e.g., name or email). No additional tracking or third-party data collection occurs on our site.</p>
+
+    <h3>8. Data Access and Security</h3>
+    <p>Your data is only accessible by authorized administrators for security purposes. We implement protective measures to secure your information.</p>
+
+    <h3>9. Your Rights</h3>
+    <p>You may request to access, correct, or delete your personal data by contacting <a style="color: #C4A484;" href="mailto:privacy@johannbehling.com">privacy@johannbehling.com</a>.</p>
+
+    <h3>10. Changes to These Terms</h3>
+    <p>We may update this agreement over time. Continued use of our website constitutes acceptance of future changes.</p>
+
     
             <h3>Contact Us</h3>
             <p>If you have any questions about these terms, please contact us at behj8622@gmail.com.</p>
