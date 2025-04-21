@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../logo.ico">
+        <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
         <meta name="description" content="Religion Name - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
     <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
         <title>Login</title>
@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
             </div>
-            <button class="login-button" onclick="window.location.href='register.php';">Sign up</button>
+            <button class="login-button" onclick="window.location.href='register.php';">Register</button>
         </header>
         <div id="popup-menu" class="popup-menu">
             <div class="card3">
@@ -141,19 +141,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                     </div>
                     <div class="form-group">
                         <!-- <label>Passwort</label>-->
-                        <input type="password" name="password" class="form-control" oninput="setCustomValidity('')" />
+                        <input type="password" name="password" class="form-control" placeholder="Password" oninput="setCustomValidity('')" />
                     </div>
                     <br>
                     <div class="form-group">
                         <div class="form-group-button">
-                            <input type="submit" name="submit" class="btn-primary" value="Anmelden">
-                            <input type="button" name="submit" class="btn-primary" value="Zurück" id="back">
+                            <input type="submit" name="submit" class="btn-primary" value="Sign in">
+                            <input type="button" name="submit" class="btn-primary" value="Go back" id="back">
                         </div>
                     </div>
                     <br>
                     <div class="form-group">
                         <div class="form-group-button">
-                            <input type="button" name="submit" class="btn-primary" value="Passwort zurücksetzen" id="reset">
+                            <input type="button" name="submit" class="btn-primary" value="Reset password" id="reset">
                         </div>
                     </div>
                     <br>
@@ -161,7 +161,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                         if (!empty($error)) {
                             echo "<script>
                                 Swal.fire({
-                                    title: 'Fehler!',
+                                    title: 'Error!',
                                     text: '" . addslashes($error) . "',
                                     icon: 'error',
                                     confirmButtonText: 'OK',
@@ -194,6 +194,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         <script>
             function togglePopupMenu() {
                 var popupMenu = document.getElementById("popup-menu");
+                popupMenu.style.display = popupMenu.style.display === "none" ? "block" : "none";
                 popupMenu.classList.toggle("show");
             }
 

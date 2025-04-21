@@ -1,5 +1,4 @@
 <?php
-//echo "Mitglieder aktuell: " . htmlspecialchars($count);
 
 require_once "config.php";
 
@@ -15,7 +14,7 @@ $count = $row[0];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../logo.ico">
+    <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
     <meta name="description" content="Religion Name - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
     <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
     <title>Religion Name</title>
@@ -50,7 +49,7 @@ $count = $row[0];
             <p>We reserve the right to modify these terms at any time. Continued use of the website constitutes your acceptance of any changes.</p>
     
             <h3>Contact Us</h3>
-            <p>If you have any questions about these terms, please contact us at support@johannbehling.com.</p>
+            <p>If you have any questions about these terms, please contact us at behj8622@gmail.com.</p>
             <button class="accept-button" onclick="acceptTerms()">Accept</button>
         </div>
     </div>
@@ -88,7 +87,7 @@ $count = $row[0];
         <button class="login-button" id="btn-login">Login</button>
     </header>
     <!-- Popup Menu -->
-    <div id="popup-menu" class="popup-menu">
+    <div id="popup-menu" class="popup-menu" style="display: none;">
         <div class="card3">
             <ul class="list">
                 <li class="element">
@@ -409,11 +408,12 @@ $count = $row[0];
     <script src="../public/js/carousel.js"></script>
     <script>
         document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
-            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
+            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/profile.php';
         });
 
         function togglePopupMenu() {
             var popupMenu = document.getElementById("popup-menu");
+            popupMenu.style.display = popupMenu.style.display === "none" ? "block" : "none";
             popupMenu.classList.toggle("show");
             /*Swal.fire({
                 title: 'Information',
@@ -444,8 +444,8 @@ $count = $row[0];
             Swal.fire({
                 allowOutsideClick: false,
                 allowEscapeKey: false,
-                title: 'Ihre Hilfe ist gefragt!',
-                text: 'Werden Sie jetzt Teil von etwas Großem!',
+                title: 'Your help is needed!',
+                text: 'Become part of something big now!',
                 icon: 'question',
                 theme: 'dark',
                 color: 'white',
@@ -454,15 +454,15 @@ $count = $row[0];
                 cancelButtonColor: '#FF0000',
                 showCancelButton: true,
                 showConfirmButton: true,
-                confirmButtonText: 'Jetzt registrieren',
-                cancelButtonText: 'Später',
+                confirmButtonText: 'Register now',
+                cancelButtonText: 'Later',
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
                 } else if (result.isDismissed) {
                     Swal.fire({
-                        title: 'Kein Problem!',
-                        text: 'Wir sind immer hier, wenn Sie bereit sind!',
+                        title: 'No problem!',
+                        text: 'We are always here when you are ready!',
                         icon: 'success',
                         theme: 'dark',
                         color: 'white',

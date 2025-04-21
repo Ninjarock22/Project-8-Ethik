@@ -12,7 +12,7 @@ require_once "config.php";
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../logo.ico">
+        <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
         <meta name="description" content="Religion Name - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
     <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
         <title>User Profile</title>
@@ -37,7 +37,7 @@ require_once "config.php";
                 </label>
                 <label class="label">
                     <input type="radio" id="2" name="value-radio" value="2" onclick="switchPanel('meineZielePanel')" />
-                    <span class="text">Ziele</span>
+                    <span class="text">Goals</span>
                 </label>
                 <label class="label">
                     <input type="radio" id="3" name="value-radio" value="3" onclick="switchPanel('forumPanel')" />
@@ -125,18 +125,10 @@ require_once "config.php";
                         $userid = $_SESSION["userid"];
                         $query = "SELECT * FROM users WHERE id = ?";
                         $stmt = $db->prepare($query);
-                        if (!$stmt) {
-                            die("Database error: " . $db->error);
-                        }
                         $stmt->bind_param("i", $userid);
-                        if (!$stmt->execute()) {
-                            die("Query execution failed: " . $stmt->error);
-                        }
+                        $stmt->execute();
                         $result = $stmt->get_result();
                         $user = $result->fetch_assoc();
-                        if (!$user) {
-                            die("User not found.");
-                        }
                         ?>
                         <h2>User Profile</h2>
                         <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
@@ -147,31 +139,31 @@ require_once "config.php";
                     </div>
                 </div>
                 <div class="panel-container" id="meineZielePanel" style="display: none;">
-                    <h2>Meine Ziele</h2>
+                    <h2>My Goals</h2>
                     <div class="meineZiele-container">
                         <form id="meineZieleForm">
-                            <h3>1. Beschreiben Sie Ihr Problem</h3>
+                            <h3>1. Explain your problem</h3>
                             <label for="problem">Problem:</label>
-                            <textarea id="problem" name="problem" placeholder="Beschreiben Sie Ihr Problem..." required></textarea>
+                            <textarea id="problem" name="problem" placeholder="Explain your problem here..." required></textarea>
 
-                            <h3>2. Beschreiben Sie Ihr Ziel</h3>
+                            <h3>2. Explain your goal</h3>
                             <label for="goal">Ziel:</label>
-                            <textarea id="goal" name="goal" placeholder="Beschreiben Sie Ihr Ziel..." required></textarea>
+                            <textarea id="goal" name="goal" placeholder="Explain your goal here..." required></textarea>
 
-                            <h3>3. Wege, um Ihr Ziel zu erreichen</h3>
-                            <label for="way1">Weg 1:</label>
-                            <textarea id="way1" name="way1" placeholder="Beschreiben Sie den ersten Weg, Ihr Ziel zu erreichen..." required></textarea>
+                            <h3>3. How would you like to reach you goal</h3>
+                            <label for="way1">First way:</label>
+                            <textarea id="way1" name="way1" placeholder="Describe the first way to achieve your goal here..." required></textarea>
 
-                            <label for="way2">Weg 2:</label>
-                            <textarea id="way2" name="way2" placeholder="Beschreiben Sie den zweiten Weg, Ihr Ziel zu erreichen..." required></textarea>
+                            <label for="way2">Second way:</label>
+                            <textarea id="way2" name="way2" placeholder="Describe the second way to achieve your goal here..." required></textarea>
                             
-                            <label for="way3">Weg 2:</label>
-                            <textarea id="way3" name="way2" placeholder="Beschreiben Sie den dritten Weg, Ihr Ziel zu erreichen..." required></textarea>
+                            <label for="way3">Third way:</label>
+                            <textarea id="way3" name="way2" placeholder="Describe the third way to achieve your goal here..." required></textarea>
                             
-                            <button type="button" onclick="saveZiele()">Speichern</button>
+                            <button type="button" onclick="saveZiele()">Save</button>
                         </form>
 
-                        <h3>Ihre Ziele</h3>
+                        <h3>Your goals</h3>
                         <div id="zieleList">
                             <!-- User's goals will be displayed here -->
                         </div>
@@ -181,11 +173,23 @@ require_once "config.php";
                     <h2>Forum</h2>
                     <div class="forum-chat-wrapper">
                         <div class="forum-chat-container">
-                            <div id="forum-chat-box"></div>
+                            <div id="forum-chat-box">
+                                <!-- Example of a user message -->
+                                <div class="forum-message user">
+                                    <img class="avatar" src="../images/icons/profilelogo.png" alt="User Avatar">
+                                    <div class="text">This is a user message.</div>
+                                </div>
+
+                                <!-- Example of another user's message -->
+                                <div class="forum-message ai">
+                                    <img class="avatar" src="../images/icons/logo.ico" alt="AI Avatar">
+                                    <div class="text">This is another user's message.</div>
+                                </div>
+                            </div>
                             <div class="forum-input-container">
                                 <input id="forum-message-input" type="text" placeholder="Type a message...">
-                                <button id="forum-send-btn" onclick="forumMessages()">Posten</button>
-                                <button id="forum-refresh-btn" onclick="renderForumMessages()">Refresh</button>  <!-- Ehemaliger Button zum Testen des Renderns-->
+                                <button id="forum-send-btn" onclick="forumMessages()">Post</button>
+                                <button id="forum-refresh-btn" onclick="renderForumMessages()">refresh</button>  <!-- Ehemaliger Button zum Testen des Renderns-->
                             </div>
                         </div>
                     </div>
@@ -327,7 +331,7 @@ require_once "config.php";
             if (!empty($_SESSION['error'])) {
                 echo "<script>
                     Swal.fire({
-                        title: 'Fehler!',
+                        title: 'Error!',
                         text: '" . addslashes($_SESSION['error']) . "',
                         icon: 'error',
                         confirmButtonText: 'OK',
@@ -344,7 +348,7 @@ require_once "config.php";
             } elseif (!empty($_SESSION['success'])) {
                 echo "<script>
                     Swal.fire({
-                        title: 'Erfolg!',
+                        title: 'Success!',
                         text: '" . addslashes($_SESSION['success']) . "',
                         icon: 'success',
                         confirmButtonText: 'OK',
@@ -366,20 +370,21 @@ require_once "config.php";
             }
 
             function togglePopupMenu() {
-                //var popupMenu = document.getElementById("popup-menu");
-                //popupMenu.classList.toggle("show");
-                Swal.fire({
-                    title: 'Info',
-                    text: 'Das Menü ist aktuell deaktiviert.',
-                    icon: 'warning',
-                    background: '#333',
-                    color: 'white',
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 1500,
-                    timerProgressBar: true
-                });
+                var popupMenu = document.getElementById("popup-menu");
+                popupMenu.style.display = popupMenu.style.display === "none" ? "block" : "none";
+                popupMenu.classList.toggle("show");
+                //Swal.fire({
+                    //title: 'Info',
+                    //text: 'Das Menü ist aktuell deaktiviert.',
+                    //icon: 'warning',
+                    //background: '#333',
+                    //color: 'white',
+                    //toast: true,
+                    //position: 'top-end',
+                    //showConfirmButton: false,
+                    //timer: 1500,
+                    //timerProgressBar: true
+                //});
             }
 
             <?php
@@ -444,7 +449,7 @@ require_once "config.php";
                 .then(data => {
                     if (data.status === 'success') {
                         Swal.fire({
-                            title: 'Erfolgreich gesendet',
+                            title: 'Sent successfully',
                             text: '',
                             icon: 'success',
                             background: '#333',
@@ -460,8 +465,8 @@ require_once "config.php";
                     } else {
                         console.log(data);
                         Swal.fire({
-                            title: 'Fehler',
-                            text: 'Fehler beim Senden der Nachricht.',
+                            title: 'Error',
+                            text: 'Error sending message.',
                             icon: 'error',
                             background: '#333',
                             color: 'white',
@@ -475,8 +480,8 @@ require_once "config.php";
                 })
                 .catch(error => {
                     Swal.fire({
-                        title: 'Fehler',
-                        text: 'Es gab ein Problem mit der Anfrage.',
+                        title: 'Error',
+                        text: 'There was a problem with the request.',
                         icon: 'error',
                         background: '#333',
                         color: 'white',
@@ -552,8 +557,8 @@ require_once "config.php";
                                 })
                                 .catch(() => {
                                     Swal.fire({
-                                        title: 'Fehler',
-                                        text: 'Es gab ein Problem mit der Anfrage.',
+                                        title: 'Error',
+                                        text: 'There was a problem with the request.',
                                         icon: 'error',
                                         background: '#333',
                                         color: 'white',
@@ -584,8 +589,6 @@ require_once "config.php";
                     });
             }
 
-
-
             function renderForumMessages() {
                 const chatBox = document.getElementById("forum-chat-box");
                 chatBox.innerHTML = "";
@@ -602,19 +605,22 @@ require_once "config.php";
                             'type' => ($rowa['idnutzer'] == $_SESSION['userid']) ? 'user' : 'ai',
                             'text' => $rowa['messagetext'],
                             'time' => $rowa['entrytime'],
-                            'avatar' => ($rowa['idnutzer'] == $_SESSION['userid']) ? 'https://em-content.zobj.net/thumbs/240/apple/325/bust-in-silhouette_1f464.png' : 'https://em-content.zobj.net/thumbs/240/apple/325/robot_1f916.png'
+                            'avatar' => ($rowa['idnutzer'] == $_SESSION['userid']) ? '../images/icons/profilelogo.png' : '../images/icons/logo.ico'
                         );
                     }
                     echo json_encode($daten);
-                ?>;            
+                ?>;
+
                 <?php if($_SESSION['userid'] === 0): ?>
                     forumMessagesRENDER.forEach(msg => {
                         const msgDiv = document.createElement("div");
                         msgDiv.className = `message ${msg.type}`;
                         msgDiv.innerHTML = `
-                            ${msg.type !== "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
-                            <div class="text">${msg.text}</div>
+                            ${msg.type !== "user" ? `<div class="forum-message ai"><img src="${msg.avatar}" class="avatar">` : ""}
+                            ${msg.type === "user" ? `<div class="forum-message user">` : ""}
+                            <div class="text">${msg.text}
                             ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                            </div>
                         `;
                         chatBox.appendChild(msgDiv);
                     });
@@ -623,26 +629,16 @@ require_once "config.php";
                         const msgDiv = document.createElement("div");
                         msgDiv.className = `message ${msg.type}`;
                         msgDiv.innerHTML = `
-                            ${msg.type !== "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
-                            <div class="text" nutzer="${msg.idnutzer}" messageid="${msg.id}" msgtime="${msg.time}" onclick="admin()">${msg.text}</div>
+                            ${msg.type !== "user" ? `<div class="forum-message ai" "><img src="${msg.avatar}" class="avatar">` : ""}
+                            ${msg.type === "user" ? `<div class="forum-message user">` : ""}
                             ${msg.type === "user" ? `<img src="${msg.avatar}" class="avatar">` : ""}
+                            <div class="text" nutzer="${msg.idnutzer}" messageid="${msg.id}" msgtime="${msg.time}" onclick="admin()">${msg.text}
+                            </div>
                         `;
                         chatBox.appendChild(msgDiv);
                     });
                 <?php endif; ?>
-
                 chatBox.scrollTop = chatBox.scrollHeight;
-                Swal.fire({
-                    title: 'Alle Posts abgerufen',
-                    icon: 'success',
-                    background: '#333',
-                    color: 'white',
-                    position: 'top-end',
-                    toast: true,
-                    showConfirmButton: false,
-                    timer: 2000,
-                    timerProgressBar: true,
-                });
             }
 
             function renderMessages() {
@@ -800,8 +796,8 @@ require_once "config.php";
                 .then(data => {
                     if (data.status === 'success') {
                         Swal.fire({
-                            title: 'Erfolg',
-                            text: 'Ziel wurde erfolgreich gespeichert.',
+                            title: 'Success',
+                            text: 'Goal was successfully saved.',
                             icon: 'success',
                             background: '#333',
                             color: 'white',
@@ -815,7 +811,7 @@ require_once "config.php";
                         });
                     } else {
                         Swal.fire({
-                            title: 'Fehler',
+                            title: 'Error',
                             text: data.message,
                             icon: 'error',
                             background: '#333',
@@ -830,8 +826,8 @@ require_once "config.php";
                 })
                 .catch(error => {
                     Swal.fire({
-                        title: 'Fehler',
-                        text: 'Es gab ein Problem mit der Anfrage.',
+                        title: 'Error',
+                        text: 'There was a problem with the request.',
                         icon: 'error',
                         background: '#333',
                         color: 'white',
@@ -875,24 +871,13 @@ require_once "config.php";
                     zieleEntry.className = "ziele-entry";
                     zieleEntry.innerHTML = `
                         <p><strong>Problem:</strong> ${entry.problem}</p>
-                        <p><strong>Ziel:</strong> ${entry.goal}</p>
-                        <p><strong>Weg 1:</strong> ${entry.way1}</p>
-                        <p><strong>Weg 2:</strong> ${entry.way2}</p>
-                        <p><strong>Weg 3:</strong> ${entry.way3}</p>
-                        <button onclick="deleteZiele(${entry.id})">Löschen</button>
+                        <p><strong>Goal:</strong> ${entry.goal}</p>
+                        <p><strong>Way 1:</strong> ${entry.way1}</p>
+                        <p><strong>Way 2:</strong> ${entry.way2}</p>
+                        <p><strong>Way 3:</strong> ${entry.way3}</p>
+                        <button onclick="deleteZiele(${entry.id})">Delete</button>
                     `;
                     zieleList.appendChild(zieleEntry);
-                });
-                Swal.fire({
-                    title: 'Alle Ziele abgerufen',
-                    icon: 'success',
-                    background: '#333',
-                    color: 'white',
-                    position: 'top-end',
-                    toast: true,
-                    showConfirmButton: false,
-                    timer: 2000,
-                    timerProgressBar: true,
                 });
             }
 
@@ -901,16 +886,16 @@ require_once "config.php";
                     allowOutsideClick: false,
                     allowEscapeKey: false,
                     theme: 'dark',
-                    title: 'Ziel löschen?',
-                    text: 'Sind Sie sicher, dass Sie dieses Ziel löschen möchten?',
+                    title: 'Delete Goal?',
+                    text: 'Are you sure that you would like to delete this goal?',
                     icon: 'question',
                     showCancelButton: true,
                     showConfirmButton: true,
                     color: 'white',
                     confirmButtonColor: '#FF0000',
                     cancelButtonColor: '#00FF00',
-                    confirmButtonText: 'Ja, Löschen!',
-                    cancelButtonText:  'Nein'
+                    confirmButtonText: 'Yes, delete!',
+                    cancelButtonText:  'No'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         fetch('delete_goals.php', {
@@ -924,8 +909,8 @@ require_once "config.php";
                                 .then(data => {
                                     if (data.status === 'success') {
                                         Swal.fire({
-                                            title: 'Erfolg',
-                                            text: 'Der Ziel wurde erfolgreich gelöscht.',
+                                            title: 'Success',
+                                            text: 'The Goal was successfully deleted.',
                                             icon: 'success',
                                             background: '#333',
                                             color: 'white',
@@ -950,8 +935,8 @@ require_once "config.php";
                                 })
                                 .catch(error => {
                                     Swal.fire({
-                                        title: 'Fehler',
-                                        text: 'Es gab ein Problem mit der Anfrage.',
+                                        title: 'Error',
+                                        text: 'There was a problem with the request.',
                                         icon: 'error',
                                         background: '#333',
                                         color: 'white',
@@ -962,8 +947,9 @@ require_once "config.php";
                 });
             }
 
-            showZiele();
             renderForumMessages();
+            showZiele();
+           
 
             document.querySelectorAll('textarea').forEach(textarea => {
                 textarea.addEventListener('input', function () {
@@ -972,6 +958,17 @@ require_once "config.php";
                 });
             });
 
+            const chatBox = document.getElementById("chat-box");
+
+            messages.forEach((message) => {
+                const messageElement = document.createElement("div");
+                messageElement.className = `message ${message.type}`;
+                messageElement.innerHTML = `
+                    <img src="${message.avatar}" alt="${message.name}" class="avatar">
+                    <div class="text">${message.text}</div>
+                `;
+                chatBox.appendChild(messageElement);
+            });
         </script>
         
     </body>

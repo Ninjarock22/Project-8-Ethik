@@ -862,24 +862,41 @@ textarea {
     margin-bottom: 10px;
 }
 
+/* Chat bubble styling */
 #forumPanel .forum-message .text {
     padding: 10px 15px;
     border-radius: 12px;
     max-width: 75%;
     word-wrap: break-word;
     font-size: 14px;
+    position: relative;
 }
 
-#forumPanel .message.ai .text {
-    background-color: #4a5568; /* Tailwind bg-gray-600 */
+/* User message bubble (aligned to the right) */
+#forumPanel .forum-message.user {
+    justify-content: flex-end;
+}
+
+#forumPanel .forum-message.user .text {
+    background-color: #2563eb; /* Blue for user messages */
     color: white;
+    margin-left: auto; /* Align to the right */
+    order: 1; /* Ensure text appears before the avatar */
 }
 
-#forumPanel .message.user .text {
-    background-color: #2563eb; /* Tailwind bg-blue-600 */
+/* Other user's message bubble (aligned to the left) */
+#forumPanel .forum-message.ai {
+    justify-content: flex-start;
+}
+
+#forumPanel .forum-message.ai .text {
+    background-color: #4a5568; /* Gray for other users' messages */
     color: white;
+    margin-right: auto; /* Align to the left */
+    order: 2; /* Ensure text appears after the avatar */
 }
 
+/* Profile picture styling */
 #forumPanel .avatar {
     width: 40px;
     height: 40px;
@@ -887,14 +904,18 @@ textarea {
     margin-right: 10px;
 }
 
+/* User avatar alignment (right side) */
 #forumPanel .forum-message.user .avatar {
     margin-left: 10px; /* Add spacing to the left of the avatar */
     margin-right: 0; /* Remove spacing on the right */
     order: 2; /* Ensure the avatar appears after the text */
 }
 
-#forumPanel .forum-message.user .text {
-    order: 1; /* Ensure the text appears before the avatar */
+/* Other user's avatar alignment (left side) */
+#forumPanel .forum-message.ai .avatar {
+    margin-right: 10px; /* Add spacing to the right of the avatar */
+    margin-left: 0; /* Remove spacing on the left */
+    order: 1; /* Ensure the avatar appears before the text */
 }
 
 #forumPanel .forum-input-container {
