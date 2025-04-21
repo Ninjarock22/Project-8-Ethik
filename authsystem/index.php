@@ -15,9 +15,9 @@ $count = $row[0];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
-    <meta name="description" content="Religion Name - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
+    <meta name="description" content="Egoinfinitura - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
     <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
-    <title>Religion Name</title>
+    <title>Egoinfinitura</title>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -30,8 +30,7 @@ $count = $row[0];
             <p>Welcome to this site!</p>
             <p>By using this site, you agree to our terms and conditions. Please read them carefully before proceeding.</p>
             <h3>1. Introduction</h3>
-            <p>Welcome to Johann Behling! By accessing or using our website, you agree to be bound by these terms and conditions. If you do not agree with any part of these terms, please do not use our website.</p>
-            <!-- Welcome to Johann Behling? Why? What does it mean?-->
+            <p>Welcome to Egoinfinitura! By accessing or using our website, you agree to be bound by these terms and conditions. If you do not agree with any part of these terms, please do not use our website.</p>
             <h3>2. Use of the Website</h3>
             <ul>
                 <li>You agree to use the website only for lawful purposes.</li>
@@ -40,7 +39,7 @@ $count = $row[0];
             </ul>
     
             <h3>3. Intellectual Property</h3>
-            <p>All content, logos, trademarks, and designs on this website are the property of Johann Behling. You may not use, reproduce, or distribute any content without prior written permission.</p>
+            <p>All content, logos, trademarks, and designs on this website are the property of Egoinfinitura. You may not use, reproduce, or distribute any content without prior written permission.</p>
     
             <h3>4. Limitation of Liability</h3>
             <p>We are not liable for any damages that arise from the use of our website. This includes indirect, incidental, or consequential damages.</p>
@@ -156,63 +155,90 @@ $count = $row[0];
     <img class="background-image" src="../images/images/Background.png" alt="Background Image"><!--Next Sora prompt: Show the person standing on the top of some roch of a mountain to express that he made it to the top of the world and gives the viewer the scense of fullfillment. And: generate a small logo of this man for this religion-->
     <div class="overlay">
         <section id="home">
-            <h1 style="font-size: 4rem; font-weight: 600;">Religion Name</h1>
+            <h1 style="font-size: 4rem; font-weight: 600;">Egoinfinitura</h1>
             <p style="font-size: 2rem; font-weight: 400;">Slogan</p>
         </section>
     </div>
     <main>
         <section class="text-section">
             <div class="text-section-heading">
-                <h1>Summary here:</h1>
+                <h1>Bewusst in die Zukunft</h1>
             </div>
             <div class="container1">
-                <h3> Lorem ipsum dolor sit amet. Id odit explicabo ut ipsum voluptatem est autem assumenda in sequi nisi et vitae perspiciatis. Aut consequuntur dolores non dolores illo qui necessitatibus tenetur aut quaerat voluptate est quod porro. Qui ratione quia ad corporis magnam At error voluptatem ad sint ducimus qui cumque voluptas. Sed quis praesentium et omnis provident ab voluptatum explicabo qui sunt minima. Non voluptatibus sequi eos consequatur voluptas non earum omnis. Est galisum porro nam necessitatibus voluptatibus nam itaque natus eos deleniti facilis eum molestiae porro. Ea galisum necessitatibus ut sint nobis est autem maiores sed accusantium dicta ad reprehenderit natus ut sapiente alias. Ut eligendi voluptate aut reiciendis ullam ut aliquam animi id omnis eligendi. In vitae explicabo ut nostrum atque est voluptas harum. Non galisum voluptatem et dolorem commodi vel labore nostrum aut alias perferendis sed iste facere.</h3>
+                <h3> Eine auf die Zukunft ausgerichtete Religion. Das ist Egoinfinitura, eine ganz neue Religion, 
+                    deren wichtigste Kraft Du selbst bist. Der Name steht für das Selbst (ego), die Unendlichkeit 
+                    (infinitas) und die Zukunft (futura). Moderner als das geht es nicht. Unsere Gemeinde 
+                    funktioniert komplett online. </h3>
             </div>
         </section>
         <section class="text-section">
             <div class="text-section-heading">
-                <h1>Explination here:</h1>
+                <h1>Das zukünftiges Ich im Fokus</h1>
             </div>
             <div class="container1">
-            <h3> Lorem ipsum dolor sit amet. Id odit explicabo ut ipsum voluptatem est autem assumenda in sequi nisi et vitae perspiciatis. Aut consequuntur dolores non dolores illo qui necessitatibus tenetur aut quaerat voluptate est quod porro. Qui ratione quia ad corporis magnam At error voluptatem ad sint ducimus qui cumque voluptas. Sed quis praesentium et omnis provident ab voluptatum explicabo qui sunt minima. Non voluptatibus sequi eos consequatur voluptas non earum omnis. Est galisum porro nam necessitatibus voluptatibus nam itaque natus eos deleniti facilis eum molestiae porro. Ea galisum necessitatibus ut sint nobis est autem maiores sed accusantium dicta ad reprehenderit natus ut sapiente alias. Ut eligendi voluptate aut reiciendis ullam ut aliquam animi id omnis eligendi. In vitae explicabo ut nostrum atque est voluptas harum. Non galisum voluptatem et dolorem commodi vel labore nostrum aut alias perferendis sed iste facere.</h3>
+                <h3>Du stehst im Mittelpunkt, nicht mit Deinem Ich im hier und jetzt, sondern die Person zu der 
+                    Du werden willst und wirst: dein zukünftiges Ich. Eine weisere, stärkere und sich immer 
+                    weiter entwickelnde Version Deiner Selbst. Werde Dir mit Hilfe von Egoinfinitura bewusst, 
+                    wer Dein zukünftiges Ich sein soll und was Du heute dafür tun, sagen und denken kannst. 
+                    So kommst Du zu Deinem höheren Selbst.
+                </h3>
+            </div>
+        </section>
+        <section class="text-section">
+            <div class="text-section-heading">
+                <h1>Das Buch des Werdens</h1>
+            </div>
+            <div class="container1">
+                <h3> 
+                Statt ein heiliges Buch zu lesen, schreibt bei Egoinfinitura jeder Gläubige sein eigenes Buch. 
+                Wir nennen es das <b style="color:rgb(130, 130, 130)">Buch des Werdens</b>. Geführt durch unsere Online-Plattform entwickelt 
+                es sich während Deines individuellen Weg des Werdens immer weiter. Damit hälst Du ganz 
+                individuell zentrale Erkenntnisse, Gedanken, Ziele und Fortschritte Deines Weges zur 
+                besten Version Deiner Selbst fest. Das Buch des Werdens wird zu Deiner wichtigsten 
+                Projektionsfläche für Deine Zukunft. 
+                </h3>
             </div>
         </section>
         <section class="section-cards">
             <section class="heading-cards">
-                <h1>Heading for the "Gebote" here</h1>
+                <h1>Die acht Anhaltspunkte des Werdens</h1>
+                <h3>
+                    Die Lehre unserer Religion basiert auf den acht Geboten des Werdens. Diese 
+                    Anhaltspunkte, machen es Dir einfacher, Dich auf Dein zukünftiges Ich auszurichten.
+                </h3>
             </section>
             <section class="horizontal-cards">
                 <!-- From Uiverse.io by suleymanlaarabidev --> 
                 <div class="card2">
                     <div class="first-content">
-                       <span>First</span>
+                       <span>Suche die Ausrichtung</span>
                     </div>
                     <div class="second-content">
-                        <span>Second</span>
+                        <span>Dein zukünftiges ich ruft dich zu Weisheit und stärke. Folge seinem Ruf.</span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>First</span>
+                        <span>Umarme das Wachstum</span>
                     </div>
                     <div class="second-content">
-                        <span>Second</span>
+                        <span>Jede Herausvorderung ist eine Lektion, die dein Zukünftiges Ich bereits gemeistert hat.</span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>First</span>
+                        <span>Ehre deine Worte</span>
                     </div>
                     <div class="second-content">
-                        <span>Second</span>
+                        <span>Integrität verbindet dich mit deinem höchstem Selbst.</span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>First</span>
+                        <span>Lebe mit Absicht</span>
                     </div>
                     <div class="second-content">
-                     <span>Second</span>
+                     <span>Dein zukünftiges Ich schaut zu; triff Entscheidungen, die Ihn würdig sind.</span>
                     </div>
                 </div>
             </section>
@@ -220,37 +246,115 @@ $count = $row[0];
                 <!-- From Uiverse.io by suleymanlaarabidev --> 
                 <div class="card2">
                     <div class="first-content">
-                       <span>First</span>
+                       <span>Vermeide Stillstand</span>
                     </div>
                     <div class="second-content">
-                        <span>Second</span>
+                        <span>Wer Veränderung verweigert, leht seine eigene Entwicklung ab.</span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>First</span>
+                        <span>Vernunft und Emotion</span>
                     </div>
                     <div class="second-content">
-                        <span>Second</span>
+                        <span>Dein bestes Selbst ist weder impulsiv noch kalt. Habe ein gleichgewicht zwischen Vernunft und Emotionen.</span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>First</span>
+                        <span>Vergib dir selbst</span>
                     </div>
                     <div class="second-content">
-                        <span>Second</span>
+                        <span>Wachstum erfordert das Verstehen und Annehmen alter Fehler.</span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>First</span>
+                        <span>Hilf anderen</span>
                     </div>
                     <div class="second-content">
-                     <span>Second</span>
+                     <span>Unterstütze ander auf ihrem Weg ihre Zukunft zu erreichen.</span>
                     </div>
                 </div>
             </section>
+        </section>
+        <section class="text-section">
+            <div class="text-section-heading">
+                <h1>Selbstreflektion und Austausch</h1>
+            </div>
+            <div class="container1">
+                <h3> 
+                    Einmal im Jahr blicken alle Gläubigen zurück in die vergangene Zeit. Du entscheidest für 
+                    Dich, welche Gewohnheiten Dich aufhalten oder weiterbringen. Über Deine Gedanken und 
+                    Deinen Fortschritt verfasst Du einen Brief an Dein zukünftiges Ich. In unserem Online-Forum 
+                    kannst Du Dich dazu mit anderen Mitgliedern austauschen. 
+                </h3>
+            </div>
+        </section>
+        <section class="text-section">
+            <div class="text-section-heading">
+                <h1>Unsterblichkeit</h1>
+            </div>
+            <div class="container1">
+                <h3> 
+                    In unserer Religion gibt es nach dem Tod weder Himmel noch Hölle. Dein “Jenseits” ist das, 
+                    was du hinterlässt: Gedanken, Taten, Ideen oder Dinge, die in anderen Menschen 
+                    weiterleben. Durch positiven Einfluss und gemeinsames Wachstum erreichst Du  
+                    Unsterblichkeit. 
+                </h3>
+            </div>
+        </section>
+        <section class="text-section">
+            <div class="text-section-heading">
+                <h1>Gemeinschaft und Innovation</h1>
+            </div>
+            <div class="container1">
+                <h3> 
+                    Wenn jeder Mensch die beste Version von sich selbst entwickelt, wird auch die gesamte 
+                    Gesellschaft besser. Arbeiten und Lernen sind essentielle Lebensaufgabe, nicht nur Mittel 
+                    zum Zweck. Wir wollen Herausforderungen innovativ angehen, neue Ideen und Ansätze 
+                    entwickeln, die uns Selbst und die Gemeinschaft weiterbringen. 
+                </h3>
+            </div>
+        </section>
+        <section class="text-section">
+            <div class="text-section-heading">
+                <h1>Hilfe</h1>
+            </div>
+            <div class="container1">
+                <h3> 
+                    Unsere digitale Gemeinde-Plattform bietet umfassende Unterstützung in allen Fragen. 
+                    Persönliche Mentoren und spezialisierte KI-Assistenten sind für Dich da. Auch die anderen 
+                    Gemeindemitglieder unterstützen nach Kräften. Eine sich ständig weiterentwickelnde 
+                    Gemeinschaft. 
+                </h3>
+            </div>
+        </section>
+        <section class="text-section">
+            <div class="text-section-heading">
+                <h1>Entstehung von Egoinfinitura</h1>
+            </div>
+            <div class="container1">
+                <h3> 
+                    Religion ist im Wandel. Dafür gibt es verschiedentste Gründe. Wichtige Faktoren sind: der 
+                    zunehmende Wohlstand, die Globalisierung und der technologische Wandel. Der Wohlstand 
+                    trägt dazu bei, dass mehr Menschen den Fokus auf Selbstoptimierung als auf traditionelle 
+                    Glaubenspraktiken legen. Globalisierung und technischet Wandel haben Austausch über 
+                    und Hinterfragen der eigenen religiösen Überzeugungen befördert. So ist auch die 
+                    Patchwork-Religion enstanden, bei der Menschen Aspekte aus verschiedensten Religionen 
+                    aufgreifen und somit eine “neue” Religion für sich selbst entwickeln. Es verbreiten sich neue 
+                    spirituelle Einflüsse und Religionen werden individuell optimiert. 
+                </h3>
+            </div>
+        </section>
+        <section class="text-section">
+            <div class="container1">
+                <h3> 
+                    Unsere Religion bezieht sich auf zwei wichtige Mega-Trends. Selbstoptimierung und 
+                    Individualisierung. Die Religion lässt großen Spielraum für eigene Wünsche, Werte und Ziele 
+                    und betont den individuellen Weg zu deren Umsetzung. 
+                </h3>
+            </div>
         </section>
         <!-- Quote of the Month Section -->
         <section id="quote-of-the-month" style="display: flex; justify-content: center; margin: 40px 0;">
@@ -398,7 +502,7 @@ $count = $row[0];
             <p>Feel free to reach out for more information.</p>
             <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
         </section>
-        <p>&copy; 2025 Religion name All rights reserved.</p>
+        <p>&copy; 2025 Egoinfinitura All rights reserved.</p>
         <ul>
             <li><a href="../public/Impressum.html">Impressum</a></li>
             <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>

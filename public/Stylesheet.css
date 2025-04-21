@@ -48,10 +48,6 @@ html, body {
     overflow: visible;  
     text-align: center;
     transition: transform 0.3s ease-in-out;
-
-    :hover {
-        transform: scale(1.05); 
-    }
   }
 
 
@@ -224,25 +220,28 @@ section {
     height: 254px;
     transition: all 0.4s;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
     font-size: 30px;
     font-weight: 900;
     margin: 2%;
     display: flex;
-    
-  }
-  
-  .card2:hover {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Prevent content from going beyond the border */
+}
+
+.card2:hover {
     background-color: #48454533;
     color: #FFFFFF;
     border: solid 5px #ffffff;
     border-radius: 15px;
     cursor: pointer;
     transform: scale(1.2);
-    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
-  }
-  
-  .first-content {
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
+}
+
+.first-content {
     height: 100%;
     width: 100%;
     transition: all 0.4s;
@@ -251,34 +250,41 @@ section {
     align-items: center;
     opacity: 1;
     border-radius: 15px;
-  }
-  
-  .card2:hover .first-content {
+    font-size: 1.5rem;
+    text-align: left;
+    margin-left: 1rem;
+    line-height: 1.2; /* Reduced line spacing */
+}
+
+.card2:hover .first-content {
     height: 0px;
     opacity: 0;
-  }
-  
-  .second-content {
-    height: 0%;
-    width: 100%;
-    opacity: 0;
+    overflow: hidden;
+}
+
+.second-content {
+    height: 90%; /* Set height to fill the card */
+    width: 90%;
+    opacity: 1; /* Ensure visibility */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     border-radius: 15px;
     transition: all 0.4s;
-    font-size: 0px;
-    transform: rotate(90deg) scale(-1);
-  }
-  
-  .card2:hover .second-content {
+    font-size: 0.5rem; /* Adjusted font size for better fit */
+    text-align: left;
+    line-height: 1; /* Increased line spacing for better readability */
+    overflow: visible; /* Allow content to be fully visible */
+    padding: 1rem; /* Increased padding for better spacing */
+    word-wrap: break-word; /* Ensure long words break to fit */
+}
+
+.card2:hover .second-content {
     opacity: 1;
     height: 100%;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     transform: rotate(0deg);
-  }
-
-  /* Cards for Services */
+}
 .cards {
     display: flex;
     justify-content: center;

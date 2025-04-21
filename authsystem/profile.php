@@ -13,7 +13,7 @@ require_once "config.php";
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
-        <meta name="description" content="Religion Name - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
+        <meta name="description" content="Egoinfinitura- A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
     <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
         <title>User Profile</title>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -319,7 +319,7 @@ require_once "config.php";
                 <h2>Contact Us</h2>
                 <p>Feel free to reach out for more information.</p>
                 <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
-                <p>&copy; 2025 Religion name All rights reserved.</p>
+                <p>&copy; 2025 Egoinfinitura All rights reserved.</p>
                 <ul>
                     <li><a href="../public/Impressum.html">Impressum</a></li>
                     <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>
