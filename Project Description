@@ -1,43 +1,41 @@
+Projektbeschreibung:
 
-Project Description: Website for a New Religion
+Dieses Projekt umfasst die Erstellung einer modernen und spirituell geprägten Webseite für eine Religion. Ziel ist es, eine digitale Plattform zu schaffen, die die Grundwerte und Überzeugungen der Religion vermittelt und Raum für Bildung, Reflexion und Gemeinschaft bietet.
 
-This project involves the creation of a modern, visually impactful, and spiritually grounded website for a newly founded religion. The goal is to establish a digital presence that not only communicates the core beliefs and values of the religion but also provides a space for education, reflection, and community-building.
-The website will serve as the official platform for followers and newcomers, offering access to sacred texts, teachings, rituals, events, and tools for personal spiritual development. It will also provide opportunities for engagement, such as discussion forums, membership registration, and multimedia resources.
+Die Webseite wird im Rahmen eines Schulprojekts entwickelt. Da die Webseite von zwei Schülern programmiert wird, können mögliche Fehler auftreten. Wir bitten um Verständnis und freuen uns über Feedback.
 
-Objectives
-- Present the foundational principles, creation story, and philosophy of the religion in an engaging and understandable way.
-- Offer sacred texts, reflections, and guided rituals through interactive and multimedia elements.
-- Build a digital community space where followers can connect, learn, and grow together.
-- Enable user registration, content contribution, and participation in live events or ceremonies.
-- Design an aesthetic that reflects the emotion, symbolism, and values of the religion—blending modern design with spiritual depth.
+Hauptmerkmale
+- Überzeugungen & Lehren: Präsentation der Grundprinzipien und Texte.
+- Gemeinschaftsbereich: Foren, Benutzerkonten, Ziel-Bereich, KI-Funktion
+- Kontakt & Unterstützung: Möglichkeit, Fragen zu stellen oder spirituelle Führung zu suchen.
+
+Technischer Aufbau
+- Frontend: HTML5, CSS3, JavaScript
+- Backend: PHP mit MySQL-Datenbank
+- Responsive Design: Optimiert für Laptops (vielleicht auch Tablets)
+
+Nutzung der Webseite und Aufbau
+
+Um die Webseite optimal zu nutzen, empfehlen wir, die folgenden Schritte zu beachten:
+
+1. Nutzungsbedingungen lesen und akzeptieren: Vor der Nutzung der Webseite sollten die Nutzungsbedingungen SORGFÄLTIG durchgelesen und akzeptiert werden.
+2. Startseite: Die Startseite bietet eine Einführung in die Religion und erklärt deren Grundprinzipien.
+3. Navigation im Header: Im Header befindet sich ein Menü, über das Sie schnell zu den wichtigsten Seiten gelangen:
+   - Über uns: Informationen über das Projekt und die Religion.
+   - Team Zugriff: Bereich exklusiv für Teammitglieder.
+   - Registrieren: Möglichkeit, ein eigenes Konto zu erstellen.
+   - Startseite: Zurück zur Hauptseite.
+   Zusätzlich gibt es einen Login-Button, der direkt zur Profilseite führt.
+
+4. Footer: Auf jeder Seite finden Sie im Footer die Kontaktdaten sowie Links zu den Nutzungsbedingungen, der Datenschutzerklärung und dem Impressum.
+
+5. Profilseite: Auf der Profilseite können Sie die folgenden Funktionen ausprobieren:
+   - Ziele: Setzen und verfolgen Sie persönliche Ziele.
+   - Forum: Tauschen Sie sich mit anderen Nutzern aus.
+   - KI-Funktion: Nutzen Sie die KI für spirituelle Fragen oder Unterstützung.
+
+6. Hinweis zur Anmeldung: Es ist nicht notwendig, sich abzumelden, wenn Sie den Rest der Webseite weiterhin erkunden möchten. Ein Cookie sorgt dafür, dass Sie angemeldet bleiben.
+
+Wir wünschen Ihnen viel Freude beim Erkunden der Webseite und danken Ihnen für Ihr Interesse an unserem Projekt!
 
 
-
-Key Features
-
-- Home Page: Visually striking introduction to the religion and its message.
-- Beliefs & Teachings: Structured pages detailing doctrines, principles, and sacred texts.
-- Rituals & Practices: Guides for personal and communal practices with step-by-step instructions.
-- Community Section: Forums, user accounts, local chapters, and discussion areas.
-- Events Calendar: Listings of digital and physical gatherings, ceremonies, or livestreams.
-- Multimedia: Videos, chants, artwork, and meditations tied to religious practices.
-- Contact & Guidance: Reach out to spiritual leaders, send questions, or seek personal guidance.
-- Contribute/Donate: Support the religion’s mission through donations or volunteer options.
-
-
-
-Technical Stack
-
-- Frontend: HTML5, CSS3, JavaScript (possibly React or Vue)
-- Backend: PHP with a SQL-based database (MySQL or PostgreSQL)
-- Authentication: User login/registration system for access to exclusive content
-- Responsive Design: Fully optimized for mobile, tablet, and desktop
-- Accessibility: Inclusive design to support users with diverse needs
-
-
-Design Philosophy
-
-The visual and interaction design will reflect the core values of the religion—whether calm and meditative, mysterious and sacred, or bold and enlightening. A carefully selected color palette, typography, iconography, and layout will create a cohesive spiritual atmosphere that resonates with visitors emotionally and intellectually.
-
-Conclusion:
-This website will be more than just an informational hub—it will be a digital sanctuary. Through thoughtful design, meaningful content, and interactive features, the platform aims to bring the beliefs of the new religion into the modern world and create a space for spiritual connection, growth, and community.
