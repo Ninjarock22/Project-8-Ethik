@@ -10,7 +10,7 @@ $count = $row[0];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,50 +26,50 @@ $count = $row[0];
 <body>
     <div class="terms-overlay" id="termsOverlay">
         <div class="terms-box">
-        <h3>1. Introduction</h3>
-    <p>Welcome to Egoinfinitura. By using our website, you agree to the following Terms and Privacy Policy. Please read them carefully before continuing.</p>
+        <h3>1. Einführung</h3>
+    <p>Willkommen bei Egoinfinitura. Durch die Nutzung unserer Website stimmen Sie den folgenden Nutzungsbedingungen und der Datenschutzrichtlinie zu. Bitte lesen Sie diese sorgfältig durch, bevor Sie fortfahren.</p>
     
-    <h3>2. Use of the Website</h3>
+    <h3>2. Nutzung der Website</h3>
     <ul style="color: #C4A484;">
-      <li>Use the website only for lawful purposes.</li>
-      <li>Do not damage or interfere with website access.</li>
-      <li>Do not misuse, harm, or attempt unauthorized access.</li>
+      <li>Nutzen Sie die Website nur für rechtmäßige Zwecke.</li>
+      <li>Vermeiden Sie Schäden oder Störungen beim Zugriff auf die Website.</li>
+      <li>Missbrauchen, schädigen oder versuchen Sie keinen unbefugten Zugriff.</li>
     </ul>
 
-    <h3>3. Intellectual Property</h3>
-    <p>All content, logos, and designs are the property of Egoinfinitura. Reproduction or distribution without permission is prohibited.</p>
+    <h3>3. Geistiges Eigentum</h3>
+    <p>Alle Inhalte, Logos und Designs sind Eigentum von Egoinfinitura. Die Vervielfältigung oder Verbreitung ohne Genehmigung ist untersagt.</p>
 
-    <h3>4. Account and Personal Data</h3>
-    <p>Creating an account may require your name and/or email. This data is used only for account login and security. It will never be sold or shared and is only accessible to administrators.</p>
+    <h3>4. Konto und persönliche Daten</h3>
+    <p>Das Erstellen eines Kontos kann Ihren Namen und/oder Ihre E-Mail-Adresse erfordern. Diese Daten werden nur für den Kontozugang und die Sicherheit verwendet. Sie werden niemals verkauft oder weitergegeben und sind nur für Administratoren zugänglich.</p>
 
-    <h3>5. Forum and Goals Privacy</h3>
-    <p>Forum messages are anonymous and cannot be traced to individual users. However, they can be viewed by administrators for security and legal compliance. Goals page entries are private and viewable only by you.</p>
+    <h3>5. Datenschutz im Forum und bei Zielen</h3>
+    <p>Forennachrichten sind anonym und können nicht auf einzelne Benutzer zurückgeführt werden. Sie können jedoch von Administratoren aus Sicherheits- und rechtlichen Gründen eingesehen werden. Einträge auf der Zielseite sind privat und nur für Sie sichtbar.</p>
 
     <h3>6. Cookies</h3>
-    <p>We use two essential cookies:
+    <p>Wir verwenden zwei wesentliche Cookies:
       <ul style="color: #C4A484;">
-        <li>One to store whether you have accepted these terms.</li>
-        <li>Another to keep you logged in while using your account.</li>
+        <li>Eines, um zu speichern, ob Sie diese Bedingungen akzeptiert haben.</li>
+        <li>Ein weiteres, um Sie während der Nutzung Ihres Kontos eingeloggt zu halten.</li>
       </ul>
-      These cookies do not track or collect additional data.
+      Diese Cookies verfolgen oder sammeln keine zusätzlichen Daten.
     </p>
 
-    <h3>7. Data Collection and Use</h3>
-    <p>We only collect the information you provide voluntarily during registration (e.g., name or email). No additional tracking or third-party data collection occurs on our site.</p>
+    <h3>7. Datenerhebung und -nutzung</h3>
+    <p>Wir erfassen nur die Informationen, die Sie freiwillig während der Registrierung angeben (z. B. Name oder E-Mail-Adresse). Es erfolgt keine zusätzliche Verfolgung oder Datenerhebung durch Dritte auf unserer Website.</p>
 
-    <h3>8. Data Access and Security</h3>
-    <p>Your data is only accessible by authorized administrators for security purposes. We implement protective measures to secure your information.</p>
+    <h3>8. Datenzugriff und -sicherheit</h3>
+    <p>Ihre Daten sind nur für autorisierte Administratoren aus Sicherheitsgründen zugänglich. Wir setzen Schutzmaßnahmen ein, um Ihre Informationen zu sichern.</p>
 
-    <h3>9. Your Rights</h3>
-    <p>You may request to access, correct, or delete your personal data by contacting <a style="color: #C4A484;" href="mailto:privacy@johannbehling.com">privacy@johannbehling.com</a>.</p>
+    <h3>9. Ihre Rechte</h3>
+    <p>Sie können verlangen, auf Ihre persönlichen Daten zuzugreifen, diese zu korrigieren oder zu löschen, indem Sie <a style="color: #C4A484;" href="mailto:behj8622@gmail.com">behj8622@gmail.com</a> kontaktieren.</p>
 
-    <h3>10. Changes to These Terms</h3>
-    <p>We may update this agreement over time. Continued use of our website constitutes acceptance of future changes.</p>
+    <h3>10. Änderungen dieser Bedingungen</h3>
+    <p>Wir können diese Vereinbarung im Laufe der Zeit aktualisieren. Die fortgesetzte Nutzung unserer Website gilt als Zustimmung zu zukünftigen Änderungen.</p>
 
     
-            <h3>Contact Us</h3>
-            <p>If you have any questions about these terms, please contact us at behj8622@gmail.com.</p>
-            <button class="accept-button" onclick="acceptTerms()">Accept</button>
+            <h3>Kontaktieren Sie uns</h3>
+            <p>Wenn Sie Fragen zu diesen Bedingungen haben, kontaktieren Sie uns bitte unter behj8622@gmail.com.</p>
+            <button class="accept-button" onclick="acceptTerms()">Akzeptieren</button>
         </div>
     </div>
 
@@ -116,7 +116,7 @@ $count = $row[0];
                             <path d="M9 22V12h6v10"></path>
                             <path d="M3 22h18"></path>
                         </svg>
-                        <p class="label">Home</p>
+                        <p class="label">Startseite</p>
                     </a>
                 </li>
                 <li class="element">
@@ -127,7 +127,7 @@ $count = $row[0];
                             <path d="M19 16v6"></path>
                             <path d="M22 19h-6"></path>
                         </svg>
-                        <p class="label">Become Member</p>
+                        <p class="label">Mitglied werden</p>
                     </a>
                 </li>
                 <li class="element">
@@ -136,7 +136,7 @@ $count = $row[0];
                             <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
                             <circle r="3" cy="12" cx="12"></circle>
                         </svg>
-                        <p class="label">Services</p>
+                        <p class="label">Dienste</p>
                     </a>
                 </li>
             </ul>
@@ -149,7 +149,7 @@ $count = $row[0];
                             <path d="M9.09 9a3 3 0 1 1 5.91 1c0 2-3 3-3 3"></path>
                             <line x1="12" y1="17" x2="12.01" y2="17"></line>
                         </svg>
-                        <p class="label">About</p>
+                        <p class="label">Über uns</p>
                     </a>
                 </li>
             </ul>
@@ -162,7 +162,7 @@ $count = $row[0];
                             <circle r="5" cy="8" cx="10"></circle>
                             <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path>
                         </svg>
-                        <p class="label">Team Access</p>
+                        <p class="label">Team Zugriff</p>
                     </a>
                 </li>
             </ul>
@@ -412,9 +412,9 @@ $count = $row[0];
             </div>
         </section>
         <section id="become-member">
-            <h1>Join our community</h1>
-            <p>Join our community and be part of something special. Sign up now to access exclusive content and connect with like-minded individuals.</p>
-            <p>We are currently <span id="member-count"><?php echo ($count) ?></span> members strong and growing every day!</p>
+            <h1>Werde Teil unserer Gemeinschaft</h1>
+            <p>Werde Teil unserer Gemeinschaft und sei Teil von etwas Besonderem. Melde dich jetzt an, um exklusiven Inhalt zu erhalten und dich mit Gleichgesinnten zu vernetzen.</p>
+            <p>Wir sind derzeit <span id="member-count"><?php echo ($count) ?></span> Mitglieder stark und wachsen jeden Tag!</p>
             <div>
                 <div id="counter-display" class="clock" style="display: flex; gap: 10px; margin-bottom: 20px; padding: 20px; background-color: #ffffff21; border: solid 5px #ffffff; border-radius: 10px">
                     <!-- Digits will be generated dynamically -->
@@ -422,32 +422,27 @@ $count = $row[0];
             </div>
         </section>
         <section id="services">
-            <h2>Our Services</h2>
+            <h2>Unsere Dienstleistungen</h2>
             <div id="carousel" class="carousel">
                 <div class="carousel-items">
                     <div class="carousel-item active">
-                        <h2>Profile</h2>
-                        <p>Essential: write what your futur self should be</p>
-                        <button onclick="window.location.href='profile.php';">Learn more</button>
+                        <h2>Profil</h2>
+                        <p>Wesentlich: Schreibe, was dein zukünftiges Selbst sein soll</p>
+                        <button onclick="window.location.href='profile.php';">Mehr erfahren</button>
                     </div>
                     <div class="carousel-item">
-                        <h2>Others profiles</h2>
-                        <p>See what others are working on/ there futur selves are.</p>
-                        <button onclick="window.location.href='profile.php';">Learn more</button>
+                        <h2>Frage die KI</h2>
+                        <p>Brauchst du Hilfe? Dein persönlicher Begleiter ist immer da, um dir in jeder Situation zu helfen.</p>
+                        <button onclick="window.location.href='profile.php';">Mehr erfahren</button>
                     </div>
                     <div class="carousel-item">
-                        <h2>Ask AI</h2>
-                        <p>Need Help? Your personal Companion is always there to help yo in any situation.</p>
-                        <button onclick="window.location.href='profile.php';">Learn more</button>
-                    </div>
-                    <div class="carousel-item">
-                        <h2>Sign up Now.</h2>
-                        <p>Sign up and join this awsome religion of the future.</p>
+                        <h2>Jetzt registrieren.</h2>
+                        <p>Registriere dich und werde Teil dieser großartigen Religion der Zukunft.</p>
                         <button onclick="window.location.href='register.php'" >Start</button>
                     </div>
                     <div class="carousel-item">
-                        <h2>New Feature</h2>
-                        <p>This Feature is coming soon. Paciance is key! This is a one and a half man developer Website!</p>
+                        <h2>Neue Funktion</h2>
+                        <p>Diese Funktion kommt bald. Geduld ist der Schlüssel! Dies ist eine eineinhalb-Mann-Entwickler-Website!</p>
                         <button onclick="window.location.href='profile.php';">Start</button>
                     </div>
                 </div>
@@ -518,15 +513,15 @@ $count = $row[0];
         </script>
     <footer>
         <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Feel free to reach out for more information.</p>
+            <h2>Kontaktieren Sie uns</h2>
+            <p>Kontaktieren Sie uns gerne für weitere Informationen.</p>
             <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
         </section>
-        <p>&copy; 2025 Egoinfinitura All rights reserved.</p>
+        <p>&copy; 2025 Egoinfinitura Alle Rechte vorbehalten.</p>
         <ul>
             <li><a href="../public/Impressum.html">Impressum</a></li>
-            <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>
-            <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
+            <li><a href="../public/PrivacyPolicy.html">Datenschutzrichtlinie</a></li>
+            <li><a href="../public/TermsandConditions.html">Nutzungsbedingungen</a></li>
         </ul>
     </footer>
     <script src="../public/js/carousel.js"></script>
@@ -568,8 +563,8 @@ $count = $row[0];
             Swal.fire({
                 allowOutsideClick: false,
                 allowEscapeKey: false,
-                title: 'Your help is needed!',
-                text: 'Become part of something big now!',
+                title: 'Ihre Hilfe ist gefragt!',
+                text: 'Werden Sie Mitglied und helfen Sie uns, die Welt zu verändern!',
                 icon: 'question',
                 theme: 'dark',
                 color: 'white',
@@ -578,15 +573,15 @@ $count = $row[0];
                 cancelButtonColor: '#FF0000',
                 showCancelButton: true,
                 showConfirmButton: true,
-                confirmButtonText: 'Register now',
-                cancelButtonText: 'Later',
+                confirmButtonText: 'Jetzt registrieren',
+                cancelButtonText: 'Später',
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
                 } else if (result.isDismissed) {
                     Swal.fire({
-                        title: 'No problem!',
-                        text: 'We are always here when you are ready!',
+                        title: 'Kein Problem!',
+                        text: 'Wir sind immer bereit, wenn sie es auch sind!',
                         icon: 'success',
                         theme: 'dark',
                         color: 'white',
