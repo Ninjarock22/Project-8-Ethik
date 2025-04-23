@@ -57,10 +57,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
-        <meta name="description" content="Religion Name - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
-    <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
-        <title>Register</title>
+        <link rel="icon" type="image/x-icon" href="../images/icons/logo3.ico">
+        <title>Registrieren</title>
         <link rel="icon" type="image/jpg" href="../images/icon.jpg">
         <!-- <link rel="stylesheet" type="text/css" href="../public/Stylesheet.css" /> -->
         <link rel="stylesheet" type="text/css" href="../public/profilestylesheet.css" />
@@ -89,7 +87,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                 <path d="M9 22V12h6v10"></path>
                                 <path d="M3 22h18"></path>
                             </svg>
-                            <p class="label">Home</p>
+                            <p class="label">Startseite</p>
                         </a>
                     </li>
                     <li class="element">
@@ -100,7 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                 <path d="M19 16v6"></path>
                                 <path d="M22 19h-6"></path>
                             </svg>
-                            <p class="label">Become Member</p>
+                            <p class="label">Mitglied werden</p>
                         </a>
                     </li>
                     <li class="element">
@@ -109,7 +107,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                 <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
                                 <circle r="3" cy="12" cx="12"></circle>
                             </svg>
-                            <p class="label">Services</p>
+                            <p class="label">Dienste</p>
                         </a>
                     </li>
                 </ul>
@@ -122,7 +120,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                 <path d="M9.09 9a3 3 0 1 1 5.91 1c0 2-3 3-3 3"></path>
                                 <line x1="12" y1="17" x2="12.01" y2="17"></line>
                             </svg>
-                            <p class="label">About</p>
+                            <p class="label">Über uns</p>
                         </a>
                     </li>
                 </ul>
@@ -135,7 +133,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                 <circle r="5" cy="8" cx="10"></circle>
                                 <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path>
                             </svg>
-                            <p class="label">Team Access</p>
+                            <p class="label">Team Zugriff</p>
                         </a>
                     </li>
                 </ul>
@@ -153,31 +151,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                 </div>
                                 <div class="form-group">
                                     <!--<label>Vor- und Zuname</label>-->
-                                    <input type="text" name="name" class="form-control" placeholder="First- and Lastname"  oninvalid="this.setCustomValidity('Please enter a valid name.')" oninput="setCustomValidity('')"required>
+                                    <input type="text" name="name" class="form-control" placeholder="Vor- und Nachname" oninvalid="this.setCustomValidity('Bitte geben Sie einen gültigen Namen ein.')" oninput="setCustomValidity('')" required>
                                 </div>
                                 <div class="form-group">
                                     <!--<label>E-Mail Adresse</label>-->
-                                    <input type="email" name="email" class="form-control" placeholder="E-Mail" oninvalid="this.setCustomValidity('Please enter a valid E-mail address.')" oninput="setCustomValidity('')">
+                                    <input type="email" name="email" class="form-control" placeholder="E-Mail Adresse" oninvalid="this.setCustomValidity('Bitte geben Sie eine gültige E-Mail Adresse ein.')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="form-group">
                                     <!--<label>Passwort</label>-->
-                                    <input type="password" name="password" class="form-control" placeholder="Password" oninvalid="this.setCustomValidity('Please enter a password.')" oninput="setCustomValidity('')">
+                                    <input type="password" name="password" class="form-control" placeholder="Passwort" oninvalid="this.setCustomValidity('Bitte geben Sie ein Passwort ein.')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="form-group">
                                     <!--<label>Passwort wiederholen</label>-->
-                                    <input type="password" name="confirm_password" class="form-control" placeholder="Repeat password" oninvalid="this.setCustomValidity('Please repeat the password.')" oninput="setCustomValidity('')">
+                                    <input type="password" name="confirm_password" class="form-control" placeholder="Passwort wiederholen" oninvalid="this.setCustomValidity('Bitte wiederholen Sie das Passwort.')" oninput="setCustomValidity('')">
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <div class="form-group-button">
-                                        <input type="submit" name="submit" class="btn-primary" value="Sign up">
-                                        <input type="button" name="submit" class="btn-primary" value="Go back" id="back">
+                                        <input type="submit" name="submit" class="btn-primary" value="Registrieren">
+                                        <input type="button" name="submit" class="btn-primary" value="Zurück" id="back">
                                     </div>
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <div class="form-group-button">
-                                        <input type="button" name="submit" class="btn-primary" value="Login instead" id="tologin">
+                                        <input type="button" name="submit" class="btn-primary" value="Anmelden" id="tologin">
                                     </div>
                                 </div>
                                 <br>
@@ -185,7 +183,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                     if (!empty($error)) {
                                         echo "<script>
                                             Swal.fire({
-                                                title: 'Error!',
+                                                title: 'Fehler!',
                                                 text: '" . addslashes($error) . "',
                                                 icon: 'error',
                                                 confirmButtonText: 'OK',
@@ -201,7 +199,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
                                     }else if(!empty($success)){
                                         echo "<script>
                                             Swal.fire({
-                                                title: 'Success!',
+                                                title: 'Erfolg!',
                                                 text: '" . addslashes($success) . "',
                                                 icon: 'success',
                                                 confirmButtonText: 'OK',
@@ -227,15 +225,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
         </section>
         </main>
         <footer>
-            <section id="contact">
-                <h2>Contact Us</h2>
-                <p>Feel free to reach out for more information.</p>
+            <section id="kontakt">
+                <h2>Kontaktieren Sie uns</h2>
+                <p>Kontaktieren Sie uns gerne für weitere Informationen.</p>
                 <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
-                <p>&copy; 2025 Religion name All rights reserved.</p>
+                <p>&copy; 2025 Egoinfinitura Alle Rechte vorbehalten.</p>
             <ul>
                 <li><a href="../public/Impressum.html">Impressum</a></li>
-                <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>
-                <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
+                <li><a href="../public/PrivacyPolicy.html">Datenschutzerklärung</a></li>
+                <li><a href="../public/TermsandConditions.html">Nutzungsbedingungen</a></li>
             </ul>
             </section>
         </footer>

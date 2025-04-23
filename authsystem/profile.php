@@ -8,14 +8,12 @@ if (!isset($_SESSION["userid"]) || $_SESSION["userid"] === false) {
 require_once "config.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
-        <meta name="description" content="Religion Name - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
-    <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
-        <title>User Profile</title>
+        <link rel="icon" type="image/x-icon" href="../images/icons/logo3.ico">
+        <title>Profil</title>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="stylesheet" href="../public/profilestylesheet.css">
@@ -33,11 +31,11 @@ require_once "config.php";
             <div class="radio-input">
                 <label class="label">
                     <input type="radio" id="1" name="value-radio" value="1" onclick="switchPanel('profilePanel')" />
-                    <span class="text">Profile</span>
+                    <span class="text">Profil</span>
                 </label>
                 <label class="label">
                     <input type="radio" id="2" name="value-radio" value="2" onclick="switchPanel('meineZielePanel')" />
-                    <span class="text">Goals</span>
+                    <span class="text">Ziele</span>
                 </label>
                 <label class="label">
                     <input type="radio" id="3" name="value-radio" value="3" onclick="switchPanel('forumPanel')" />
@@ -45,14 +43,14 @@ require_once "config.php";
                 </label>
                 <label class="label">
                     <input type="radio" id="4" name="value-radio" value="4" onclick="switchPanel('aiGuidancePanel')" />
-                    <span class="text">Ask AI</span>
+                    <span class="text">Frag KI</span>
                 </label>
                 <label class="label">
                     <input type="radio" id="5" name="value-radio" value="5" onclick="switchPanel('adminPanel')" />
                     <span class="text">Admin</span>
                 </label>
             </div>
-            <button class="login-button" onclick="logoutUser()">Logout</button>
+            <button class="login-button" onclick="logoutUser()">Abmelden</button>
         </header>
         <div id="popup-menu" class="popup-menu">
             <div class="card3">
@@ -64,7 +62,7 @@ require_once "config.php";
                                 <path d="M9 22V12h6v10"></path>
                                 <path d="M3 22h18"></path>
                             </svg>
-                            <p class="label">Home</p>
+                            <p class="label">Startseite</p>
                         </a>
                     </li>
                     <li class="element">
@@ -75,7 +73,7 @@ require_once "config.php";
                                 <path d="M19 16v6"></path>
                                 <path d="M22 19h-6"></path>
                             </svg>
-                            <p class="label">Become Member</p>
+                            <p class="label">Mitglied werden</p>
                         </a>
                     </li>
                     <li class="element">
@@ -84,7 +82,7 @@ require_once "config.php";
                                 <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
                                 <circle r="3" cy="12" cx="12"></circle>
                             </svg>
-                            <p class="label">Services</p>
+                            <p class="label">Dienste</p>
                         </a>
                     </li>
                 </ul>
@@ -97,7 +95,7 @@ require_once "config.php";
                                 <path d="M9.09 9a3 3 0 1 1 5.91 1c0 2-3 3-3 3"></path>
                                 <line x1="12" y1="17" x2="12.01" y2="17"></line>
                             </svg>
-                            <p class="label">About</p>
+                            <p class="label">Über uns</p>
                         </a>
                     </li>
                 </ul>
@@ -110,7 +108,7 @@ require_once "config.php";
                                 <circle r="5" cy="8" cx="10"></circle>
                                 <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path>
                             </svg>
-                            <p class="label">Team Access</p>
+                            <p class="label">Team Zugriff</p>
                         </a>
                     </li>
                 </ul>
@@ -119,7 +117,7 @@ require_once "config.php";
         <main class="main-container">
             <section>
                 <div class="panel-container" id="profilePanel">
-                    <h2>Profile Information</h2>
+                    <h2>Profil Informationen</h2>
                     <div class="profile-container">
                         <?php
                         $userid = $_SESSION["userid"];
@@ -130,40 +128,40 @@ require_once "config.php";
                         $result = $stmt->get_result();
                         $user = $result->fetch_assoc();
                         ?>
-                        <h2>User Profile</h2>
-                        <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
-                        <p><strong>Full Name:</strong> <?= htmlspecialchars($user['name']) ?></p>
-                        <p><strong>Age:</strong> <?= htmlspecialchars($user['age']) ?></p>
+                        <h2>Benutzer Profil</h2>
+                        <p><strong>E-mail:</strong> <?= htmlspecialchars($user['email']) ?></p>
+                        <p><strong>Name:</strong> <?= htmlspecialchars($user['name']) ?></p>
+                        <p><strong>Alter:</strong> <?= htmlspecialchars($user['age']) ?></p>
                         <p><strong>Status:</strong> <?= htmlspecialchars($user['status'] ? 'Administrator' : 'Benutzer') ?></p>
-                        <button class="logout-btn" onclick="logoutUser()">Logout</button>
+                        <button class="logout-btn" onclick="logoutUser()">Abmelden</button>
                     </div>
                 </div>
                 <div class="panel-container" id="meineZielePanel" style="display: none;">
-                    <h2>My Goals</h2>
+                    <h2>Meine Ziele</h2>
                     <div class="meineZiele-container">
                         <form id="meineZieleForm">
-                            <h3>1. Explain your problem</h3>
+                            <h3>1. Erklären Sie Ihr Problem</h3>
                             <label for="problem">Problem:</label>
-                            <textarea id="problem" name="problem" placeholder="Explain your problem here..." required></textarea>
+                            <textarea id="problem" name="problem" placeholder="Erklären Sie hier Ihr Problem..." required></textarea>
 
-                            <h3>2. Explain your goal</h3>
+                            <h3>2. Erklären Sie Ihr Ziel</h3>
                             <label for="goal">Ziel:</label>
-                            <textarea id="goal" name="goal" placeholder="Explain your goal here..." required></textarea>
+                            <textarea id="goal" name="goal" placeholder="Erklären Sie hier Ihr Ziel..." required></textarea>
 
-                            <h3>3. How would you like to reach you goal</h3>
-                            <label for="way1">First way:</label>
-                            <textarea id="way1" name="way1" placeholder="Describe the first way to achieve your goal here..." required></textarea>
+                            <h3>3. Wie möchten Sie Ihr Ziel erreichen?</h3>
+                            <label for="way1">Erster Weg:</label>
+                            <textarea id="way1" name="way1" placeholder="Beschreiben Sie hier den ersten Weg, um Ihr Ziel zu erreichen..." required></textarea>
 
-                            <label for="way2">Second way:</label>
-                            <textarea id="way2" name="way2" placeholder="Describe the second way to achieve your goal here..." required></textarea>
+                            <label for="way2">Zweiter Weg:</label>
+                            <textarea id="way2" name="way2" placeholder="Beschreiben Sie hier den zweiten Weg, um Ihr Ziel zu erreichen..." required></textarea>
                             
-                            <label for="way3">Third way:</label>
-                            <textarea id="way3" name="way2" placeholder="Describe the third way to achieve your goal here..." required></textarea>
+                            <label for="way3">Dritter Weg:</label>
+                            <textarea id="way3" name="way3" placeholder="Beschreiben Sie hier den dritten Weg, um Ihr Ziel zu erreichen..." required></textarea>
                             
-                            <button type="button" onclick="saveZiele()">Save</button>
+                            <button type="button" onclick="saveZiele()">Speichern</button>
                         </form>
 
-                        <h3>Your goals</h3>
+                        <h3>Ihre Ziele</h3>
                         <div id="zieleList">
                             <!-- User's goals will be displayed here -->
                         </div>
@@ -177,31 +175,30 @@ require_once "config.php";
                                 <!-- Example of a user message -->
                                 <div class="forum-message user">
                                     <img class="avatar" src="../images/icons/profilelogo.png" alt="User Avatar">
-                                    <div class="text">This is a user message.</div>
+                                    <div class="text">Dies ist eine Benutzer-Nachricht.</div>
                                 </div>
 
                                 <!-- Example of another user's message -->
                                 <div class="forum-message ai">
                                     <img class="avatar" src="../images/icons/logo.ico" alt="AI Avatar">
-                                    <div class="text">This is another user's message.</div>
+                                    <div class="text">Dies ist eine Nachricht eines anderen Benutzers.</div>
                                 </div>
                             </div>
                             <div class="forum-input-container">
                                 <input id="forum-message-input" type="text" placeholder="Type a message...">
-                                <button id="forum-send-btn" onclick="forumMessages()">Post</button>
-                                <button id="forum-refresh-btn" onclick="renderForumMessages()">refresh</button>  <!-- Ehemaliger Button zum Testen des Renderns-->
+                                <button id="forum-send-btn" onclick="forumMessages()">Posten</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="panel-container" id="aiGuidancePanel" style="display: none;">
-                    <h2>AI Guidance</h2>
+                    <h2>KI Begleitung</h2>
                     <div class="chat-wrapper">
                         <div class="chat-container">
                             <div id="chat-box"></div>
                             <div class="input-container">
                                 <input id="message-input" type="text" placeholder="Type a message...">
-                                <button id="send-btn" class="send-btn">Send</button>
+                                <button id="send-btn" class="send-btn">Senden</button>
                             </div>
                         </div>
                     </div>
@@ -308,7 +305,7 @@ require_once "config.php";
                                 </script>
                             </div>
                         <?php else: ?>
-                           <p>You do not have permission to access the admin panel.</p>
+                           <p>Sie haben keine Berechtigung, auf das Admin-Panel zuzugreifen.</p>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -316,14 +313,14 @@ require_once "config.php";
         </main>
         <footer>
             <section id="contact">
-                <h2>Contact Us</h2>
-                <p>Feel free to reach out for more information.</p>
+                <h2>Kontaktieren Sie uns</h2>
+                <p>Fühlen Sie sich frei, uns für weitere Informationen zu kontaktieren.</p>
                 <a href="mailto:johann.behling@outlook.com">info@johannbehling.com</a>
-                <p>&copy; 2025 Religion name All rights reserved.</p>
+                <p>&copy; 2025 Egoinfinitura Alle Rechte vorbehalten.</p>
                 <ul>
                     <li><a href="../public/Impressum.html">Impressum</a></li>
-                    <li><a href="../public/PrivacyPolicy.html">Privacy Policy</a></li>
-                    <li><a href="../public/TermsandConditions.html">Terms of Service</a></li>
+                    <li><a href="../public/Datenschutz.html">Datenschutz</a></li>
+                    <li><a href="../public/TermsandConditions.html">Nutzungsbedingungen</a></li>
                 </ul>
             </section>
         </footer>
@@ -331,7 +328,7 @@ require_once "config.php";
             if (!empty($_SESSION['error'])) {
                 echo "<script>
                     Swal.fire({
-                        title: 'Error!',
+                        title: 'Fehler!',
                         text: '" . addslashes($_SESSION['error']) . "',
                         icon: 'error',
                         confirmButtonText: 'OK',
@@ -348,7 +345,7 @@ require_once "config.php";
             } elseif (!empty($_SESSION['success'])) {
                 echo "<script>
                     Swal.fire({
-                        title: 'Success!',
+                        title: 'Erfolg!',
                         text: '" . addslashes($_SESSION['success']) . "',
                         icon: 'success',
                         confirmButtonText: 'OK',
@@ -406,8 +403,8 @@ require_once "config.php";
                     sessionStorage.setItem('panelId', panelId);
                 } else {
                     Swal.fire({
-                        title: 'Access Denied',
-                        text: 'You do not have permission to access this panel.',
+                        title: 'Zugriff verweigert',
+                        text: 'Sie haben keine Berechtigung, auf dieses Panel zuzugreifen.',
                         icon: 'error',
                         background: '#333',
                         color: 'white',
@@ -432,7 +429,7 @@ require_once "config.php";
             }
 
             const messages = [
-                { avatar: "../images/icons/logo.ico", name: "AI", text: "Hello! How can I assist you today?", type: "ai" },
+                { avatar: "../images/icons/logo.ico", name: "AI", text: "Hallo! Wie kann ich Ihnen helfen?", type: "ai" },
             ];
             
             function forumMessages(){
@@ -449,7 +446,7 @@ require_once "config.php";
                 .then(data => {
                     if (data.status === 'success') {
                         Swal.fire({
-                            title: 'Sent successfully',
+                            title: 'Erfolgreich gesendet',
                             text: '',
                             icon: 'success',
                             background: '#333',
@@ -465,8 +462,8 @@ require_once "config.php";
                     } else {
                         console.log(data);
                         Swal.fire({
-                            title: 'Error',
-                            text: 'Error sending message.',
+                            title: 'Fehler!',
+                            text: 'Fehler beim Senden der Nachricht.',
                             icon: 'error',
                             background: '#333',
                             color: 'white',
@@ -480,8 +477,8 @@ require_once "config.php";
                 })
                 .catch(error => {
                     Swal.fire({
-                        title: 'Error',
-                        text: 'There was a problem with the request.',
+                        title: 'Fehler!',
+                        text: 'Es gab ein Problem mit der Anfrage.',
                         icon: 'error',
                         background: '#333',
                         color: 'white',
@@ -557,8 +554,8 @@ require_once "config.php";
                                 })
                                 .catch(() => {
                                     Swal.fire({
-                                        title: 'Error',
-                                        text: 'There was a problem with the request.',
+                                        title: 'Fehler!',
+                                        text: 'Es gab ein Problem mit der Anfrage.',
                                         icon: 'error',
                                         background: '#333',
                                         color: 'white',
@@ -574,8 +571,8 @@ require_once "config.php";
                         
                     }else{
                         Swal.fire({
-                            title: 'Access Denied',
-                            text: 'You do not have permission to access this information.',
+                            title: 'Zugriff verweigert',
+                            text: 'Sie haben keine Berechtigung, auf diese Informationen zuzugreifen.',
                             icon: 'error',
                             background: '#333',
                             color: 'white',
@@ -662,11 +659,11 @@ require_once "config.php";
                 const input = document.getElementById("message-input");
                 if (input.value.trim() !== "") {
                     // User message
-                    messages.push({ avatar: "../images/icons/profilelogo.png", name: "You", text: input.value, type: "user" });
+                    messages.push({ avatar: "../images/icons/profilelogo.png", name: "Du", text: input.value, type: "user" });
                     // AI response
-                    messages.push({ avatar: "../images/icons/logo.ico", name: "AI", text: "This feature is not yet supported!", type: "ai" });
-                    messages.push({ avatar: "../images/icons/logo2.png", name: "AI", text: "The AI is still being trained!", type: "ai" });
-                    messages.push({ avatar: "../images/icons/logo2.png", name: "AI", text: "Our Team is working day and night to perfect its responses!", type: "ai" });
+                    messages.push({ avatar: "../images/icons/logo.ico", name: "KI", text: "Diese Funktion wird noch nicht unterstützt!", type: "ai" });
+                    messages.push({ avatar: "../images/icons/logo2.png", name: "KI", text: "Die KI wird noch trainiert!", type: "ai" });
+                    messages.push({ avatar: "../images/icons/logo2.png", name: "KI", text: "Unser Team arbeitet Tag und Nacht daran, ihre Antworten zu perfektionieren!", type: "ai" });
 
                     input.value = "";
                     renderMessages();
@@ -796,8 +793,8 @@ require_once "config.php";
                 .then(data => {
                     if (data.status === 'success') {
                         Swal.fire({
-                            title: 'Success',
-                            text: 'Goal was successfully saved.',
+                            title: 'Erfolg',
+                            text: 'Das Ziel wurde erfolgreich gespeichert.',
                             icon: 'success',
                             background: '#333',
                             color: 'white',
@@ -811,7 +808,7 @@ require_once "config.php";
                         });
                     } else {
                         Swal.fire({
-                            title: 'Error',
+                            title: 'Fehler!',
                             text: data.message,
                             icon: 'error',
                             background: '#333',
@@ -826,8 +823,8 @@ require_once "config.php";
                 })
                 .catch(error => {
                     Swal.fire({
-                        title: 'Error',
-                        text: 'There was a problem with the request.',
+                        title: 'Fehler',
+                        text: 'Es gab ein Problem mit der Anfrage.',
                         icon: 'error',
                         background: '#333',
                         color: 'white',
@@ -871,11 +868,11 @@ require_once "config.php";
                     zieleEntry.className = "ziele-entry";
                     zieleEntry.innerHTML = `
                         <p><strong>Problem:</strong> ${entry.problem}</p>
-                        <p><strong>Goal:</strong> ${entry.goal}</p>
-                        <p><strong>Way 1:</strong> ${entry.way1}</p>
-                        <p><strong>Way 2:</strong> ${entry.way2}</p>
-                        <p><strong>Way 3:</strong> ${entry.way3}</p>
-                        <button onclick="deleteZiele(${entry.id})">Delete</button>
+                        <p><strong>Ziel:</strong> ${entry.goal}</p>
+                        <p><strong>Weg 1:</strong> ${entry.way1}</p>
+                        <p><strong>Weg 2:</strong> ${entry.way2}</p>
+                        <p><strong>Weg 3:</strong> ${entry.way3}</p>
+                        <button onclick="deleteZiele(${entry.id})">Löschen</button>
                     `;
                     zieleList.appendChild(zieleEntry);
                 });
@@ -886,16 +883,16 @@ require_once "config.php";
                     allowOutsideClick: false,
                     allowEscapeKey: false,
                     theme: 'dark',
-                    title: 'Delete Goal?',
-                    text: 'Are you sure that you would like to delete this goal?',
+                    title: 'Ziel löschen?',
+                    text: 'Sind Sie sicher, dass Sie dieses Ziel löschen möchten?',
                     icon: 'question',
                     showCancelButton: true,
                     showConfirmButton: true,
                     color: 'white',
                     confirmButtonColor: '#FF0000',
                     cancelButtonColor: '#00FF00',
-                    confirmButtonText: 'Yes, delete!',
-                    cancelButtonText:  'No'
+                    confirmButtonText: 'Ja, löschen!',
+                    cancelButtonText: 'Nein'
                 }).then((result) => {
                     if (result.isConfirmed) {
                         fetch('delete_goals.php', {
@@ -909,8 +906,8 @@ require_once "config.php";
                                 .then(data => {
                                     if (data.status === 'success') {
                                         Swal.fire({
-                                            title: 'Success',
-                                            text: 'The Goal was successfully deleted.',
+                                            title: 'Erfolg',
+                                            text: 'Das Ziel wurde erfolgreich gelöscht.',
                                             icon: 'success',
                                             background: '#333',
                                             color: 'white',
@@ -935,8 +932,8 @@ require_once "config.php";
                                 })
                                 .catch(error => {
                                     Swal.fire({
-                                        title: 'Error',
-                                        text: 'There was a problem with the request.',
+                                        title: 'Fehler',
+                                        text: 'Es gab ein Problem mit der Anfrage.',
                                         icon: 'error',
                                         background: '#333',
                                         color: 'white',

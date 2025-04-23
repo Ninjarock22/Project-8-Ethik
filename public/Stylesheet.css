@@ -48,10 +48,6 @@ html, body {
     overflow: visible;  
     text-align: center;
     transition: transform 0.3s ease-in-out;
-
-    :hover {
-        transform: scale(1.05); 
-    }
   }
 
 
@@ -224,25 +220,28 @@ section {
     height: 254px;
     transition: all 0.4s;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
     font-size: 30px;
     font-weight: 900;
     margin: 2%;
     display: flex;
-    
-  }
-  
-  .card2:hover {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Prevent content from going beyond the border */
+}
+
+.card2:hover {
     background-color: #48454533;
     color: #FFFFFF;
     border: solid 5px #ffffff;
     border-radius: 15px;
     cursor: pointer;
     transform: scale(1.2);
-    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
-  }
-  
-  .first-content {
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
+}
+
+.first-content {
     height: 100%;
     width: 100%;
     transition: all 0.4s;
@@ -251,34 +250,41 @@ section {
     align-items: center;
     opacity: 1;
     border-radius: 15px;
-  }
-  
-  .card2:hover .first-content {
+    font-size: 1.5rem;
+    text-align: left;
+    margin-left: 1rem;
+    line-height: 1.2; /* Reduced line spacing */
+}
+
+.card2:hover .first-content {
     height: 0px;
     opacity: 0;
-  }
-  
-  .second-content {
-    height: 0%;
-    width: 100%;
-    opacity: 0;
+    overflow: hidden;
+}
+
+.second-content {
+    height: 90%; /* Set height to fill the card */
+    width: 90%;
+    opacity: 1; /* Ensure visibility */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     border-radius: 15px;
     transition: all 0.4s;
-    font-size: 0px;
-    transform: rotate(90deg) scale(-1);
-  }
-  
-  .card2:hover .second-content {
+    font-size: 0.5rem; /* Adjusted font size for better fit */
+    text-align: left;
+    line-height: 1; /* Increased line spacing for better readability */
+    overflow: visible; /* Allow content to be fully visible */
+    padding: 1rem; /* Increased padding for better spacing */
+    word-wrap: break-word; /* Ensure long words break to fit */
+}
+
+.card2:hover .second-content {
     opacity: 1;
     height: 100%;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     transform: rotate(0deg);
-  }
-
-  /* Cards for Services */
+}
 .cards {
     display: flex;
     justify-content: center;
@@ -678,7 +684,10 @@ button, #mainselect {
 
 /* Footer Styling */
 footer {
-    background-color: #ffffff00;
+    background-color:rgb(255, 255, 255) !important; /* White */
+    color: #000000; /* Black */
+    z-index: 1; /* Ensure it appears above other elements */
+    position: relative; /* Ensure proper stacking context */
     padding: 20px 0;
     text-align: center;
     width: 100%;
@@ -691,7 +700,7 @@ footer {
 
     h2{
         font-weight: 700;
-        color: #ffffff; /* Beige */
+        color: #000000; /* Beige */
         margin-bottom: 20px;
         text-transform: capitalize;
         font-size: 2.5rem; /* Adjust the size as needed */
@@ -701,12 +710,12 @@ footer {
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
-        color: #ffffff; /* Khaki */
+        color: #000000; /* Khaki */
     }
 }
 
 footer a {
-    color: #ffffff; /* Light gold color for better visibility */
+    color: #000000; /* Light gold color for better visibility */
     text-decoration: none;
     font-weight: bold;
     font-size: 1.4rem
@@ -729,7 +738,7 @@ footer ul li {
 }
 
 footer ul li a {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     font-weight: 700;
     padding: 10px 20px;
@@ -870,12 +879,15 @@ body.terms-open {
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    height: 50vh;
+    margin-bottom: 20vh;
+    margin-top: 10vh;
 }
 
 #quote-of-the-month .quote-card {
     border: 2px solid #ffffff;
     width: 300px;
-    height: 350px;
+    max-height: 350px; /* Ensure the height is fixed */
     background: rgba(158, 158, 158, 0);
     font-family: inherit;
     position: relative;
@@ -883,6 +895,8 @@ body.terms-open {
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
+    overflow: hidden; /* Prevent content from overflowing */
+    word-wrap: break-word; /* Ensure long words break to fit */
 }
 
 #quote-of-the-month .quote-card .card-name {
@@ -898,10 +912,11 @@ body.terms-open {
 }
 
 #quote-of-the-month .quote-card .body-text {
-    font-size: 20px;
+    font-size: 18px; /* Adjust font size for better fit */
     font-weight: 900;
     color: rgb(241, 155, 58);
     margin-bottom: 20px;
+    line-height: 1.4; /* Adjust line height for better spacing */
 }
 
 #quote-of-the-month .quote-card .author {
