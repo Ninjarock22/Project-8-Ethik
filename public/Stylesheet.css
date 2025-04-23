@@ -684,7 +684,10 @@ button, #mainselect {
 
 /* Footer Styling */
 footer {
-    background-color: #ffffff00;
+    background-color:rgb(255, 255, 255) !important; /* White */
+    color: #000000; /* Black */
+    z-index: 1; /* Ensure it appears above other elements */
+    position: relative; /* Ensure proper stacking context */
     padding: 20px 0;
     text-align: center;
     width: 100%;
@@ -697,7 +700,7 @@ footer {
 
     h2{
         font-weight: 700;
-        color: #ffffff; /* Beige */
+        color: #000000; /* Beige */
         margin-bottom: 20px;
         text-transform: capitalize;
         font-size: 2.5rem; /* Adjust the size as needed */
@@ -707,12 +710,12 @@ footer {
         max-width: 800px;
         margin-left: auto;
         margin-right: auto;
-        color: #ffffff; /* Khaki */
+        color: #000000; /* Khaki */
     }
 }
 
 footer a {
-    color: #ffffff; /* Light gold color for better visibility */
+    color: #000000; /* Light gold color for better visibility */
     text-decoration: none;
     font-weight: bold;
     font-size: 1.4rem
@@ -735,7 +738,7 @@ footer ul li {
 }
 
 footer ul li a {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
     font-weight: 700;
     padding: 10px 20px;

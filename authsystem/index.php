@@ -14,9 +14,7 @@ $count = $row[0];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
-    <meta name="description" content="Egoinfinitura - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
-    <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
+    <link rel="icon" type="image/x-icon" href="../images/icons/logo3.ico">
     <title>Egoinfinitura</title>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -172,11 +170,11 @@ $count = $row[0];
         <source src="Porscheclip2.mp4" type="video/mp4">
         Your browser does not support the video tag. Create with Sora: I would like an inspirational video to advertise a new religion based off of common sense and self optimization. The video should invoke the sence of becoming the best version of yourself whilst lialso living in a society where people help one another. 
     </video>-->
-    <img class="background-image" src="../images/images/Background.png" alt="Background Image"><!--Next Sora prompt: Show the person standing on the top of some roch of a mountain to express that he made it to the top of the world and gives the viewer the scense of fullfillment. And: generate a small logo of this man for this religion-->
-    <div class="overlay">
+    <img class="background-image" src="../images/images/Indexbackground.jpg" alt="Background Image"><!--Next Sora prompt: Show the person standing on the top of some roch of a mountain to express that he made it to the top of the world and gives the viewer the scense of fullfillment. And: generate a small logo of this man for this religion-->
+    <div class="overlay" style="background-color:rgba(255, 255, 255, 0.34); ">
         <section id="home">
-            <h1 style="font-size: 4rem; font-weight: 600;">Egoinfinitura</h1>
-            <p style="font-size: 2rem; font-weight: 400;">Gestalte heute das Fundament für Dein zukünftiges Selbst.</p>
+            <h1 style="font-size: 4rem; font-weight: 600; color: #000; ">Egoinfinitura</h1>
+            <p style="font-size: 2rem; font-weight: 400; color: #000; ">Gestalte heute das Fundament für Dein zukünftiges Selbst.</p>
         </section>
     </div>
     <main>
@@ -196,7 +194,7 @@ $count = $row[0];
                 <h1>Das zukünftiges Ich im Fokus</h1>
             </div>
             <div class="container1">
-                <h3>Du stehst im Mittelpunkt, nicht mit Deinem Ich im hier und jetzt, sondern die Person zu der 
+                <h3>Du stehst im Mittelpunkt, nicht mit Deinem Ich im Hier und Jetzt, sondern die Person zu der 
                     Du werden willst und wirst: dein zukünftiges Ich. Eine weisere, stärkere und sich immer 
                     weiter entwickelnde Version Deiner Selbst. Werde Dir mit Hilfe von Egoinfinitura bewusst, 
                     wer Dein zukünftiges Ich sein soll und was Du heute dafür tun, sagen und denken kannst. 
@@ -212,7 +210,7 @@ $count = $row[0];
                 <h3> 
                 Statt ein heiliges Buch zu lesen, schreibt bei Egoinfinitura jeder Gläubige sein eigenes Buch. 
                 Wir nennen es das <b style="color:rgb(130, 130, 130)">Buch des Werdens</b>. Geführt durch unsere Online-Plattform entwickelt 
-                es sich während Deines individuellen Weg des Werdens immer weiter. Damit hälst Du ganz 
+                es sich während Deines individuellen Wegs des Werdens immer weiter. Damit hälst Du ganz 
                 individuell zentrale Erkenntnisse, Gedanken, Ziele und Fortschritte Deines Weges zur 
                 besten Version Deiner Selbst fest. Das Buch des Werdens wird zu Deiner wichtigsten 
                 Projektionsfläche für Deine Zukunft. 
@@ -221,44 +219,49 @@ $count = $row[0];
         </section>
         <section class="section-cards">
             <section class="heading-cards">
-                <h1>Die acht Anhaltspunkte des Werdens</h1>
+                <h1>Die Sieben Anhaltspunkte des Werdens</h1>
                 <h3>
-                    Die Lehre unserer Religion basiert auf den acht Geboten des Werdens. Diese 
+                    Die Lehre unserer Religion basiert auf den acht Anhaltspunkten des Werdens. Diese 
                     Anhaltspunkte, machen es Dir einfacher, Dich auf Dein zukünftiges Ich auszurichten.
                 </h3>
+                <p> 
+                    Die Anhaltspunkte des Werdens sind keine Regeln, sondern Anhaltspunkte, die Dir helfen sollen, 
+                    Dich auf Dein zukünftiges Ich auszurichten. Du entscheidest selbst, wie Du sie 
+                    umsetzt.
+                <p>
             </section>
             <section class="horizontal-cards">
                 <!-- From Uiverse.io by suleymanlaarabidev --> 
                 <div class="card2">
                     <div class="first-content">
-                       <span>Suche die Ausrichtung</span>
+                       <span>Wachstum</span>
                     </div>
                     <div class="second-content">
-                        <span>Dein zukünftiges ich ruft dich zu Weisheit und stärke. Folge seinem Ruf.</span>
+                        <span>Nutze Herausforderung und Schwierigkeit als Chance für Wachstum. </span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>Umarme das Wachstum</span>
+                        <span>Integrität</span>
                     </div>
                     <div class="second-content">
-                        <span>Jede Herausvorderung ist eine Lektion, die dein Zukünftiges Ich bereits gemeistert hat.</span>
+                        <span>Ehrlichkeit und Integrität sind die Verbindung zu Deinem höheren Selbst. </span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>Ehre deine Worte</span>
+                        <span>Bedacht</span>
                     </div>
                     <div class="second-content">
-                        <span>Integrität verbindet dich mit deinem höchstem Selbst.</span>
+                        <span>Jeder Schritt verlangt Bedacht, um zu einer Entwicklung beizutragen.</span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>Lebe mit Absicht</span>
+                        <span>Wandel</span>
                     </div>
                     <div class="second-content">
-                     <span>Dein zukünftiges Ich schaut zu; triff Entscheidungen, die Ihn würdig sind.</span>
+                     <span>Stillstand hat keinen Platz, Veränderung ist das Ziel.</span>
                     </div>
                 </div>
             </section>
@@ -266,34 +269,26 @@ $count = $row[0];
                 <!-- From Uiverse.io by suleymanlaarabidev --> 
                 <div class="card2">
                     <div class="first-content">
-                       <span>Vermeide Stillstand</span>
+                       <span>Harmonie</span>
                     </div>
                     <div class="second-content">
-                        <span>Wer Veränderung verweigert, leht seine eigene Entwicklung ab.</span>
+                        <span>Vernunft und Emotionen sollen im Einklang sein.</span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>Vernunft und Emotion</span>
+                        <span>Vergebung</span>
                     </div>
                     <div class="second-content">
-                        <span>Dein bestes Selbst ist weder impulsiv noch kalt. Habe ein gleichgewicht zwischen Vernunft und Emotionen.</span>
+                        <span>Vergebe Dir selbst. Fehler ermöglichen Dir das Lernen. </span>
                     </div>
                 </div>
                 <div class="card2">
                     <div class="first-content">
-                        <span>Vergib dir selbst</span>
+                        <span>Hilfe</span>
                     </div>
                     <div class="second-content">
-                        <span>Wachstum erfordert das Verstehen und Annehmen alter Fehler.</span>
-                    </div>
-                </div>
-                <div class="card2">
-                    <div class="first-content">
-                        <span>Hilf anderen</span>
-                    </div>
-                    <div class="second-content">
-                     <span>Unterstütze ander auf ihrem Weg ihre Zukunft zu erreichen.</span>
+                        <span>Hilf auch anderen, ihren Weg zu finden. </span>
                     </div>
                 </div>
             </section>
@@ -331,9 +326,9 @@ $count = $row[0];
             <div class="container1">
                 <h3> 
                     Wenn jeder Mensch die beste Version von sich selbst entwickelt, wird auch die gesamte 
-                    Gesellschaft besser. Arbeiten und Lernen sind essentielle Lebensaufgabe, nicht nur Mittel 
+                    Gesellschaft besser. Arbeiten und Lernen sind essentielle Lebensaufgaben, nicht nur Mittel 
                     zum Zweck. Wir wollen Herausforderungen innovativ angehen, neue Ideen und Ansätze 
-                    entwickeln, die uns Selbst und die Gemeinschaft weiterbringen. 
+                    entwickeln, die uns Selbst und unsere Mitmenschen weiterbringen. 
                 </h3>
             </div>
         </section>
@@ -359,7 +354,7 @@ $count = $row[0];
                     Religion ist im Wandel. Dafür gibt es verschiedentste Gründe. Wichtige Faktoren sind: der 
                     zunehmende Wohlstand, die Globalisierung und der technologische Wandel. Der Wohlstand 
                     trägt dazu bei, dass mehr Menschen den Fokus auf Selbstoptimierung als auf traditionelle 
-                    Glaubenspraktiken legen. Globalisierung und technischet Wandel haben Austausch über 
+                    Glaubenspraktiken legen. Globalisierung und technischer Wandel haben Austausch über 
                     und Hinterfragen der eigenen religiösen Überzeugungen befördert. So ist auch die 
                     Patchwork-Religion enstanden, bei der Menschen Aspekte aus verschiedensten Religionen 
                     aufgreifen und somit eine “neue” Religion für sich selbst entwickeln. Es verbreiten sich neue 
@@ -511,7 +506,7 @@ $count = $row[0];
             initializeCounter(7);
             updateCounter(memberCount);
         </script>
-    <footer>
+    <footer style="background-color:rgb(13, 13, 13) !important; ">
         <section id="contact">
             <h2>Kontaktieren Sie uns</h2>
             <p>Kontaktieren Sie uns gerne für weitere Informationen.</p>
@@ -581,7 +576,7 @@ $count = $row[0];
                 } else if (result.isDismissed) {
                     Swal.fire({
                         title: 'Kein Problem!',
-                        text: 'Wir sind immer bereit, wenn sie es auch sind!',
+                        text: 'Wir sind immer bereit, wenn Sie es auch sind!',
                         icon: 'success',
                         theme: 'dark',
                         color: 'white',
@@ -595,7 +590,7 @@ $count = $row[0];
         }
 
         window.addEventListener('load', function () {
-            setTimeout(errinerung, 5000);
+            setTimeout(errinerung, 30000);
         });
     </script>
 </body>

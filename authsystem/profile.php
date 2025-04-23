@@ -12,9 +12,7 @@ require_once "config.php";
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
-        <meta name="description" content="Egoinfinitura- A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
-    <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
+        <link rel="icon" type="image/x-icon" href="../images/icons/logo3.ico">
         <title>Profil</title>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -139,7 +137,7 @@ require_once "config.php";
                     </div>
                 </div>
                 <div class="panel-container" id="meineZielePanel" style="display: none;">
-                    <h2>Mine Ziele</h2>
+                    <h2>Meine Ziele</h2>
                     <div class="meineZiele-container">
                         <form id="meineZieleForm">
                             <h3>1. Erklären Sie Ihr Problem</h3>
@@ -431,7 +429,7 @@ require_once "config.php";
             }
 
             const messages = [
-                { avatar: "../images/icons/logo.ico", name: "AI", text: "Hello! How can I assist you today?", type: "ai" },
+                { avatar: "../images/icons/logo.ico", name: "AI", text: "Hallo! Wie kann ich Ihnen helfen?", type: "ai" },
             ];
             
             function forumMessages(){

@@ -57,9 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../images/icons/logo.ico">
-        <meta name="description" content="Egoinfinitura - A new religion based on common sense and self-optimization. Join us to become the best version of yourself while living in a supportive community.">
-    <meta name="keywords" content="Religion, Self-Optimization, Community, Support, Common Sense">
+        <link rel="icon" type="image/x-icon" href="../images/icons/logo3.ico">
         <title>Registrieren</title>
         <link rel="icon" type="image/jpg" href="../images/icon.jpg">
         <!-- <link rel="stylesheet" type="text/css" href="../public/Stylesheet.css" /> -->
