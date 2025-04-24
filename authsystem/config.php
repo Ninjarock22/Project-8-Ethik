@@ -1,8 +1,8 @@
 <?php
 define('DBSERVER', 'localhost');
 define('DBUSERNAME', 'root');
-define('DBPASSWORD', '');
-define('DBNAME', 'Ethik-Project');
+define('DBPASSWORD', 'testtest');
+define('DBNAME', 'ethik-project');
 
 $db = mysqli_connect(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);
 
