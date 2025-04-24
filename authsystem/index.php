@@ -1,6 +1,6 @@
 <?php
 
-require_once "config.php";
+require_once "../authsystem/config.php";
 
 $stmt = $db->prepare("SELECT COUNT(*) FROM users");
 $stmt->execute();
@@ -108,7 +108,7 @@ $count = $row[0];
         <div class="card3">
             <ul class="list">
                 <li class="element">
-                    <a class="alighnment" href="index.php">
+                    <a class="alighnment" href="../authsystem/index.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#7e8590" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home">
                             <path d="M3 9.5L12 3l9 6.5"></path>
                             <path d="M9 22V12h6v10"></path>
@@ -118,7 +118,7 @@ $count = $row[0];
                     </a>
                 </li>
                 <li class="element">
-                    <a class="alighnment" id="btn-signup" href="register.php">
+                    <a class="alighnment" id="btn-signup" href="../authsystem/register.php">
                         <svg class="lucide lucide-user-round-plus" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2 21a8 8 0 0 1 13.292-6"></path>
                             <circle r="5" cy="8" cx="10"></circle>
@@ -129,7 +129,7 @@ $count = $row[0];
                     </a>
                 </li>
                 <li class="element">
-                    <a class="alighnment" href=" #services">
+                    <a class="alighnment" href=" ../authsystem/index.php #services">
                         <svg class="lucide lucide-settings" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#7e8590" fill="none" viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
                             <circle r="3" cy="12" cx="12"></circle>
@@ -423,22 +423,22 @@ $count = $row[0];
                     <div class="carousel-item active">
                         <h2>Profil</h2>
                         <p>Wesentlich: Schreibe, was dein zukünftiges Selbst sein soll</p>
-                        <button onclick="window.location.href='profile.php';">Mehr erfahren</button>
+                        <button onclick="window.location.href='../authsystem/profile.php';">Mehr erfahren</button>
                     </div>
                     <div class="carousel-item">
                         <h2>Frage die KI</h2>
                         <p>Brauchst du Hilfe? Dein persönlicher Begleiter ist immer da, um dir in jeder Situation zu helfen.</p>
-                        <button onclick="window.location.href='profile.php';">Mehr erfahren</button>
+                        <button onclick="window.location.href='../authsystem/profile.php';">Mehr erfahren</button>
                     </div>
                     <div class="carousel-item">
                         <h2>Jetzt registrieren.</h2>
                         <p>Registriere dich und werde Teil dieser großartigen Religion der Zukunft.</p>
-                        <button onclick="window.location.href='register.php'" >Start</button>
+                        <button onclick="window.location.href='../authsystem/register.php'" >Start</button>
                     </div>
                     <div class="carousel-item">
                         <h2>Neue Funktion</h2>
                         <p>Diese Funktion kommt bald. Geduld ist der Schlüssel! Dies ist eine eineinhalb-Mann-Entwickler-Website!</p>
-                        <button onclick="window.location.href='profile.php';">Start</button>
+                        <button onclick="window.location.href='../authsystem/profile.php';">Start</button>
                     </div>
                 </div>
                 <button class="carousel-control prev">❮</button>
@@ -522,7 +522,7 @@ $count = $row[0];
     <script src="../public/js/carousel.js"></script>
     <script>
         document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
-            window.location.href = 'profile.php';
+            window.location.href = '../authsystem/profile.php';
         });
 
         function togglePopupMenu() {
@@ -545,7 +545,7 @@ $count = $row[0];
         }
 
         document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
-            window.location.href = 'register.php';
+            window.location.href = '../authsystem/register.php';
         });
 
         function scrollToPosition() {
@@ -572,7 +572,7 @@ $count = $row[0];
                 cancelButtonText: 'Später',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = 'register.php';
+                    window.location.href = '../authsystem/register.php';
                 } else if (result.isDismissed) {
                     Swal.fire({
                         title: 'Kein Problem!',
