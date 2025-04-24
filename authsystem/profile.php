@@ -363,7 +363,7 @@ require_once "config.php";
         ?>
         <script>
             function logoutUser() {
-                window.location.href = '/Project-8-Ethik/authsystem/logout.php';
+                window.location.href = 'logout.php';
             }
 
             function togglePopupMenu() {
