@@ -197,11 +197,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
             }
 
             document.getElementById('back').addEventListener('click', function() {
-                window.location.href = 'http://localhost/Project-8-Ethik/authsystem/index.php';
+                window.location.href = 'index.php';
             });
             
             document.getElementById('reset').addEventListener('click', function(){
-                window.location.href = 'http://localhost/Project-8-Ethik/public/reset.html';
+                window.location.href = '../public/reset.html';
             });
         </script>
     </body>

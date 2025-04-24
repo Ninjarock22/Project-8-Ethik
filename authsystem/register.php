@@ -240,10 +240,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])){
     </body>
     <script>
         document.getElementById('back').addEventListener('click', function() {
-            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/index.php';
+            window.location.href = 'index.php';
         });
         document.getElementById('tologin').addEventListener('click', function(){
-            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/login.php';
+            window.location.href = 'login.php';
         });
         function togglePopupMenu() {
             var popupMenu = document.getElementById("popup-menu");

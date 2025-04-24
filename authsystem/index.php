@@ -522,7 +522,7 @@ $count = $row[0];
     <script src="../public/js/carousel.js"></script>
     <script>
         document.getElementById('btn-login').addEventListener('click', function() {//Zum Login wechseln
-            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/profile.php';
+            window.location.href = 'profile.php';
         });
 
         function togglePopupMenu() {
@@ -545,7 +545,7 @@ $count = $row[0];
         }
 
         document.getElementById('btn-signup').addEventListener('click', function() {//Zum Signup wechseln
-            window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
+            window.location.href = 'register.php';
         });
 
         function scrollToPosition() {
@@ -572,7 +572,7 @@ $count = $row[0];
                 cancelButtonText: 'Später',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = 'http://localhost/Project-8-Ethik/authsystem/register.php';
+                    window.location.href = 'register.php';
                 } else if (result.isDismissed) {
                     Swal.fire({
                         title: 'Kein Problem!',
