@@ -2,7 +2,7 @@
 define('DBSERVER', 'localhost');
 define('DBUSERNAME', 'root');
 define('DBPASSWORD', 'testtest');
-define('DBNAME', 'ethik-project');
+define('DBNAME', 'ethik_project');
 
 $db = mysqli_connect(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);
 
