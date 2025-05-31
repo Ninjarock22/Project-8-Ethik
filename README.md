@@ -4,7 +4,9 @@
 Die vollständige Projektbeschreibung finden sie [hier](https://github.com/Ninjarock22/Project-8-Ethik/blob/main/Project%20Description).
 
 ## Projektstatus:
-**🛠️In der Entwicklung🛠️**
+**⚠️Beendet:**
+<br>
+Kein weiterer Support
 <br>
 ## Lizenz:
 ✅*Keine Lizenz vorhanden*
